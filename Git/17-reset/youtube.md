@@ -32,7 +32,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, reset  
 **Llista:** Píndoles de Git, posició 18  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/17-reset.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/17-reset.mp4`  
+**Subtítols:** `17-reset/output/17-reset.ca.srt`  
+**Miniatura:** `17-reset/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

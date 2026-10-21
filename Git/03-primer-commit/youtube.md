@@ -38,7 +38,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, primer commit  
 **Llista:** Píndoles de Git, posició 4  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/03-primer-commit.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/03-primer-commit.mp4`  
+**Subtítols:** `03-primer-commit/output/03-primer-commit.ca.srt`  
+**Miniatura:** `03-primer-commit/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

@@ -35,7 +35,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, tres estats  
 **Llista:** Píndoles de Git, posició 5  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/04-tres-estats.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/04-tres-estats.mp4`  
+**Subtítols:** `04-tres-estats/output/04-tres-estats.ca.srt`  
+**Miniatura:** `04-tres-estats/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

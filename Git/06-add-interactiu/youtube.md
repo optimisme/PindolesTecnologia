@@ -34,7 +34,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, add interactiu  
 **Llista:** Píndoles de Git, posició 7  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/06-add-interactiu.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/06-add-interactiu.mp4`  
+**Subtítols:** `06-add-interactiu/output/06-add-interactiu.ca.srt`  
+**Miniatura:** `06-add-interactiu/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

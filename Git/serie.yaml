@@ -9,7 +9,9 @@ veu:
   velocitats: {ca-ES: "+5%", en-US: "+0%"}
   pausa_canvi_idioma_ms: 500
   endpoint: https://optimisme-6938-resource.cognitiveservices.azure.com/
-exportacio: ~/Desktop/PindolesTecnologia/Git
+# Carpeta dels vídeos finals (MP4), relativa a la carpeta de la sèrie. La resta de
+# fitxers produïts de cada lliçó queden a NN-nom/output/.
+videos: output
 # URL pública de la carpeta de la sèrie (per exemple, a GitHub). Si és buida,
 # les descripcions de YouTube indiquen el camí relatiu dels scripts de pràctica.
 web: ""

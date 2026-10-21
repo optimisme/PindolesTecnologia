@@ -35,7 +35,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, stash  
 **Llista:** Píndoles de Git, posició 15  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/14-stash.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/14-stash.mp4`  
+**Subtítols:** `14-stash/output/14-stash.ca.srt`  
+**Miniatura:** `14-stash/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

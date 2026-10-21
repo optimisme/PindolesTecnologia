@@ -36,7 +36,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, clone  
 **Llista:** Píndoles de Git, posició 12  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/11-clone.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/11-clone.mp4`  
+**Subtítols:** `11-clone/output/11-clone.ca.srt`  
+**Miniatura:** `11-clone/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

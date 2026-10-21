@@ -36,7 +36,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, pull request  
 **Llista:** Píndoles de Git, posició 26  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/25-pull-request-revisar.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/25-pull-request-revisar.mp4`  
+**Subtítols:** `25-pull-request-revisar/output/25-pull-request-revisar.ca.srt`  
+**Miniatura:** `25-pull-request-revisar/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

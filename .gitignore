@@ -18,7 +18,8 @@ venv/
 # Mitjans generats: es poden refer amb les eines i ocupen massa per a Git.
 # Els vídeos finals es guarden fora del repositori (vegeu README.md).
 build/
-output/
+**/output/*
+!/*/output/README.md
 audio/
 *.mp4
 *.mp3

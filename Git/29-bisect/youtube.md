@@ -37,7 +37,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, bisect  
 **Llista:** Píndoles de Git, posició 30  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/29-bisect.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/29-bisect.mp4`  
+**Subtítols:** `29-bisect/output/29-bisect.ca.srt`  
+**Miniatura:** `29-bisect/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

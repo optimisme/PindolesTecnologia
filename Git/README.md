@@ -68,6 +68,8 @@ NN-nom/guio.json      Generat: entrada del muntatge (escenes, passos, idiomes, p
 NN-nom/guio.md        Generat: guió per llegir i revisar
 NN-nom/youtube.md     Generat: títol, descripció, capítols i etiquetes
 NN-nom/exemples/      Fitxers complets que la lliçó mostra (quan n’hi ha)
+NN-nom/output/        Produït: subtítols, narració, portada i informes de la lliçó
+output/               Produït: els vídeos finals de la sèrie (NN-nom.mp4)
 practiques/NN-nom.sh  Generat: crea el punt de partida del vídeo per practicar
 eines/                Repetició, escenes, scripts de pràctica, render i vistes fetes a mida
 capcalera/, veu/      Decisions aprovades de capçalera i veu
@@ -95,6 +97,8 @@ Per produir un vídeo (genera àudio i vídeo, necessita `.env`):
 .venv/bin/python Git/eines/render.py Git/08-branques
 ```
 
+El vídeo final queda a [output/](output/README.md) amb el nom de la lliçó
+(`output/08-branques.mp4`); la resta de fitxers produïts, a `08-branques/output/`.
 El render s’atura si el guió o la repetició no estan al dia. Després de produir,
 `python -m motor.youtube Git` afegeix els capítols reals a la fitxa.
 

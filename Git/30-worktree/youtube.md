@@ -40,7 +40,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, worktree  
 **Llista:** Píndoles de Git, posició 31  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/30-worktree.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/30-worktree.mp4`  
+**Subtítols:** `30-worktree/output/30-worktree.ca.srt`  
+**Miniatura:** `30-worktree/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

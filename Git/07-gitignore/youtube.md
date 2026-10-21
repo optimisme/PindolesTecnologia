@@ -36,7 +36,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, gitignore  
 **Llista:** Píndoles de Git, posició 8  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/07-gitignore.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/07-gitignore.mp4`  
+**Subtítols:** `07-gitignore/output/07-gitignore.ca.srt`  
+**Miniatura:** `07-gitignore/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

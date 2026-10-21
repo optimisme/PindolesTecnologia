@@ -35,7 +35,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, revert  
 **Llista:** Píndoles de Git, posició 20  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/19-revert.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/19-revert.mp4`  
+**Subtítols:** `19-revert/output/19-revert.ca.srt`  
+**Miniatura:** `19-revert/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

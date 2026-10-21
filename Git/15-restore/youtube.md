@@ -32,7 +32,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, restore  
 **Llista:** Píndoles de Git, posició 16  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/15-restore.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/15-restore.mp4`  
+**Subtítols:** `15-restore/output/15-restore.ca.srt`  
+**Miniatura:** `15-restore/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

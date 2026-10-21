@@ -36,7 +36,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, forks  
 **Llista:** Píndoles de Git, posició 27  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/26-forks-upstream.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/26-forks-upstream.mp4`  
+**Subtítols:** `26-forks-upstream/output/26-forks-upstream.ca.srt`  
+**Miniatura:** `26-forks-upstream/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

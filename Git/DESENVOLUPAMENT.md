@@ -155,8 +155,9 @@ fragments coincideixin exactament amb l’àudio aprovat i se’n pugui reaprofi
 2. Cada subratllat, execució i pausa s’ancora als temps reals de la locució.
 3. Es dibuixen les animacions, es munten amb la capçalera i la veu, i es generen els SRT
    (amb cursiva per a l’anglès i sense format), la portada i `produccio.json`.
-4. Es verifica el vídeo (còdecs, durades, subtítols fidels, silenci a les pauses) i se’n
-   copia l’MP4 a la carpeta d’exportació.
+4. El vídeo final es desa a `Git/output/NN-nom.mp4` (camp `videos` de `serie.yaml`) i la
+   resta de fitxers a `NN-nom/output/`. Després es verifica (còdecs, durades, subtítols
+   fidels i silenci a les pauses).
 
 La caché de veu (`audio/`) es reaprofita mentre el text i la configuració de cada escena
 no canviïn. Les credencials es llegeixen de `.env` a l’arrel; mai no es desen als informes.

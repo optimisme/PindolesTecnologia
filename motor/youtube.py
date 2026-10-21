@@ -81,8 +81,9 @@ def sheet(series, item, previous, following):
              f'**Etiquetes:** {", ".join(settings["youtube"]["etiquetes"] + [config["short_title"].lower()])}  ',
              f'**Llista:** {settings["youtube"]["llista"]}, posició {item["number"]+1}  ',
              '**Idioma del vídeo i dels subtítols:** català  ',
-             f'**Subtítols:** `output/{item["name"]}.ca.srt`  ',
-             '**Miniatura:** `output/portada.png`', '']
+             f'**Vídeo:** `{series["root"].name}/{settings["videos"]}/{item["name"]}.mp4`  ',
+             f'**Subtítols:** `{item["name"]}/output/{item["name"]}.ca.srt`  ',
+             f'**Miniatura:** `{item["name"]}/output/portada.png`', '']
     if not data:
         lines += ['> Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.', '']
     elif not current:

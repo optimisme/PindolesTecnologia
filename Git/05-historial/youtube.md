@@ -34,7 +34,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, historial  
 **Llista:** Píndoles de Git, posició 6  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/05-historial.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/05-historial.mp4`  
+**Subtítols:** `05-historial/output/05-historial.ca.srt`  
+**Miniatura:** `05-historial/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

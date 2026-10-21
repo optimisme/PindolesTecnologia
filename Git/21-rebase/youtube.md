@@ -36,7 +36,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, rebase  
 **Llista:** Píndoles de Git, posició 22  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/21-rebase.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/21-rebase.mp4`  
+**Subtítols:** `21-rebase/output/21-rebase.ca.srt`  
+**Miniatura:** `21-rebase/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

@@ -35,7 +35,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, conflictes  
 **Llista:** Píndoles de Git, posició 11  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/10-conflictes.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/10-conflictes.mp4`  
+**Subtítols:** `10-conflictes/output/10-conflictes.ca.srt`  
+**Miniatura:** `10-conflictes/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

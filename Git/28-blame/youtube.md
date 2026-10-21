@@ -35,7 +35,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, blame  
 **Llista:** Píndoles de Git, posició 29  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/28-blame.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/28-blame.mp4`  
+**Subtítols:** `28-blame/output/28-blame.ca.srt`  
+**Miniatura:** `28-blame/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

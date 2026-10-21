@@ -22,11 +22,12 @@ run, probe = r.run, r.probe
 SOURCE = 'guio.json'
 
 
-def verify_episode(root, decode=False, output=None):
-    output = output or root/'output'
+def verify_episode(root, video_dir, decode=False):
+    """Verifica el vídeo de video_dir i els fitxers de producció de root/output."""
+    output = root/'output'
     config = json.loads((root/SOURCE).read_text())
     prod = json.loads((output/'produccio.json').read_text())
-    video = output/config['output_name']
+    video = Path(video_dir)/config['output_name']
     streams = json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams',
         '-show_format','-of','json',str(video)]))
     visual, sound = streams['streams']
@@ -85,8 +86,11 @@ def verify_episode(root, decode=False, output=None):
             'reading_pause_seconds':sum(p['requested_seconds'] for p in pauses),'full_decode':decode}
 
 
-async def render_episode(root, config, draw_scene, prepare=None, export_dir=None, audio_only=False):
+async def render_episode(root, config, draw_scene, video_dir, prepare=None, audio_only=False):
     """Produeix la lliçó compilada a root/guio.json.
+
+    El vídeo final va a video_dir (la carpeta de vídeos de la sèrie); la resta de fitxers
+    produïts (subtítols, narració, portada, informes) van a root/output.
 
     draw_scene(d, scene, t) dibuixa el contingut d’una escena; prepare(build, config)
     pot executar l’exemple de la lliçó i retornar dades per als visuals.
@@ -221,15 +225,11 @@ async def render_episode(root, config, draw_scene, prepare=None, export_dir=None
     for i,im in enumerate(sheets):sheet.paste(im.resize((640,360)),((i%2)*640,(i//2)*360))
     sheet.save(build/'storyboard-revisat.jpg',quality=92)
     output=root/'output';output.mkdir(exist_ok=True)
+    videos=Path(video_dir);videos.mkdir(parents=True,exist_ok=True)
     for source in stage.iterdir():
-        target=output/source.name
+        target=(videos if source==final else output)/source.name
         temporary=target.with_name(target.name+'.partial')
         shutil.copy2(source,temporary);temporary.replace(target)
-    report=verify_episode(root,decode=True)
+    report=verify_episode(root,videos,decode=True)
     (output/'verificacio.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
-    if export_dir:
-        export=Path(export_dir).expanduser();export.mkdir(parents=True,exist_ok=True)
-        destination=export/config['output_name'];temporary=destination.with_suffix('.partial')
-        shutil.copy2(output/config['output_name'],temporary);temporary.replace(destination)
-        assert hashlib.sha256(destination.read_bytes()).hexdigest()==report['video_sha256']
-    print(f'Vídeo verificat: {final.name} ({offset:.1f} s)',flush=True)
+    print(f'Vídeo verificat: {videos/final.name} ({offset:.1f} s)',flush=True)

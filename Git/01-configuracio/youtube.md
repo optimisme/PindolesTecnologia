@@ -34,7 +34,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, configuració  
 **Llista:** Píndoles de Git, posició 2  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/01-configuracio.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/01-configuracio.mp4`  
+**Subtítols:** `01-configuracio/output/01-configuracio.ca.srt`  
+**Miniatura:** `01-configuracio/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

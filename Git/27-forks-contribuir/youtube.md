@@ -34,7 +34,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, forks  
 **Llista:** Píndoles de Git, posició 28  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/27-forks-contribuir.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/27-forks-contribuir.mp4`  
+**Subtítols:** `27-forks-contribuir/output/27-forks-contribuir.ca.srt`  
+**Miniatura:** `27-forks-contribuir/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

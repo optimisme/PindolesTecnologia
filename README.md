@@ -21,6 +21,8 @@ motor/                 Motor comú de totes les sèries
   youtube.py           Fitxes de publicació (títol, descripció, capítols)
   proves/              Proves unitàries
 Git/                   Sèrie de Git (contingut, eines pròpies i arxiu)
+  output/              Vídeos finals del tema Git
+Docker/, HTML-CSS/     Temes futurs, cadascun amb la seva carpeta output/
 assets/                Imatges de marca
 .github/workflows/     Comprovacions automàtiques
 ```
@@ -47,14 +49,20 @@ Copieu `.env.example` a `.env` i ompliu-hi la clau; `.env` no entra mai a Git.
 3. Compilar i revisar els guions: `python -m motor.guions Git`.
 4. Actualitzar els punts de partida de pràctica: `python Git/eines/practiques.py Git`.
 5. Actualitzar les fitxes de YouTube: `python -m motor.youtube Git`.
-6. Produir un vídeo quan es decideixi: `python Git/eines/render.py Git/08-branques`.
+6. Produir un vídeo quan es decideixi: `python Git/eines/render.py Git/08-branques`
+   (el MP4 queda a `Git/output/`).
 
 Els passos 2 a 5 no generen àudio ni vídeo i no necessiten credencials. Les mateixes
 comprovacions s’executen a cada `push` amb GitHub Actions.
 
 ## Vídeos i mitjans
 
-Els fitxers d’àudio i vídeo no es versionen: `audio/`, `build/` i `output/` estan exclosos
-de Git perquè es poden regenerar i ocupen massa. Els MP4 finals es copien a la carpeta
-d’exportació de cada sèrie (`exportacio` a `serie.yaml`) i es publiquen a YouTube. Si
-cal conservar-ne una còpia versionada, feu servir Git LFS o un emmagatzematge extern.
+Cada tema (Git, Docker, HTML-CSS...) té la seva carpeta de vídeos finals: `<tema>/output/` (per exemple,
+`Git/output/08-branques.mp4`). Es pot canviar amb `videos` a `serie.yaml`. La resta del que
+es produeix per a cada lliçó (subtítols, narració, portada, informes) queda a
+`<tema>/NN-nom/output/`.
+
+Els fitxers d’àudio i vídeo no es versionen: `audio/`, `build/` i el contingut de les
+carpetes `output/` estan exclosos de Git perquè es poden regenerar i ocupen massa. Els
+vídeos es publiquen a YouTube; si cal conservar-ne una còpia versionada, feu servir Git LFS
+o un emmagatzematge extern.

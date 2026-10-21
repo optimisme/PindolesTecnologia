@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Produeix una lliçó de la sèrie Git: veu, animacions, subtítols i verificació.
 
-    python Git/eines/render.py Git/08-branques              # vídeo complet
+    python Git/eines/render.py Git/08-branques              # vídeo complet a Git/output/
     python Git/eines/render.py Git/08-branques --audio-only # només veu, subtítols i guió temporitzat
     python Git/eines/render.py Git/08-branques --verifica   # torna a verificar el vídeo existent
 
@@ -46,8 +46,10 @@ def main():
     parser.add_argument('--verifica', action='store_true', help='Verifica el vídeo ja produït, amb descodificació')
     args = parser.parse_args()
     root = args.lliço.resolve()
+    series = load_series(root.parent)
+    videos = series['videos']
     if args.verifica:
-        print(json.dumps(verify_episode(root, decode=True), ensure_ascii=False, indent=2))
+        print(json.dumps(verify_episode(root, videos, decode=True), ensure_ascii=False, indent=2))
         return
     if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
         raise SystemExit('Cal instal·lar ffmpeg i ffprobe.')
@@ -55,7 +57,6 @@ def main():
         compile_series(root.parent, check=True)
     except ScriptError as error:
         raise SystemExit(f'El guió no està al dia; executeu primer la repetició i el compilador.\n{error}')
-    series = load_series(root.parent)
     config = json.loads((root/'guio.json').read_text())
     path = root/'execucio.json'
     execution = json.loads(path.read_text()) if path.exists() else None
@@ -63,8 +64,8 @@ def main():
     if config['slug'].startswith('03-'):
         from visuals_primer_commit import prepare_demo
         prepare = lambda build, _config: prepare_demo(build)  # noqa: E731
-    asyncio.run(render_episode(root, config, drawer(config, execution), prepare=prepare,
-                               export_dir=series['config'].get('exportacio'), audio_only=args.audio_only))
+    asyncio.run(render_episode(root, config, drawer(config, execution), videos, prepare=prepare,
+                               audio_only=args.audio_only))
 
 
 if __name__ == '__main__':

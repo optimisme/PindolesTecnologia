@@ -35,7 +35,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, amend  
 **Llista:** Píndoles de Git, posició 17  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/16-amend.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/16-amend.mp4`  
+**Subtítols:** `16-amend/output/16-amend.ca.srt`  
+**Miniatura:** `16-amend/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

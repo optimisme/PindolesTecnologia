@@ -31,7 +31,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, hooks  
 **Llista:** Píndoles de Git, posició 32  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/31-hooks.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/31-hooks.mp4`  
+**Subtítols:** `31-hooks/output/31-hooks.ca.srt`  
+**Miniatura:** `31-hooks/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

@@ -35,7 +35,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, fetch  
 **Llista:** Píndoles de Git, posició 14  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/13-fetch.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/13-fetch.mp4`  
+**Subtítols:** `13-fetch/output/13-fetch.ca.srt`  
+**Miniatura:** `13-fetch/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

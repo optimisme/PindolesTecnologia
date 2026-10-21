@@ -34,7 +34,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, pull i push  
 **Llista:** Píndoles de Git, posició 13  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/12-pull-push.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/12-pull-push.mp4`  
+**Subtítols:** `12-pull-push/output/12-pull-push.ca.srt`  
+**Miniatura:** `12-pull-push/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

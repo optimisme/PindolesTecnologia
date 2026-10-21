@@ -35,7 +35,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, merge  
 **Llista:** Píndoles de Git, posició 10  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/09-merge.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/09-merge.mp4`  
+**Subtítols:** `09-merge/output/09-merge.ca.srt`  
+**Miniatura:** `09-merge/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

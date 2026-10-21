@@ -39,7 +39,10 @@ def load_series(folder):
         lesson = load_yaml(path/'llico.yaml') if (path/'llico.yaml').exists() else {}
         lessons.append({'number': number, 'folder': path, 'slug': slug, 'name': f'{number:02}-{slug}',
                         'card': lesson.get('capcalera', [slug.upper(), '']), 'data': lesson})
-    return {'root': folder, 'name': data['nom'], 'config': data, 'lessons': lessons}
+    # Cada sèrie (projecte) té la seva carpeta de vídeos finals; per defecte, <sèrie>/output.
+    data.setdefault('videos', 'output')
+    return {'root': folder, 'name': data['nom'], 'config': data, 'lessons': lessons,
+            'videos': folder/data['videos']}
 
 
 def renumber(folder):

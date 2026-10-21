@@ -36,7 +36,8 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Etiquetes:** git, github, control de versions, programació, català, tutorial, branques  
 **Llista:** Píndoles de Git, posició 9  
 **Idioma del vídeo i dels subtítols:** català  
-**Subtítols:** `output/08-branques.ca.srt`  
-**Miniatura:** `output/portada.png`
+**Vídeo:** `Git/output/08-branques.mp4`  
+**Subtítols:** `08-branques/output/08-branques.ca.srt`  
+**Miniatura:** `08-branques/output/portada.png`
 
 > Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.
