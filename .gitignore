@@ -1,0 +1,8 @@
+# .env Settings
+*.env
+!*.env.example
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
