@@ -1,0 +1,12 @@
+{
+  "text": "main",
+  "voice": "en-US-GuyNeural",
+  "rate": "+12%",
+  "words": [
+    {
+      "start": 0.094625,
+      "end": 0.619166,
+      "text": "main"
+    }
+  ]
+}

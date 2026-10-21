@@ -1,0 +1,1168 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 26,
+  "slug": "26-forks-upstream",
+  "title": "Forks i upstream: una còpia pròpia al dia",
+  "short_title": "FORKS",
+  "card": [
+    "FORKS I UPSTREAM",
+    "Una còpia pròpia d’un projecte"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "26-forks-upstream.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Vint-i-sisena lliçó. Forks i upstream.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Vint-i-sisena lliçó. "
+      },
+      {
+        "lang": "en-US",
+        "text": "Forks"
+      },
+      {
+        "lang": "ca-ES",
+        "text": " i "
+      },
+      {
+        "lang": "en-US",
+        "text": "upstream"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  },
+  "objective": "relacionar el projecte original, el [[fork]] i el clon local, i mantenir el [[fork]] al dia amb l’original.",
+  "start_note": "Un projecte original a GitHub que admet contribucions, amb A i B. Encara no tenim fork. Dos remots nus locals representen l’original i el fork; la interfície web és un esquema.",
+  "start_spoken": "Volem contribuir a un projecte d’una altra persona, on no tenim permís per publicar.",
+  "summary": [
+    "El fork és una còpia remota al nostre compte; el clon és la còpia local.",
+    "origin apunta al fork i upstream, a l’original.",
+    "Per posar-nos al dia, descarreguem d’upstream i publiquem a origin."
+  ],
+  "practice": "Fes un fork d’un projecte de pràctiques, clona’l i afegeix-hi el remot upstream. Comprova les dues adreces abans de continuar.",
+  "practice_script": "practiques/26-forks-upstream.sh",
+  "scenes": [
+    {
+      "id": "e26_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a relacionar el projecte original, el fork i el clon local, i mantenir el fork al dia amb l’original.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a relacionar el projecte original, el "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i el clon local, i mantenir el "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " al dia amb l’original."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Volem contribuir a un projecte d’una altra persona, on no tenim permís per publicar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Volem contribuir a un projecte d’una altra persona, on no tenim permís per publicar."
+            }
+          ],
+          "visual": "Punt de partida: Un projecte original a GitHub que admet contribucions, amb A i B. Encara no tenim fork. Dos remots nus locals representen l’original i el fork; la interfície web és un esquema.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a relacionar el projecte original, el fork i el clon local, i mantenir el fork al dia amb l’original. Volem contribuir a un projecte d’una altra persona, on no tenim permís per publicar."
+    },
+    {
+      "id": "e26_01",
+      "label": "EXPLICACIÓ",
+      "title": "Tres repositoris",
+      "mode": "principal",
+      "visual": "Tres caixes persistents, ORIGINAL, FORK PROPI i CLON LOCAL. El fork no és una carpeta local.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "L’original és el projecte on volem contribuir. El fork és una còpia de l’original al nostre compte de GitHub. El clon és la còpia de treball del nostre ordinador.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’original és el projecte on volem contribuir. El "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és una còpia de l’original al nostre compte de "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". El clon és la còpia de treball del nostre ordinador."
+            }
+          ],
+          "visual": "Tres caixes persistents, ORIGINAL, FORK PROPI i CLON LOCAL. El fork no és una carpeta local.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "narration": "L’original és el projecte on volem contribuir. El fork és una còpia de l’original al nostre compte de GitHub. El clon és la còpia de treball del nostre ordinador."
+    },
+    {
+      "id": "e26_02",
+      "label": "EXPLICACIÓ",
+      "title": "Creem el fork",
+      "mode": "principal",
+      "visual": "Esquema del botó Fork i del formulari, amb comptes inventats.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "A la pàgina de l’original, fem clic al botó Fork i triem el nostre compte. La còpia queda a GitHub; encara no la tenim a l’ordinador.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "A la pàgina de l’original, fem clic al botó "
+            },
+            {
+              "lang": "en-US",
+              "text": "Fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i triem el nostre compte. La còpia queda a "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; encara no la tenim a l’ordinador."
+            }
+          ],
+          "visual": "Esquema del botó Fork i del formulari, amb comptes inventats.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 1
+        }
+      ],
+      "narration": "A la pàgina de l’original, fem clic al botó Fork i triem el nostre compte. La còpia queda a GitHub; encara no la tenim a l’ordinador."
+    },
+    {
+      "id": "e26_03",
+      "label": "TERMINAL",
+      "title": "git clone <URL-del-fork> HelloGit",
+      "mode": "principal",
+      "visual": "Fletxa FORK → LOCAL; etiqueta origin vinculada al fork.",
+      "beats": [
+        {
+          "id": "pas_005",
+          "narration": "Clonem el fork, el repositori del nostre compte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Clonem el "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", el repositori del nostre compte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git clone <URL-del-fork> HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git clone.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git clone <URL-del-fork> HelloGit",
+          "highlight": "git clone",
+          "state": 1
+        },
+        {
+          "id": "pas_006",
+          "narration": "És l’adreça del nostre fork, sense els signes de menor i major.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És l’adreça del nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", sense els signes de menor i major."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git clone <URL-del-fork> HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: <URL-del-fork>.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git clone <URL-del-fork> HelloGit",
+          "highlight": "<URL-del-fork>",
+          "state": 1
+        },
+        {
+          "id": "pas_007",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git clone <URL-del-fork> HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git clone <URL-del-fork> HelloGit"
+          ],
+          "command_display": "git clone <URL-del-fork> HelloGit",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_008",
+          "narration": "La carpeta conté el projecte i el remot origin apunta al nostre fork.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La carpeta conté el projecte i el remot "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " apunta al nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Fletxa FORK → LOCAL; etiqueta origin vinculada al fork. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git clone <URL-del-fork> HelloGit",
+          "event": "result",
+          "state": 2,
+          "simulated": true,
+          "terminal_output": [
+            "Cloning into 'HelloGit'..."
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Clonem el fork, el repositori del nostre compte. És l’adreça del nostre fork, sense els signes de menor i major. Executem l’ordre. La carpeta conté el projecte i el remot origin apunta al nostre fork."
+    },
+    {
+      "id": "e26_04",
+      "label": "TERMINAL",
+      "title": "cd HelloGit",
+      "mode": "principal",
+      "visual": "Ruta visible a la terminal.",
+      "beats": [
+        {
+          "id": "pas_009",
+          "narration": "Entrem a la còpia local.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Entrem a la còpia local."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: cd.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "cd HelloGit",
+          "highlight": "cd",
+          "state": 2
+        },
+        {
+          "id": "pas_010",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "cd HelloGit"
+          ],
+          "command_display": "cd HelloGit",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_011",
+          "narration": "La terminal és dins del projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La terminal és dins del projecte."
+            }
+          ],
+          "visual": "Ruta visible a la terminal. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "cd HelloGit",
+          "event": "result",
+          "state": 3,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Entrem a la còpia local. Executem l’ordre. La terminal és dins del projecte."
+    },
+    {
+      "id": "e26_05",
+      "label": "TERMINAL",
+      "title": "git remote add upstream <URL-original>",
+      "mode": "principal",
+      "visual": "Dues connexions amb noms i adreces diferenciades.",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "Afegim una segona connexió amb git remote.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Afegim una segona connexió amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git remote"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git remote add upstream <URL-original>. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git remote add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git remote add upstream <URL-original>",
+          "highlight": "git remote add",
+          "state": 3
+        },
+        {
+          "id": "pas_013",
+          "narration": "Afegeix un remot nou.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Afegeix un remot nou."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git remote add upstream <URL-original>. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git remote add upstream <URL-original>",
+          "highlight": "add",
+          "state": 3
+        },
+        {
+          "id": "pas_014",
+          "narration": "És el nom que donem al remot de l’original. És un costum, no una paraula obligatòria.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom que donem al remot de l’original. És un costum, no una paraula obligatòria."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git remote add upstream <URL-original>. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: upstream.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git remote add upstream <URL-original>",
+          "highlight": "upstream",
+          "state": 3
+        },
+        {
+          "id": "pas_015",
+          "narration": "És l’adreça del projecte original, diferent de la del fork.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És l’adreça del projecte original, diferent de la del "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git remote add upstream <URL-original>. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: <URL-original>.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git remote add upstream <URL-original>",
+          "highlight": "<URL-original>",
+          "state": 3
+        },
+        {
+          "id": "pas_016",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git remote add upstream <URL-original>. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git remote add upstream <URL-original>"
+          ],
+          "command_display": "git remote add upstream <URL-original>",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_017",
+          "narration": "origin continua apuntant al fork i upstream apunta a l’original. Afegir-lo encara no descarrega res.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " continua apuntant al "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i "
+            },
+            {
+              "lang": "en-US",
+              "text": "upstream"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " apunta a l’original. Afegir-lo encara no descarrega res."
+            }
+          ],
+          "visual": "Dues connexions amb noms i adreces diferenciades. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git remote add upstream <URL-original>",
+          "event": "result",
+          "state": 4,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Afegim una segona connexió amb git remote. Afegeix un remot nou. És el nom que donem al remot de l’original. És un costum, no una paraula obligatòria. És l’adreça del projecte original, diferent de la del fork. Executem l’ordre. origin continua apuntant al fork i upstream apunta a l’original. Afegir-lo encara no descarrega res."
+    },
+    {
+      "id": "e26_06",
+      "label": "TERMINAL",
+      "title": "git remote -v",
+      "mode": "principal",
+      "visual": "Taula amb nom, adreça i direcció; ressaltar una fila cada vegada.",
+      "beats": [
+        {
+          "id": "pas_018",
+          "narration": "Comprovem les connexions.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprovem les connexions."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git remote -v. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git remote.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git remote -v",
+          "highlight": "git remote",
+          "state": 4
+        },
+        {
+          "id": "pas_019",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git remote -v. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git remote -v"
+          ],
+          "command_display": "git remote -v",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_020",
+          "narration": "Cada nom té la seva adreça. Enviarem la nostra feina a origin i descarregarem les novetats de upstream.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cada nom té la seva adreça. Enviarem la nostra feina a "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i descarregarem les novetats de "
+            },
+            {
+              "lang": "en-US",
+              "text": "upstream"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Taula amb nom, adreça i direcció; ressaltar una fila cada vegada. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git remote -v",
+          "event": "result",
+          "state": 5,
+          "simulated": true,
+          "terminal_output": [
+            "origin\thttps://github.com/anna-puig/HelloGit.git (fetch)",
+            "origin\thttps://github.com/anna-puig/HelloGit.git (push)",
+            "upstream\thttps://github.com/projecte-original/HelloGit.git (fetch)",
+            "upstream\thttps://github.com/projecte-original/HelloGit.git (push)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comprovem les connexions. Executem l’ordre. Cada nom té la seva adreça. Enviarem la nostra feina a origin i descarregarem les novetats de upstream."
+    },
+    {
+      "id": "e26_07",
+      "label": "EXPLICACIÓ",
+      "title": "L’original avança",
+      "mode": "principal",
+      "visual": "ORIGINAL amb C; FORK i LOCAL encara a B. La novetat és un README.md.",
+      "beats": [
+        {
+          "id": "pas_021",
+          "narration": "Mentrestant, l’original incorpora un commit nou. El nostre fork i la nostra còpia local no se n’assabenten sols: els hem de posar al dia.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Mentrestant, l’original incorpora un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou. El nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i la nostra còpia local no se n’assabenten sols: els hem de posar al dia."
+            }
+          ],
+          "visual": "ORIGINAL amb C; FORK i LOCAL encara a B. La novetat és un README.md.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 6
+        }
+      ],
+      "narration": "Mentrestant, l’original incorpora un commit nou. El nostre fork i la nostra còpia local no se n’assabenten sols: els hem de posar al dia."
+    },
+    {
+      "id": "e26_08",
+      "label": "TERMINAL",
+      "title": "git fetch upstream",
+      "mode": "principal",
+      "visual": "Actualitzar només la referència upstream/main.",
+      "beats": [
+        {
+          "id": "pas_022",
+          "narration": "Descarreguem les novetats de l’original.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Descarreguem les novetats de l’original."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git fetch upstream. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git fetch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git fetch upstream",
+          "highlight": "git fetch",
+          "state": 6
+        },
+        {
+          "id": "pas_023",
+          "narration": "Consultem l’original, no el nostre fork.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’original, no el nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git fetch upstream. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: upstream.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git fetch upstream",
+          "highlight": "upstream",
+          "state": 6
+        },
+        {
+          "id": "pas_024",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git fetch upstream. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git fetch upstream"
+          ],
+          "command_display": "git fetch upstream",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 6
+        },
+        {
+          "id": "pas_025",
+          "narration": "La referència upstream/main apunta al commit nou. El nostre main encara no ha canviat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La referència "
+            },
+            {
+              "lang": "en-US",
+              "text": "upstream/main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " apunta al "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou. El nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " encara no ha canviat."
+            }
+          ],
+          "visual": "Actualitzar només la referència upstream/main. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git fetch upstream",
+          "event": "result",
+          "state": 7,
+          "simulated": false,
+          "terminal_output": [
+            "From ~/original",
+            " * [new branch]      main       -> upstream/main"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Descarreguem les novetats de l’original. Consultem l’original, no el nostre fork. Executem l’ordre. La referència upstream/main apunta al commit nou. El nostre main encara no ha canviat."
+    },
+    {
+      "id": "e26_09",
+      "label": "TERMINAL",
+      "title": "git merge --ff-only upstream/main",
+      "mode": "principal",
+      "visual": "Moure només main local.",
+      "beats": [
+        {
+          "id": "pas_026",
+          "narration": "Incorporem la novetat al nostre main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Incorporem la novetat al nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only upstream/main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git merge.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --ff-only upstream/main",
+          "highlight": "git merge",
+          "state": 7
+        },
+        {
+          "id": "pas_027",
+          "narration": "És la versió de l’original que acabem de descarregar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la versió de l’original que acabem de descarregar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only upstream/main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: upstream/main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --ff-only upstream/main",
+          "highlight": "upstream/main",
+          "state": 7
+        },
+        {
+          "id": "pas_028",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only upstream/main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git merge --ff-only upstream/main"
+          ],
+          "command_display": "git merge --ff-only upstream/main",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 7
+        },
+        {
+          "id": "pas_029",
+          "narration": "El nostre main avança fins al commit nou. El fork de GitHub encara no el té.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " avança fins al "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou. El "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " encara no el té."
+            }
+          ],
+          "visual": "Moure només main local. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git merge --ff-only upstream/main",
+          "event": "result",
+          "state": 8,
+          "simulated": false,
+          "terminal_output": [
+            "Updating f5f5973..119bbc7",
+            "Fast-forward",
+            " README.md | 1 +",
+            " 1 file changed, 1 insertion(+)",
+            " create mode 100644 README.md"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Incorporem la novetat al nostre main. És la versió de l’original que acabem de descarregar. Executem l’ordre. El nostre main avança fins al commit nou. El fork de GitHub encara no el té."
+    },
+    {
+      "id": "e26_10",
+      "label": "TERMINAL",
+      "title": "git push origin main",
+      "mode": "principal",
+      "visual": "Fletxa LOCAL → FORK; cap fletxa cap a l’original.",
+      "beats": [
+        {
+          "id": "pas_030",
+          "narration": "Enviem main al nostre fork.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Enviem "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " al nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git push.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push origin main",
+          "highlight": "git push",
+          "state": 8
+        },
+        {
+          "id": "pas_031",
+          "narration": "La destinació és el nostre fork.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La destinació és el nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: origin.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push origin main",
+          "highlight": "origin",
+          "state": 8
+        },
+        {
+          "id": "pas_032",
+          "narration": "Publiquem la branca main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Publiquem la branca "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push origin main",
+          "highlight": "main",
+          "state": 8
+        },
+        {
+          "id": "pas_033",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git push origin main"
+          ],
+          "command_display": "git push origin main",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 8
+        },
+        {
+          "id": "pas_034",
+          "narration": "L’original, el fork i la còpia local tornen a coincidir.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’original, el "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i la còpia local tornen a coincidir."
+            }
+          ],
+          "visual": "Fletxa LOCAL → FORK; cap fletxa cap a l’original. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git push origin main",
+          "event": "result",
+          "state": 9,
+          "simulated": false,
+          "terminal_output": [
+            "To ~/fork.git",
+            "   f5f5973..119bbc7  main -> main"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Enviem main al nostre fork. La destinació és el nostre fork. Publiquem la branca main. Executem l’ordre. L’original, el fork i la còpia local tornen a coincidir."
+    },
+    {
+      "id": "e26_11",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_035",
+          "narration": "El fork és una còpia remota al nostre compte; el clon és la còpia local.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és una còpia remota al nostre compte; el clon és la còpia local."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_036",
+          "narration": "origin apunta al fork i upstream, a l’original.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " apunta al "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i "
+            },
+            {
+              "lang": "en-US",
+              "text": "upstream"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", a l’original."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_037",
+          "narration": "Per posar-nos al dia, descarreguem d’upstream i publiquem a origin.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Per posar-nos al dia, descarreguem d’"
+            },
+            {
+              "lang": "en-US",
+              "text": "upstream"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i publiquem a "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "El fork és una còpia remota al nostre compte; el clon és la còpia local. origin apunta al fork i upstream, a l’original. Per posar-nos al dia, descarreguem d’upstream i publiquem a origin."
+    },
+    {
+      "id": "e26_12",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_038",
+          "narration": "Fes un fork d’un projecte de pràctiques, clona’l i afegeix-hi el remot upstream. Comprova les dues adreces abans de continuar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Fes un "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " d’un projecte de pràctiques, clona’l i afegeix-hi el remot "
+            },
+            {
+              "lang": "en-US",
+              "text": "upstream"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Comprova les dues adreces abans de continuar."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "Fes un fork d’un projecte de pràctiques, clona’l i afegeix-hi el remot upstream. Comprova les dues adreces abans de continuar."
+    }
+  ],
+  "commands": [
+    "git clone <URL-del-fork> HelloGit",
+    "cd HelloGit",
+    "git remote add upstream <URL-original>",
+    "git remote -v",
+    "git fetch upstream",
+    "git merge --ff-only upstream/main",
+    "git push origin main"
+  ]
+}

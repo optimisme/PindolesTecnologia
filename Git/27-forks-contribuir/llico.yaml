@@ -1,0 +1,96 @@
+titol: "Forks: contribueix al projecte original"
+titol_curt: FORKS
+capcalera: [CONTRIBUIR DES D’UN FORK, Proposa un canvi a l’original]
+presentacio: "[[Forks]], contribuir a l’original"
+objectiu: preparar una contribució al nostre [[fork]] i proposar-la al projecte original amb una [[pull request]].
+inici: >-
+  Continuació de la lliçó anterior. Original, fork i clon local a C. Al clon, origin apunta al fork i upstream
+  a l’original. Treball net. La interfície web és un esquema amb dades inventades.
+inici_parlat: >-
+  El nostre [[fork]] i la còpia local estan al dia amb l’original. Ara hi farem una contribució.
+carpeta: HelloGit
+preparacio:
+  - remot_nu: original
+  - clona: .preparacio
+    de: original
+  - cd: .preparacio
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: add helloGit.py
+  - commit: B
+    missatge: Afegeix la salutacio inicial
+  - fitxer: README.md
+    contingut: Projecte HelloGit
+  - git: add README.md
+  - commit: C
+    missatge: Afegeix el README
+  - git: push -q -u origin main
+  - cd: .
+  - sh: rm -rf .preparacio && git clone -q --bare original.git fork.git
+  - clona: HelloGit
+    de: fork
+  - cd: HelloGit
+  - sh: git remote add upstream ../original.git && git fetch -q upstream
+
+etapes:
+  - explica: Una branca per a la contribució
+    text: >-
+      Cada contribució va en una branca pròpia, creada a partir del [[main]] actualitzat. Així el nostre
+      [[main]] es pot continuar posant al dia amb l’original.
+    visual: Tres caixes, ORIGINAL, FORK i LOCAL, totes a C.
+
+  - plantilla: switch-crea
+    branca: salutacio
+    resultat: La branca de la contribució comença a la versió actualitzada.
+    comprova: {head: salutacio, refs: {salutacio: C}}
+
+  - explica: Fem la contribució
+    text: Personalitzem la salutació i la provem.
+    visual: Editor amb print("Hola, Anna!").
+    accions:
+      - fitxer: helloGit.py
+        contingut: print("Hola, Anna!")
+
+  - plantilla: programa
+    resultat: La salutació nova funciona a la branca de la contribució.
+    comprova: {programa: "Hola, Anna!"}
+
+  - plantilla: add-breu
+    resultat: La contribució queda preparada.
+
+  - plantilla: commit-breu
+    missatge: Personalitza la salutacio
+    crea: D
+    resultat: El commit és a la branca local salutació. L’original no en sap res.
+
+  - plantilla: push-u
+    branca: salutacio
+    resultat: La branca de la contribució ja és al nostre [[fork]]. A l’original no hi hem publicat res.
+    comprova:
+      remot: {fork: {salutacio: D}, original: {salutacio: null}}
+
+  - explica: Proposem el canvi a l’original
+    text:
+      - >-
+        A la web de [[GitHub]] obrim una [[pull request]]. La destinació és [[main]] del projecte original;
+        l’origen és la branca salutació del nostre [[fork]].
+      - >-
+        Expliquem la millora i com l’hem provada. Ara la revisió depèn de les persones que mantenen l’original.
+    pausa: 3.5
+    visual: >-
+      Formulari amb repositori i branca a tots dos costats, base repository original · main i head repository
+      fork · salutacio. No representar cap fusió ni aprovació.
+
+  - explica: Mentre esperem la revisió
+    text: >-
+      Si ens demanen canvis, fem nous commits a la mateixa branca i els enviem al [[fork]]: la proposta
+      s’actualitza sola. El nostre [[main]] el continuem posant al dia amb [[upstream]].
+    visual: Cicle COMMIT → PUSH AL FORK → PROPOSTA ACTUALITZADA; a part, FETCH UPSTREAM → MERGE → PUSH ORIGIN MAIN.
+
+resum:
+  - Cada contribució va en una branca pròpia.
+  - Publiquem la branca al nostre [[fork]], mai a l’original.
+  - La [[pull request]] va del nostre [[fork]] cap al [[main]] de l’original.
+practica: >-
+  Des del [[fork]] de pràctiques, crea una branca amb un canvi petit, publica-la al [[fork]] i obre una
+  proposta cap a l’original amb una descripció clara.

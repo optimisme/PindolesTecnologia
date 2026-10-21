@@ -1,0 +1,89 @@
+{
+  "title": "Reflog: recupera un commit local",
+  "episode_number": 12,
+  "short_title": "REFLOG",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Dotzena lliçó, Reflog."
+  },
+  "prerequisites": "Continuació de l’alternativa soft de la lliçó 11: A–B–C, després git reset --soft HEAD~1. Main i HEAD són a B; treball i índex conserven V2 de C. C té hash il·lustratiu c95f4a7, B b62d8e1, A a31b2c4. Reflog local conté el reset i el commit C. No s’han expirat les entrades ni eliminat els objectes. Recuperacio és una branca nova. No es canvia de branca ni es descarten les edicions pendents. Els identificadors reals es copien del reflog.",
+  "scenes": [
+    {
+      "id": "y_hook",
+      "label": "DESPRÉS DEL RESET SOFT",
+      "title": "On ha anat a parar C?",
+      "narration": "Continuem després del reset amb soft. Main és a B, però volem recuperar el commit C. Que no surti al log de main no vol dir que s’hagi esborrat immediatament.",
+      "visual": "Graf A–B–C, C atenuat i main B. Nota: canvis de C encara preparats."
+    },
+    {
+      "id": "y_log",
+      "label": "01 / MIRAR LA BRANCA ACTUAL",
+      "title": "Log mostra el que arriba a main",
+      "narration": "Git log segueix l’historial de la branca actual. Com que main apunta a B, veiem B i A. C ha quedat fora d’aquesta línia.",
+      "visual": "Terminal log B–A, graf C atenuat.",
+      "commands": [
+        "git log --oneline"
+      ]
+    },
+    {
+      "id": "y_reflog",
+      "label": "02 / CONSULTAR ELS MOVIMENTS",
+      "title": "Reflog recorda on era HEAD",
+      "narration": "Git reflog mostra els moviments locals de HEAD. Hi veiem el reset a B i, just abans, el commit C. En copiem l’identificador.",
+      "visual": "Terminal reflog amb B HEAD@{0} reset: moving to HEAD~1, C HEAD@{1} commit: Canvia missatge. Ressaltar c95f4a7.",
+      "commands": [
+        "git reflog"
+      ]
+    },
+    {
+      "id": "y_show",
+      "label": "03 / COMPROVAR EL COMMIT",
+      "title": "Revisem C abans de recuperar-lo",
+      "narration": "Amb show revisem el commit trobat. La diferència confirma que C havia canviat el missatge per Hola, Anna. Aquest és el commit que buscàvem.",
+      "visual": "Terminal git show c95f4a7, diff dels missatges. Hash etiquetat com a exemple.",
+      "commands": [
+        "git show c95f4a7 -- helloGit.py"
+      ]
+    },
+    {
+      "id": "y_branch",
+      "label": "04 / POSAR-LI UNA REFERÈNCIA",
+      "title": "Creem una branca a C",
+      "narration": "Creem la branca recuperacio a l’identificador copiat. Això torna a donar una referència al commit C. Main continua a B i encara és la branca activa.",
+      "visual": "C torna a tenir color, apareix recuperacio a C, main i HEAD queden a B.",
+      "commands": [
+        "git branch recuperacio c95f4a7"
+      ]
+    },
+    {
+      "id": "y_all",
+      "label": "05 / VEURE LES DUES BRANQUES",
+      "title": "C torna a aparèixer amb una branca",
+      "narration": "Amb log i all veiem les dues branques. Recuperacio apunta a C. Hem recuperat un accés al commit sense moure main ni canviar de branca.",
+      "visual": "Terminal log --all mostra C recuperacio, B HEAD->main, A.",
+      "commands": [
+        "git log --oneline --decorate --all"
+      ]
+    },
+    {
+      "id": "y_pending",
+      "label": "ELS FITXERS NO HAN CANVIAT",
+      "title": "Els canvis preparats es conserven",
+      "narration": "Crear la branca tampoc modifica els fitxers ni la preparació. Els canvis que havia deixat el reset amb soft continuen preparats. Ho comprovem amb status.",
+      "visual": "Zones treball V2, preparació V2, HEAD V1. M primera columna. Branch recuperacio visible separat.",
+      "commands": [
+        "git status --short"
+      ]
+    },
+    {
+      "id": "y_summary",
+      "label": "JA HO TENS",
+      "title": "Trobar, revisar i donar una referència",
+      "narration": "Reflog és local i les entrades poden caducar. Pot ajudar a recuperar commits, però no és una còpia de seguretat de qualsevol edició sense confirmar.",
+      "visual": "Tres targetes: Reflog / Show / Branch. Nota final: commits locals disponibles; no qualsevol edició sense commit."
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "legacy_pronunciation_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7",
+  "full_decode": false,
+  "render_profiles": [
+    "0777061acffb8e9be15cd511e1d695bfee1bf49b915d1d377c1ab6d2885a9793",
+    "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7",
+    "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+  ],
+  "episodes": [
+    {
+      "episode": "00-introduccio",
+      "duration": 166.833333,
+      "subtitles": 42,
+      "video_sha256": "d4fba0b3ae52afb84a89d916de116f3a95a4cbf038bbefe4052ed265631c9885",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "0777061acffb8e9be15cd511e1d695bfee1bf49b915d1d377c1ab6d2885a9793",
+      "voice": "en-US-AndrewMultilingualNeural",
+      "reflection_seconds": 0,
+      "reading_pause_seconds": 34.5,
+      "full_decode": false
+    },
+    {
+      "episode": "01-primer-commit",
+      "duration": 373.666667,
+      "subtitles": 93,
+      "video_sha256": "d152ceb9d0876c7ddad4165c32e721e76c46c29cb5f815cbe08e550b32603e15",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "0777061acffb8e9be15cd511e1d695bfee1bf49b915d1d377c1ab6d2885a9793",
+      "voice": "en-US-AndrewMultilingualNeural",
+      "reflection_seconds": 0,
+      "reading_pause_seconds": 88.5,
+      "full_decode": true
+    },
+    {
+      "episode": "02-branques",
+      "duration": 89.166667,
+      "subtitles": 26,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "65edc3adbbdb287f583d096852ee86bbdcd9181581e663e840a8dc52152c4897",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "03-estats",
+      "duration": 82.25,
+      "subtitles": 27,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "011e2c15facabcc3e9889a37e3fbb4428a733a60818ed36aa89754a8da03ebee",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "04-sincronitzacio",
+      "duration": 84.791667,
+      "subtitles": 25,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "0b6d9f01825e98fce5dd2458c623654eed3874c9fd42cd2140603c147db3efb6",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "05-merge",
+      "duration": 85.958333,
+      "subtitles": 23,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "0d4e857930d1acfb054c3ee0293e31d6f26cd3b2017f6b1cd37bf5a370aebb61",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7"
+    },
+    {
+      "episode": "06-conflictes",
+      "duration": 84.708333,
+      "subtitles": 26,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "5b26f9b2eebfbdd7c0ba30fde51a80cb0d04defdbf840f85da0bd9638b38e54b",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "07-rebase",
+      "duration": 89.791667,
+      "subtitles": 26,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "e28547e0bf52aee74d2337a43a66910dafb8480a880faadd2ffc12976363fea4",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "08-stash",
+      "duration": 77.791667,
+      "subtitles": 20,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "8cc9a74b15e30d9c2b6903d2ff6d7823d575c300daa1f2272ff0bbe8d295702a",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "09-restore",
+      "duration": 83.541667,
+      "subtitles": 24,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "b76011803e9212fedf26f4f143c675521c639850bc6365011c2e09901a3df578",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "10-revert",
+      "duration": 84.833333,
+      "subtitles": 24,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "2e03a308b881648520c3366a1b49e2ed77b3c07f5ccf00b7bf2849afe3634ee9",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7"
+    },
+    {
+      "episode": "11-reset",
+      "duration": 94.708333,
+      "subtitles": 33,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "bd97cfc0a19db5ad8d0252c7924f3a60a4bb1b3c35285ae1803b671a10f78ed5",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "12-reflog",
+      "duration": 91.875,
+      "subtitles": 29,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "6f47509d3306ab59848e3bc9a33d2b13ec24e37da22a2a5ed2acef17f224e396",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7"
+    },
+    {
+      "episode": "13-gitignore",
+      "duration": 96.291667,
+      "subtitles": 30,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "49e9837bcb6e275f55ca41642dccf6569f26d36498fc8e569e094223ab20b5e9",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7"
+    },
+    {
+      "episode": "14-tags",
+      "duration": 99.083333,
+      "subtitles": 31,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "49964bc8ddf7c133d7f2fda6ed2d958a0d9111420a40dd2f6a57d5b797b3a38a",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "15-cherry-pick",
+      "duration": 95.791667,
+      "subtitles": 30,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "897f23fea22faf00135a7794f243133f481ff9b42b2e15b4a7d30e4ad8eaa687",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7"
+    },
+    {
+      "episode": "16-pull-requests",
+      "duration": 111.0,
+      "subtitles": 36,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "9b1c98c8cd6b728a87e782e9ca5029dbfef414f1cd14badd4ab9cc3b08b66fe4",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "17-blame",
+      "duration": 94.75,
+      "subtitles": 28,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "94af09b9af33641bce4f9024ff3206c2bcb42385b2ed5d87ce98903c35ee8e14",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "18-bisect",
+      "duration": 103.5,
+      "subtitles": 35,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "2f2ab7ecee6b3502d546570716d4de7aee6a442bab5dd09417bda3ec6578b78c",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "19-amend",
+      "duration": 94.666667,
+      "subtitles": 31,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "0467a64e3dfbee3bb20597dda2b1fc02221f9d87a3ef34f97e1505b6a0a8d784",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "20-fetch",
+      "duration": 99.458333,
+      "subtitles": 29,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "47c51464ea7532525f587b2324bab5060e326072b34831588341c13bfe4c86b4",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "21-forks",
+      "duration": 97.0,
+      "subtitles": 28,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "9a3c137f21ed21432f98325c8736bcddcf5f72ed1e0c6f5a6586a2beb8cb0e97",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "22-rebase-interactiu",
+      "duration": 116.916667,
+      "subtitles": 37,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "57a884defc90c4905499d1437494968188c03113b22d56ae07eeda877aa21ae4",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "23-add-interactiu",
+      "duration": 101.75,
+      "subtitles": 30,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "db3edf4076f3d6c9fadb7d5f3cafc89cb0abeb988b6c7690115d5c57b8c964bf",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "24-worktree",
+      "duration": 104.208333,
+      "subtitles": 33,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "46fd45f7f8e37812284d7fa1136a8b1981bcf498dc342e321534c1988724d136",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "episode": "25-hooks",
+      "duration": 100.083333,
+      "subtitles": 32,
+      "voice": "ca-ES-EnricNeural",
+      "video_sha256": "eb8d91ab7d0518ffec4cbc2c8802704ce7d3e6b67b59b79c231323590c42d4b5",
+      "music_sha256": "e23e6b90325f07f20d9220a31ecea64a33aeedb0cd795e41ea0c209fd811d46e",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    }
+  ]
+}

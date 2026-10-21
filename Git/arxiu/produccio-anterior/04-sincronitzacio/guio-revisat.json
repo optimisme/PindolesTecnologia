@@ -1,0 +1,1464 @@
+{
+  "script_format": "git-didactic-v1",
+  "status": "script_revised_media_unchanged",
+  "episode_number": 4,
+  "title": "De classe a casa: clone, pull i push",
+  "series": "Píndoles de Git",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "music_seconds": 4,
+  "objective": "Continuar un projecte entre dos ordinadors sense confondre clone, pull i push.",
+  "prerequisites": "A classe tenim el repositori configurat amb main i origin. Treballem en sèrie i comprovem que no hi hagi canvis locals abans d’actualitzar.",
+  "timing": "Sense marques absolutes: es calcularan amb la futura locució.",
+  "scenes": [
+    {
+      "id": "rev_04_00",
+      "title": "Objectiu i punt de partida",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a continuar un projecte entre dos ordinadors sense confondre clone, pull i push.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a continuar un projecte entre dos ordinadors sense confondre "
+            },
+            {
+              "lang": "en-US",
+              "text": "clone"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", "
+            },
+            {
+              "lang": "en-US",
+              "text": "pull"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i "
+            },
+            {
+              "lang": "en-US",
+              "text": "push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "A classe tenim el repositori configurat amb main i origin. Treballem en sèrie i comprovem que no hi hagi canvis locals abans d’actualitzar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "A classe tenim el repositori configurat amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Treballem en sèrie i comprovem que no hi hagi canvis locals abans d’actualitzar."
+            }
+          ],
+          "visual": "Punt de partida complet amb branca activa, fitxers i estat del treball; fer visible qualsevol cas independent.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a continuar un projecte entre dos ordinadors sense confondre clone, pull i push. A classe tenim el repositori configurat amb main i origin. Treballem en sèrie i comprovem que no hi hagi canvis locals abans d’actualitzar."
+    },
+    {
+      "id": "rev_04_01",
+      "title": "Cada ordinador té una còpia local",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "L’ordinador de classe i el de casa tenen repositoris independents. GitHub és el punt de trobada. Desar o fer un commit en un ordinador no actualitza automàticament els altres.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’ordinador de classe i el de casa tenen repositoris independents. "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és el punt de trobada. Desar o fer un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " en un ordinador no actualitza automàticament els altres."
+            }
+          ],
+          "visual": "Classe i casa amb el mateix commit A; servidor entre els dos. Les fletxes només apareixen quan s’executa push o pull.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "L’ordinador de classe i el de casa tenen repositoris independents. GitHub és el punt de trobada. Desar o fer un commit en un ordinador no actualitza automàticament els altres."
+    },
+    {
+      "id": "rev_04_02",
+      "title": "Acabem el canvi de classe",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Editem la salutació, desem i provem el programa. El canvi és al treball de classe; primer el registrarem localment.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Editem la salutació, desem i provem el programa. El canvi és al treball de classe; primer el registrarem localment."
+            }
+          ],
+          "visual": "Editor de classe amb la versió nova, casa encara amb l’anterior.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Editem la salutació, desem i provem el programa. El canvi és al treball de classe; primer el registrarem localment."
+    },
+    {
+      "id": "rev_04_03",
+      "title": "git add helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_005",
+          "narration": "Amb git add seleccionem el contingut que volem confirmar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " seleccionem el contingut que volem confirmar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "git add"
+        },
+        {
+          "id": "pas_006",
+          "narration": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_007",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "command_display": "git add helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_008",
+          "narration": "El canvi de classe queda preparat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El canvi de classe queda preparat."
+            }
+          ],
+          "visual": "Conservar treball, preparació i historial. Copiar només el contingut seleccionat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git add seleccionem el contingut que volem confirmar. El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació. Executem l’ordre. El canvi de classe queda preparat."
+    },
+    {
+      "id": "rev_04_04",
+      "title": "git commit -m \"Practica de classe\"",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_009",
+          "narration": "Amb git commit enregistrarem el contingut preparat en una versió local.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " enregistrarem el contingut preparat en una versió local."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Practica de classe\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Practica de classe\"",
+          "highlight": "git commit"
+        },
+        {
+          "id": "pas_010",
+          "narration": "El guionet ema indica que a continuació escrivim el missatge del canvi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ema indica que a continuació escrivim el missatge del canvi."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Practica de classe\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -m.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Practica de classe\"",
+          "highlight": "-m"
+        },
+        {
+          "id": "pas_011",
+          "narration": "El text entre cometes descriu la feina: Pràctica de classe. Les cometes agrupen el missatge en un sol argument.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El text entre cometes descriu la feina: Pràctica de classe. Les cometes agrupen el missatge en un sol argument."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Practica de classe\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Practica de classe\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Practica de classe\"",
+          "highlight": "\"Practica de classe\""
+        },
+        {
+          "id": "pas_012",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Practica de classe\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Practica de classe\""
+          ],
+          "command_display": "git commit -m \"Practica de classe\"",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_013",
+          "narration": "El commit B existeix a classe. El servidor i casa continuen a A.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " B existeix a classe. El servidor i casa continuen a A."
+            }
+          ],
+          "visual": "Subratllar commit, després -m i després el missatge. Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Practica de classe\"",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git commit enregistrarem el contingut preparat en una versió local. El guionet ema indica que a continuació escrivim el missatge del canvi. El text entre cometes descriu la feina: Pràctica de classe. Les cometes agrupen el missatge en un sol argument. Executem l’ordre. El commit B existeix a classe. El servidor i casa continuen a A."
+    },
+    {
+      "id": "rev_04_05",
+      "title": "git push",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_014",
+          "narration": "Amb git push compartim els commits de la branca amb el remot.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " compartim els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la branca amb el remot."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git push.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push",
+          "highlight": "git push"
+        },
+        {
+          "id": "pas_015",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git push"
+          ],
+          "command_display": "git push",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_016",
+          "narration": "El servidor ja conté B. Casa encara no l’ha descarregat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El servidor ja conté B. Casa encara no l’ha descarregat."
+            }
+          ],
+          "visual": "Conservar el mateix identificador a local i remot. La fletxa envia commits; no envia edicions sense confirmar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git push",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git push compartim els commits de la branca amb el remot. Executem l’ordre. El servidor ja conté B. Casa encara no l’ha descarregat."
+    },
+    {
+      "id": "rev_04_06",
+      "title": "Camí A: obtenir el projecte per primer cop",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_017",
+          "narration": "Si en aquest ordinador encara no tenim el projecte, el clonem una vegada. Aquest camí i el d’actualitzar una còpia existent són alternatives.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si en aquest ordinador encara no tenim el projecte, el clonem una vegada. Aquest camí i el d’actualitzar una còpia existent són alternatives."
+            }
+          ],
+          "visual": "Panell CAMÍ A · CAP CÒPIA LOCAL. No fer clone i després repetir el camí B com si faltés encara el mateix commit.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Si en aquest ordinador encara no tenim el projecte, el clonem una vegada. Aquest camí i el d’actualitzar una còpia existent són alternatives."
+    },
+    {
+      "id": "rev_04_07",
+      "title": "git clone <URL-del-repositori> HelloGit",
+      "mode": "alternative:first-copy",
+      "beats": [
+        {
+          "id": "pas_018",
+          "narration": "git clone crea una còpia local amb fitxers i historial.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git clone"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea una còpia local amb fitxers i historial."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git clone <URL-del-repositori> HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git clone.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git clone <URL-del-repositori> HelloGit",
+          "highlight": "git clone"
+        },
+        {
+          "id": "pas_019",
+          "narration": "Substituïm aquest marcador per l’adreça real del repositori. No escrivim els signes de menor i major.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Substituïm aquest marcador per l’adreça real del repositori. No escrivim els signes de menor i major."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git clone <URL-del-repositori> HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: <URL-del-repositori>.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git clone <URL-del-repositori> HelloGit",
+          "highlight": "<URL-del-repositori>"
+        },
+        {
+          "id": "pas_020",
+          "narration": "Aquest argument tria el nom de la carpeta nova.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquest argument tria el nom de la carpeta nova."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git clone <URL-del-repositori> HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HelloGit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git clone <URL-del-repositori> HelloGit",
+          "highlight": "HelloGit"
+        },
+        {
+          "id": "pas_021",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git clone <URL-del-repositori> HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git clone <URL-del-repositori> HelloGit"
+          ],
+          "command_display": "git clone <URL-del-repositori> HelloGit",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_022",
+          "narration": "La còpia nova ja conté B i té el remot origin configurat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La còpia nova ja conté B i té el remot "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " configurat."
+            }
+          ],
+          "visual": "Animar la creació de la carpeta i després la còpia de B. No presentar-ho com una carpeta buida. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git clone <URL-del-repositori> HelloGit",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git clone crea una còpia local amb fitxers i historial. Substituïm aquest marcador per l’adreça real del repositori. No escrivim els signes de menor i major. Aquest argument tria el nom de la carpeta nova. Executem l’ordre. La còpia nova ja conté B i té el remot origin configurat."
+    },
+    {
+      "id": "rev_04_08",
+      "title": "cd HelloGit",
+      "mode": "alternative:first-copy",
+      "beats": [
+        {
+          "id": "pas_023",
+          "narration": "Entrem a la carpeta amb cd.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Entrem a la carpeta amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "cd"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: cd.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "cd HelloGit",
+          "highlight": "cd"
+        },
+        {
+          "id": "pas_024",
+          "narration": "És la carpeta creada pel clonatge. Les ordres següents s’executen des de dins.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la carpeta creada pel clonatge. Les ordres següents s’executen des de dins."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HelloGit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "cd HelloGit",
+          "highlight": "HelloGit"
+        },
+        {
+          "id": "pas_025",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "cd HelloGit"
+          ],
+          "command_display": "cd HelloGit",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_026",
+          "narration": "La terminal queda situada al projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La terminal queda situada al projecte."
+            }
+          ],
+          "visual": "Mostrar la ruta de la terminal actualitzada. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "cd HelloGit",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Entrem a la carpeta amb cd. És la carpeta creada pel clonatge. Les ordres següents s’executen des de dins. Executem l’ordre. La terminal queda situada al projecte."
+    },
+    {
+      "id": "rev_04_09",
+      "title": "Camí B: actualitzar una còpia existent",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_027",
+          "narration": "Si ja teníem el projecte a casa, entrem a la seva carpeta i revisem l’estat. En aquest exemple és net i no hi ha històries divergents.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si ja teníem el projecte a casa, entrem a la seva carpeta i revisem l’estat. En aquest exemple és net i no hi ha històries divergents."
+            }
+          ],
+          "visual": "Panell CAMÍ B · CÒPIA A CASA A A. Presentar explícitament un retorn a aquesta situació alternativa.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Si ja teníem el projecte a casa, entrem a la seva carpeta i revisem l’estat. En aquest exemple és net i no hi ha històries divergents."
+    },
+    {
+      "id": "rev_04_10",
+      "title": "git status --short",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Aquesta consulta no modifica el projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status"
+        },
+        {
+          "id": "pas_029",
+          "narration": "Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "short"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " demana la forma breu. La primera columna compara preparació i últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; la segona, treball i preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --short.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "--short"
+        },
+        {
+          "id": "pas_030",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_031",
+          "narration": "No hi ha canvis locals pendents. Podem continuar l’actualització d’aquest exemple.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "No hi ha canvis locals pendents. Podem continuar l’actualització d’aquest exemple."
+            }
+          ],
+          "visual": "Mostrar la sortida literal amb les dues columnes separades i una llegenda; conservar els espais de davant de cada lletra. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte. Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació. Executem l’ordre. No hi ha canvis locals pendents. Podem continuar l’actualització d’aquest exemple."
+    },
+    {
+      "id": "rev_04_11",
+      "title": "git pull --ff-only",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_032",
+          "narration": "git pull descarrega les novetats i intenta incorporar-les.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git pull"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " descarrega les novetats i intenta incorporar-les."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git pull --ff-only. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git pull.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git pull --ff-only",
+          "highlight": "git pull"
+        },
+        {
+          "id": "pas_033",
+          "narration": "Aquesta opció només permet avançar la branca directament. Si les històries divergeixen, s’atura i cal revisar la situació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquesta opció només permet avançar la branca directament. Si les històries divergeixen, s’atura i cal revisar la situació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git pull --ff-only. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --ff-only.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git pull --ff-only",
+          "highlight": "--ff-only"
+        },
+        {
+          "id": "pas_034",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git pull --ff-only. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git pull --ff-only"
+          ],
+          "command_display": "git pull --ff-only",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_035",
+          "narration": "Casa incorpora B i els fitxers s’actualitzen. Ara podem continuar la pràctica.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Casa incorpora B i els fitxers s’actualitzen. Ara podem continuar la pràctica."
+            }
+          ],
+          "visual": "Casa avança d’A a B després de la descàrrega. Mostrar el contingut nou a l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git pull --ff-only",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git pull descarrega les novetats i intenta incorporar-les. Aquesta opció només permet avançar la branca directament. Si les històries divergeixen, s’atura i cal revisar la situació. Executem l’ordre. Casa incorpora B i els fitxers s’actualitzen. Ara podem continuar la pràctica."
+    },
+    {
+      "id": "rev_04_12",
+      "title": "Continuem des de casa",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_036",
+          "narration": "Editem i desem una altra millora a casa, ja actualitzada. Aquesta vegada el commit nou naixerà a la còpia de casa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Editem i desem una altra millora a casa, ja actualitzada. Aquesta vegada el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou naixerà a la còpia de casa."
+            }
+          ],
+          "visual": "Editor i ruta CASA visibles. Classe continua a B.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Editem i desem una altra millora a casa, ja actualitzada. Aquesta vegada el commit nou naixerà a la còpia de casa."
+    },
+    {
+      "id": "rev_04_13",
+      "title": "python3 helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_037",
+          "narration": "Executem el programa per comprovar el contingut desat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem el programa per comprovar el contingut desat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3"
+        },
+        {
+          "id": "pas_038",
+          "narration": "És el fitxer de la còpia de treball que acabem d’editar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el fitxer de la còpia de treball que acabem d’editar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_039",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_040",
+          "narration": "La millora funciona a casa i encara és feina pendent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La millora funciona a casa i encara és feina pendent."
+            }
+          ],
+          "visual": "Mostrar la sortida real del programa al costat de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Executem el programa per comprovar el contingut desat. És el fitxer de la còpia de treball que acabem d’editar. Executem l’ordre. La millora funciona a casa i encara és feina pendent."
+    },
+    {
+      "id": "rev_04_14",
+      "title": "git add helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_041",
+          "narration": "Amb git add seleccionem el contingut que volem confirmar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " seleccionem el contingut que volem confirmar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "git add"
+        },
+        {
+          "id": "pas_042",
+          "narration": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_043",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "command_display": "git add helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_044",
+          "narration": "Seleccionem la millora de casa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Seleccionem la millora de casa."
+            }
+          ],
+          "visual": "Conservar treball, preparació i historial. Copiar només el contingut seleccionat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git add seleccionem el contingut que volem confirmar. El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació. Executem l’ordre. Seleccionem la millora de casa."
+    },
+    {
+      "id": "rev_04_15",
+      "title": "git commit -m \"Millora des de casa\"",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_045",
+          "narration": "Amb git commit enregistrarem el contingut preparat en una versió local.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " enregistrarem el contingut preparat en una versió local."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Millora des de casa\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Millora des de casa\"",
+          "highlight": "git commit"
+        },
+        {
+          "id": "pas_046",
+          "narration": "El guionet ema indica que a continuació escrivim el missatge del canvi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ema indica que a continuació escrivim el missatge del canvi."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Millora des de casa\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -m.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Millora des de casa\"",
+          "highlight": "-m"
+        },
+        {
+          "id": "pas_047",
+          "narration": "El text entre cometes descriu la feina: Millora des de casa. Les cometes agrupen el missatge en un sol argument.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El text entre cometes descriu la feina: Millora des de casa. Les cometes agrupen el missatge en un sol argument."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Millora des de casa\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Millora des de casa\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Millora des de casa\"",
+          "highlight": "\"Millora des de casa\""
+        },
+        {
+          "id": "pas_048",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Millora des de casa\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Millora des de casa\""
+          ],
+          "command_display": "git commit -m \"Millora des de casa\"",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_049",
+          "narration": "C és un commit local de casa. El servidor i classe continuen a B.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "C és un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " local de casa. El servidor i classe continuen a B."
+            }
+          ],
+          "visual": "Subratllar commit, després -m i després el missatge. Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Millora des de casa\"",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git commit enregistrarem el contingut preparat en una versió local. El guionet ema indica que a continuació escrivim el missatge del canvi. El text entre cometes descriu la feina: Millora des de casa. Les cometes agrupen el missatge en un sol argument. Executem l’ordre. C és un commit local de casa. El servidor i classe continuen a B."
+    },
+    {
+      "id": "rev_04_16",
+      "title": "git push",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_050",
+          "narration": "Amb git push compartim els commits de la branca amb el remot.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " compartim els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la branca amb el remot."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git push.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push",
+          "highlight": "git push"
+        },
+        {
+          "id": "pas_051",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git push"
+          ],
+          "command_display": "git push",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_052",
+          "narration": "El servidor incorpora C. Encara falta actualitzar classe.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El servidor incorpora C. Encara falta actualitzar classe."
+            }
+          ],
+          "visual": "Conservar el mateix identificador a local i remot. La fletxa envia commits; no envia edicions sense confirmar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git push",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git push compartim els commits de la branca amb el remot. Executem l’ordre. El servidor incorpora C. Encara falta actualitzar classe."
+    },
+    {
+      "id": "rev_04_17",
+      "title": "Tornem a l’ordinador de classe",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_053",
+          "narration": "A classe encara tenim B. Abans de començar a editar, comprovem l’estat i actualitzem aquesta còpia amb la feina publicada des de casa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "A classe encara tenim B. Abans de començar a editar, comprovem l’estat i actualitzem aquesta còpia amb la feina publicada des de casa."
+            }
+          ],
+          "visual": "Canvi clar de context: ruta CLASSE. No reutilitzar el prompt de casa.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "A classe encara tenim B. Abans de començar a editar, comprovem l’estat i actualitzem aquesta còpia amb la feina publicada des de casa."
+    },
+    {
+      "id": "rev_04_18",
+      "title": "git status --short",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_054",
+          "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Aquesta consulta no modifica el projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status"
+        },
+        {
+          "id": "pas_055",
+          "narration": "Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "short"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " demana la forma breu. La primera columna compara preparació i últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; la segona, treball i preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --short.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "--short"
+        },
+        {
+          "id": "pas_056",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_057",
+          "narration": "No hi ha canvis pendents a classe; en aquest exemple la història és lineal.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "No hi ha canvis pendents a classe; en aquest exemple la història és lineal."
+            }
+          ],
+          "visual": "Mostrar la sortida literal amb les dues columnes separades i una llegenda; conservar els espais de davant de cada lletra. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte. Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació. Executem l’ordre. No hi ha canvis pendents a classe; en aquest exemple la història és lineal."
+    },
+    {
+      "id": "rev_04_19",
+      "title": "git pull --ff-only",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_058",
+          "narration": "Descarreguem i incorporem el commit que havíem publicat des de casa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Descarreguem i incorporem el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que havíem publicat des de casa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git pull --ff-only. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git pull.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git pull --ff-only",
+          "highlight": "git pull"
+        },
+        {
+          "id": "pas_059",
+          "narration": "Només avancem directament. Una divergència s’hauria de revisar com un cas diferent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Només avancem directament. Una divergència s’hauria de revisar com un cas diferent."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git pull --ff-only. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --ff-only.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git pull --ff-only",
+          "highlight": "--ff-only"
+        },
+        {
+          "id": "pas_060",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git pull --ff-only. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git pull --ff-only"
+          ],
+          "command_display": "git pull --ff-only",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_061",
+          "narration": "Classe arriba a C. Les tres còpies comparteixen el mateix commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Classe arriba a C. Les tres còpies comparteixen el mateix "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Classe B → C; servidor i casa ja eren a C. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git pull --ff-only",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Descarreguem i incorporem el commit que havíem publicat des de casa. Només avancem directament. Una divergència s’hauria de revisar com un cas diferent. Executem l’ordre. Classe arriba a C. Les tres còpies comparteixen el mateix commit."
+    },
+    {
+      "id": "rev_04_20",
+      "title": "Resum final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_062",
+          "narration": "Clone crea la còpia local inicial.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Clone"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea la còpia local inicial."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_063",
+          "narration": "Pull descarrega i integra segons l’opció triada.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Pull"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " descarrega i integra segons l’opció triada."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_064",
+          "narration": "Push comparteix commits; les edicions sense confirmar no viatgen.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " comparteix "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; les edicions sense confirmar no viatgen."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "Clone crea la còpia local inicial. Pull descarrega i integra segons l’opció triada. Push comparteix commits; les edicions sense confirmar no viatgen."
+    },
+    {
+      "id": "rev_04_21",
+      "title": "Pràctica final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_065",
+          "narration": "Practica amb dos clons d’un repositori teu: confirma i publica en un, actualitza l’altre amb el treball net i comprova el mateix identificador als dos.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Practica amb dos clons d’un repositori teu: confirma i publica en un, actualitza l’altre amb el treball net i comprova el mateix identificador als dos."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "Practica amb dos clons d’un repositori teu: confirma i publica en un, actualitza l’altre amb el treball net i comprova el mateix identificador als dos."
+    }
+  ],
+  "intro": {
+    "narration": "Quarta lliçó, Sincronització.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Quarta lliçó, Sincronització."
+      }
+    ]
+  }
+}

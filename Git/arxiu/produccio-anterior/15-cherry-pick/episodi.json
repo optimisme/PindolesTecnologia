@@ -1,0 +1,96 @@
+{
+  "title": "Cherry-pick: porta una correcció a una altra branca",
+  "episode_number": 15,
+  "short_title": "CHERRY-PICK",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Quinzena lliçó, Cherry pick."
+  },
+  "prerequisites": "Exemple independent amb arbre net. A–B a main; salutacio parteix de B i conté C i D. B té print(salutacio), sense definir salutacio, a helloGit.py. C afegeix notes.md d’una funcionalitat inacabada i no toca helloGit.py. D corregeix només helloGit.py a print(\"Hello Git!\"). D es representa com d04f7a2 i C com c95f4a7, hashes il·lustratius. Main continua a B i no conté notes.md. El canvi de D no depèn de C i s’aplica netament a main. Cherry-pick sense --ff crea E, un commit nou amb pare B, mentre D té pare C. No hi ha publicació. El cas de conflicte és una alternativa condicional explicada al final.",
+  "scenes": [
+    {
+      "id": "h_hook",
+      "label": "UNA CORRECCIÓ ENTRE ALTRES CANVIS",
+      "title": "Només vull aquest commit",
+      "narration": "A la branca de proves hi ha una funcionalitat a mig fer i una correcció útil. Volem portar només la correcció a main. Aquí entra cherry pick.",
+      "visual": "Graf A–B, salutacio C–D. C etiquetat Funcionalitat pendent, D Correcció. Main a B."
+    },
+    {
+      "id": "h_log",
+      "label": "01 / TROBAR LA CORRECCIÓ",
+      "title": "C és la prova. D corregeix l’error.",
+      "narration": "Amb log consultem els commits de salutacio. C afegeix unes notes de la prova. D corregeix el programa. Copiem l’identificador de D.",
+      "visual": "Log de salutacio mostra D d04f7a2 Corregeix missatge, C c95f4a7 Notes de la prova i B.",
+      "commands": [
+        "git log --oneline salutacio"
+      ]
+    },
+    {
+      "id": "h_show",
+      "label": "02 / COMPROVAR QUÈ APLIQUEM",
+      "title": "La correcció és independent",
+      "narration": "Revisem D amb show. Només canvia el missatge que fallava. En aquest exemple no depèn de la funcionalitat anterior i es pot aplicar a main.",
+      "visual": "Terminal diff entre print(salutacio) i print(\"Hello Git!\"); notes.md queda fora del canvi de D.",
+      "commands": [
+        "git show d04f7a2 -- helloGit.py"
+      ]
+    },
+    {
+      "id": "h_switch",
+      "label": "03 / TRIAR LA DESTINACIÓ",
+      "title": "Ens situem a main amb l’arbre net",
+      "narration": "Comprovem que no hi hagi canvis pendents i anem a main. Cherry pick aplicarà el canvi a la branca on ens trobem.",
+      "visual": "Punter ACTIVA passa de salutacio a main. Main B encara executa print(salutacio).",
+      "commands": [
+        "git status --short",
+        "git switch main"
+      ]
+    },
+    {
+      "id": "h_apply",
+      "label": "04 / REAPLICAR LA CORRECCIÓ",
+      "title": "D es reaplica com un commit nou",
+      "narration": "Executem cherry pick amb l’identificador de D. Git reaplica el seu canvi i crea E sobre main. D continua a salutacio, amb el seu historial original.",
+      "visual": "El canvi de D viatja a main; apareix E fill de B. D i E amb colors iguals però identificadors diferents.",
+      "commands": [
+        "git cherry-pick d04f7a2"
+      ]
+    },
+    {
+      "id": "h_check",
+      "label": "05 / PROVAR EL RESULTAT",
+      "title": "Main funciona sense la prova pendent",
+      "narration": "Provem el programa i revisem l’últim commit. E té un identificador nou. El fitxer de notes de C no ha entrat a main: només hem aplicat la correcció.",
+      "visual": "Sortida Hello Git!, log main E i B. Notes.md només existeix a salutacio.",
+      "commands": [
+        "python3 helloGit.py",
+        "git log -1 --oneline"
+      ]
+    },
+    {
+      "id": "h_conflict",
+      "label": "SI EL CANVI NO ENCAIXA",
+      "title": "Pot caldre resoldre un conflicte",
+      "narration": "Si hi ha un conflicte, Git s’atura. Resolem el fitxer, el preparem i continuem. O podem avortar l’operació per tornar al punt de partida.",
+      "visual": "Cas condicional independent. Dues terminals alternatives: resoldre amb add i continue, o abort. No es mostren com una seqüència única.",
+      "commands": [
+        "git add helloGit.py",
+        "git cherry-pick --continue",
+        "git cherry-pick --abort"
+      ]
+    },
+    {
+      "id": "h_summary",
+      "label": "JA HO TENS",
+      "title": "Seleccionar, revisar i reaplicar",
+      "narration": "Cherry pick ens permet portar un canvi concret a una altra branca. Revisa’n les dependències, tria la destinació i comprova el resultat abans de compartir-lo.",
+      "visual": "Graf final main E i salutacio D. C queda només a salutacio. Targetes Selecciona D, Reaplica a main, Prova E."
+    }
+  ],
+  "sources": [
+    "https://git-scm.com/docs/git-cherry-pick"
+  ]
+}

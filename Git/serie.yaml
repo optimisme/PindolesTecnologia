@@ -1,0 +1,235 @@
+# Sèrie «Píndoles de Git». L’ordre de `llicons` determina la numeració dels vídeos,
+# la capçalera i la presentació parlada. Després de reordenar, executeu
+# `python -m motor.serie Git --renumera` perquè les carpetes NN-nom coincideixin.
+nom: Píndoles de Git
+etiqueta_curta: Git
+fps: 24
+veu:
+  nom: en-US-AndrewMultilingualNeural
+  velocitats: {ca-ES: "+5%", en-US: "+0%"}
+  pausa_canvi_idioma_ms: 500
+  endpoint: https://optimisme-6938-resource.cognitiveservices.azure.com/
+exportacio: ~/Desktop/PindolesTecnologia/Git
+# URL pública de la carpeta de la sèrie (per exemple, a GitHub). Si és buida,
+# les descripcions de YouTube indiquen el camí relatiu dels scripts de pràctica.
+web: ""
+youtube:
+  llista: Píndoles de Git
+  etiquetes: [git, github, control de versions, programació, català, tutorial]
+
+llicons:
+  - introduccio
+  - configuracio
+  - github
+  - primer-commit
+  - tres-estats
+  - historial
+  - add-interactiu
+  - gitignore
+  - branques
+  - merge
+  - conflictes
+  - clone
+  - pull-push
+  - fetch
+  - stash
+  - restore
+  - amend
+  - reset
+  - reflog
+  - revert
+  - tags
+  - rebase
+  - rebase-interactiu
+  - cherry-pick
+  - pull-request-obrir
+  - pull-request-revisar
+  - forks-upstream
+  - forks-contribuir
+  - blame
+  - bisect
+  - worktree
+  - hooks
+
+# Termes que la veu ha de llegir en anglès. També es poden marcar amb [[...]].
+# El compilador falla si algun d’aquests termes queda dins d’un fragment català.
+termes_angles:
+  - git add -p
+  - git branch
+  - git bisect
+  - git blame
+  - git check-ignore
+  - git cherry-pick
+  - git clone
+  - git commit
+  - git config
+  - git diff
+  - git fetch
+  - git log
+  - git merge
+  - git pull
+  - git push
+  - git rebase
+  - git reflog
+  - git remote
+  - git reset
+  - git restore
+  - git revert
+  - git rm
+  - git show
+  - git stash
+  - git status
+  - git switch
+  - git tag
+  - git worktree
+  - gh auth login
+  - gh auth status
+  - GitHub CLI
+  - GitHub
+  - Git
+  - pull requests
+  - pull request
+  - cherry-pick
+  - pre-commit
+  - origin/main
+  - upstream/main
+  - helloGit.py
+  - salutacions.py
+  - notes.md
+  - README.md
+  - app.log
+  - debug.log
+  - Visual Studio Code
+  - commits
+  - commit
+  - merge
+  - rebase
+  - restore
+  - revert
+  - reset
+  - reflog
+  - stash
+  - staged
+  - fetch
+  - push
+  - pull
+  - clone
+  - blame
+  - bisect
+  - amend
+  - squash
+  - pick
+  - short
+  - mixed
+  - soft
+  - origin
+  - upstream
+  - main
+  - HEAD
+  - Release
+  - Python
+  - compile
+  - hooks
+  - hook
+  - forks
+  - fork
+  - tags
+  - tag
+  - diff
+  - show
+  - log
+  - start
+  - good
+  - bad
+  - "yes"
+  - pop
+  - apply
+  - add
+  - worktree
+  - gitignore
+  - token
+  - config
+  - status
+  - switch
+  - oneline
+  - graph
+  - Untracked files
+
+# Identificadors escrits sense accent a les comandes que la veu llegeix en català.
+formes_parlades:
+  salutacio: salutació
+  Salutacio: Salutació
+  correccio: correcció
+  recuperacio: recuperació
+  puntuacio: puntuació
+  Practica: Pràctica
+
+# Plantilles d’ordres habituals. Una etapa amb `plantilla:` hereta aquests camps
+# i pot sobreescriure’n qualsevol. Les versions «-breu» s’usen quan l’ordre ja
+# s’ha explicat en lliçons anteriors.
+plantilles:
+  status:
+    ordre: git status --short
+    text: Consultem l’estat amb [[git status]]. Aquesta consulta no modifica el projecte.
+    parts:
+      - --short: Doble guionet [[short]] demana la forma breu. La primera columna compara la preparació amb l’últim commit; la segona, el treball amb la preparació.
+    visual: Mostrar la sortida literal amb les dues columnes separades i una llegenda; conservar els espais de davant de cada lletra.
+  status-breu:
+    ordre: git status --short
+    text: Consultem l’estat breu amb [[git status]].
+    parts: []
+    visual: Sortida literal amb la llegenda de les dues columnes.
+  add:
+    ordre: git add {fitxer}
+    text: Amb [[git add]] preparem el contingut que volem confirmar.
+    parts:
+      - "{fitxer}": El nom indica el fitxer que preparem. Hi entra el contingut tal com està desat ara.
+    visual: Conservar treball, preparació i historial. Copiar només el contingut seleccionat a la preparació.
+  add-breu:
+    ordre: git add {fitxer}
+    text: Preparem el fitxer amb [[git add]].
+    parts: []
+    visual: Copiar el contingut desat a la preparació.
+  commit:
+    ordre: git commit -m "{missatge}"
+    text: Amb [[git commit]] enregistrem el contingut preparat en una versió local.
+    parts:
+      - -m: El guionet ema indica que a continuació escrivim el missatge del canvi.
+      - '"{missatge}"': "El text entre cometes descriu la feina: {missatge_parlat}. Les cometes mantenen el missatge com un sol argument."
+    visual: Subratllar commit, després -m i després el missatge. Crear el node nou només en executar.
+  commit-breu:
+    ordre: git commit -m "{missatge}"
+    text: "Confirmem el canvi amb [[git commit]] i el missatge: {missatge_parlat}."
+    parts: []
+    visual: Crear el node nou només en executar.
+  switch:
+    ordre: git switch {branca}
+    text: Amb [[git switch]] canviem a la branca on treballarem.
+    parts:
+      - "{branca}": És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió.
+    visual: Mantenir tots els commits quiets. Moure l’indicador de branca activa i actualitzar l’editor després de l’execució.
+  switch-crea:
+    ordre: git switch -c {branca}
+    text: Amb [[git switch]] seleccionem la branca on treballarem.
+    parts:
+      - -c: El guionet ce crea una branca nova i hi canvia.
+      - "{branca}": És el nom de la branca nova. Comença al commit actual.
+    visual: Afegir l’etiqueta nova al commit actual sense crear cap node i moure-hi l’indicador de branca activa.
+  push:
+    ordre: git push
+    text: Amb [[git push]] enviem els commits de la branca al remot.
+    parts: []
+    visual: Conservar el mateix identificador al local i al remot. La fletxa envia commits; no envia edicions sense confirmar.
+  push-u:
+    ordre: git push -u origin {branca}
+    text: Amb [[git push]] publiquem la branca al remot.
+    parts:
+      - -u: El guionet u desa la relació de seguiment; els enviaments següents podran ser només git push.
+      - origin: "[[origin]] és el nom del remot on publiquem."
+      - "{branca}": És el nom de la branca que publiquem.
+    visual: La branca apareix al remot amb el mateix commit que al local.
+  programa:
+    ordre: python3 helloGit.py
+    text: Provem el programa amb la versió desada del fitxer.
+    parts: []
+    visual: Mostrar la sortida real del programa al costat de l’editor.

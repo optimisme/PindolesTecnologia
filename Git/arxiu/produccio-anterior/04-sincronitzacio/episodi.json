@@ -1,0 +1,98 @@
+{
+  "title": "De classe a casa: clone, pull i push",
+  "episode_number": 4,
+  "short_title": "SINCRONITZACIÓ",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Quarta lliçó, Sincronització."
+  },
+  "prerequisites": "Repositori HelloGit amb branca main i remot origin configurats. Treball en sèrie, sense divergències i amb arbres de treball nets abans de pull. <URL-del-repositori> és un marcador que cal substituir per l'adreça pròpia. Els identificadors són il·lustratius.",
+  "scenes": [
+    {
+      "id": "n_hook",
+      "label": "DE CLASSE A CASA",
+      "title": "A casa encara tens el codi d'ahir",
+      "narration": "A classe has acabat la pràctica. A casa obres el projecte i encara hi ha el codi d'ahir. Falta sincronitzar els dos ordinadors.",
+      "visual": "L'ordinador de classe mostra el commit B i el de casa el commit A. GitHub encara té A."
+    },
+    {
+      "id": "n_copies",
+      "label": "DOS LOCALS I UN REMOT",
+      "title": "GitHub és el punt de trobada",
+      "narration": "Cada ordinador té el seu propi repositori local. GitHub és el punt de trobada: els commits només hi arriben quan els enviem.",
+      "visual": "Tres nodes: classe, GitHub i casa. S'assenyalen els dos repositoris locals i el repositori remot."
+    },
+    {
+      "id": "n_push",
+      "label": "01 / ENVIAR DES DE CLASSE",
+      "title": "Primer: commit i push",
+      "narration": "A classe, desem el canvi amb add i commit. Després, git push envia aquest commit al repositori de GitHub.",
+      "visual": "El commit B apareix a classe després del commit i es copia a GitHub amb push. Casa encara té A.",
+      "commands": [
+        "git add helloGit.py",
+        "git commit -m \"Practica de classe\"",
+        "git push"
+      ]
+    },
+    {
+      "id": "n_clone",
+      "label": "02 / LA PRIMERA VEGADA A CASA",
+      "title": "Encara no tens el projecte? Clone.",
+      "narration": "Si a casa encara no tenim el projecte, fem git clone amb l'adreça del repositori. Es crea una carpeta amb els fitxers i l'historial.",
+      "visual": "Camí alternatiu per a un ordinador sense repositori: una carpeta buida rep els commits A i B des de GitHub. La terminal inclou cd HelloGit.",
+      "commands": [
+        "git clone <URL-del-repositori> HelloGit",
+        "cd HelloGit"
+      ]
+    },
+    {
+      "id": "n_pull",
+      "label": "03 / SI JA EL TENIES CLONAT",
+      "title": "Ja tens el projecte? Pull.",
+      "narration": "Si ja el teníem clonat, no cal tornar-lo a clonar. Entrem a la carpeta i fem git pull per integrar els commits nous.",
+      "visual": "Alternativa a clone: casa parteix d'A i incorpora B des de GitHub. La terminal executa pull dins de HelloGit.",
+      "commands": [
+        "cd HelloGit",
+        "git pull"
+      ]
+    },
+    {
+      "id": "n_home",
+      "label": "04 / TREBALLAR DES DE CASA",
+      "title": "Ara casa envia el següent canvi",
+      "narration": "Ara el codi de casa ja està actualitzat. Hi fem un altre canvi, el confirmem i l'enviem amb git push.",
+      "visual": "Es crea C a casa i després viatja a GitHub. Classe continua a B fins que faci pull.",
+      "commands": [
+        "git add helloGit.py",
+        "git commit -m \"Millora des de casa\"",
+        "git push"
+      ]
+    },
+    {
+      "id": "n_class",
+      "label": "05 / TORNAR A CLASSE",
+      "title": "Recupera el que has fet a casa",
+      "narration": "Quan tornem a classe, git pull descarrega i integra el commit de casa. Abans de començar, comprovem que no tenim canvis locals pendents.",
+      "visual": "Git status --short sense sortida confirma un arbre net. Pull porta C des de GitHub a classe. Els tres repositoris queden sincronitzats.",
+      "commands": [
+        "git status --short",
+        "git pull"
+      ]
+    },
+    {
+      "id": "n_summary",
+      "label": "LA RUTINA",
+      "title": "Actualitza. Treballa. Comparteix.",
+      "narration": "La rutina és senzilla: actualitzar, treballar, fer commit i enviar. Clone és per obtenir el projecte; pull per actualitzar-lo; push per compartir els commits.",
+      "visual": "Tres targetes resumeixen clone, pull i push amb fletxes i una rutina de treball en quatre passos.",
+      "commands": [
+        "git clone <URL-del-repositori> HelloGit",
+        "git pull",
+        "git push"
+      ]
+    }
+  ]
+}

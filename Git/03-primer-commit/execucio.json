@@ -1,0 +1,347 @@
+{
+ "llico": "03-primer-commit",
+ "autoria": [
+  "Anna Puig",
+  "anna@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": null,
+    "refs": {},
+    "commits": [],
+    "status": [
+     "?? helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git status --short",
+   "sortida": "?? helloGit.py\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": null,
+    "refs": {},
+    "commits": [],
+    "status": [
+     "?? helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git add helloGit.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": null,
+    "refs": {},
+    "commits": [],
+    "status": [
+     "A  helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git commit -m \"Afegeix la salutacio inicial\"",
+   "sortida": "[main (root-commit) e2bee2c] Afegeix la salutacio inicial\n 1 file changed, 1 insertion(+)\n create mode 100644 helloGit.py\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "e2bee2c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "e2bee2c",
+    "refs": {
+     "main": "e2bee2c"
+    },
+    "commits": [
+     {
+      "id": "e2bee2c",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git log --oneline",
+   "sortida": "e2bee2c Afegeix la salutacio inicial\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "e2bee2c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "e2bee2c",
+    "refs": {
+     "main": "e2bee2c"
+    },
+    "commits": [
+     {
+      "id": "e2bee2c",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git push -u origin main",
+   "sortida": "branch 'main' set up to track 'origin/main'.\nTo ~/origin.git\n * [new branch]      main -> main\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "e2bee2c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "e2bee2c",
+    "refs": {
+     "main": "e2bee2c",
+     "origin/main": "e2bee2c"
+    },
+    "commits": [
+     {
+      "id": "e2bee2c",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "e2bee2c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Anna!\")\n",
+     "notes.txt": "Salutació personalitzada per a l’Anna.\n"
+    },
+    "head_commit": "e2bee2c",
+    "refs": {
+     "main": "e2bee2c",
+     "origin/main": "e2bee2c"
+    },
+    "commits": [
+     {
+      "id": "e2bee2c",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [
+     " M helloGit.py",
+     "?? notes.txt"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": "git add .",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "e2bee2c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Anna!\")\n",
+     "notes.txt": "Salutació personalitzada per a l’Anna.\n"
+    },
+    "head_commit": "e2bee2c",
+    "refs": {
+     "main": "e2bee2c",
+     "origin/main": "e2bee2c"
+    },
+    "commits": [
+     {
+      "id": "e2bee2c",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [
+     "M  helloGit.py",
+     "A  notes.txt"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": "git commit -m \"Personalitza la salutacio i afegeix notes\"",
+   "sortida": "[main 5e5eeb2] Personalitza la salutacio i afegeix notes\n 2 files changed, 2 insertions(+), 1 deletion(-)\n create mode 100644 notes.txt\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "e2bee2c",
+    "B": "5e5eeb2"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Anna!\")\n",
+     "notes.txt": "Salutació personalitzada per a l’Anna.\n"
+    },
+    "head_commit": "5e5eeb2",
+    "refs": {
+     "main": "5e5eeb2",
+     "origin/main": "e2bee2c"
+    },
+    "commits": [
+     {
+      "id": "e2bee2c",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "5e5eeb2",
+      "lletra": "B",
+      "pares": [
+       "e2bee2c"
+      ],
+      "missatge": "Personalitza la salutacio i afegeix notes"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 9,
+   "cami": "principal",
+   "ordre": "git push",
+   "sortida": "To ~/origin.git\n   e2bee2c..5e5eeb2  main -> main\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "e2bee2c",
+    "B": "5e5eeb2"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Anna!\")\n",
+     "notes.txt": "Salutació personalitzada per a l’Anna.\n"
+    },
+    "head_commit": "5e5eeb2",
+    "refs": {
+     "main": "5e5eeb2",
+     "origin/main": "5e5eeb2"
+    },
+    "commits": [
+     {
+      "id": "e2bee2c",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "5e5eeb2",
+      "lletra": "B",
+      "pares": [
+       "e2bee2c"
+      ],
+      "missatge": "Personalitza la salutacio i afegeix notes"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {},
+  "head_commit": null,
+  "refs": {},
+  "commits": [],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {}
+}

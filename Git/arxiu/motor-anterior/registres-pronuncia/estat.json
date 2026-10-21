@@ -1,0 +1,83 @@
+{
+  "status": "scripts_revised_media_pending",
+  "series_didactic_revision_complete": false,
+  "updated_episodes": [
+    "00-introduccio",
+    "01-primer-commit"
+  ],
+  "updated_full_decode_verified": true,
+  "unchanged_legacy_episodes": 24,
+  "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git",
+  "copied_files": 26,
+  "export_layout": "flat-videos-only",
+  "render_profiles": [
+    "0777061acffb8e9be15cd511e1d695bfee1bf49b915d1d377c1ab6d2885a9793",
+    "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7",
+    "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+  ],
+  "previous_enric_batch": {
+    "status": "complete",
+    "series_regeneration_complete": true,
+    "full_decode_verified": true,
+    "selected_voice": "ca-ES-EnricNeural",
+    "github_spelling": "Guit Hàb",
+    "add_spelling": "add",
+    "commit_spelling": "còmit",
+    "commits_spelling": "còmits",
+    "profile": "enric-git-guiada-v7",
+    "profile_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7",
+    "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git",
+    "copied_files": 25,
+    "export_layout": "flat-videos-only",
+    "log_spelling": "lòg",
+    "logs_spelling": "lògs",
+    "updated_episodes": [
+      "05-merge",
+      "10-revert",
+      "12-reflog",
+      "13-gitignore",
+      "15-cherry-pick"
+    ],
+    "updated_files": 5
+  },
+  "latest_revision": {
+    "updated_episodes": [
+      "00-introduccio",
+      "01-primer-commit"
+    ],
+    "changes": [
+      "common subtitle baseline for regular and italic text",
+      "terminal output spacing",
+      "lesson 1 external guide references removed"
+    ],
+    "full_decode_verified": true
+  },
+  "script_revision_complete": true,
+  "revised_script_episodes": [
+    "02-branques",
+    "03-estats",
+    "04-sincronitzacio",
+    "05-merge",
+    "06-conflictes",
+    "07-rebase",
+    "08-stash",
+    "09-restore",
+    "10-revert",
+    "11-reset",
+    "12-reflog",
+    "13-gitignore",
+    "14-tags",
+    "15-cherry-pick",
+    "16-pull-requests",
+    "17-blame",
+    "18-bisect",
+    "19-amend",
+    "20-fetch",
+    "21-forks",
+    "22-rebase-interactiu",
+    "23-add-interactiu",
+    "24-worktree",
+    "25-hooks"
+  ],
+  "new_audio_generated_for_script_revision": false
+}

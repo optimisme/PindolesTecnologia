@@ -1,0 +1,578 @@
+{
+ "llico": "12-pull-push",
+ "autoria": [
+  "Anna Puig",
+  "anna@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "17875ff",
+    "refs": {
+     "main": "17875ff",
+     "origin": "17875ff",
+     "origin/main": "17875ff"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git status --short",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "17875ff",
+    "refs": {
+     "main": "17875ff",
+     "origin": "17875ff",
+     "origin/main": "17875ff"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git pull --ff-only",
+   "sortida": "Updating 17875ff..57f0305\nFast-forward\n helloGit.py | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)\nFrom ~/origin\n   17875ff..57f0305  main       -> origin/main\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de classe!\")\n"
+    },
+    "head_commit": "57f0305",
+    "refs": {
+     "main": "57f0305",
+     "origin": "57f0305",
+     "origin/main": "57f0305"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57f0305",
+      "lletra": "B",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Practica de classe"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de casa!\")\n"
+    },
+    "head_commit": "57f0305",
+    "refs": {
+     "main": "57f0305",
+     "origin": "57f0305",
+     "origin/main": "57f0305"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57f0305",
+      "lletra": "B",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Practica de classe"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git add helloGit.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de casa!\")\n"
+    },
+    "head_commit": "57f0305",
+    "refs": {
+     "main": "57f0305",
+     "origin": "57f0305",
+     "origin/main": "57f0305"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57f0305",
+      "lletra": "B",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Practica de classe"
+     }
+    ],
+    "status": [
+     "M  helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git commit -m \"Millora des de casa\"",
+   "sortida": "[main d300f4a] Millora des de casa\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305",
+    "C": "d300f4a"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de casa!\")\n"
+    },
+    "head_commit": "d300f4a",
+    "refs": {
+     "main": "d300f4a",
+     "origin": "57f0305",
+     "origin/main": "57f0305"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57f0305",
+      "lletra": "B",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Practica de classe"
+     },
+     {
+      "id": "d300f4a",
+      "lletra": "C",
+      "pares": [
+       "57f0305"
+      ],
+      "missatge": "Millora des de casa"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git push",
+   "sortida": "To ~/origin.git\n   57f0305..d300f4a  main -> main\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305",
+    "C": "d300f4a"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de casa!\")\n"
+    },
+    "head_commit": "d300f4a",
+    "refs": {
+     "main": "d300f4a",
+     "origin": "d300f4a",
+     "origin/main": "d300f4a"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57f0305",
+      "lletra": "B",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Practica de classe"
+     },
+     {
+      "id": "d300f4a",
+      "lletra": "C",
+      "pares": [
+       "57f0305"
+      ],
+      "missatge": "Millora des de casa"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305",
+    "C": "d300f4a"
+   },
+   "estat": {
+    "directori": "~/classe/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de classe!\")\n"
+    },
+    "head_commit": "57f0305",
+    "refs": {
+     "main": "57f0305",
+     "origin/main": "57f0305"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57f0305",
+      "lletra": "B",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Practica de classe"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": "git status --short",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305",
+    "C": "d300f4a"
+   },
+   "estat": {
+    "directori": "~/classe/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de classe!\")\n"
+    },
+    "head_commit": "57f0305",
+    "refs": {
+     "main": "57f0305",
+     "origin/main": "57f0305"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57f0305",
+      "lletra": "B",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Practica de classe"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 9,
+   "cami": "principal",
+   "ordre": "git pull --ff-only",
+   "sortida": "Updating 57f0305..d300f4a\nFast-forward\n helloGit.py | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)\nFrom ~/origin\n   57f0305..d300f4a  main       -> origin/main\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305",
+    "C": "d300f4a"
+   },
+   "estat": {
+    "directori": "~/classe/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de casa!\")\n"
+    },
+    "head_commit": "d300f4a",
+    "refs": {
+     "main": "d300f4a",
+     "origin": "d300f4a",
+     "origin/main": "d300f4a"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57f0305",
+      "lletra": "B",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Practica de classe"
+     },
+     {
+      "id": "d300f4a",
+      "lletra": "C",
+      "pares": [
+       "57f0305"
+      ],
+      "missatge": "Millora des de casa"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 10,
+   "cami": "divergent",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305",
+    "X": "b6c503a"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de casa!\")\n"
+    },
+    "head_commit": "b6c503a",
+    "refs": {
+     "main": "b6c503a",
+     "origin": "17875ff",
+     "origin/main": "17875ff"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "b6c503a",
+      "lletra": "X",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Canvi a casa sense actualitzar"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 11,
+   "cami": "divergent",
+   "ordre": "git pull --ff-only",
+   "sortida": "From ~/origin\n   17875ff..57f0305  main       -> origin/main\nhint: Diverging branches can't be fast-forwarded, you need to either:\nhint:\nhint: \tgit merge --no-ff\nhint:\nhint: or:\nhint:\nhint: \tgit rebase\nhint:\nhint: Disable this message with \"git config set advice.diverging false\"\nfatal: Not possible to fast-forward, aborting.\n",
+   "codi": 128,
+   "simulat": false,
+   "etiquetes": {
+    "A": "17875ff",
+    "B": "57f0305",
+    "X": "b6c503a"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de casa!\")\n"
+    },
+    "head_commit": "b6c503a",
+    "refs": {
+     "main": "b6c503a",
+     "origin": "57f0305",
+     "origin/main": "57f0305"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57f0305",
+      "lletra": "B",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Practica de classe"
+     },
+     {
+      "id": "b6c503a",
+      "lletra": "X",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Canvi a casa sense actualitzar"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/casa/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "helloGit.py": "print(\"Hello Git!\")\n"
+  },
+  "head_commit": "17875ff",
+  "refs": {
+   "main": "17875ff",
+   "origin": "17875ff",
+   "origin/main": "17875ff"
+  },
+  "commits": [
+   {
+    "id": "17875ff",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "17875ff",
+  "B": "57f0305"
+ }
+}

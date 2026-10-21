@@ -1,0 +1,16 @@
+{
+  "catalan_voice": "ca-ES-EnricNeural",
+  "english_voice": "en-US-GuyNeural",
+  "rate": "+12%",
+  "catalan_aliases": {
+    "salutacio": "salutació",
+    "correccio": "correcció",
+    "recuperacio": "recuperació"
+  },
+  "english_terms": ["GitHub", "commits", "commit", "main", "git", "fetch", "merge"],
+  "examples": [
+    {"id": "01-github", "text": "A GitHub publiquem els commits de la branca salutacio."},
+    {"id": "02-correccio", "text": "Creem la branca correccio des de main i fem un commit."},
+    {"id": "03-fetch-merge", "text": "Amb git fetch revisem els canvis abans de fer merge."}
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "title": "Pull requests: revisa i integra una feina en equip",
+  "episode_number": 16,
+  "short_title": "PULL REQUESTS",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Setzena lliçó, Pull requests."
+  },
+  "prerequisites": "Projecte independent ja clonat de GitHub. Main local i origin/main són a B, arbre net i main amb upstream. Es té permís per publicar branques al mateix repositori i hi ha una altra persona que revisa la proposta. La branca salutacio encara no existeix. B té print(\"Hello Git!\"). C canvia el fitxer a print(\"Hola, Anna\") i D hi afegeix l’exclamació: print(\"Hola, Anna!\"). Les dues edicions es fan explícitament abans de les comandes. GitHub té habilitada l’opció Create a merge commit. Es representa una revisió seguida d’una nova aprovació després de D, sense conflictes i amb els requisits de fusió complerts; una persona amb permís crea M, pares B i D, a main remot. No es força la branca main ni es modifica localment fins al pull --ff-only final. La interfície de GitHub és un esquema docent amb dades inventades; no es crea, comenta, revisa ni fusiona cap PR real. Les proves executen només l’equivalent Git en un remot local temporal.",
+  "scenes": [
+    {
+      "id": "j_hook",
+      "label": "TREBALL EN EQUIP",
+      "title": "Una proposta abans d’integrar el canvi",
+      "narration": "La teva branca funciona. Abans d’incorporar-la a main, una altra persona pot revisar-la. A GitHub ho fem amb una pull request: una proposta de canvi.",
+      "visual": "Tres targetes branca, revisió i main, unides amb fletxes."
+    },
+    {
+      "id": "j_branch",
+      "label": "01 / TREBALLAR EN UNA BRANCA",
+      "title": "Main està al dia. Creem salutacio.",
+      "narration": "Partim de main actualitzada i sense canvis pendents. Creem salutacio. Farem la millora en aquesta branca perquè es pugui revisar abans d’integrar-la.",
+      "visual": "Graf B amb main; apareix salutacio i passa a ser activa.",
+      "commands": [
+        "git status --short",
+        "git switch -c salutacio"
+      ]
+    },
+    {
+      "id": "j_commit",
+      "label": "02 / EDITAR, PROVAR I CONFIRMAR",
+      "title": "Preparem el primer canvi",
+      "narration": "Canviem el missatge del fitxer, executem el programa i confirmem la millora. Encara és un commit local a salutacio. Main continua al punt de partida.",
+      "visual": "Editor print(\"Hola, Anna\") i sortida Hola, Anna. Commit C en salutacio.",
+      "commands": [
+        "python3 helloGit.py",
+        "git add helloGit.py",
+        "git commit -m \"Millora la salutacio\""
+      ]
+    },
+    {
+      "id": "j_push",
+      "label": "03 / PUBLICAR LA BRANCA",
+      "title": "GitHub ja pot comparar els commits",
+      "narration": "Enviem salutacio a origin. L’opció u deixa configurat el seguiment de la branca remota. Publicar-la encara no incorpora el canvi a main.",
+      "visual": "C viatja al remot; origin/salutacio a C i origin/main encara B.",
+      "commands": [
+        "git push -u origin salutacio"
+      ]
+    },
+    {
+      "id": "j_open",
+      "label": "04 / OBRIR LA PROPOSTA A GITHUB",
+      "title": "Base: main. Compare: salutacio.",
+      "narration": "Obrim una pull request amb main com a destinació i salutacio com a origen. Expliquem què canvia i com ho hem provat, i revisem la diferència.",
+      "visual": "Interfície esquemàtica amb base main, compare salutacio, títol, descripció, prova i diff. Botó Create pull request."
+    },
+    {
+      "id": "j_review",
+      "label": "05 / REVISAR EL CANVI",
+      "title": "Una petició de millora",
+      "narration": "Una altra persona revisa el codi i demana afegir una exclamació. La revisió ens ajuda a acordar el resultat abans de fusionar la proposta.",
+      "visual": "Interfície esquemàtica Files changed, comentari Afegeix una exclamació al final, estat Changes requested."
+    },
+    {
+      "id": "j_update",
+      "label": "06 / RESPONDRE A LA REVISIÓ",
+      "title": "Un push actualitza la mateixa proposta",
+      "narration": "Editem el missatge, el tornem a provar i fem un nou commit. Amb push a la mateixa branca, la pull request incorpora el canvi. No cal obrir-ne una altra.",
+      "visual": "Editor final print(\"Hola, Anna!\"). Terminal de quatre comandes. PR passa d’un a dos commits i a pendent de nova revisió.",
+      "commands": [
+        "python3 helloGit.py",
+        "git add helloGit.py",
+        "git commit -m \"Completa la salutacio\"",
+        "git push"
+      ]
+    },
+    {
+      "id": "j_merge",
+      "label": "07 / APROVAR I FUSIONAR",
+      "title": "La feina revisada entra a main",
+      "narration": "Després de revisar l’actualització i complir els requisits, una persona amb permís pot fusionar. Aquí triem crear un commit de merge, que incorpora la branca a main.",
+      "visual": "Aprovació de D i requisits complerts. Opció Create a merge commit, confirmació, estat Merged. Graf remot B–M i C–D–M; M té pares B i D."
+    },
+    {
+      "id": "j_pull",
+      "label": "08 / ACTUALITZAR LA CÒPIA LOCAL",
+      "title": "Ara la millora també és al nostre main",
+      "narration": "Finalment tornem a main i fem pull. La còpia local incorpora la fusió. Branca, proposta, revisió i integració: un recorregut complet per treballar en equip.",
+      "visual": "Main local B avança fins al merge M remot. Fitxer final Hola, Anna!; arbre net. Pull --ff-only és possible perquè main local no ha divergit.",
+      "commands": [
+        "git switch main",
+        "git pull --ff-only"
+      ]
+    }
+  ],
+  "sources": [
+    "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request",
+    "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request"
+  ]
+}

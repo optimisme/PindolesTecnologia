@@ -1,0 +1,30 @@
+name: Comprovacions
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  guions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Dependències sense credencials
+        run: |
+          sudo apt-get install -y --no-install-recommends fonts-dejavu-core
+          pip install -r requirements-comprovacions.txt
+      - name: Proves unitàries del motor
+        run: python -m unittest discover -s motor/proves -t .
+      - name: Repetició de les lliçons en repositoris temporals
+        run: python Git/eines/repeticio.py Git --sense-desar
+      - name: Guions compilats al dia
+        run: python -m motor.guions Git --comprova
+      - name: Scripts de pràctica al dia i executables
+        run: |
+          python Git/eines/practiques.py Git --comprova
+          python Git/eines/practiques.py Git --prova
+      - name: Fitxes de YouTube al dia
+        run: python -m motor.youtube Git --comprova

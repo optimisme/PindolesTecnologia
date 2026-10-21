@@ -1,0 +1,85 @@
+{
+  "title": "Merge: portem la prova a main",
+  "episode_number": 5,
+  "short_title": "MERGE",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Cinquena lliçó, Merge."
+  },
+  "prerequisites": "Repositori local net amb main al commit B i salutacio al commit C, descendent directe de B. A main, helloGit.py mostra Hello Git!; a salutacio, Hola, Anna!. Inicialment som a salutacio. Exemple amb el comportament habitual fast-forward de Git. A, B, C, D i M són noms didàctics de commits; els hashes de mostra són il·lustratius.",
+  "scenes": [
+    {
+      "id": "m_hook",
+      "label": "LA PROVA JA FUNCIONA",
+      "title": "Portem la salutació a main",
+      "narration": "La salutació nova funciona a la seva branca. Ara volem incorporar-la a main perquè formi part de la versió principal.",
+      "visual": "Dos editors mostren main amb Hello Git! i salutacio amb Hola, Anna!. La nova funcionalitat està preparada per integrar-la."
+    },
+    {
+      "id": "m_before",
+      "label": "ABANS D'INTEGRAR",
+      "title": "Main encara és al commit anterior",
+      "narration": "Main continua al commit anterior. Salutació té un commit més. No hem canviat main mentre treballàvem en aquesta funcionalitat.",
+      "visual": "Historial lineal A–B–C: main apunta a B i salutacio a C. No s'inventa cap commit divergent."
+    },
+    {
+      "id": "m_target",
+      "label": "01 / ESCOLLIR EL DESTÍ",
+      "title": "La branca activa rebrà els canvis",
+      "narration": "Primer tornem a main amb git switch. Aquesta és la branca que rebrà els canvis; comprovem que és l'activa.",
+      "visual": "La terminal canvia a main i git branch --show-current en confirma el nom. Els dos punters encara són a B i C.",
+      "commands": [
+        "git switch main",
+        "git branch --show-current"
+      ]
+    },
+    {
+      "id": "m_merge",
+      "label": "02 / INTEGRAR LA BRANCA",
+      "title": "Git pot avançar directament",
+      "narration": "Fem git merge salutació. Com que main és un avantpassat de salutació, Git pot avançar directament fins al seu commit.",
+      "visual": "La terminal executa merge i l'etiqueta main es desplaça de B fins a C. No apareix cap node nou.",
+      "commands": [
+        "git merge salutacio"
+      ]
+    },
+    {
+      "id": "m_ff",
+      "label": "FAST-FORWARD",
+      "title": "Dos noms. El mateix commit.",
+      "narration": "Aquest avançament s'anomena fast forward. Main i salutació apunten al mateix commit. No s'ha creat cap commit nou per fer la unió.",
+      "visual": "Main i salutacio apunten a C. Una etiqueta remarca que el nombre de commits és el mateix que abans de fer merge."
+    },
+    {
+      "id": "m_check",
+      "label": "03 / COMPROVAR EL RESULTAT",
+      "title": "Main ja incorpora el canvi",
+      "narration": "El fitxer de main ja mostra la salutació personalitzada. Amb git log veiem que el canvi forma part del seu historial.",
+      "visual": "L'editor de main mostra Hola, Anna!. La terminal consulta l'historial de main.",
+      "commands": [
+        "git log --oneline main"
+      ]
+    },
+    {
+      "id": "m_diverged",
+      "label": "UN ALTRE CAS: MAIN TAMBÉ AVANÇA",
+      "title": "Quan els historials divergeixen",
+      "narration": "Si main també hagués avançat, els historials podrien divergir. Git podria crear un commit de merge amb dos pares.",
+      "visual": "Exemple alternatiu clarament etiquetat: B té dos descendents, D a main i C a salutacio. Un commit M amb pares D i C integra canvis compatibles."
+    },
+    {
+      "id": "m_summary",
+      "label": "JA HO TENS",
+      "title": "Canvia al destí. Integra. Revisa.",
+      "narration": "Merge integra canvis a la branca activa. En el nostre exemple main avança i salutació es conserva. Si les edicions xoquen, caldrà resoldre un conflicte.",
+      "visual": "Resum del flux a main. La branca d'origen continua existint; els conflictes es presenten com a tema de la lliçó següent.",
+      "commands": [
+        "git switch main",
+        "git merge salutacio"
+      ]
+    }
+  ]
+}

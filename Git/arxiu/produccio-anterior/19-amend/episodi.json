@@ -1,0 +1,92 @@
+{
+  "title": "Amend: completa l’últim commit local",
+  "episode_number": 19,
+  "short_title": "AMEND",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Dinovena lliçó, Amend."
+  },
+  "prerequisites": "Exemple independent amb main a C, últim commit propi encara no publicat. A conté README.md, B afegeix helloGit.py amb print(\"Hello Git!\"), C modifica helloGit.py a print(\"Hola, Anna!\") amb el missatge Millora la salutacio. notes.md existeix localment amb una línia de documentació però és un fitxer nou no seguit que es va oblidar. No hi ha altres canvis locals ni preparats. S’afegeix només notes.md, es revisa la preparació i s’executa commit --amend --no-edit per crear C′, amb pare B, missatge i autoria de C conservats, i el fitxer afegit. C ja no pertany a la línia de main, però no s’esborra immediatament l’objecte. L’alternativa final de només missatge parteix independentment de C, amb l’índex sense canvis respecte a C; no continua després de l’amend anterior. Es mostra --amend -m per crear C* amb el mateix arbre i pare B, i un missatge diferent. No hi ha remots ni publicació. Els hashes i les lletres són il·lustratius.",
+  "scenes": [
+    {
+      "id": "o_hook",
+      "label": "UN FITXER OBLIDAT",
+      "title": "Aquest fitxer havia d’entrar al commit",
+      "narration": "Has fet l’últim commit, però t’has deixat un fitxer. Encara no l’has publicat. Amb amend podem substituir aquell commit per un de complet.",
+      "visual": "Main a C amb helloGit.py confirmat. Notes.md és nou i queda fora del commit. C marcat només local."
+    },
+    {
+      "id": "o_before",
+      "label": "01 / REVISAR EL PUNT DE PARTIDA",
+      "title": "C està confirmat. notes.md encara no.",
+      "narration": "Comprovem l’estat i l’últim commit. El fitxer de notes continua sense seguir. En aquest exemple, la resta està confirmada i no hi ha altres canvis preparats.",
+      "visual": "Status mostra ?? notes.md i log C Millora la salutacio.",
+      "commands": [
+        "git status --short",
+        "git log -1 --oneline"
+      ]
+    },
+    {
+      "id": "o_add",
+      "label": "02 / PREPARAR EL FITXER QUE FALTA",
+      "title": "Seleccionem què volem incorporar",
+      "narration": "Fem add només del fitxer oblidat i revisem els canvis preparats. Amend incorporarà el contingut de la preparació: cal assegurar-nos que sigui el que volem.",
+      "visual": "Notes.md passa de nou a preparat. Diff staged stat mostra un fitxer i una línia afegida.",
+      "commands": [
+        "git add notes.md",
+        "git diff --staged --stat"
+      ]
+    },
+    {
+      "id": "o_amend",
+      "label": "03 / SUBSTITUIR L’ÚLTIM COMMIT",
+      "title": "Amend crea una versió nova de C",
+      "narration": "Fem commit amb amend i no edit. Git crea un commit nou que inclou el fitxer preparat i conserva el missatge anterior. Main passa a apuntar a C prima.",
+      "visual": "C s’atenua i apareix C′ des del mateix pare B. Notes.md queda inclòs. --no-edit conserva Millora la salutacio.",
+      "commands": [
+        "git commit --amend --no-edit"
+      ]
+    },
+    {
+      "id": "o_graph",
+      "label": "ENTENDRE L’HISTORIAL",
+      "title": "C prima té el mateix pare B",
+      "narration": "No hem afegit un commit després de C. L’hem substituït a la branca per C prima, amb un identificador diferent i el mateix pare B.",
+      "visual": "Comparació A–B–C antiga i A–B–C′ actual. No hi ha una aresta de C a C′. C queda fora de la línia actual de main."
+    },
+    {
+      "id": "o_check",
+      "label": "04 / COMPROVAR EL RESULTAT",
+      "title": "El commit ja inclou el fitxer",
+      "narration": "Revisem l’últim commit i l’estat. Ara el commit conté també el fitxer de notes, conserva el missatge i ja no tenim canvis pendents.",
+      "visual": "Show stat de C′ inclou helloGit.py i notes.md respecte de B. Status sense sortida.",
+      "commands": [
+        "git show --stat HEAD",
+        "git status --short"
+      ]
+    },
+    {
+      "id": "o_message",
+      "label": "ALTERNATIVA / NOMÉS EL MISSATGE",
+      "title": "També podem corregir el missatge",
+      "narration": "En un cas independent, sense canvis preparats, amend amb l’opció ema permet corregir només el missatge. També crea un identificador nou, però el contingut queda igual.",
+      "visual": "Alternativa des de C amb índex igual a C. C* manté l’arbre i el pare B, amb missatge nou. No es continua després de C′.",
+      "commands": [
+        "git commit --amend -m \"Personalitza el missatge\""
+      ]
+    },
+    {
+      "id": "o_summary",
+      "label": "JA HO TENS",
+      "title": "Un retoc abans de publicar",
+      "narration": "Prepara només allò que falta, revisa-ho i completa l’últim commit. En aquesta lliçó hem treballat amb un commit propi encara no publicat, perquè amend reescriu aquest punt de l’historial.",
+      "visual": "Tres targetes preparar, revisar, substituir. Recordatori commit propi local, missatge conservat amb --no-edit, identificador nou."
+    }
+  ],
+  "sources": [
+    "https://git-scm.com/docs/git-commit"
+  ]
+}

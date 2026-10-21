@@ -1,0 +1,704 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 3,
+  "slug": "03-primer-commit",
+  "title": "El primer commit: preparar, confirmar i publicar",
+  "short_title": "PRIMER COMMIT",
+  "card": [
+    "EL PRIMER COMMIT",
+    "Preparar, confirmar i publicar"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "03-primer-commit.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Tercera lliçó. El primer commit.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Tercera lliçó. El primer "
+      },
+      {
+        "lang": "en-US",
+        "text": "commit"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  },
+  "objective": "crear el primer commit d’un projecte i publicar-lo al remot.",
+  "start_note": "Git i Python disponibles; identitat configurada al repositori, remot origin i accés a GitHub. Repositori HelloGit buit ja clonat, HEAD a main sense commits, cap fitxer del programa creat. La demostració executable es valida en repositoris temporals amb un remot local.",
+  "start_spoken": "Partim d’un repositori buit, ja clonat i amb accés a GitHub, tal com el vam deixar a la lliçó anterior.",
+  "summary": [],
+  "practice": "",
+  "practice_script": "practiques/03-primer-commit.sh",
+  "scenes": [
+    {
+      "id": "i_objectiu",
+      "label": "EL PRIMER EXEMPLE",
+      "title": "Preparar, confirmar i publicar",
+      "mode": "principal",
+      "visual": "Tres accions visibles. Es presenta l’objectiu pràctic sense repetir la introducció conceptual.",
+      "beats": [
+        {
+          "id": "objectiu",
+          "narration": "En aquesta lliçó guardarem una primera versió del projecte i la compartirem. Farem cada pas a la terminal i en comprovarem el resultat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó guardarem una primera versió del projecte i la compartirem. Farem cada pas a la terminal i en comprovarem el resultat."
+            }
+          ],
+          "visual": "Tres accions visibles. Es presenta l’objectiu pràctic sense repetir la introducció conceptual.",
+          "pause_after": 2,
+          "commands": [],
+          "view": "goal"
+        }
+      ],
+      "narration": "En aquesta lliçó guardarem una primera versió del projecte i la compartirem. Farem cada pas a la terminal i en comprovarem el resultat."
+    },
+    {
+      "id": "i_preparacio",
+      "label": "PUNT DE PARTIDA",
+      "title": "Un projecte buit ja preparat",
+      "mode": "principal",
+      "visual": "Requisits visibles i estables; el punt de partida s’explica dins del vídeo.",
+      "beats": [
+        {
+          "id": "preparacio",
+          "narration": "Comencem dins de la carpeta del projecte. El repositori està buit, la identitat està configurada i tenim accés al remot.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comencem dins de la carpeta del projecte. El repositori està buit, la identitat està configurada i tenim accés al remot."
+            }
+          ],
+          "visual": "Requisits visibles i estables; el punt de partida s’explica dins del vídeo.",
+          "pause_after": 3,
+          "commands": [],
+          "view": "setup"
+        }
+      ],
+      "narration": "Comencem dins de la carpeta del projecte. El repositori està buit, la identitat està configurada i tenim accés al remot."
+    },
+    {
+      "id": "i_editar",
+      "label": "01 / EDITAR I DESAR",
+      "title": "Escrivim i provem la salutació",
+      "mode": "principal",
+      "visual": "Editor desat i execució del programa en dos passos amb espera.",
+      "beats": [
+        {
+          "id": "desar",
+          "narration": "Creem el fitxer del programa, escrivim la salutació i el desem. El nom del fitxer és el que veus a l’editor.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Creem el fitxer del programa, escrivim la salutació i el desem. El nom del fitxer és el que veus a l’editor."
+            }
+          ],
+          "visual": "Editor desat i execució del programa en dos passos amb espera.",
+          "pause_after": 2.5,
+          "commands": [],
+          "view": "edit"
+        },
+        {
+          "id": "provar",
+          "narration": "Executem el programa. La terminal mostra la salutació. El fitxer està desat, però encara no tenim cap versió a l’historial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem el programa. La terminal mostra la salutació. El fitxer està desat, però encara no tenim cap versió a l’historial."
+            }
+          ],
+          "visual": "Editor desat i execució del programa en dos passos amb espera.",
+          "pause_after": 3,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "view": "run"
+        }
+      ],
+      "narration": "Creem el fitxer del programa, escrivim la salutació i el desem. El nom del fitxer és el que veus a l’editor. Executem el programa. La terminal mostra la salutació. El fitxer està desat, però encara no tenim cap versió a l’historial."
+    },
+    {
+      "id": "i_estat",
+      "label": "02 / CONSULTAR",
+      "title": "Consultem què tenim pendent",
+      "mode": "principal",
+      "visual": "Git status sense opcions; extracte de la sortida i traducció del seu significat.",
+      "beats": [
+        {
+          "id": "status_ordre",
+          "narration": "git status consulta l’estat del projecte. Aquesta ordre ens informa; no confirma ni envia cap canvi.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " consulta l’estat del projecte. Aquesta ordre ens informa; no confirma ni envia cap canvi."
+            }
+          ],
+          "visual": "Git status sense opcions; extracte de la sortida i traducció del seu significat.",
+          "pause_after": 3,
+          "commands": [
+            "git status"
+          ],
+          "view": "status_full"
+        },
+        {
+          "id": "status_resultat",
+          "narration": "El fitxer apareix a la llista de fitxers nous sense seguir. Encara l’hem de seleccionar per incloure’l a la primera versió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El fitxer apareix a la llista de fitxers nous sense seguir. Encara l’hem de seleccionar per incloure’l a la primera versió."
+            }
+          ],
+          "visual": "Git status sense opcions; extracte de la sortida i traducció del seu significat.",
+          "pause_after": 3,
+          "commands": [],
+          "view": "status_full_result"
+        }
+      ],
+      "narration": "git status consulta l’estat del projecte. Aquesta ordre ens informa; no confirma ni envia cap canvi. El fitxer apareix a la llista de fitxers nous sense seguir. Encara l’hem de seleccionar per incloure’l a la primera versió."
+    },
+    {
+      "id": "i_preparar",
+      "label": "03 / PREPARAR",
+      "title": "Llegim la comanda per parts",
+      "mode": "principal",
+      "visual": "Comanda gran i persistent: git, add i nom del fitxer. Es ressalta una part a cada explicació; després es prepara el contingut.",
+      "beats": [
+        {
+          "id": "add_objectiu",
+          "narration": "Ara seleccionarem el contingut del fitxer que volem confirmar. Aquest pas s’anomena preparar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara seleccionarem el contingut del fitxer que volem confirmar. Aquest pas s’anomena preparar."
+            }
+          ],
+          "visual": "Comanda gran i persistent: git, add i nom del fitxer. Es ressalta una part a cada explicació; després es prepara el contingut.",
+          "pause_after": 2,
+          "commands": [],
+          "view": "add_goal"
+        },
+        {
+          "id": "add_accio",
+          "narration": "git add és l’ordre de preparació. El primer mot identifica el programa; el segon indica l’acció que li demanem.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és l’ordre de preparació. El primer mot identifica el programa; el segon indica l’acció que li demanem."
+            }
+          ],
+          "visual": "Comanda gran i persistent: git, add i nom del fitxer. Es ressalta una part a cada explicació; després es prepara el contingut.",
+          "pause_after": 2.5,
+          "commands": [],
+          "view": "add_parts"
+        },
+        {
+          "id": "add_fitxer",
+          "narration": "A continuació escrivim el nom del fitxer. Així seleccionem només aquest fitxer, en lloc de preparar tots els canvis del projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "A continuació escrivim el nom del fitxer. Així seleccionem només aquest fitxer, en lloc de preparar tots els canvis del projecte."
+            }
+          ],
+          "visual": "Comanda gran i persistent: git, add i nom del fitxer. Es ressalta una part a cada explicació; després es prepara el contingut.",
+          "pause_after": 3,
+          "commands": [],
+          "view": "add_file"
+        },
+        {
+          "id": "add_resultat",
+          "narration": "Executem la comanda completa. El contingut actual queda preparat i el fitxer continua al seu lloc. Encara no hem creat cap commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem la comanda completa. El contingut actual queda preparat i el fitxer continua al seu lloc. Encara no hem creat cap "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Comanda gran i persistent: git, add i nom del fitxer. Es ressalta una part a cada explicació; després es prepara el contingut.",
+          "pause_after": 3,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "view": "add_execute"
+        }
+      ],
+      "narration": "Ara seleccionarem el contingut del fitxer que volem confirmar. Aquest pas s’anomena preparar. git add és l’ordre de preparació. El primer mot identifica el programa; el segon indica l’acció que li demanem. A continuació escrivim el nom del fitxer. Així seleccionem només aquest fitxer, en lloc de preparar tots els canvis del projecte. Executem la comanda completa. El contingut actual queda preparat i el fitxer continua al seu lloc. Encara no hem creat cap commit."
+    },
+    {
+      "id": "i_confirmar",
+      "label": "04 / CONFIRMAR",
+      "title": "Desem la primera versió local",
+      "mode": "principal",
+      "visual": "La comanda es descompon en acció, opció -m i missatge. El commit apareix només després d’executar-la.",
+      "beats": [
+        {
+          "id": "commit_accio",
+          "narration": "git commit crea una versió amb el contingut que hem preparat. Aquesta versió queda al repositori del nostre ordinador.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea una versió amb el contingut que hem preparat. Aquesta versió queda al repositori del nostre ordinador."
+            }
+          ],
+          "visual": "La comanda es descompon en acció, opció -m i missatge. El commit apareix només després d’executar-la.",
+          "pause_after": 2.5,
+          "commands": [],
+          "view": "commit_parts"
+        },
+        {
+          "id": "commit_opcio",
+          "narration": "El guionet ema introdueix el missatge del canvi. Escrivim el missatge entre cometes perquè la terminal el tracti com un sol argument.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ema introdueix el missatge del canvi. Escrivim el missatge entre cometes perquè la terminal el tracti com un sol argument."
+            }
+          ],
+          "visual": "La comanda es descompon en acció, opció -m i missatge. El commit apareix només després d’executar-la.",
+          "pause_after": 3,
+          "commands": [],
+          "view": "commit_message"
+        },
+        {
+          "id": "commit_missatge",
+          "narration": "El missatge descriu què hem fet: afegir la salutació inicial. Ens ajudarà a reconèixer aquesta versió més endavant.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El missatge descriu què hem fet: afegir la salutació inicial. Ens ajudarà a reconèixer aquesta versió més endavant."
+            }
+          ],
+          "visual": "La comanda es descompon en acció, opció -m i missatge. El commit apareix només després d’executar-la.",
+          "pause_after": 3,
+          "commands": [],
+          "view": "commit_text"
+        },
+        {
+          "id": "commit_resultat",
+          "narration": "Ara executem l’ordre. Apareix la primera versió a l’historial local, amb el seu identificador. El remot encara és buit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara executem l’ordre. Apareix la primera versió a l’historial local, amb el seu identificador. El remot encara és buit."
+            }
+          ],
+          "visual": "La comanda es descompon en acció, opció -m i missatge. El commit apareix només després d’executar-la.",
+          "pause_after": 3,
+          "commands": [
+            "git commit -m \"Afegeix la salutacio inicial\""
+          ],
+          "view": "commit_execute"
+        }
+      ],
+      "narration": "git commit crea una versió amb el contingut que hem preparat. Aquesta versió queda al repositori del nostre ordinador. El guionet ema introdueix el missatge del canvi. Escrivim el missatge entre cometes perquè la terminal el tracti com un sol argument. El missatge descriu què hem fet: afegir la salutació inicial. Ens ajudarà a reconèixer aquesta versió més endavant. Ara executem l’ordre. Apareix la primera versió a l’historial local, amb el seu identificador. El remot encara és buit."
+    },
+    {
+      "id": "i_comprovar",
+      "label": "COMPROVEM",
+      "title": "Llegim la versió registrada",
+      "mode": "principal",
+      "visual": "Git log complet amb extracte de hash i missatge. No s’introdueixen opcions noves.",
+      "beats": [
+        {
+          "id": "log",
+          "narration": "git log permet consultar les versions registrades. A la sortida hi veiem l’identificador i el missatge que acabem d’escriure.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git log"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " permet consultar les versions registrades. A la sortida hi veiem l’identificador i el missatge que acabem d’escriure."
+            }
+          ],
+          "visual": "Git log complet amb extracte de hash i missatge. No s’introdueixen opcions noves.",
+          "pause_after": 3,
+          "commands": [
+            "git log"
+          ],
+          "view": "log_full"
+        }
+      ],
+      "narration": "git log permet consultar les versions registrades. A la sortida hi veiem l’identificador i el missatge que acabem d’escriure."
+    },
+    {
+      "id": "i_publicar",
+      "label": "05 / PUBLICAR",
+      "title": "Llegim també la comanda de publicació",
+      "mode": "principal",
+      "visual": "Comanda persistent i ressaltat successiu de push, origin, main i -u. El resultat s’observa amb una pausa pròpia.",
+      "beats": [
+        {
+          "id": "push_accio",
+          "narration": "git push publica les versions confirmades en un repositori remot. La comanda que veus indica també on les volem enviar.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " publica les versions confirmades en un repositori remot. La comanda que veus indica també on les volem enviar."
+            }
+          ],
+          "visual": "Comanda persistent i ressaltat successiu de push, origin, main i -u. El resultat s’observa amb una pausa pròpia.",
+          "pause_after": 2.5,
+          "commands": [],
+          "view": "push_parts"
+        },
+        {
+          "id": "push_remot",
+          "narration": "origin és el nom que identifica el nostre remot. En aquest exemple, la connexió apunta al repositori del projecte a GitHub.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és el nom que identifica el nostre remot. En aquest exemple, la connexió apunta al repositori del projecte a "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Comanda persistent i ressaltat successiu de push, origin, main i -u. El resultat s’observa amb una pausa pròpia.",
+          "pause_after": 3,
+          "commands": [],
+          "view": "push_remote"
+        },
+        {
+          "id": "push_branca",
+          "narration": "main és la branca que volem publicar. Aquest nom coincideix amb la branca on estem treballant.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és la branca que volem publicar. Aquest nom coincideix amb la branca on estem treballant."
+            }
+          ],
+          "visual": "Comanda persistent i ressaltat successiu de push, origin, main i -u. El resultat s’observa amb una pausa pròpia.",
+          "pause_after": 2.5,
+          "commands": [],
+          "view": "push_branch"
+        },
+        {
+          "id": "push_seguiment",
+          "narration": "El guionet u desa aquesta relació de seguiment. Als enviaments següents d’aquesta mateixa branca podrem escriure només git push.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet u desa aquesta relació de seguiment. Als enviaments següents d’aquesta mateixa branca podrem escriure només "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Comanda persistent i ressaltat successiu de push, origin, main i -u. El resultat s’observa amb una pausa pròpia.",
+          "pause_after": 3,
+          "commands": [],
+          "view": "push_tracking"
+        },
+        {
+          "id": "push_resultat",
+          "narration": "Executem l’ordre completa. La mateixa versió que teníem al repositori local ara també apareix al remot.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre completa. La mateixa versió que teníem al repositori local ara també apareix al remot."
+            }
+          ],
+          "visual": "Comanda persistent i ressaltat successiu de push, origin, main i -u. El resultat s’observa amb una pausa pròpia.",
+          "pause_after": 3,
+          "commands": [
+            "git push -u origin main"
+          ],
+          "view": "push_execute"
+        }
+      ],
+      "narration": "git push publica les versions confirmades en un repositori remot. La comanda que veus indica també on les volem enviar. origin és el nom que identifica el nostre remot. En aquest exemple, la connexió apunta al repositori del projecte a GitHub. main és la branca que volem publicar. Aquest nom coincideix amb la branca on estem treballant. El guionet u desa aquesta relació de seguiment. Als enviaments següents d’aquesta mateixa branca podrem escriure només git push. Executem l’ordre completa. La mateixa versió que teníem al repositori local ara també apareix al remot."
+    },
+    {
+      "id": "i_repetir",
+      "label": "UN SEGON CANVI",
+      "title": "Repetim els passos amb calma",
+      "mode": "principal",
+      "visual": "Una salutació modificada i un fitxer de notes nou. El punt de git add . s’explica amb subratllat, es preparen els dos fitxers i es confirmen junts.",
+      "beats": [
+        {
+          "id": "segon_canvi",
+          "narration": "Canviem la salutació, desem i tornem a executar el programa. Encara només ha canviat el fitxer de treball.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Canviem la salutació, desem i tornem a executar el programa. Encara només ha canviat el fitxer de treball."
+            }
+          ],
+          "visual": "Una salutació modificada i un fitxer de notes nou. El punt de git add . s’explica amb subratllat, es preparen els dos fitxers i es confirmen junts.",
+          "pause_after": 3,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "view": "second_edit"
+        },
+        {
+          "id": "segones_notes",
+          "narration": "També creem un fitxer de notes i el desem. Ara tenim un fitxer modificat i un fitxer nou. Encara no hem preparat aquests canvis.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "També creem un fitxer de notes i el desem. Ara tenim un fitxer modificat i un fitxer nou. Encara no hem preparat aquests canvis."
+            }
+          ],
+          "visual": "Una salutació modificada i un fitxer de notes nou. El punt de git add . s’explica amb subratllat, es preparen els dos fitxers i es confirmen junts.",
+          "pause_after": 3,
+          "commands": [],
+          "view": "second_notes"
+        },
+        {
+          "id": "segon_add_punt",
+          "narration": "Ara escrivim git add seguit d’un punt. El punt representa la carpeta actual i les seves subcarpetes. Com que som a l’arrel del projecte, l’ordre abasta tot el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara escrivim "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " seguit d’un punt. El punt representa la carpeta actual i les seves subcarpetes. Com que som a l’arrel del projecte, l’ordre abasta tot el projecte."
+            }
+          ],
+          "visual": "Una salutació modificada i un fitxer de notes nou. El punt de git add . s’explica amb subratllat, es preparen els dos fitxers i es confirmen junts.",
+          "pause_after": 3,
+          "commands": [],
+          "view": "second_add_scope"
+        },
+        {
+          "id": "segon_add_fitxers",
+          "narration": "Això permet preparar fitxers modificats, fitxers nous i eliminacions. En aquest cas, seleccionem el programa modificat i les notes noves. Els fitxers nous ignorats queden fora.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Això permet preparar fitxers modificats, fitxers nous i eliminacions. En aquest cas, seleccionem el programa modificat i les notes noves. Els fitxers nous ignorats queden fora."
+            }
+          ],
+          "visual": "Una salutació modificada i un fitxer de notes nou. El punt de git add . s’explica amb subratllat, es preparen els dos fitxers i es confirmen junts.",
+          "pause_after": 3,
+          "commands": [],
+          "view": "second_add_files"
+        },
+        {
+          "id": "segon_add",
+          "narration": "Executem l’ordre. Els dos fitxers queden preparats en un mateix pas. Abans de confirmar, revisem que tots dos canvis són els que volem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre. Els dos fitxers queden preparats en un mateix pas. Abans de confirmar, revisem que tots dos canvis són els que volem."
+            }
+          ],
+          "visual": "Una salutació modificada i un fitxer de notes nou. El punt de git add . s’explica amb subratllat, es preparen els dos fitxers i es confirmen junts.",
+          "pause_after": 3,
+          "commands": [
+            "git add ."
+          ],
+          "view": "second_stage"
+        },
+        {
+          "id": "segon_commit",
+          "narration": "Creem el segon commit amb un missatge que descriu la salutació i les notes. L’historial conserva la primera versió i hi afegeix la nova.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Creem el segon "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb un missatge que descriu la salutació i les notes. L’historial conserva la primera versió i hi afegeix la nova."
+            }
+          ],
+          "visual": "Una salutació modificada i un fitxer de notes nou. El punt de git add . s’explica amb subratllat, es preparen els dos fitxers i es confirmen junts.",
+          "pause_after": 3,
+          "commands": [
+            "git commit -m \"Personalitza la salutacio i afegeix notes\""
+          ],
+          "view": "second_commit"
+        },
+        {
+          "id": "segon_push",
+          "narration": "Finalment, git push envia aquesta versió al remot. Desar, preparar, confirmar i publicar han estat accions diferents.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Finalment, "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " envia aquesta versió al remot. Desar, preparar, confirmar i publicar han estat accions diferents."
+            }
+          ],
+          "visual": "Una salutació modificada i un fitxer de notes nou. El punt de git add . s’explica amb subratllat, es preparen els dos fitxers i es confirmen junts.",
+          "pause_after": 3,
+          "commands": [
+            "git push"
+          ],
+          "view": "second_push"
+        }
+      ],
+      "narration": "Canviem la salutació, desem i tornem a executar el programa. Encara només ha canviat el fitxer de treball. També creem un fitxer de notes i el desem. Ara tenim un fitxer modificat i un fitxer nou. Encara no hem preparat aquests canvis. Ara escrivim git add seguit d’un punt. El punt representa la carpeta actual i les seves subcarpetes. Com que som a l’arrel del projecte, l’ordre abasta tot el projecte. Això permet preparar fitxers modificats, fitxers nous i eliminacions. En aquest cas, seleccionem el programa modificat i les notes noves. Els fitxers nous ignorats queden fora. Executem l’ordre. Els dos fitxers queden preparats en un mateix pas. Abans de confirmar, revisem que tots dos canvis són els que volem. Creem el segon commit amb un missatge que descriu la salutació i les notes. L’historial conserva la primera versió i hi afegeix la nova. Finalment, git push envia aquesta versió al remot. Desar, preparar, confirmar i publicar han estat accions diferents."
+    },
+    {
+      "id": "i_resum",
+      "label": "RESUM",
+      "title": "Tres comandes. Tres funcions.",
+      "mode": "principal",
+      "visual": "Tres targetes amb ressaltat successiu i espai després de cada funció.",
+      "beats": [
+        {
+          "id": "resum_preparar",
+          "narration": "Preparar selecciona el contingut que entrarà a la versió següent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparar selecciona el contingut que entrarà a la versió següent."
+            }
+          ],
+          "visual": "Tres targetes amb ressaltat successiu i espai després de cada funció.",
+          "pause_after": 2.5,
+          "commands": [],
+          "view": "summary_add"
+        },
+        {
+          "id": "resum_confirmar",
+          "narration": "Confirmar desa una versió a l’historial del nostre ordinador.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Confirmar desa una versió a l’historial del nostre ordinador."
+            }
+          ],
+          "visual": "Tres targetes amb ressaltat successiu i espai després de cada funció.",
+          "pause_after": 2.5,
+          "commands": [],
+          "view": "summary_commit"
+        },
+        {
+          "id": "resum_publicar",
+          "narration": "Publicar comparteix les versions confirmades amb el repositori remot.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Publicar comparteix les versions confirmades amb el repositori remot."
+            }
+          ],
+          "visual": "Tres targetes amb ressaltat successiu i espai després de cada funció.",
+          "pause_after": 3,
+          "commands": [],
+          "view": "summary_push"
+        }
+      ],
+      "narration": "Preparar selecciona el contingut que entrarà a la versió següent. Confirmar desa una versió a l’historial del nostre ordinador. Publicar comparteix les versions confirmades amb el repositori remot."
+    },
+    {
+      "id": "i_practica",
+      "label": "ARA TU",
+      "title": "Practica el cicle complet",
+      "mode": "principal",
+      "visual": "Petit exercici final sense pregunta ni resposta; les instruccions es mantenen visibles.",
+      "beats": [
+        {
+          "id": "practica",
+          "narration": "Al teu repositori de pràctiques, canvia el missatge i repeteix aquests passos. Consulta l’historial abans i després per veure la versió que has afegit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Al teu repositori de pràctiques, canvia el missatge i repeteix aquests passos. Consulta l’historial abans i després per veure la versió que has afegit."
+            }
+          ],
+          "visual": "Petit exercici final sense pregunta ni resposta; les instruccions es mantenen visibles.",
+          "pause_after": 4,
+          "commands": [],
+          "view": "exercise"
+        }
+      ],
+      "narration": "Al teu repositori de pràctiques, canvia el missatge i repeteix aquests passos. Consulta l’historial abans i després per veure la versió que has afegit."
+    }
+  ],
+  "commands": [
+    "python3 helloGit.py",
+    "git status",
+    "git add helloGit.py",
+    "git commit -m \"Afegeix la salutacio inicial\"",
+    "git log",
+    "git push -u origin main",
+    "git add .",
+    "git commit -m \"Personalitza la salutacio i afegeix notes\"",
+    "git push"
+  ]
+}

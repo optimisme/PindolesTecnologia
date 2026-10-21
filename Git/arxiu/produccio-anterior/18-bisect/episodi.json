@@ -1,0 +1,96 @@
+{
+  "title": "Bisect: troba el primer commit que falla",
+  "episode_number": 18,
+  "short_title": "BISECT",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Divuitena lliçó, Bisect."
+  },
+  "prerequisites": "Exemple independent amb vuit commits lineals A–H. Main és a H amb arbre net. El fitxer notes.md canvia a cada commit. A, B i C executen print(\"Hello Git!\"); D substitueix la línia per print(salutacio), sense definir la variable, i l’error es conserva a E, F, G i H. L’etiqueta v1.0 és a A, una versió ja provada com a bona amb python3 helloGit.py. H falla amb la mateixa prova. No hi ha errors intermitents ni versions impossibles de provar. Amb aquesta història, la seqüència de Git comprovada és: start, bad (H), good v1.0 (A), checkout temporal D; prova D i bad; checkout temporal C; prova C i good; resultat D primer bad. Quan es troba D, HEAD continua a C fins al bisect reset, que retorna a main H. Main no es mou durant la investigació. D es representa amb d04f7a2 i la resta de hashes són il·lustratius. La recerca no crea commits ni arregla el programa.",
+  "scenes": [
+    {
+      "id": "l_hook",
+      "label": "ABANS FUNCIONAVA",
+      "title": "Quin commit va introduir l’error?",
+      "narration": "A l’última entrega el programa funcionava. Ara, a main, falla. Hi ha diversos commits entremig: podem trobar el primer que va introduir l’error sense provar-los tots.",
+      "visual": "Graf de vuit commits A–H. v1.0 a A correcte, main H amb NameError. D encara no està identificat visualment."
+    },
+    {
+      "id": "l_bounds",
+      "label": "01 / FIXAR LA PROVA I ELS EXTREMS",
+      "title": "Una versió bona i una de dolenta",
+      "narration": "Necessitem una prova que puguem repetir. Aquí executem el programa. Sabem que ve u punt zero, a A, funciona i H falla. Comencem sense canvis locals pendents.",
+      "visual": "Dues targetes A v1.0 sortida Hello Git! i H main NameError. Terminal status sense sortida.",
+      "commands": [
+        "git status --short"
+      ]
+    },
+    {
+      "id": "l_start",
+      "label": "02 / INICIAR LA CERCA",
+      "title": "Git proposa una versió intermèdia",
+      "narration": "Iniciem bisect, marquem l’actual com a dolenta i indiquem l’etiqueta bona. Git selecciona D per provar-lo. Main continua a H; només canviem temporalment la versió de treball.",
+      "visual": "Comandes start, bad, good v1.0. HEAD passa d’H a D en estat separat; main no es mou.",
+      "commands": [
+        "git bisect start",
+        "git bisect bad",
+        "git bisect good v1.0"
+      ]
+    },
+    {
+      "id": "l_bad",
+      "label": "03 / PROVAR D",
+      "title": "D falla. Reduïm el tram.",
+      "narration": "Executem la mateixa prova a D. Falla, i ho indiquem amb bad. Ara l’error ja existia a D: podem centrar-nos en el tram entre A i D. Git ens situa a C.",
+      "visual": "Prova a D mostra NameError. D es marca bad; Git proposa C. Interval actiu A–D, main H.",
+      "commands": [
+        "python3 helloGit.py",
+        "git bisect bad"
+      ]
+    },
+    {
+      "id": "l_good",
+      "label": "04 / PROVAR C",
+      "title": "C funciona. El primer que falla és D.",
+      "narration": "Provem C i funciona. Ho marquem com a bo. C i D són consecutius: Git ja pot identificar D com el primer commit dolent dins del tram investigat.",
+      "visual": "Prova a C mostra Hello Git!. Good fixa C com a extrem bo; resultat d04f7a2 is the first bad commit. HEAD continua a C i main H.",
+      "commands": [
+        "python3 helloGit.py",
+        "git bisect good"
+      ]
+    },
+    {
+      "id": "l_inspect",
+      "label": "05 / REVISAR EL RESULTAT",
+      "title": "Mirem què va canviar a D",
+      "narration": "Amb show revisem el commit trobat. Aquí substituïa el missatge per una variable no definida. Ja tenim un canvi concret per investigar i corregir.",
+      "visual": "Diff de D: -print(\"Hello Git!\"), +print(salutacio). Consulta explícita del hash sense canviar HEAD.",
+      "commands": [
+        "git show d04f7a2 -- helloGit.py"
+      ]
+    },
+    {
+      "id": "l_reset",
+      "label": "06 / SORTIR DE LA CERCA",
+      "title": "Tornem a main amb bisect reset",
+      "narration": "Quan acabem, fem bisect reset per tornar al punt de partida. Main continua a H. La investigació no ha creat commits ni ha corregit encara l’error.",
+      "visual": "HEAD torna de C a main H. No apareix cap commit nou. H conserva el programa que falla.",
+      "commands": [
+        "git bisect reset"
+      ]
+    },
+    {
+      "id": "l_summary",
+      "label": "JA HO TENS",
+      "title": "Provar, classificar i reduir el tram",
+      "narration": "Amb una prova repetible, bisect redueix el tram fins a trobar el primer commit que falla. Cal provar cada versió de la mateixa manera i sortir de la cerca quan acabem.",
+      "visual": "Tres targetes prova repetible, good o bad, primer commit que falla. Nota: D identificat; correcció encara pendent."
+    }
+  ],
+  "sources": [
+    "https://git-scm.com/docs/git-bisect"
+  ]
+}

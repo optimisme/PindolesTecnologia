@@ -1,0 +1,3 @@
+# Comprovacions sense credencials: guions, repetició de les lliçons, scripts de pràctica i proves
+Pillow==13.0.0
+PyYAML==6.0.3

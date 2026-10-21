@@ -1,0 +1,110 @@
+{
+  "title": "Worktree: prepara una correcció sense interrompre la feina",
+  "episode_number": 24,
+  "short_title": "WORKTREE",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Vint-i-quatrena lliçó, Worktree."
+  },
+  "prerequisites": "Exemple independent en un repositori principal anomenat projecte. Main i salutacio apunten inicialment a B, però la branca activa a projecte és salutacio, que té helloGit.py editat sense preparar a print(\"Hola, Anna!\"). L’índex i B contenen print(\"Hello Git!\"). Main no està activa en cap altre worktree. Es crea correccio des de main amb git worktree add -b correccio ../projecte-correccio main, conservant el treball de salutacio. La carpeta nova és neta i té índex propi. Després de git worktree list, es fa cd ../projecte-correccio. Allí es canvia només la puntuació a print(\"Hello, Git!\"), es prova i es confirma D a correccio. Es fa git switch main en aquesta carpeta i git merge --ff-only correccio, que avança main a D. La carpeta original continua a salutacio B amb el treball Hola, Anna! intacte. Es comprova l’estat dels dos directoris, es torna amb cd ../projecte i es retira la carpeta auxiliar neta amb git worktree remove sense --force. Main i correccio es conserven a D; només desapareix el worktree auxiliar. No es publica res. No es força una mateixa branca a estar activa en dues carpetes. Totes les proves i les retirades de carpetes es fan en directoris temporals.",
+  "scenes": [
+    {
+      "id": "d_hook",
+      "label": "UNA CORRECCIÓ MENTRE TREBALLES",
+      "title": "La feina pendent pot quedar on és",
+      "narration": "Tens feina pendent a salutacio i necessites corregir main. Amb worktree podem obrir una altra carpeta sense interrompre aquesta edició.",
+      "visual": "Carpeta projecte, branca salutacio i edició local Hola, Anna!. Main és a B amb Hello Git!, sense canvis."
+    },
+    {
+      "id": "d_add",
+      "label": "01 / OBRIR UNA ALTRA CARPETA",
+      "title": "Creem correccio des de main",
+      "narration": "Creem un worktree amb correccio, que parteix de main. La carpeta nova té fitxers i preparació propis; la feina pendent es queda a l’original.",
+      "visual": "S’afegeix projecte-correccio amb correccio a B i arbre net. Projecte conserva el canvi local.",
+      "commands": [
+        "git worktree add -b correccio ../projecte-correccio main"
+      ]
+    },
+    {
+      "id": "d_list",
+      "label": "02 / IDENTIFICAR LES DUES BRANQUES",
+      "title": "Entrem a la carpeta de la correcció",
+      "narration": "Worktree list mostra carpetes i branques actives. Entrem a projecte correccio: hi tenim la versió de partida de main, amb el treball net.",
+      "visual": "Terminal list: projecte [salutacio], projecte-correccio [correccio]. Cd entra a la segona carpeta i l’editor mostra Hello Git!.",
+      "commands": [
+        "git worktree list",
+        "cd ../projecte-correccio"
+      ]
+    },
+    {
+      "id": "d_fix",
+      "label": "03 / PROVAR I CONFIRMAR EL RETOC",
+      "title": "La correcció té el seu propi commit",
+      "narration": "Afegim una coma al missatge, provem el programa i confirmem el retoc a correccio. Els canvis de salutacio queden fora d’aquest commit.",
+      "visual": "Editor de projecte-correccio mostra print(\"Hello, Git!\"). Commit D a correccio, fill de B.",
+      "commands": [
+        "python3 helloGit.py",
+        "git add helloGit.py",
+        "git commit -m \"Corregeix la puntuacio\""
+      ]
+    },
+    {
+      "id": "d_merge",
+      "label": "04 / INCORPORAR LA CORRECCIÓ",
+      "title": "Main avança dins del segon worktree",
+      "narration": "Canviem a main en aquesta carpeta: no està activa en cap altra. Un merge de tipus fast forward incorpora correccio, conservant la feina pendent de salutacio.",
+      "visual": "El segon worktree passa a main D. El primer continua a salutacio B, amb fitxer local Hola, Anna! i índex B.",
+      "commands": [
+        "git switch main",
+        "git merge --ff-only correccio"
+      ]
+    },
+    {
+      "id": "d_independent",
+      "label": "COMPROVAR LA SEPARACIÓ",
+      "title": "Un directori net i un amb feina pendent",
+      "narration": "La carpeta de main és neta; la de salutacio manté la modificació pendent. Compartim historial i branques, però cada carpeta té el seu índex i fitxers.",
+      "visual": "Terminal status net al worktree auxiliar; git -C ../projecte status mostra M a la segona columna a l’original.",
+      "commands": [
+        "git status --short",
+        "git -C ../projecte status --short"
+      ]
+    },
+    {
+      "id": "d_return",
+      "label": "05 / TORNAR A LA FEINA ORIGINAL",
+      "title": "La nostra edició continua intacta",
+      "narration": "Tornem a projecte i revisem el canvi local: continua intacte. Main ja té la correcció i nosaltres seguim a salutacio.",
+      "visual": "Cd a projecte. Diff de Hello Git! a Hola, Anna! encara pendent. Main i correccio són a D, salutacio a B.",
+      "commands": [
+        "cd ../projecte",
+        "git diff -- helloGit.py"
+      ]
+    },
+    {
+      "id": "d_remove",
+      "label": "06 / RETIRAR LA CARPETA AUXILIAR",
+      "title": "Retirem el worktree net",
+      "narration": "Des de fora, retirem la carpeta auxiliar amb worktree remove. Ha d’estar neta. Les branques i el commit de la correcció es conserven al repositori.",
+      "visual": "La carpeta projecte-correccio es retira sense --force. List només mostra projecte [salutacio]. Log de main encara mostra D.",
+      "commands": [
+        "git worktree remove ../projecte-correccio",
+        "git worktree list",
+        "git log -1 --oneline main"
+      ]
+    },
+    {
+      "id": "d_summary",
+      "label": "JA HO TENS",
+      "title": "Dues carpetes, un historial compartit",
+      "narration": "Dues carpetes, amb fitxers i preparació separats, comparteixen l’historial. Hem corregit main sense interrompre salutacio. Retirar el worktree auxiliar conserva la correcció.",
+      "visual": "Tres targetes: fitxers separats, índex propi i historial compartit. La correcció es conserva després de retirar el worktree."
+    }
+  ],
+  "sources": [
+    "https://git-scm.com/docs/git-worktree"
+  ]
+}

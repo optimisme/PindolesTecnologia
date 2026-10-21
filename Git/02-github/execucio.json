@@ -1,0 +1,136 @@
+{
+ "llico": "02-github",
+ "autoria": [
+  "Anna Puig",
+  "anna@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "gh auth login",
+   "sortida": "",
+   "codi": 0,
+   "simulat": true,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "gh auth status",
+   "sortida": "",
+   "codi": 0,
+   "simulat": true,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git clone /private/var/folders/b5/wnm055zx64l_xffrqmjg9mh00000gn/T/pindoles-vnynptb_/w/origin.git HelloGit",
+   "sortida": "Cloning into 'HelloGit'...\nwarning: You appear to have cloned an empty repository.\ndone.\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": "cd HelloGit",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {},
+    "head_commit": null,
+    "refs": {},
+    "commits": [],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": "git remote -v",
+   "sortida": "origin\t~/origin.git (fetch)\norigin\t~/origin.git (push)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {},
+    "head_commit": null,
+    "refs": {},
+    "commits": [],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~"
+ },
+ "etiquetes_inici": {}
+}

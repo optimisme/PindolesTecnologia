@@ -1,0 +1,62 @@
+{
+  "text": "Creem la branca correcció des de main i fem un commit.",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "words": [
+    {
+      "start": 0.1,
+      "end": 0.501791,
+      "text": "Creem"
+    },
+    {
+      "start": 0.501791,
+      "end": 0.646874,
+      "text": "la"
+    },
+    {
+      "start": 0.646875,
+      "end": 0.959375,
+      "text": "branca"
+    },
+    {
+      "start": 0.959375,
+      "end": 1.562041,
+      "text": "correcció"
+    },
+    {
+      "start": 1.562041,
+      "end": 1.796416,
+      "text": "des"
+    },
+    {
+      "start": 1.796416,
+      "end": 1.874541,
+      "text": "de"
+    },
+    {
+      "start": 1.874541,
+      "end": 2.265166,
+      "text": "main"
+    },
+    {
+      "start": 2.265166,
+      "end": 2.376791,
+      "text": "i"
+    },
+    {
+      "start": 2.376791,
+      "end": 2.566499,
+      "text": "fem"
+    },
+    {
+      "start": 2.5665,
+      "end": 2.678125,
+      "text": "un"
+    },
+    {
+      "start": 2.678125,
+      "end": 3.202666,
+      "text": "commit"
+    }
+  ]
+}

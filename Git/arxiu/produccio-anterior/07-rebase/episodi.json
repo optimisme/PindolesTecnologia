@@ -1,0 +1,82 @@
+{
+  "title": "Rebase: continua sobre una base nova",
+  "episode_number": 7,
+  "short_title": "REBASE",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Setena lliçó, Rebase."
+  },
+  "prerequisites": "Branca salutacio pròpia i no publicada, amb dos commits C i E sobre B. Main ha avançat a D amb un canvi en un altre fitxer; l'exemple principal no té conflictes. Les dues branques són locals i l'arbre de treball és net. C′ i E′ són commits nous amb identificadors nous, no els commits originals moguts. Les lletres són didàctiques. La resolució de conflictes es mostra com a cas condicional separat.",
+  "scenes": [
+    {
+      "id": "r_hook",
+      "label": "MAIN HA CONTINUAT AVANÇANT",
+      "title": "La teva base s'ha quedat enrere",
+      "narration": "Mentre treballaves en una branca, main ha incorporat millores. Vols continuar la funcionalitat sobre aquesta versió actualitzada. Aquí és on entra rebase.",
+      "visual": "Es destaquen D a main i els dos commits propis C i E, encara basats en B."
+    },
+    {
+      "id": "r_before",
+      "label": "ABANS DEL REBASE",
+      "title": "Una base comuna. Dos camins.",
+      "narration": "Main té un commit nou i salutació, dos de propis. Comparteixen la base, però ara els seus historials divergeixen.",
+      "visual": "Graf B–D a dalt i B–C–E a sota. Main apunta a D i salutacio a E; la branca no s'ha publicat."
+    },
+    {
+      "id": "r_command",
+      "label": "01 / REAPLICAR SOBRE MAIN",
+      "title": "Rebase actua sobre salutacio",
+      "narration": "Ens situem a salutació i fem git rebase main. La branca activa rebrà una nova base; main no es modifica.",
+      "visual": "La terminal selecciona salutacio i inicia rebase main. El punter main continua fix a D.",
+      "commands": [
+        "git switch salutacio",
+        "git rebase main"
+      ]
+    },
+    {
+      "id": "r_replay",
+      "label": "02 / CREAR ELS COMMITS NOUS",
+      "title": "Els canvis es reapliquen",
+      "narration": "Git reaplica els dos canvis sobre l'últim commit de main. Es creen commits nous, amb pares i identificadors diferents dels originals.",
+      "visual": "C′ i E′ apareixen successivament després de D. C i E es mostren atenuats com a originals, no es desplacen físicament. Salutacio avança al final quan acaba."
+    },
+    {
+      "id": "r_after",
+      "label": "DESPRÉS DEL REBASE",
+      "title": "Main es queda. Salutacio avança.",
+      "narration": "Ara els nostres commits queden darrere del nou commit de main. Main es manté al seu lloc; salutació avança.",
+      "visual": "Línia B–D–C′–E′ amb main a D i salutacio a E′. El terminal mostra el graf de l'historial.",
+      "commands": [
+        "git log --oneline --graph --all"
+      ]
+    },
+    {
+      "id": "r_compare",
+      "label": "MERGE I REBASE",
+      "title": "Dos resultats d'historial diferents",
+      "narration": "Amb merge, un commit pot unir els dos camins. Amb rebase, reconstruïm els nostres commits sobre l'altre camí. Són dos historials diferents.",
+      "visual": "Comparació des del mateix estat inicial i amb salutacio activa: git merge main conserva D i C–E i afegeix M a salutacio amb pares E i D; git rebase main deixa B–D–C′–E′. Main continua a D en les dues alternatives."
+    },
+    {
+      "id": "r_conflict",
+      "label": "NOMÉS SI EL REBASE S'ATURA",
+      "title": "Resol, prepara i continua",
+      "narration": "Si apareix un conflicte, el resolem, fem git add i continuem amb git rebase i l'opció continue. L'exemple principal té canvis compatibles.",
+      "visual": "Cas condicional etiquetat. Tres passos: resoldre el fitxer, preparar-lo i git rebase --continue. No es fa un git commit manual de merge.",
+      "commands": [
+        "git add helloGit.py",
+        "git rebase --continue"
+      ]
+    },
+    {
+      "id": "r_summary",
+      "label": "BRANCA PRÒPIA I NO PUBLICADA",
+      "title": "Una base nova per continuar",
+      "narration": "Fes rebase en una branca pròpia encara no compartida: reescriu els seus commits. Per portar després la funcionalitat a main, encara l'hauràs d'integrar.",
+      "visual": "Main continua a D i salutacio a E′. Es remarquen la branca local, els identificadors nous i que la integració a main encara és pendent."
+    }
+  ]
+}

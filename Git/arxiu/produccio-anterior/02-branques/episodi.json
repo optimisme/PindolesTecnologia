@@ -1,0 +1,90 @@
+{
+  "title": "Branques: prova una idea sense tocar main",
+  "episode_number": 2,
+  "short_title": "BRANQUES",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Segona lliçó, Branques."
+  },
+  "prerequisites": "Repositori HelloGit a main, amb un commit de helloGit.py que conté print(\"Hello Git!\"). Arbre de treball net. Identificadors de commit il·lustratius.",
+  "scenes": [
+    {
+      "id": "b_hook",
+      "label": "UNA NOVA IDEA",
+      "title": "Prova el canvi sense tocar main",
+      "narration": "Vols afegir una salutació personalitzada, però el programa actual ja funciona. Com la proves sense canviar la versió de main?",
+      "visual": "L'editor mostra la salutació original i una targeta presenta la proposta Hola, Anna!, encara pendent de provar."
+    },
+    {
+      "id": "b_concept",
+      "label": "QUÈ ÉS UNA BRANCA?",
+      "title": "Un mateix passat. Dos camins.",
+      "narration": "Una branca és una línia de treball amb el seu propi historial. Al principi comparteix els mateixos commits que la branca d'origen.",
+      "visual": "Dues etiquetes de branca apunten inicialment al mateix commit; es destaca l'historial compartit."
+    },
+    {
+      "id": "b_create",
+      "label": "01 / CREAR I CANVIAR",
+      "title": "Creem la branca salutacio",
+      "narration": "Creem la branca salutació amb git switch i l'opció de crear. Ara hi estem treballant; main continua al mateix commit.",
+      "visual": "La terminal crea salutacio. Les dues branques apunten al mateix commit i l'etiqueta activa passa de main a salutacio.",
+      "commands": [
+        "git switch -c salutacio",
+        "git branch --show-current"
+      ]
+    },
+    {
+      "id": "b_edit",
+      "label": "02 / EDITAR I CONFIRMAR",
+      "title": "El canvi es desa a salutacio",
+      "narration": "Canviem el missatge del fitxer. Després, git add prepara el canvi i git commit el desa a la branca salutació.",
+      "visual": "El fitxer passa de Hello Git! a Hola, Anna! i la terminal prepara i confirma el canvi.",
+      "commands": [
+        "git add helloGit.py",
+        "git commit -m \"Personalitza salutacio\""
+      ]
+    },
+    {
+      "id": "b_graph",
+      "label": "UN NOU COMMIT",
+      "title": "Main conserva la seva versió",
+      "narration": "El nou commit només fa avançar salutació. Main encara apunta a la versió anterior. Les dues branques comparteixen el passat, però ara tenen finals diferents.",
+      "visual": "Només salutacio avança fins al commit nou. Main es queda al commit original; no s'inventa cap commit extra a main."
+    },
+    {
+      "id": "b_main",
+      "label": "03 / TORNAR A MAIN",
+      "title": "El codi original continua aquí",
+      "narration": "Tornem a main amb git switch main. El fitxer torna a mostrar el missatge original. El commit de salutació continua desat a la seva branca.",
+      "visual": "La terminal canvia a main, l'etiqueta activa es mou i l'editor torna a print(\"Hello Git!\").",
+      "commands": [
+        "git switch main"
+      ]
+    },
+    {
+      "id": "b_back",
+      "label": "04 / RECUPERAR LA PROVA",
+      "title": "La feina nova també hi continua",
+      "narration": "Si tornem a salutació, reapareix el missatge nou. Canviar de branca actualitza els fitxers per mostrar la versió de la branca seleccionada.",
+      "visual": "En tornar a salutacio, reapareix print(\"Hola, Anna!\"). Les dues branques es conserven.",
+      "commands": [
+        "git switch salutacio"
+      ]
+    },
+    {
+      "id": "b_summary",
+      "label": "JA HO TENS",
+      "title": "Crea. Prova. Confirma.",
+      "narration": "Crear una branca, provar el canvi i fer commit. Main conserva la seva versió. Per incorporar-hi la funcionalitat, farem servir merge.",
+      "visual": "Resum dels passos i dels dos missatges. Merge queda presentat com a concepte per a un episodi posterior, sense executar-lo.",
+      "commands": [
+        "git switch -c salutacio",
+        "git add helloGit.py",
+        "git commit -m \"Personalitza salutacio\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,940 @@
+{
+  "script_format": "git-didactic-v1",
+  "status": "script_revised_media_unchanged",
+  "episode_number": 25,
+  "title": "Hooks: comprova la sintaxi abans del commit",
+  "series": "Píndoles de Git",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "music_seconds": 4,
+  "objective": "Entendre un control local pre-commit que comprova la sintaxi de la versió preparada.",
+  "prerequisites": "Repositori de pràctiques ordinari amb .git i sense hooks actius ni core.hooksPath personalitzat. Git i python3 disponibles; entorn compatible amb shebang i chmod. El programa ja està seguit.",
+  "timing": "Sense marques absolutes: es calcularan amb la futura locució.",
+  "scenes": [
+    {
+      "id": "rev_25_00",
+      "title": "Objectiu i punt de partida",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a entendre un control local pre-commit que comprova la sintaxi de la versió preparada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a entendre un control local "
+            },
+            {
+              "lang": "en-US",
+              "text": "pre-commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que comprova la sintaxi de la versió preparada."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Repositori de pràctiques ordinari amb .git i sense hooks actius ni core.hooksPath personalitzat. Git i python3 disponibles; entorn compatible amb shebang i chmod. El programa ja està seguit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Repositori de pràctiques ordinari amb ."
+            },
+            {
+              "lang": "en-US",
+              "text": "git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i sense "
+            },
+            {
+              "lang": "en-US",
+              "text": "hooks"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " actius ni core.hooksPath personalitzat. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i python3 disponibles; entorn compatible amb shebang i chmod. El programa ja està seguit."
+            }
+          ],
+          "visual": "Punt de partida complet amb branca activa, fitxers i estat del treball; fer visible qualsevol cas independent.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a entendre un control local pre-commit que comprova la sintaxi de la versió preparada. Repositori de pràctiques ordinari amb .git i sense hooks actius ni core.hooksPath personalitzat. Git i python3 disponibles; entorn compatible amb shebang i chmod. El programa ja està seguit."
+    },
+    {
+      "id": "rev_25_01",
+      "title": "Comprovar abans de crear el commit",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Un hook és un programa que Git pot executar en un moment concret. Prepararem un control local de tipus pre-commit per revisar la sintaxi abans de crear el commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Un "
+            },
+            {
+              "lang": "en-US",
+              "text": "hook"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és un programa que "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " pot executar en un moment concret. Prepararem un control local de tipus "
+            },
+            {
+              "lang": "en-US",
+              "text": "pre-commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " per revisar la sintaxi abans de crear el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Línia temporal ADD → HOOK → COMMIT. El control s’interposa abans de crear el node, no després.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Un hook és un programa que Git pot executar en un moment concret. Prepararem un control local de tipus pre-commit per revisar la sintaxi abans de crear el commit."
+    },
+    {
+      "id": "rev_25_02",
+      "title": "El control llegeix la preparació",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Creem el fitxer de control a la ruta que veus a la pantalla i hi desem el codi complet.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Creem el fitxer de control a la ruta que veus a la pantalla i hi desem el codi complet."
+            }
+          ],
+          "visual": "Editor complet a .git/hooks/pre-commit:\n```python\n#!/usr/bin/env python3\nimport subprocess\n\nsource = subprocess.check_output(\n    [\"git\", \"show\", \":helloGit.py\"], text=True\n)\ncompile(source, \"helloGit.py\", \"exec\")\n```\nRessaltar primer la ruta i després :helloGit.py.",
+          "pause_after": 3,
+          "commands": []
+        },
+        {
+          "id": "pas_005",
+          "narration": "El control ha de comprovar el que entrarà al commit. Per això llegim el programa des de l’índex, encara que l’editor tingui una altra versió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El control ha de comprovar el que entrarà al "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Per això llegim el programa des de l’índex, encara que l’editor tingui una altra versió."
+            }
+          ],
+          "visual": "Editor complet a .git/hooks/pre-commit:\n```python\n#!/usr/bin/env python3\nimport subprocess\n\nsource = subprocess.check_output(\n    [\"git\", \"show\", \":helloGit.py\"], text=True\n)\ncompile(source, \"helloGit.py\", \"exec\")\n```\nRessaltar primer la ruta i després :helloGit.py.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Creem el fitxer de control a la ruta que veus a la pantalla i hi desem el codi complet. El control ha de comprovar el que entrarà al commit. Per això llegim el programa des de l’índex, encara que l’editor tingui una altra versió."
+    },
+    {
+      "id": "rev_25_03",
+      "title": "Dues parts del codi",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_006",
+          "narration": "La consulta amb git show i els dos punts llegeix el contingut preparat. La funció compile comprova que el text tingui sintaxi vàlida; aquí no executa el programa ni prova la seva lògica.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La consulta amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git show"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i els dos punts llegeix el contingut preparat. La funció "
+            },
+            {
+              "lang": "en-US",
+              "text": "compile"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " comprova que el text tingui sintaxi vàlida; aquí no executa el programa ni prova la seva lògica."
+            }
+          ],
+          "visual": "Mantenir el codi complet. Subratllar la lectura de l’índex i després compile. Si no es pot llegir el fitxer obligatori, el control també falla.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "La consulta amb git show i els dos punts llegeix el contingut preparat. La funció compile comprova que el text tingui sintaxi vàlida; aquí no executa el programa ni prova la seva lògica."
+    },
+    {
+      "id": "rev_25_04",
+      "title": "chmod +x .git/hooks/pre-commit",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_007",
+          "narration": "En aquest entorn fem executable el control.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquest entorn fem executable el control."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: chmod +x .git/hooks/pre-commit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: chmod.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "chmod +x .git/hooks/pre-commit",
+          "highlight": "chmod"
+        },
+        {
+          "id": "pas_008",
+          "narration": "Afegeix el permís d’execució.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Afegeix el permís d’execució."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: chmod +x .git/hooks/pre-commit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: +x.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "chmod +x .git/hooks/pre-commit",
+          "highlight": "+x"
+        },
+        {
+          "id": "pas_009",
+          "narration": "És el fitxer que acabem de desar al repositori de pràctiques.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el fitxer que acabem de desar al repositori de pràctiques."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: chmod +x .git/hooks/pre-commit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: .git/hooks/pre-commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "chmod +x .git/hooks/pre-commit",
+          "highlight": ".git/hooks/pre-commit"
+        },
+        {
+          "id": "pas_010",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: chmod +x .git/hooks/pre-commit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "chmod +x .git/hooks/pre-commit"
+          ],
+          "command_display": "chmod +x .git/hooks/pre-commit",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_011",
+          "narration": "Git executarà aquest control local en intentar confirmar. No l’hem afegit com un fitxer versionat del projecte.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " executarà aquest control local en intentar confirmar. No l’hem afegit com un fitxer versionat del projecte."
+            }
+          ],
+          "visual": "Ruta completa visible, fitxer desat i indicador EXECUTABLE. No donar per fet que tots els entorns gestionen permisos igual. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "chmod +x .git/hooks/pre-commit",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "En aquest entorn fem executable el control. Afegeix el permís d’execució. És el fitxer que acabem de desar al repositori de pràctiques. Executem l’ordre. Git executarà aquest control local en intentar confirmar. No l’hem afegit com un fitxer versionat del projecte."
+    },
+    {
+      "id": "rev_25_05",
+      "title": "Preparem deliberadament una sintaxi incorrecta",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "Traiem el parèntesi final de la salutació i desem el fitxer. Aquesta és la versió incorrecta que prepararem per comprovar el control.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Traiem el parèntesi final de la salutació i desem el fitxer. Aquesta és la versió incorrecta que prepararem per comprovar el control."
+            }
+          ],
+          "visual": "Editor print(\"Hola, Anna!\" sense el parèntesi final. Etiqueta PROVA DEL CONTROL.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Traiem el parèntesi final de la salutació i desem el fitxer. Aquesta és la versió incorrecta que prepararem per comprovar el control."
+    },
+    {
+      "id": "rev_25_06",
+      "title": "git add helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_013",
+          "narration": "Amb git add seleccionem el contingut que volem confirmar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " seleccionem el contingut que volem confirmar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "git add"
+        },
+        {
+          "id": "pas_014",
+          "narration": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_015",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "command_display": "git add helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_016",
+          "narration": "La versió sense parèntesi entra a la preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La versió sense parèntesi entra a la preparació."
+            }
+          ],
+          "visual": "Conservar treball, preparació i historial. Copiar només el contingut seleccionat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git add seleccionem el contingut que volem confirmar. El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació. Executem l’ordre. La versió sense parèntesi entra a la preparació."
+    },
+    {
+      "id": "rev_25_07",
+      "title": "git commit -m \"Personalitza la salutacio\"",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_017",
+          "narration": "Intentem confirmar el contingut preparat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Intentem confirmar el contingut preparat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "git commit"
+        },
+        {
+          "id": "pas_018",
+          "narration": "Aquest argument introdueix el missatge del commit; el control encara pot impedir-ne la creació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquest argument introdueix el missatge del "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; el control encara pot impedir-ne la creació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -m.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "-m"
+        },
+        {
+          "id": "pas_019",
+          "narration": "El missatge descriu la personalització de la salutació. Les cometes el mantenen en un sol argument.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El missatge descriu la personalització de la salutació. Les cometes el mantenen en un sol argument."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Personalitza la salutacio\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "\"Personalitza la salutacio\""
+        },
+        {
+          "id": "pas_020",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Personalitza la salutacio\""
+          ],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_021",
+          "narration": "El hook falla amb un error de sintaxi. Git atura l’operació i no crea cap commit nou.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "hook"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " falla amb un error de sintaxi. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " atura l’operació i no crea cap "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou."
+            }
+          ],
+          "visual": "Node C encara inexistent. Terminal amb error i panell ÍNDEX: INCORRECTE. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Intentem confirmar el contingut preparat. Aquest argument introdueix el missatge del commit; el control encara pot impedir-ne la creació. El missatge descriu la personalització de la salutació. Les cometes el mantenen en un sol argument. Executem l’ordre. El hook falla amb un error de sintaxi. Git atura l’operació i no crea cap commit nou."
+    },
+    {
+      "id": "rev_25_08",
+      "title": "Corregim només el treball",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_022",
+          "narration": "Reposem el parèntesi i desem a l’editor. Encara no hem preparat la correcció: el treball és correcte, però l’índex conserva el text anterior.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Reposem el parèntesi i desem a l’editor. Encara no hem preparat la correcció: el treball és correcte, però l’índex conserva el text anterior."
+            }
+          ],
+          "visual": "Dos panells amb el parèntesi present al treball i absent a la preparació.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Reposem el parèntesi i desem a l’editor. Encara no hem preparat la correcció: el treball és correcte, però l’índex conserva el text anterior."
+    },
+    {
+      "id": "rev_25_09",
+      "title": "git commit -m \"Personalitza la salutacio\"",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_023",
+          "narration": "Tornem a intentar confirmar abans de preparar la correcció.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Tornem a intentar confirmar abans de preparar la correcció."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "git commit"
+        },
+        {
+          "id": "pas_024",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Personalitza la salutacio\""
+          ],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_025",
+          "narration": "El control continua fallant perquè llegeix la preparació. Corregir l’editor per si sol no canvia el contingut seleccionat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El control continua fallant perquè llegeix la preparació. Corregir l’editor per si sol no canvia el contingut seleccionat."
+            }
+          ],
+          "visual": "Fletxa HOOK → ÍNDEX, no cap a l’editor; cap node nou. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Tornem a intentar confirmar abans de preparar la correcció. Executem l’ordre. El control continua fallant perquè llegeix la preparació. Corregir l’editor per si sol no canvia el contingut seleccionat."
+    },
+    {
+      "id": "rev_25_10",
+      "title": "git add helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_026",
+          "narration": "Amb git add seleccionem el contingut que volem confirmar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " seleccionem el contingut que volem confirmar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "git add"
+        },
+        {
+          "id": "pas_027",
+          "narration": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_028",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "command_display": "git add helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_029",
+          "narration": "Ara la preparació rep la versió amb sintaxi correcta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara la preparació rep la versió amb sintaxi correcta."
+            }
+          ],
+          "visual": "Conservar treball, preparació i historial. Copiar només el contingut seleccionat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git add seleccionem el contingut que volem confirmar. El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació. Executem l’ordre. Ara la preparació rep la versió amb sintaxi correcta."
+    },
+    {
+      "id": "rev_25_11",
+      "title": "git commit -m \"Personalitza la salutacio\"",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_030",
+          "narration": "Amb git commit enregistrarem el contingut preparat en una versió local.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " enregistrarem el contingut preparat en una versió local."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "git commit"
+        },
+        {
+          "id": "pas_031",
+          "narration": "El guionet ema indica que a continuació escrivim el missatge del canvi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ema indica que a continuació escrivim el missatge del canvi."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -m.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "-m"
+        },
+        {
+          "id": "pas_032",
+          "narration": "El text entre cometes descriu la feina: Personalitza la salutació. Les cometes agrupen el missatge en un sol argument.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El text entre cometes descriu la feina: Personalitza la salutació. Les cometes agrupen el missatge en un sol argument."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Personalitza la salutacio\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "\"Personalitza la salutacio\""
+        },
+        {
+          "id": "pas_033",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Personalitza la salutacio\""
+          ],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_034",
+          "narration": "El control acaba correctament i Git crea el commit. Treball, preparació i historial coincideixen amb el text corregit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El control acaba correctament i "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Treball, preparació i historial coincideixen amb el text corregit."
+            }
+          ],
+          "visual": "Subratllar commit, després -m i després el missatge. Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git commit enregistrarem el contingut preparat en una versió local. El guionet ema indica que a continuació escrivim el missatge del canvi. El text entre cometes descriu la feina: Personalitza la salutació. Les cometes agrupen el missatge en un sol argument. Executem l’ordre. El control acaba correctament i Git crea el commit. Treball, preparació i historial coincideixen amb el text corregit."
+    },
+    {
+      "id": "rev_25_12",
+      "title": "Un control concret, amb un abast concret",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_035",
+          "narration": "Aquest control comprova sintaxi, no que el programa faci el que volem. És local, no s’instal·la als altres ordinadors amb un push i es pot ometre. Els controls compartits necessiten una configuració acordada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquest control comprova sintaxi, no que el programa faci el que volem. És local, no s’instal·la als altres ordinadors amb un "
+            },
+            {
+              "lang": "en-US",
+              "text": "push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i es pot ometre. Els controls compartits necessiten una configuració acordada."
+            }
+          ],
+          "visual": "Etiquetes SINTAXI / LOCAL / NO DISTRIBUÏT PEL PUSH. No presentar-lo com una garantia general de qualitat.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Aquest control comprova sintaxi, no que el programa faci el que volem. És local, no s’instal·la als altres ordinadors amb un push i es pot ometre. Els controls compartits necessiten una configuració acordada."
+    },
+    {
+      "id": "rev_25_13",
+      "title": "Resum final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_036",
+          "narration": "El pre-commit s’executa abans de crear el commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "pre-commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " s’executa abans de crear el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_037",
+          "narration": "El control de l’exemple comprova el contingut de l’índex.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El control de l’exemple comprova el contingut de l’índex."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_038",
+          "narration": "Cal preparar la correcció perquè la comprovi; continua sent una ajuda local de sintaxi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cal preparar la correcció perquè la comprovi; continua sent una ajuda local de sintaxi."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "El pre-commit s’executa abans de crear el commit. El control de l’exemple comprova el contingut de l’índex. Cal preparar la correcció perquè la comprovi; continua sent una ajuda local de sintaxi."
+    },
+    {
+      "id": "rev_25_14",
+      "title": "Pràctica final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_039",
+          "narration": "En un repositori de pràctiques separat, instal·la el codi mostrat i compara un intent amb sintaxi incorrecta, un altre corregint només l’editor i el final després d’add.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un repositori de pràctiques separat, instal·la el codi mostrat i compara un intent amb sintaxi incorrecta, un altre corregint només l’editor i el final després d’"
+            },
+            {
+              "lang": "en-US",
+              "text": "add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En un repositori de pràctiques separat, instal·la el codi mostrat i compara un intent amb sintaxi incorrecta, un altre corregint només l’editor i el final després d’add."
+    }
+  ],
+  "intro": {
+    "narration": "Vint-i-cinquena lliçó, Hooks.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Vint-i-cinquena lliçó, "
+      },
+      {
+        "lang": "en-US",
+        "text": "Hooks"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  }
+}

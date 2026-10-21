@@ -1,0 +1,27 @@
+[
+  {
+    "episode": "05-merge",
+    "returncode": 0,
+    "log": "registres-pronuncia/05-merge.log"
+  },
+  {
+    "episode": "10-revert",
+    "returncode": 0,
+    "log": "registres-pronuncia/10-revert.log"
+  },
+  {
+    "episode": "12-reflog",
+    "returncode": 0,
+    "log": "registres-pronuncia/12-reflog.log"
+  },
+  {
+    "episode": "15-cherry-pick",
+    "returncode": 0,
+    "log": "registres-pronuncia/15-cherry-pick.log"
+  },
+  {
+    "episode": "13-gitignore",
+    "returncode": 0,
+    "log": "registres-pronuncia/13-gitignore.log"
+  }
+]

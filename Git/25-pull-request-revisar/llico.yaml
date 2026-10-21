@@ -1,0 +1,102 @@
+titol: "Pull request: revisa, actualitza i integra"
+titol_curt: PULL REQUEST
+capcalera: ["PULL REQUEST", "Revisa, actualitza i integra"]
+presentacio: "[[Pull requests]], segona part"
+objectiu: respondre a una revisió, actualitzar la mateixa proposta i portar el resultat integrat al nostre [[main]].
+inici: >-
+  Continuació de la primera part. main a B al local i al remot; salutacio a C, publicada i amb una pull
+  request oberta. La interfície de GitHub és un esquema amb dades inventades.
+inici_parlat: >-
+  Tenim una proposta oberta amb la salutació personalitzada. Una companya l’està revisant.
+preparacio:
+  - remot_nu: origin
+  - clona: HelloGit
+    de: origin
+  - cd: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: commit -q -am "Afegeix una exclamacio"
+  - etiqueta: B
+  - git: push -q -u origin main
+  - git: switch -q -c salutacio
+  - fitxer: helloGit.py
+    contingut: print("Hola, Anna")
+  - git: commit -q -am "Personalitza la salutacio"
+  - etiqueta: C
+  - git: push -q -u origin salutacio
+
+etapes:
+  - explica: La revisió demana un canvi
+    text: >-
+      La revisora proposa acabar la salutació amb una exclamació. Fem el canvi a la mateixa branca, desem i el provem.
+    visual: Comentari d’exemple a la pull request i editor amb print("Hola, Anna!").
+    accions:
+      - fitxer: helloGit.py
+        contingut: print("Hola, Anna!")
+
+  - plantilla: programa
+    resultat: La salutació ja acaba amb exclamació.
+    comprova: {programa: "Hola, Anna!"}
+
+  - plantilla: add-breu
+    resultat: La millora demanada queda preparada.
+
+  - plantilla: commit-breu
+    missatge: Completa la salutacio
+    crea: D
+    resultat: El commit nou completa la branca de la proposta.
+    comprova: {refs: {salutacio: D}}
+
+  - plantilla: push
+    resultat: >-
+      La mateixa [[pull request]] mostra ara el commit nou. No cal obrir-ne una altra: la proposta segueix la branca.
+    comprova:
+      remot: {origin: {salutacio: D}}
+
+  - explica: Integrem la proposta
+    text: >-
+      La revisora aprova la versió actualitzada. Una persona amb permís la fusiona amb el botó de fusió; en
+      aquest exemple, es crea un commit de [[merge]] a [[main]] del remot.
+    visual: >-
+      Esquema amb l’aprovació i el botó Merge pull request, opció Create a merge commit. Graf del remot amb M i
+      dos pares. Cap acció sobre un servei real.
+    accions:
+      - servidor:
+          - 'git merge -q --no-ff origin/salutacio -m "Merge pull request #1 from anna-puig/salutacio"'
+        crea: M
+
+  - plantilla: switch
+    branca: main
+    resultat: El nostre [[main]] local encara no té la fusió que s’ha fet al remot.
+    comprova: {head: main, refs: {main: B}}
+
+  - ordre: git pull --ff-only
+    text: Actualitzem la còpia local de [[main]].
+    resultat: "[[main]] local arriba al commit de fusió, que té com a pares l’antic [[main]] i l’últim commit de la proposta."
+    visual: El mateix M al remot i al local.
+    comprova:
+      refs: {main: M}
+      pares: {M: [B, D]}
+      programa: Hola, Anna!
+
+  - ordre: git branch -d salutacio
+    text: La branca de la proposta ja està integrada; l’esborrem del nostre ordinador.
+    resultat: >-
+      L’etiqueta local desapareix i els commits continuen a [[main]]. A [[GitHub]], la branca del remot
+      s’esborra amb el botó que apareix després de fusionar.
+    visual: Retirar l’etiqueta local salutacio; botó Delete branch a l’esquema de la web.
+    comprova:
+      refs: {salutacio: null}
+
+resum:
+  - Un [[push]] a la mateixa branca actualitza la proposta oberta.
+  - La integració es fa després de la revisió, a la web.
+  - Després, actualitzem el nostre [[main]] i esborrem la branca integrada.
+practica: >-
+  Amb una persona col·laboradora, demana un canvi petit en una proposta, actualitza-la amb un commit nou,
+  integra-la i porta el resultat al teu [[main]].

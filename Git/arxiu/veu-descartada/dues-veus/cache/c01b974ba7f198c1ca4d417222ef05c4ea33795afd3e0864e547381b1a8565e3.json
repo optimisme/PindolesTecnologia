@@ -1,0 +1,52 @@
+{
+  "text": "A GitHub publiquem els commits de la branca salutació.",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "words": [
+    {
+      "start": 0.1,
+      "end": 0.233916,
+      "text": "A"
+    },
+    {
+      "start": 0.233916,
+      "end": 0.713832,
+      "text": "GitHub"
+    },
+    {
+      "start": 0.713833,
+      "end": 1.204916,
+      "text": "publiquem"
+    },
+    {
+      "start": 1.204916,
+      "end": 1.428124,
+      "text": "els"
+    },
+    {
+      "start": 1.428125,
+      "end": 1.829916,
+      "text": "commits"
+    },
+    {
+      "start": 1.829916,
+      "end": 1.919207,
+      "text": "de"
+    },
+    {
+      "start": 1.919208,
+      "end": 2.019624,
+      "text": "la"
+    },
+    {
+      "start": 2.019625,
+      "end": 2.320958,
+      "text": "branca"
+    },
+    {
+      "start": 2.321,
+      "end": 3.001791,
+      "text": "salutació"
+    }
+  ]
+}

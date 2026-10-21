@@ -1,0 +1,234 @@
+{
+  "status": "scripts_revised_no_media_generated",
+  "episodes": [
+    {
+      "episode": "02-branques",
+      "title": "Branques: prova una idea sense tocar main",
+      "scenes": 14,
+      "beats": 40,
+      "words": 506,
+      "reading_pause_seconds": 104.5,
+      "script_sha256": "6536ce421eda624765368cbcc91fd0f30b322ce0cb2e6a755c8c41dec69159a5"
+    },
+    {
+      "episode": "03-estats",
+      "title": "Desar, preparar i fer commit: els tres estats",
+      "scenes": 14,
+      "beats": 41,
+      "words": 508,
+      "reading_pause_seconds": 106.5,
+      "script_sha256": "07692ca0f21acf812868c0dad34dda62a5dfe382f94beca43d25094ab2c84024"
+    },
+    {
+      "episode": "04-sincronitzacio",
+      "title": "De classe a casa: clone, pull i push",
+      "scenes": 22,
+      "beats": 65,
+      "words": 733,
+      "reading_pause_seconds": 168.0,
+      "script_sha256": "5b7ee72052ac67db49c71bd3dac9451dee73adb18df4d3c0c66d8142c54b3939"
+    },
+    {
+      "episode": "05-merge",
+      "title": "Merge: portem la prova a main",
+      "scenes": 10,
+      "beats": 29,
+      "words": 350,
+      "reading_pause_seconds": 76.0,
+      "script_sha256": "571c897324eb01450683ee8175195a22613e06cfc8f5f8bc5c530c41d6fa71d6"
+    },
+    {
+      "episode": "06-conflictes",
+      "title": "Conflictes: dues edicions, una decisió",
+      "scenes": 13,
+      "beats": 35,
+      "words": 456,
+      "reading_pause_seconds": 93.5,
+      "script_sha256": "0346e99610721482cbe54bdfc4c45a59ad09f0ea5575cd9288748b7b6f0cb838"
+    },
+    {
+      "episode": "07-rebase",
+      "title": "Rebase: continua sobre una base nova",
+      "scenes": 14,
+      "beats": 40,
+      "words": 472,
+      "reading_pause_seconds": 104.5,
+      "script_sha256": "8470362ea9c5ae4f560472a061d5366e463cfbb8ac7907ebdc3e80abdd8d7d0b"
+    },
+    {
+      "episode": "08-stash",
+      "title": "Stash: aparca la feina pendent",
+      "scenes": 13,
+      "beats": 38,
+      "words": 467,
+      "reading_pause_seconds": 98.5,
+      "script_sha256": "c98bcc9969b50bac377ada0c674801da65ee98d25931a0c94928de0aa80e4a59"
+    },
+    {
+      "episode": "09-restore",
+      "title": "Restore: desmarca o descarta un canvi local",
+      "scenes": 10,
+      "beats": 27,
+      "words": 351,
+      "reading_pause_seconds": 71.0,
+      "script_sha256": "46e20555a2b149c9c98feef678bde7ad157613a39d59aca0647d667dd8d18847"
+    },
+    {
+      "episode": "10-revert",
+      "title": "Revert: desfés un commit publicat",
+      "scenes": 11,
+      "beats": 33,
+      "words": 379,
+      "reading_pause_seconds": 86.0,
+      "script_sha256": "80fdba0679f114093777a40aed1c3e936a2ffdb6e85838ae115f50cd532c50d6"
+    },
+    {
+      "episode": "11-reset",
+      "title": "Reset: torna enrere un commit local",
+      "scenes": 10,
+      "beats": 24,
+      "words": 336,
+      "reading_pause_seconds": 65.5,
+      "script_sha256": "a7255b8949de418722df574611008e3a5d3faa2f503723f45a782dffa179ff68"
+    },
+    {
+      "episode": "12-reflog",
+      "title": "Reflog: recupera un commit local",
+      "scenes": 11,
+      "beats": 34,
+      "words": 398,
+      "reading_pause_seconds": 88.5,
+      "script_sha256": "b0c83a2ccd5eb035368f7a87dff3527191394e0b867ee0f758a1d25732a4c172"
+    },
+    {
+      "episode": "13-gitignore",
+      "title": "Gitignore: tria què entra al repositori",
+      "scenes": 12,
+      "beats": 36,
+      "words": 496,
+      "reading_pause_seconds": 94.5,
+      "script_sha256": "45939476e43affe4ab96e9dc72423019b7d697a8457028d873a2b4f2a7457c5c"
+    },
+    {
+      "episode": "14-tags",
+      "title": "Tags: identifica una versió del projecte",
+      "scenes": 14,
+      "beats": 49,
+      "words": 527,
+      "reading_pause_seconds": 126.0,
+      "script_sha256": "8482e48829e305b52b449570b50c4970b1589e6a708b3ab6ce0525b4c8283d71"
+    },
+    {
+      "episode": "15-cherry-pick",
+      "title": "Cherry-pick: porta una correcció a una altra branca",
+      "scenes": 15,
+      "beats": 49,
+      "words": 513,
+      "reading_pause_seconds": 126.0,
+      "script_sha256": "6c360de4dd243afc153ba253b69efa5fb1c60b2c4754f0d98d976282a36c0774"
+    },
+    {
+      "episode": "16-pull-requests",
+      "title": "Pull requests: revisa i integra una feina en equip",
+      "scenes": 20,
+      "beats": 64,
+      "words": 719,
+      "reading_pause_seconds": 166.5,
+      "script_sha256": "c06cbf05d59557a5ba11507505f6de90f34017f1cca95d0e00c65dea0a95d9bd"
+    },
+    {
+      "episode": "17-blame",
+      "title": "Blame: investiga l’origen d’una línia",
+      "scenes": 10,
+      "beats": 31,
+      "words": 343,
+      "reading_pause_seconds": 80.5,
+      "script_sha256": "52b9a5662bdc726ebba87a1d05c8d29ba5407f367655be6b97a0d7d2d795dfeb"
+    },
+    {
+      "episode": "18-bisect",
+      "title": "Bisect: troba el primer commit que falla",
+      "scenes": 14,
+      "beats": 44,
+      "words": 454,
+      "reading_pause_seconds": 113.0,
+      "script_sha256": "23cd1a4259e449ec6f3aac9bc482713d337ef678c9f8f5a5084427505a16c6b0"
+    },
+    {
+      "episode": "19-amend",
+      "title": "Amend: completa l’últim commit local",
+      "scenes": 11,
+      "beats": 37,
+      "words": 424,
+      "reading_pause_seconds": 96.0,
+      "script_sha256": "2d5b2f06b7057a4aa7c23d374c8c32fda11d53d5741c9a8c82ca2d3bf95774ae"
+    },
+    {
+      "episode": "20-fetch",
+      "title": "Fetch: consulta els canvis abans d’integrar-los",
+      "scenes": 10,
+      "beats": 35,
+      "words": 361,
+      "reading_pause_seconds": 90.5,
+      "script_sha256": "26b9ca47f228a0d3c050133e20d7833fee53e264b9db8c31424cc6aac0dab54e"
+    },
+    {
+      "episode": "21-forks",
+      "title": "Forks i upstream: contribueix a un projecte",
+      "scenes": 20,
+      "beats": 67,
+      "words": 687,
+      "reading_pause_seconds": 172.5,
+      "script_sha256": "039414da6d5b66b92f74ea4018d94447b9e6c7039d40665fcc7047fcf97d53c6"
+    },
+    {
+      "episode": "22-rebase-interactiu",
+      "title": "Rebase interactiu: agrupa commits abans de publicar",
+      "scenes": 17,
+      "beats": 52,
+      "words": 588,
+      "reading_pause_seconds": 136.5,
+      "script_sha256": "49c8a954833cc6a9e62332462964036232d99e6455f551db448755deecfc838d"
+    },
+    {
+      "episode": "23-add-interactiu",
+      "title": "Add interactiu: prepara només una part del fitxer",
+      "scenes": 13,
+      "beats": 41,
+      "words": 455,
+      "reading_pause_seconds": 106.5,
+      "script_sha256": "56a1d36b71a3f00aa088f0a8665918e34c67f0093b650568b3b31b0fef99d8f9"
+    },
+    {
+      "episode": "24-worktree",
+      "title": "Worktree: prepara una correcció sense interrompre la feina",
+      "scenes": 16,
+      "beats": 58,
+      "words": 596,
+      "reading_pause_seconds": 148.5,
+      "script_sha256": "eccea2205507ddc0bde1eeaaeaa350f5057cf789363ab30b892efce0edfb02d3"
+    },
+    {
+      "episode": "25-hooks",
+      "title": "Hooks: comprova la sintaxi abans del commit",
+      "scenes": 15,
+      "beats": 39,
+      "words": 549,
+      "reading_pause_seconds": 103.5,
+      "script_sha256": "3a377bcb236298d165e01d257307ea1fffdde8e10c0f1d144cd442fd2ca72a5e"
+    }
+  ],
+  "verification": {
+    "episodes": 24,
+    "beats": 1008,
+    "words": 11668,
+    "questions": 0,
+    "protected_files_unchanged": 748,
+    "protected_inventory_unchanged": true,
+    "new_audio_generated": false,
+    "new_video_generated": false,
+    "ssml_serialization_valid": true,
+    "captions_restore_original_text": true,
+    "command_option_explanations_valid": true
+  }
+}

@@ -1,0 +1,975 @@
+{
+  "script_format": "git-didactic-v1",
+  "status": "script_revised_media_unchanged",
+  "episode_number": 18,
+  "title": "Bisect: troba el primer commit que falla",
+  "series": "Píndoles de Git",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "music_seconds": 4,
+  "objective": "Localitzar el primer commit que falla amb una prova repetible i sortir de la cerca.",
+  "prerequisites": "Historial lineal A–H, main a H i treball net. La mateixa prova funciona a v1.0, situada a A, i falla a H. D introdueix l’error i aquest persisteix fins a H.",
+  "timing": "Sense marques absolutes: es calcularan amb la futura locució.",
+  "scenes": [
+    {
+      "id": "rev_18_00",
+      "title": "Objectiu i punt de partida",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a localitzar el primer commit que falla amb una prova repetible i sortir de la cerca.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a localitzar el primer "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que falla amb una prova repetible i sortir de la cerca."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Historial lineal A–H, main a H i treball net. La mateixa prova funciona a v1.0, situada a A, i falla a H. D introdueix l’error i aquest persisteix fins a H.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Historial lineal A–H, "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a H i treball net. La mateixa prova funciona a v1.0, situada a A, i falla a H. D introdueix l’error i aquest persisteix fins a H."
+            }
+          ],
+          "visual": "Punt de partida complet amb branca activa, fitxers i estat del treball; fer visible qualsevol cas independent.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a localitzar el primer commit que falla amb una prova repetible i sortir de la cerca. Historial lineal A–H, main a H i treball net. La mateixa prova funciona a v1.0, situada a A, i falla a H. D introdueix l’error i aquest persisteix fins a H."
+    },
+    {
+      "id": "rev_18_01",
+      "title": "Acotar una regressió amb una prova",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Coneixem una versió que funciona i una que falla. Bisect tria versions intermèdies per reduir el tram que investiguem. La prova ha de ser la mateixa a cada pas.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Coneixem una versió que funciona i una que falla. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Bisect"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " tria versions intermèdies per reduir el tram que investiguem. La prova ha de ser la mateixa a cada pas."
+            }
+          ],
+          "visual": "Graf A–H; A FUNCIONA, H FALLA. Prova fixa: python3 helloGit.py.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Coneixem una versió que funciona i una que falla. Bisect tria versions intermèdies per reduir el tram que investiguem. La prova ha de ser la mateixa a cada pas."
+    },
+    {
+      "id": "rev_18_02",
+      "title": "git status --short",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Aquesta consulta no modifica el projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status"
+        },
+        {
+          "id": "pas_005",
+          "narration": "Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "short"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " demana la forma breu. La primera columna compara preparació i últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; la segona, treball i preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --short.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "--short"
+        },
+        {
+          "id": "pas_006",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_007",
+          "narration": "No hi ha canvis locals que es puguin barrejar amb els canvis temporals de versió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "No hi ha canvis locals que es puguin barrejar amb els canvis temporals de versió."
+            }
+          ],
+          "visual": "Mostrar la sortida literal amb les dues columnes separades i una llegenda; conservar els espais de davant de cada lletra. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte. Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació. Executem l’ordre. No hi ha canvis locals que es puguin barrejar amb els canvis temporals de versió."
+    },
+    {
+      "id": "rev_18_03",
+      "title": "git bisect start",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_008",
+          "narration": "Iniciem la sessió de cerca.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Iniciem la sessió de cerca."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect start. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git bisect start.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git bisect start",
+          "highlight": "git bisect start"
+        },
+        {
+          "id": "pas_009",
+          "narration": "Aquesta subordre inicia la investigació; encara hem d’indicar els dos límits.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquesta subordre inicia la investigació; encara hem d’indicar els dos límits."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect start. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: start.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git bisect start",
+          "highlight": "start"
+        },
+        {
+          "id": "pas_010",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect start. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git bisect start"
+          ],
+          "command_display": "git bisect start",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_011",
+          "narration": "La sessió queda oberta, pendent de classificar els extrems.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La sessió queda oberta, pendent de classificar els extrems."
+            }
+          ],
+          "visual": "Indicador CERCA ACTIVA. Main encara és a H. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git bisect start",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Iniciem la sessió de cerca. Aquesta subordre inicia la investigació; encara hem d’indicar els dos límits. Executem l’ordre. La sessió queda oberta, pendent de classificar els extrems."
+    },
+    {
+      "id": "rev_18_04",
+      "title": "git bisect bad",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "Classifiquem l’extrem actual com a fallada coneguda.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Classifiquem l’extrem actual com a fallada coneguda."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect bad. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git bisect bad.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git bisect bad",
+          "highlight": "git bisect bad"
+        },
+        {
+          "id": "pas_013",
+          "narration": "Indica que la prova falla en el commit actual, que és H.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Indica que la prova falla en el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " actual, que és H."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect bad. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: bad.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git bisect bad",
+          "highlight": "bad"
+        },
+        {
+          "id": "pas_014",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect bad. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git bisect bad"
+          ],
+          "command_display": "git bisect bad",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_015",
+          "narration": "H es converteix en el límit que falla.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "H es converteix en el límit que falla."
+            }
+          ],
+          "visual": "Ressaltar H amb etiqueta FALLA, a més del color. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git bisect bad",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Classifiquem l’extrem actual com a fallada coneguda. Indica que la prova falla en el commit actual, que és H. Executem l’ordre. H es converteix en el límit que falla."
+    },
+    {
+      "id": "rev_18_05",
+      "title": "git bisect good v1.0",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_016",
+          "narration": "Indiquem la versió que ja hem provat com a correcta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Indiquem la versió que ja hem provat com a correcta."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect good v1.0. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git bisect good.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git bisect good v1.0",
+          "highlight": "git bisect good"
+        },
+        {
+          "id": "pas_017",
+          "narration": "Indica que aquesta versió supera la mateixa prova.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Indica que aquesta versió supera la mateixa prova."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect good v1.0. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: good.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git bisect good v1.0",
+          "highlight": "good"
+        },
+        {
+          "id": "pas_018",
+          "narration": "L’etiqueta assenyala A, l’extrem conegut que funciona.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’etiqueta assenyala A, l’extrem conegut que funciona."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect good v1.0. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: v1.0.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git bisect good v1.0",
+          "highlight": "v1.0"
+        },
+        {
+          "id": "pas_019",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect good v1.0. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git bisect good v1.0"
+          ],
+          "command_display": "git bisect good v1.0",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_020",
+          "narration": "En aquest historial Git selecciona D per provar-lo. Main continua a H; canvia temporalment la versió de treball.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquest historial "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " selecciona D per provar-lo. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " continua a H; canvia temporalment la versió de treball."
+            }
+          ],
+          "visual": "HEAD separat a D, main quieta a H. No presentar sempre D com la selecció de qualsevol projecte. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git bisect good v1.0",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Indiquem la versió que ja hem provat com a correcta. Indica que aquesta versió supera la mateixa prova. L’etiqueta assenyala A, l’extrem conegut que funciona. Executem l’ordre. En aquest historial Git selecciona D per provar-lo. Main continua a H; canvia temporalment la versió de treball."
+    },
+    {
+      "id": "rev_18_06",
+      "title": "python3 helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_021",
+          "narration": "Executem exactament la mateixa prova a D.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem exactament la mateixa prova a D."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3"
+        },
+        {
+          "id": "pas_022",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_023",
+          "narration": "La prova falla amb l’error de nom. Comuniquem aquest resultat a la cerca.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La prova falla amb l’error de nom. Comuniquem aquest resultat a la cerca."
+            }
+          ],
+          "visual": "Terminal amb error i interval A–D ressaltat. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Executem exactament la mateixa prova a D. Executem l’ordre. La prova falla amb l’error de nom. Comuniquem aquest resultat a la cerca."
+    },
+    {
+      "id": "rev_18_07",
+      "title": "git bisect bad",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_024",
+          "narration": "Marquem D com a versió que falla.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Marquem D com a versió que falla."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect bad. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git bisect bad.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git bisect bad",
+          "highlight": "git bisect bad"
+        },
+        {
+          "id": "pas_025",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect bad. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git bisect bad"
+          ],
+          "command_display": "git bisect bad",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_026",
+          "narration": "Git redueix el tram i, en aquest exemple, selecciona C.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " redueix el tram i, en aquest exemple, selecciona C."
+            }
+          ],
+          "visual": "HEAD separat passa a C; main continua a H. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git bisect bad",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Marquem D com a versió que falla. Executem l’ordre. Git redueix el tram i, en aquest exemple, selecciona C."
+    },
+    {
+      "id": "rev_18_08",
+      "title": "python3 helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_027",
+          "narration": "Provem C de la mateixa manera.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem C de la mateixa manera."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3"
+        },
+        {
+          "id": "pas_028",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_029",
+          "narration": "La salutació funciona. Ara classifiquem aquesta versió com a correcta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La salutació funciona. Ara classifiquem aquesta versió com a correcta."
+            }
+          ],
+          "visual": "Sortida Hello Git!, sense canviar la prova. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem C de la mateixa manera. Executem l’ordre. La salutació funciona. Ara classifiquem aquesta versió com a correcta."
+    },
+    {
+      "id": "rev_18_09",
+      "title": "git bisect good",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_030",
+          "narration": "Marquem el resultat correcte de C.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Marquem el resultat correcte de C."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect good. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git bisect good.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git bisect good",
+          "highlight": "git bisect good"
+        },
+        {
+          "id": "pas_031",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect good. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git bisect good"
+          ],
+          "command_display": "git bisect good",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_032",
+          "narration": "C i D són consecutius: D és el primer que falla dins del tram investigat. Això localitza un canvi per revisar; encara no l’hem corregit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "C i D són consecutius: D és el primer que falla dins del tram investigat. Això localitza un canvi per revisar; encara no l’hem corregit."
+            }
+          ],
+          "visual": "Ressaltar D com a RESULTAT. Conservar HEAD a C, que és l’últim commit provat en aquesta seqüència. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git bisect good",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Marquem el resultat correcte de C. Executem l’ordre. C i D són consecutius: D és el primer que falla dins del tram investigat. Això localitza un canvi per revisar; encara no l’hem corregit."
+    },
+    {
+      "id": "rev_18_10",
+      "title": "git show d04f7a2 -- helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_033",
+          "narration": "Revisem el canvi identificat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Revisem el canvi identificat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show d04f7a2 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git show.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show d04f7a2 -- helloGit.py",
+          "highlight": "git show"
+        },
+        {
+          "id": "pas_034",
+          "narration": "Substituïm el hash de mostra pel que ha trobat la nostra cerca.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Substituïm el hash de mostra pel que ha trobat la nostra cerca."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show d04f7a2 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: d04f7a2.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show d04f7a2 -- helloGit.py",
+          "highlight": "d04f7a2"
+        },
+        {
+          "id": "pas_035",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show d04f7a2 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git show d04f7a2 -- helloGit.py"
+          ],
+          "command_display": "git show d04f7a2 -- helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_036",
+          "narration": "El diff mostra la variable sense definir introduïda a D. La consulta no modifica la versió seleccionada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El diff mostra la variable sense definir introduïda a D. La consulta no modifica la versió seleccionada."
+            }
+          ],
+          "visual": "Diff de D al costat del resultat de la prova. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git show d04f7a2 -- helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Revisem el canvi identificat. Substituïm el hash de mostra pel que ha trobat la nostra cerca. Executem l’ordre. El diff mostra la variable sense definir introduïda a D. La consulta no modifica la versió seleccionada."
+    },
+    {
+      "id": "rev_18_11",
+      "title": "git bisect reset",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_037",
+          "narration": "Tanquem la cerca i recuperem el punt de partida.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Tanquem la cerca i recuperem el punt de partida."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect reset. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git bisect reset.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git bisect reset",
+          "highlight": "git bisect reset"
+        },
+        {
+          "id": "pas_038",
+          "narration": "En aquesta subordre de bisect, reset finalitza la sessió i torna al punt inicial; no és git reset.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta subordre de "
+            },
+            {
+              "lang": "en-US",
+              "text": "bisect"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " finalitza la sessió i torna al punt inicial; no és "
+            },
+            {
+              "lang": "en-US",
+              "text": "git reset"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect reset. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: reset.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git bisect reset",
+          "highlight": "reset"
+        },
+        {
+          "id": "pas_039",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git bisect reset. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git bisect reset"
+          ],
+          "command_display": "git bisect reset",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_040",
+          "narration": "Tornem a main H. No s’ha creat cap commit ni s’ha arreglat encara el programa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Tornem a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " H. No s’ha creat cap "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ni s’ha arreglat encara el programa."
+            }
+          ],
+          "visual": "Retirar CERCA ACTIVA i tornar HEAD a main H. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git bisect reset",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Tanquem la cerca i recuperem el punt de partida. En aquesta subordre de bisect, reset finalitza la sessió i torna al punt inicial; no és git reset. Executem l’ordre. Tornem a main H. No s’ha creat cap commit ni s’ha arreglat encara el programa."
+    },
+    {
+      "id": "rev_18_12",
+      "title": "Resum final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_041",
+          "narration": "Cal una prova repetible i dos extrems coneguts.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cal una prova repetible i dos extrems coneguts."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_042",
+          "narration": "Provem cada versió abans de classificar-la.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem cada versió abans de classificar-la."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_043",
+          "narration": "Bisect localitza la regressió; reset tanca la cerca i després queda corregir-la.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Bisect"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " localitza la regressió; "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " tanca la cerca i després queda corregir-la."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "Cal una prova repetible i dos extrems coneguts. Provem cada versió abans de classificar-la. Bisect localitza la regressió; reset tanca la cerca i després queda corregir-la."
+    },
+    {
+      "id": "rev_18_13",
+      "title": "Pràctica final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_044",
+          "narration": "En un historial de pràctiques amb una fallada persistent, identifica un extrem correcte i un de fallit. Mantén la mateixa prova i acaba la sessió amb bisect reset.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un historial de pràctiques amb una fallada persistent, identifica un extrem correcte i un de fallit. Mantén la mateixa prova i acaba la sessió amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "bisect reset"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En un historial de pràctiques amb una fallada persistent, identifica un extrem correcte i un de fallit. Mantén la mateixa prova i acaba la sessió amb bisect reset."
+    }
+  ],
+  "intro": {
+    "narration": "Divuitena lliçó, Bisect.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Divuitena lliçó, "
+      },
+      {
+        "lang": "en-US",
+        "text": "Bisect"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  }
+}

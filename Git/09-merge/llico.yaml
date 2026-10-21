@@ -1,0 +1,128 @@
+titol: "Merge: porta la prova a main"
+titol_curt: MERGE
+capcalera: [MERGE, Porta la prova a main]
+presentacio: "[[Merge]]"
+objectiu: integrar la branca salutacio a [[main]] i distingir l’avançament directe de la fusió amb dos pares.
+inici: >-
+  Branca activa salutacio, sense canvis pendents. main és a B i salutacio a C, que descendeix directament de B.
+  C conté print("Hola, Anna!"), ja provat.
+inici_parlat: >-
+  Som a la branca salutació, amb la salutació personalitzada ja confirmada i provada. [[main]] encara té
+  la versió original.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: add helloGit.py
+  - commit: B
+    missatge: Afegeix una exclamacio
+  - git: switch -q -c salutacio
+  - fitxer: helloGit.py
+    contingut: print("Hola, Anna!")
+  - git: add helloGit.py
+  - commit: C
+    missatge: Personalitza la salutacio
+
+camins:
+  divergent:
+    tipus: alternatiu
+    titol: Un altre cas
+    des_de: inici
+    preparacio:
+      - git: switch -q main
+      - fitxer: notes.md
+        contingut: Notes del projecte
+      - git: add notes.md
+      - commit: D
+        missatge: Afegeix les notes
+
+etapes:
+  - explica: Origen i destinació
+    text: >-
+      Volem portar a [[main]] el canvi de la salutació. [[git merge]] incorpora una branca a la branca
+      activa; per això, primer ens hem de situar a la destinació.
+    visual: Graf A, B i C; main a B i salutacio a C. Etiquetes ORIGEN a salutacio i DESTINACIÓ a main.
+
+  - plantilla: switch
+    branca: main
+    resultat: La destinació activa ara és [[main]], amb la salutació original. La branca salutació es conserva.
+    comprova: {head: main, programa: "Hello Git!"}
+
+  - ordre: git branch --show-current
+    text: Confirmem on som abans d’integrar.
+    parts:
+      - --show-current: Aquesta opció mostra només el nom de la branca activa.
+    resultat: La terminal respon [[main]]. Encara no hem integrat res.
+    visual: Ressaltar main tant a la sortida com al graf.
+    comprova:
+      sortida: [main]
+
+  - ordre: git merge --ff-only salutacio
+    text: "[[git merge]] incorpora la història de la branca que indiquem."
+    parts:
+      - --ff-only: >-
+          Només acceptem un avançament directe. Funciona quan [[main]] no té commits propis que la branca
+          no tingui; si no, l’ordre s’atura sense canviar res.
+      - salutacio: És la branca que incorporem. No canvia la branca activa.
+    resultat: >-
+      [[main]] avança fins al commit de la salutació. Les dues etiquetes apunten al mateix commit i no
+      s’ha creat cap commit nou.
+    visual: Moure només l’etiqueta main de B a C sobre el graf existent. Conservar salutacio i tots els nodes.
+    comprova:
+      refs: {main: C, salutacio: C}
+      commits: {ref: main, nombre: 3}
+
+  - plantilla: programa
+    resultat: A [[main]] també surt la salutació personalitzada.
+    comprova: {programa: "Hola, Anna!"}
+
+  - ordre: git branch -d salutacio
+    text: La branca de la prova ja ha fet la seva feina. Amb [[git branch]] la podem esborrar.
+    parts:
+      - -d: >-
+          El guionet de esborra l’etiqueta de la branca, no els commits. Només ho fa si la branca ja està
+          integrada; si no, [[Git]] s’hi nega i ens avisa.
+      - salutacio: És la branca que retirem.
+    resultat: Desapareix l’etiqueta salutació. El commit de la salutació continua a la història de [[main]].
+    visual: Retirar l’etiqueta salutacio; el node C continua al graf amb l’etiqueta main.
+    comprova:
+      refs: {salutacio: null, main: C}
+
+  - explica: Un altre cas, dues branques que han avançat
+    cami: divergent
+    text: >-
+      Partim ara d’un cas diferent. Abans d’integrar, algú ha afegit un commit a [[main]] amb unes notes.
+      Les dues branques han avançat i ja no és possible un avançament directe.
+    visual: >-
+      Separador UN ALTRE CAS. Tornar a B i dibuixar dos camins, C a salutacio i D a main. No reutilitzar
+      el resultat anterior.
+
+  - ordre: git merge salutacio
+    cami: divergent
+    text: En aquest cas, [[git merge]] crea un commit de fusió que uneix les dues històries.
+    parts:
+      - salutacio: Incorporem aquesta branca a la branca activa, que continua sent [[main]].
+    editor: Merge branch 'salutacio'
+    crea: M
+    resultat: >-
+      S’obre l’editor que vam configurar amb un missatge proposat. El desem i tanquem la pestanya, i es crea
+      el commit de fusió, amb dos pares.
+    visual: Pestanya de l’editor amb el missatge Merge branch 'salutacio'. En tancar-la, aparèixer M connectat a D i C.
+    comprova:
+      pares: {M: [D, C]}
+      refs: {main: M}
+      programa: Hola, Anna!
+      existeix: [notes.md]
+
+resum:
+  - La branca activa és la que rep la integració.
+  - Un avançament directe mou l’etiqueta sense crear cap commit.
+  - Quan les branques han divergit, la fusió crea un commit amb dos pares.
+practica: >-
+  En un repositori de pràctiques, crea una branca, confirma-hi un canvi i integra’l a [[main]] amb
+  avançament directe. Executa el programa i esborra la branca integrada.

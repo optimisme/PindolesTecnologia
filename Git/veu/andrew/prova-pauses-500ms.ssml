@@ -1,0 +1,31 @@
+<speak xmlns="http://www.w3.org/2001/10/synthesis" version="1.0" xml:lang="en-US">
+  <voice name="en-US-AndrewMultilingualNeural">
+    <prosody rate="+12%">
+      <lang xml:lang="ca-ES">Editem el fitxer a la branca salutació. Amb </lang>
+      <break time="500ms" />
+      <lang xml:lang="en-US">git add</lang>
+      <break time="500ms" />
+      <lang xml:lang="ca-ES"> preparem els canvis. Després, </lang>
+      <break time="500ms" />
+      <lang xml:lang="en-US">git commit</lang>
+      <break time="500ms" />
+      <lang xml:lang="ca-ES"> desa una versió del projecte. Consultem l’historial amb </lang>
+      <break time="500ms" />
+      <lang xml:lang="en-US">git log</lang>
+      <break time="500ms" />
+      <lang xml:lang="ca-ES">. Per compartir la correcció, fem </lang>
+      <break time="500ms" />
+      <lang xml:lang="en-US">git push</lang>
+      <break time="500ms" />
+      <lang xml:lang="ca-ES"> i enviem els canvis a </lang>
+      <break time="500ms" />
+      <lang xml:lang="en-US">GitHub</lang>
+      <break time="500ms" />
+      <lang xml:lang="ca-ES">. Abans d’integrar novetats, podem fer </lang>
+      <break time="500ms" />
+      <lang xml:lang="en-US">git fetch</lang>
+      <break time="500ms" />
+      <lang xml:lang="ca-ES"> i revisar-les.</lang>
+    </prosody>
+  </voice>
+</speak>

@@ -1,0 +1,1035 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 1,
+  "slug": "01-configuracio",
+  "title": "Configuració inicial: identitat, branca i editor",
+  "short_title": "CONFIGURACIÓ",
+  "card": [
+    "CONFIGURACIÓ",
+    "Prepara l’ordinador per treballar amb Git"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "01-configuracio.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Primera lliçó. Configuració inicial.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Primera lliçó. Configuració inicial."
+      }
+    ]
+  },
+  "objective": "comprovar la versió de [[Git]] i deixar configurades l’autoria, la branca inicial i l’editor.",
+  "start_note": "Git instal·lat i una terminal oberta. Usuari sense cap configuració global de Git. La terminal i les sortides són reals; el nom i el correu són d’exemple.",
+  "start_spoken": "Partim d’un ordinador amb Git instal·lat i una terminal oberta. Encara no hem configurat res.",
+  "summary": [
+    "git config desa opcions; doble guionet global les aplica a tots els repositoris de l’usuari.",
+    "Nom i correu identifiquen l’autoria de cada commit.",
+    "La branca inicial i l’editor eviten sorpreses a les lliçons següents."
+  ],
+  "practice": "Comprova la versió de Git, configura el teu nom, el teu correu, la branca inicial i l’editor, i revisa el resultat amb la llista de configuració.",
+  "practice_script": null,
+  "scenes": [
+    {
+      "id": "e01_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a comprovar la versió de Git i deixar configurades l’autoria, la branca inicial i l’editor.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a comprovar la versió de "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i deixar configurades l’autoria, la branca inicial i l’editor."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Partim d’un ordinador amb Git instal·lat i una terminal oberta. Encara no hem configurat res.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Partim d’un ordinador amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " instal·lat i una terminal oberta. Encara no hem configurat res."
+            }
+          ],
+          "visual": "Punt de partida: Git instal·lat i una terminal oberta. Usuari sense cap configuració global de Git. La terminal i les sortides són reals; el nom i el correu són d’exemple.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a comprovar la versió de Git i deixar configurades l’autoria, la branca inicial i l’editor. Partim d’un ordinador amb Git instal·lat i una terminal oberta. Encara no hem configurat res."
+    },
+    {
+      "id": "e01_01",
+      "label": "EXPLICACIÓ",
+      "title": "Per què cal configurar Git",
+      "mode": "principal",
+      "visual": "Targeta d’un commit amb els camps AUTORIA, DATA i MISSATGE ressaltats per torns.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Cada commit guarda qui l’ha fet i quan. Per això, abans del primer, cal indicar el nom i el correu.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cada "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " guarda qui l’ha fet i quan. Per això, abans del primer, cal indicar el nom i el correu."
+            }
+          ],
+          "visual": "Targeta d’un commit amb els camps AUTORIA, DATA i MISSATGE ressaltats per torns.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        },
+        {
+          "id": "pas_004",
+          "narration": "També triarem el nom de la branca inicial i l’editor que obrirà Git quan ens demani un text llarg.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "També triarem el nom de la branca inicial i l’editor que obrirà "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " quan ens demani un text llarg."
+            }
+          ],
+          "visual": "Targeta d’un commit amb els camps AUTORIA, DATA i MISSATGE ressaltats per torns.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "narration": "Cada commit guarda qui l’ha fet i quan. Per això, abans del primer, cal indicar el nom i el correu. També triarem el nom de la branca inicial i l’editor que obrirà Git quan ens demani un text llarg."
+    },
+    {
+      "id": "e01_02",
+      "label": "TERMINAL",
+      "title": "git --version",
+      "mode": "principal",
+      "visual": "Terminal amb la versió real; etiqueta MÍNIM 2.23 al costat.",
+      "beats": [
+        {
+          "id": "pas_005",
+          "narration": "Primer comprovem quina versió tenim instal·lada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Primer comprovem quina versió tenim instal·lada."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git --version. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git --version.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git --version",
+          "highlight": "git --version",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "Doble guionet version demana el número de versió; no canvia res.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "version"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " demana el número de versió; no canvia res."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git --version. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --version.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git --version",
+          "highlight": "--version",
+          "state": 0
+        },
+        {
+          "id": "pas_007",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git --version. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git --version"
+          ],
+          "command_display": "git --version",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_008",
+          "narration": "La terminal mostra el número de versió. Les lliçons fan servir ordres com git switch i git restore, que necessiten la versió dos punt vint-i-tres o una de posterior.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La terminal mostra el número de versió. Les lliçons fan servir ordres com "
+            },
+            {
+              "lang": "en-US",
+              "text": "git switch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i "
+            },
+            {
+              "lang": "en-US",
+              "text": "git restore"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", que necessiten la versió dos punt vint-i-tres o una de posterior."
+            }
+          ],
+          "visual": "Terminal amb la versió real; etiqueta MÍNIM 2.23 al costat. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git --version",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "git version 2.55.0"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Primer comprovem quina versió tenim instal·lada. Doble guionet version demana el número de versió; no canvia res. Executem l’ordre. La terminal mostra el número de versió. Les lliçons fan servir ordres com git switch i git restore, que necessiten la versió dos punt vint-i-tres o una de posterior."
+    },
+    {
+      "id": "e01_03",
+      "label": "EXPLICACIÓ",
+      "title": "Missatges en català o en anglès",
+      "mode": "principal",
+      "visual": "La mateixa sortida en dos panells, ANGLÈS i CATALÀ, amb l’ordre idèntica a sobre.",
+      "beats": [
+        {
+          "id": "pas_009",
+          "narration": "Si l’ordinador està configurat en català, Git pot respondre en català. Les ordres són exactament les mateixes; als vídeos, les respostes surten en anglès.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si l’ordinador està configurat en català, "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " pot respondre en català. Les ordres són exactament les mateixes; als vídeos, les respostes surten en anglès."
+            }
+          ],
+          "visual": "La mateixa sortida en dos panells, ANGLÈS i CATALÀ, amb l’ordre idèntica a sobre.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 2
+        }
+      ],
+      "narration": "Si l’ordinador està configurat en català, Git pot respondre en català. Les ordres són exactament les mateixes; als vídeos, les respostes surten en anglès."
+    },
+    {
+      "id": "e01_04",
+      "label": "TERMINAL",
+      "title": "git config --global user.name \"Anna Puig\"",
+      "mode": "principal",
+      "visual": "Fitxer de configuració global amb la línia name = Anna Puig afegida.",
+      "beats": [
+        {
+          "id": "pas_010",
+          "narration": "Amb git config desem una opció de configuració.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git config"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " desem una opció de configuració."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global user.name \"Anna Puig\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git config.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global user.name \"Anna Puig\"",
+          "highlight": "git config",
+          "state": 2
+        },
+        {
+          "id": "pas_011",
+          "narration": "Doble guionet global desa l’opció per a tots els repositoris del nostre usuari en aquest ordinador.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "global"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " desa l’opció per a tots els repositoris del nostre usuari en aquest ordinador."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global user.name \"Anna Puig\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --global.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global user.name \"Anna Puig\"",
+          "highlight": "--global",
+          "state": 2
+        },
+        {
+          "id": "pas_012",
+          "narration": "És la clau que guarda el nom de l’autoria.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la clau que guarda el nom de l’autoria."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global user.name \"Anna Puig\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: user.name.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global user.name \"Anna Puig\"",
+          "highlight": "user.name",
+          "state": 2
+        },
+        {
+          "id": "pas_013",
+          "narration": "És el valor. Escriu-hi el teu nom; les cometes el mantenen com un sol argument.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el valor. Escriu-hi el teu nom; les cometes el mantenen com un sol argument."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global user.name \"Anna Puig\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Anna Puig\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global user.name \"Anna Puig\"",
+          "highlight": "\"Anna Puig\"",
+          "state": 2
+        },
+        {
+          "id": "pas_014",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global user.name \"Anna Puig\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git config --global user.name \"Anna Puig\""
+          ],
+          "command_display": "git config --global user.name \"Anna Puig\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_015",
+          "narration": "L’ordre no mostra res quan funciona. A partir d’ara, els commits d’aquest usuari portaran aquest nom.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’ordre no mostra res quan funciona. A partir d’ara, els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " d’aquest usuari portaran aquest nom."
+            }
+          ],
+          "visual": "Fitxer de configuració global amb la línia name = Anna Puig afegida. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git config --global user.name \"Anna Puig\"",
+          "event": "result",
+          "state": 3,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git config desem una opció de configuració. Doble guionet global desa l’opció per a tots els repositoris del nostre usuari en aquest ordinador. És la clau que guarda el nom de l’autoria. És el valor. Escriu-hi el teu nom; les cometes el mantenen com un sol argument. Executem l’ordre. L’ordre no mostra res quan funciona. A partir d’ara, els commits d’aquest usuari portaran aquest nom."
+    },
+    {
+      "id": "e01_05",
+      "label": "TERMINAL",
+      "title": "git config --global user.email \"anna@example.com\"",
+      "mode": "principal",
+      "visual": "La línia email = anna@example.com s’afegeix sota el nom.",
+      "beats": [
+        {
+          "id": "pas_016",
+          "narration": "Ara desem el correu de l’autoria.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara desem el correu de l’autoria."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global user.email \"anna@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git config.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global user.email \"anna@example.com\"",
+          "highlight": "git config",
+          "state": 3
+        },
+        {
+          "id": "pas_017",
+          "narration": "És la clau del correu que acompanya cada commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la clau del correu que acompanya cada "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global user.email \"anna@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: user.email.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global user.email \"anna@example.com\"",
+          "highlight": "user.email",
+          "state": 3
+        },
+        {
+          "id": "pas_018",
+          "narration": "És un correu d’exemple. Fes servir el teu, o l’adreça privada que ofereix GitHub al teu compte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És un correu d’exemple. Fes servir el teu, o l’adreça privada que ofereix "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " al teu compte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global user.email \"anna@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"anna@example.com\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global user.email \"anna@example.com\"",
+          "highlight": "\"anna@example.com\"",
+          "state": 3
+        },
+        {
+          "id": "pas_019",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global user.email \"anna@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git config --global user.email \"anna@example.com\""
+          ],
+          "command_display": "git config --global user.email \"anna@example.com\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_020",
+          "narration": "El correu queda desat al mateix fitxer de configuració.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El correu queda desat al mateix fitxer de configuració."
+            }
+          ],
+          "visual": "La línia email = anna@example.com s’afegeix sota el nom. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git config --global user.email \"anna@example.com\"",
+          "event": "result",
+          "state": 4,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Ara desem el correu de l’autoria. És la clau del correu que acompanya cada commit. És un correu d’exemple. Fes servir el teu, o l’adreça privada que ofereix GitHub al teu compte. Executem l’ordre. El correu queda desat al mateix fitxer de configuració."
+    },
+    {
+      "id": "e01_06",
+      "label": "EXPLICACIÓ",
+      "title": "Un ordinador compartit",
+      "mode": "principal",
+      "visual": "Dues columnes: ORDINADOR PROPI · git config --global user.name ... / ORDINADOR COMPARTIT · dins del repositori, git config user.name ... sense --global.",
+      "beats": [
+        {
+          "id": "pas_021",
+          "narration": "En un ordinador de l’aula, compartit amb altres persones, no fem servir doble guionet global. Executem la mateixa ordre dins del nostre repositori i l’autoria només s’hi aplica allà.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un ordinador de l’aula, compartit amb altres persones, no fem servir doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "global"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Executem la mateixa ordre dins del nostre repositori i l’autoria només s’hi aplica allà."
+            }
+          ],
+          "visual": "Dues columnes: ORDINADOR PROPI · git config --global user.name ... / ORDINADOR COMPARTIT · dins del repositori, git config user.name ... sense --global.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 5
+        }
+      ],
+      "narration": "En un ordinador de l’aula, compartit amb altres persones, no fem servir doble guionet global. Executem la mateixa ordre dins del nostre repositori i l’autoria només s’hi aplica allà."
+    },
+    {
+      "id": "e01_07",
+      "label": "TERMINAL",
+      "title": "git config --global init.defaultBranch main",
+      "mode": "principal",
+      "visual": "Línia defaultBranch = main a la secció init del fitxer.",
+      "beats": [
+        {
+          "id": "pas_022",
+          "narration": "Triem el nom de la primera branca dels repositoris nous.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Triem el nom de la primera branca dels repositoris nous."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global init.defaultBranch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git config.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global init.defaultBranch main",
+          "highlight": "git config",
+          "state": 5
+        },
+        {
+          "id": "pas_023",
+          "narration": "Aquesta clau indica el nom de la branca inicial quan creem un repositori.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquesta clau indica el nom de la branca inicial quan creem un repositori."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global init.defaultBranch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: init.defaultBranch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global init.defaultBranch main",
+          "highlight": "init.defaultBranch",
+          "state": 5
+        },
+        {
+          "id": "pas_024",
+          "narration": "És el nom que fan servir les lliçons i també GitHub.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom que fan servir les lliçons i també "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global init.defaultBranch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global init.defaultBranch main",
+          "highlight": "main",
+          "state": 5
+        },
+        {
+          "id": "pas_025",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global init.defaultBranch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git config --global init.defaultBranch main"
+          ],
+          "command_display": "git config --global init.defaultBranch main",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_026",
+          "narration": "Els repositoris que creem a partir d’ara començaran a la branca main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Els repositoris que creem a partir d’ara començaran a la branca "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Línia defaultBranch = main a la secció init del fitxer. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git config --global init.defaultBranch main",
+          "event": "result",
+          "state": 6,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Triem el nom de la primera branca dels repositoris nous. Aquesta clau indica el nom de la branca inicial quan creem un repositori. És el nom que fan servir les lliçons i també GitHub. Executem l’ordre. Els repositoris que creem a partir d’ara començaran a la branca main."
+    },
+    {
+      "id": "e01_08",
+      "label": "EXPLICACIÓ",
+      "title": "Un editor que sapiguem tancar",
+      "mode": "principal",
+      "visual": "Editor de terminal amb el cursor parpellejant i, al costat, Visual Studio Code amb una pestanya COMMIT_EDITMSG.",
+      "beats": [
+        {
+          "id": "pas_027",
+          "narration": "Algunes ordres obren un editor perquè hi escrivim un missatge. Si no en triem cap, sovint s’obre un editor de terminal difícil de tancar. Triarem Visual Studio Code.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Algunes ordres obren un editor perquè hi escrivim un missatge. Si no en triem cap, sovint s’obre un editor de terminal difícil de tancar. Triarem "
+            },
+            {
+              "lang": "en-US",
+              "text": "Visual Studio Code"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Editor de terminal amb el cursor parpellejant i, al costat, Visual Studio Code amb una pestanya COMMIT_EDITMSG.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 7
+        }
+      ],
+      "narration": "Algunes ordres obren un editor perquè hi escrivim un missatge. Si no en triem cap, sovint s’obre un editor de terminal difícil de tancar. Triarem Visual Studio Code."
+    },
+    {
+      "id": "e01_09",
+      "label": "TERMINAL",
+      "title": "git config --global core.editor \"code --wait\"",
+      "mode": "principal",
+      "visual": "Línia editor = code --wait. Animació · s’obre una pestanya, es desa, es tanca i la terminal continua.",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "Configurem l’editor.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Configurem l’editor."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global core.editor \"code --wait\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git config.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global core.editor \"code --wait\"",
+          "highlight": "git config",
+          "state": 7
+        },
+        {
+          "id": "pas_029",
+          "narration": "És la clau de l’editor que obrirà Git.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la clau de l’editor que obrirà "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global core.editor \"code --wait\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: core.editor.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global core.editor \"code --wait\"",
+          "highlight": "core.editor",
+          "state": 7
+        },
+        {
+          "id": "pas_030",
+          "narration": "Obre Visual Studio Code i espera que tanquem la pestanya abans de continuar. Cal que l’ordre code funcioni a la terminal; si fas servir un altre editor, posa-hi la seva ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Obre "
+            },
+            {
+              "lang": "en-US",
+              "text": "Visual Studio Code"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i espera que tanquem la pestanya abans de continuar. Cal que l’ordre code funcioni a la terminal; si fas servir un altre editor, posa-hi la seva ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global core.editor \"code --wait\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"code --wait\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global core.editor \"code --wait\"",
+          "highlight": "\"code --wait\"",
+          "state": 7
+        },
+        {
+          "id": "pas_031",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global core.editor \"code --wait\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git config --global core.editor \"code --wait\""
+          ],
+          "command_display": "git config --global core.editor \"code --wait\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 7
+        },
+        {
+          "id": "pas_032",
+          "narration": "Quan Git necessiti un missatge, obrirà una pestanya de l’editor. Desem, tanquem la pestanya i l’ordre continua.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Quan "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " necessiti un missatge, obrirà una pestanya de l’editor. Desem, tanquem la pestanya i l’ordre continua."
+            }
+          ],
+          "visual": "Línia editor = code --wait. Animació · s’obre una pestanya, es desa, es tanca i la terminal continua. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git config --global core.editor \"code --wait\"",
+          "event": "result",
+          "state": 8,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Configurem l’editor. És la clau de l’editor que obrirà Git. Obre Visual Studio Code i espera que tanquem la pestanya abans de continuar. Cal que l’ordre code funcioni a la terminal; si fas servir un altre editor, posa-hi la seva ordre. Executem l’ordre. Quan Git necessiti un missatge, obrirà una pestanya de l’editor. Desem, tanquem la pestanya i l’ordre continua."
+    },
+    {
+      "id": "e01_10",
+      "label": "TERMINAL",
+      "title": "git config --global --list",
+      "mode": "principal",
+      "visual": "Sortida real; ressaltar una línia cada vegada.",
+      "beats": [
+        {
+          "id": "pas_033",
+          "narration": "Revisem tota la configuració global.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Revisem tota la configuració global."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global --list. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git config.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global --list",
+          "highlight": "git config",
+          "state": 8
+        },
+        {
+          "id": "pas_034",
+          "narration": "Doble guionet list mostra totes les opcions desades.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "list"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " mostra totes les opcions desades."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global --list. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --list.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git config --global --list",
+          "highlight": "--list",
+          "state": 8
+        },
+        {
+          "id": "pas_035",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git config --global --list. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git config --global --list"
+          ],
+          "command_display": "git config --global --list",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 8
+        },
+        {
+          "id": "pas_036",
+          "narration": "Hi veiem les quatre opcions que hem configurat. Si n’hi ha alguna d’equivocada, la tornem a escriure amb el valor correcte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Hi veiem les quatre opcions que hem configurat. Si n’hi ha alguna d’equivocada, la tornem a escriure amb el valor correcte."
+            }
+          ],
+          "visual": "Sortida real; ressaltar una línia cada vegada. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git config --global --list",
+          "event": "result",
+          "state": 9,
+          "simulated": false,
+          "terminal_output": [
+            "user.name=Anna Puig",
+            "user.email=anna@example.com",
+            "init.defaultbranch=main",
+            "core.editor=code --wait"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Revisem tota la configuració global. Doble guionet list mostra totes les opcions desades. Executem l’ordre. Hi veiem les quatre opcions que hem configurat. Si n’hi ha alguna d’equivocada, la tornem a escriure amb el valor correcte."
+    },
+    {
+      "id": "e01_11",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_037",
+          "narration": "git config desa opcions; doble guionet global les aplica a tots els repositoris de l’usuari.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git config"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " desa opcions; doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "global"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " les aplica a tots els repositoris de l’usuari."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_038",
+          "narration": "Nom i correu identifiquen l’autoria de cada commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Nom i correu identifiquen l’autoria de cada "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_039",
+          "narration": "La branca inicial i l’editor eviten sorpreses a les lliçons següents.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca inicial i l’editor eviten sorpreses a les lliçons següents."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "git config desa opcions; doble guionet global les aplica a tots els repositoris de l’usuari. Nom i correu identifiquen l’autoria de cada commit. La branca inicial i l’editor eviten sorpreses a les lliçons següents."
+    },
+    {
+      "id": "e01_12",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_040",
+          "narration": "Comprova la versió de Git, configura el teu nom, el teu correu, la branca inicial i l’editor, i revisa el resultat amb la llista de configuració.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprova la versió de "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", configura el teu nom, el teu correu, la branca inicial i l’editor, i revisa el resultat amb la llista de configuració."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "Comprova la versió de Git, configura el teu nom, el teu correu, la branca inicial i l’editor, i revisa el resultat amb la llista de configuració."
+    }
+  ],
+  "commands": [
+    "git --version",
+    "git config --global user.name \"Anna Puig\"",
+    "git config --global user.email \"anna@example.com\"",
+    "git config --global init.defaultBranch main",
+    "git config --global core.editor \"code --wait\"",
+    "git config --global --list"
+  ]
+}

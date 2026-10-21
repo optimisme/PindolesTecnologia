@@ -1,0 +1,317 @@
+titol: 'El primer commit: preparar, confirmar i publicar'
+titol_curt: PRIMER COMMIT
+capcalera:
+- EL PRIMER COMMIT
+- Preparar, confirmar i publicar
+presentacio: El primer [[commit]]
+tipus: practica
+etiquetatge: explicit
+objectiu: crear el primer commit d’un projecte i publicar-lo al remot.
+inici: >-
+  Git i Python disponibles; identitat configurada al repositori, remot origin i accés a GitHub. Repositori
+  HelloGit buit ja clonat, HEAD a main sense commits, cap fitxer del programa creat. La demostració executable
+  es valida en repositoris temporals amb un remot local.
+inici_parlat: >-
+  Partim d’un repositori buit, ja clonat i amb accés a [[GitHub]], tal com el vam deixar a la lliçó anterior.
+urls:
+  <URL-del-repositori>: origin
+preparacio:
+  - remot_nu: origin
+  - clona: HelloGit
+    de: origin
+verificacio:
+  - explica: Escrivim i provem la salutació
+    accions:
+      - fitxer: helloGit.py
+        contingut: print("Hello Git!")
+    comprova: {programa: Hello Git!}
+  - ordre: git status --short
+    comprova: {status: "?? helloGit.py"}
+  - ordre: git add helloGit.py
+    comprova: {status: "A  helloGit.py"}
+  - ordre: git commit -m "Afegeix la salutacio inicial"
+    crea: A
+    comprova: {status: "", commits: {ref: main, nombre: 1}}
+  - ordre: git log --oneline
+    comprova: {sortida: ["{A} Afegeix la salutacio inicial"]}
+  - ordre: git push -u origin main
+    comprova: {remot: {origin: {main: A}}, refs: {origin/main: A}}
+  - explica: Segona versió amb notes
+    accions:
+      - fitxer: helloGit.py
+        contingut: print("Hola, Anna!")
+      - fitxer: notes.txt
+        contingut: Salutació personalitzada per a l’Anna.
+  - ordre: git add .
+    comprova: {status: "M  helloGit.py\nA  notes.txt"}
+  - ordre: git commit -m "Personalitza la salutacio i afegeix notes"
+    crea: B
+    comprova: {pares: {B: [A]}, status: ""}
+  - ordre: git push
+    comprova: {remot: {origin: {main: B}}, programa: "Hola, Anna!"}
+escenes:
+- id: i_objectiu
+  etiqueta: EL PRIMER EXEMPLE
+  titol: Preparar, confirmar i publicar
+  visual: >-
+    Tres accions visibles. Es presenta l’objectiu pràctic sense repetir la introducció conceptual.
+  passos:
+  - id: objectiu
+    vista: goal
+    text: >-
+      En aquesta lliçó guardarem una primera versió del projecte i la compartirem. Farem cada pas a la
+      terminal i en comprovarem el resultat.
+    pausa: 2
+- id: i_preparacio
+  etiqueta: PUNT DE PARTIDA
+  titol: Un projecte buit ja preparat
+  visual: >-
+    Requisits visibles i estables; el punt de partida s’explica dins del vídeo.
+  passos:
+  - id: preparacio
+    vista: setup
+    text: >-
+      Comencem dins de la carpeta del projecte. El repositori està buit, la identitat està configurada
+      i tenim accés al remot.
+    pausa: 3
+- id: i_editar
+  etiqueta: 01 / EDITAR I DESAR
+  titol: Escrivim i provem la salutació
+  visual: Editor desat i execució del programa en dos passos amb espera.
+  passos:
+  - id: desar
+    vista: edit
+    text: >-
+      Creem el fitxer del programa, escrivim la salutació i el desem. El nom del fitxer és el que veus
+      a l’editor.
+    pausa: 2.5
+  - id: provar
+    vista: run
+    text: >-
+      Executem el programa. La terminal mostra la salutació. El fitxer està desat, però encara no tenim
+      cap versió a l’historial.
+    ordres:
+    - python3 helloGit.py
+    pausa: 3
+- id: i_estat
+  etiqueta: 02 / CONSULTAR
+  titol: Consultem què tenim pendent
+  visual: >-
+    Git status sense opcions; extracte de la sortida i traducció del seu significat.
+  passos:
+  - id: status_ordre
+    vista: status_full
+    text: >-
+      [[git status]] consulta l’estat del projecte. Aquesta ordre ens informa; no confirma ni envia cap
+      canvi.
+    ordres:
+    - git status
+    pausa: 3
+  - id: status_resultat
+    vista: status_full_result
+    text: >-
+      El fitxer apareix a la llista de fitxers nous sense seguir. Encara l’hem de seleccionar per incloure’l
+      a la primera versió.
+    pausa: 3
+- id: i_preparar
+  etiqueta: 03 / PREPARAR
+  titol: Llegim la comanda per parts
+  visual: >-
+    Comanda gran i persistent: git, add i nom del fitxer. Es ressalta una part a cada explicació; després
+    es prepara el contingut.
+  passos:
+  - id: add_objectiu
+    vista: add_goal
+    text: >-
+      Ara seleccionarem el contingut del fitxer que volem confirmar. Aquest pas s’anomena preparar.
+    pausa: 2
+  - id: add_accio
+    vista: add_parts
+    text: >-
+      [[git add]] és l’ordre de preparació. El primer mot identifica el programa; el segon indica l’acció
+      que li demanem.
+    pausa: 2.5
+  - id: add_fitxer
+    vista: add_file
+    text: >-
+      A continuació escrivim el nom del fitxer. Així seleccionem només aquest fitxer, en lloc de preparar
+      tots els canvis del projecte.
+    pausa: 3
+  - id: add_resultat
+    vista: add_execute
+    text: >-
+      Executem la comanda completa. El contingut actual queda preparat i el fitxer continua al seu lloc.
+      Encara no hem creat cap [[commit]].
+    ordres:
+    - git add helloGit.py
+    pausa: 3
+- id: i_confirmar
+  etiqueta: 04 / CONFIRMAR
+  titol: Desem la primera versió local
+  visual: >-
+    La comanda es descompon en acció, opció -m i missatge. El commit apareix només després d’executar-la.
+  passos:
+  - id: commit_accio
+    vista: commit_parts
+    text: >-
+      [[git commit]] crea una versió amb el contingut que hem preparat. Aquesta versió queda al repositori
+      del nostre ordinador.
+    pausa: 2.5
+  - id: commit_opcio
+    vista: commit_message
+    text: >-
+      El guionet ema introdueix el missatge del canvi. Escrivim el missatge entre cometes perquè la terminal
+      el tracti com un sol argument.
+    pausa: 3
+  - id: commit_missatge
+    vista: commit_text
+    text: >-
+      El missatge descriu què hem fet: afegir la salutació inicial. Ens ajudarà a reconèixer aquesta versió
+      més endavant.
+    pausa: 3
+  - id: commit_resultat
+    vista: commit_execute
+    text: >-
+      Ara executem l’ordre. Apareix la primera versió a l’historial local, amb el seu identificador. El
+      remot encara és buit.
+    ordres:
+    - git commit -m "Afegeix la salutacio inicial"
+    pausa: 3
+- id: i_comprovar
+  etiqueta: COMPROVEM
+  titol: Llegim la versió registrada
+  visual: >-
+    Git log complet amb extracte de hash i missatge. No s’introdueixen opcions noves.
+  passos:
+  - id: log
+    vista: log_full
+    text: >-
+      [[git log]] permet consultar les versions registrades. A la sortida hi veiem l’identificador i el
+      missatge que acabem d’escriure.
+    ordres:
+    - git log
+    pausa: 3
+- id: i_publicar
+  etiqueta: 05 / PUBLICAR
+  titol: Llegim també la comanda de publicació
+  visual: >-
+    Comanda persistent i ressaltat successiu de push, origin, main i -u. El resultat s’observa amb una
+    pausa pròpia.
+  passos:
+  - id: push_accio
+    vista: push_parts
+    text: >-
+      [[git push]] publica les versions confirmades en un repositori remot. La comanda que veus indica
+      també on les volem enviar.
+    pausa: 2.5
+  - id: push_remot
+    vista: push_remote
+    text: >-
+      [[origin]] és el nom que identifica el nostre remot. En aquest exemple, la connexió apunta al repositori
+      del projecte a [[GitHub]].
+    pausa: 3
+  - id: push_branca
+    vista: push_branch
+    text: >-
+      [[main]] és la branca que volem publicar. Aquest nom coincideix amb la branca on estem treballant.
+    pausa: 2.5
+  - id: push_seguiment
+    vista: push_tracking
+    text: >-
+      El guionet u desa aquesta relació de seguiment. Als enviaments següents d’aquesta mateixa branca
+      podrem escriure només [[git push]].
+    pausa: 3
+  - id: push_resultat
+    vista: push_execute
+    text: >-
+      Executem l’ordre completa. La mateixa versió que teníem al repositori local ara també apareix al
+      remot.
+    ordres:
+    - git push -u origin main
+    pausa: 3
+- id: i_repetir
+  etiqueta: UN SEGON CANVI
+  titol: Repetim els passos amb calma
+  visual: >-
+    Una salutació modificada i un fitxer de notes nou. El punt de git add . s’explica amb subratllat,
+    es preparen els dos fitxers i es confirmen junts.
+  passos:
+  - id: segon_canvi
+    vista: second_edit
+    text: >-
+      Canviem la salutació, desem i tornem a executar el programa. Encara només ha canviat el fitxer de
+      treball.
+    ordres:
+    - python3 helloGit.py
+    pausa: 3
+  - id: segones_notes
+    vista: second_notes
+    text: >-
+      També creem un fitxer de notes i el desem. Ara tenim un fitxer modificat i un fitxer nou. Encara
+      no hem preparat aquests canvis.
+    pausa: 3
+  - id: segon_add_punt
+    vista: second_add_scope
+    text: >-
+      Ara escrivim [[git add]] seguit d’un punt. El punt representa la carpeta actual i les seves subcarpetes.
+      Com que som a l’arrel del projecte, l’ordre abasta tot el projecte.
+    pausa: 3
+  - id: segon_add_fitxers
+    vista: second_add_files
+    text: >-
+      Això permet preparar fitxers modificats, fitxers nous i eliminacions. En aquest cas, seleccionem
+      el programa modificat i les notes noves. Els fitxers nous ignorats queden fora.
+    pausa: 3
+  - id: segon_add
+    vista: second_stage
+    text: >-
+      Executem l’ordre. Els dos fitxers queden preparats en un mateix pas. Abans de confirmar, revisem
+      que tots dos canvis són els que volem.
+    ordres:
+    - git add .
+    pausa: 3
+  - id: segon_commit
+    vista: second_commit
+    text: >-
+      Creem el segon [[commit]] amb un missatge que descriu la salutació i les notes. L’historial conserva
+      la primera versió i hi afegeix la nova.
+    ordres:
+    - git commit -m "Personalitza la salutacio i afegeix notes"
+    pausa: 3
+  - id: segon_push
+    vista: second_push
+    text: >-
+      Finalment, [[git push]] envia aquesta versió al remot. Desar, preparar, confirmar i publicar han
+      estat accions diferents.
+    ordres:
+    - git push
+    pausa: 3
+- id: i_resum
+  etiqueta: RESUM
+  titol: Tres comandes. Tres funcions.
+  visual: Tres targetes amb ressaltat successiu i espai després de cada funció.
+  passos:
+  - id: resum_preparar
+    vista: summary_add
+    text: Preparar selecciona el contingut que entrarà a la versió següent.
+    pausa: 2.5
+  - id: resum_confirmar
+    vista: summary_commit
+    text: Confirmar desa una versió a l’historial del nostre ordinador.
+    pausa: 2.5
+  - id: resum_publicar
+    vista: summary_push
+    text: Publicar comparteix les versions confirmades amb el repositori remot.
+    pausa: 3
+- id: i_practica
+  etiqueta: ARA TU
+  titol: Practica el cicle complet
+  visual: >-
+    Petit exercici final sense pregunta ni resposta; les instruccions es mantenen visibles.
+  passos:
+  - id: practica
+    vista: exercise
+    text: >-
+      Al teu repositori de pràctiques, canvia el missatge i repeteix aquests passos. Consulta l’historial
+      abans i després per veure la versió que has afegit.
+    pausa: 4

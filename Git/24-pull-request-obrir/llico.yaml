@@ -1,0 +1,95 @@
+titol: "Pull request: proposa un canvi a l’equip"
+titol_curt: PULL REQUEST
+capcalera: [PULL REQUEST, Proposa un canvi a l’equip]
+presentacio: "[[Pull requests]], primera part"
+objectiu: publicar una branca i obrir una proposta perquè l’equip la revisi abans d’integrar-la.
+inici: >-
+  Projecte clonat, main al dia amb origin/main a B i treball net. Tenim permís per publicar branques al
+  repositori. La interfície de GitHub és un esquema amb dades inventades.
+inici_parlat: >-
+  Treballem en equip en un repositori compartit de [[GitHub]]. La nostra còpia de [[main]] és al dia i
+  no tenim canvis pendents.
+preparacio:
+  - remot_nu: origin
+  - clona: HelloGit
+    de: origin
+  - cd: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: commit -q -am "Afegeix una exclamacio"
+  - etiqueta: B
+  - git: push -q -u origin main
+
+etapes:
+  - explica: Una proposta abans d’integrar
+    text: >-
+      Una [[pull request]] és una proposta per incorporar els commits d’una branca a una altra. És l’espai on
+      l’equip revisa i comenta els canvis abans d’integrar-los.
+    visual: Esquema main / salutacio / PROPOSTA. main no es mou.
+
+  - plantilla: status-breu
+    resultat: Comencem sense canvis pendents.
+    comprova: {status: ""}
+
+  - plantilla: switch-crea
+    branca: salutacio
+    resultat: Treballarem en una branca pròpia perquè es pugui revisar per separat.
+    comprova: {head: salutacio}
+
+  - explica: Fem el canvi
+    text: Personalitzem la salutació i la provem abans de confirmar-la.
+    visual: Editor amb print("Hola, Anna").
+    accions:
+      - fitxer: helloGit.py
+        contingut: print("Hola, Anna")
+
+  - plantilla: programa
+    resultat: Surt la salutació personalitzada, encara sense exclamació. Aquesta és la primera versió de la proposta.
+    comprova: {programa: "Hola, Anna"}
+
+  - plantilla: add-breu
+    resultat: El canvi queda preparat.
+
+  - plantilla: commit-breu
+    missatge: Personalitza la salutacio
+    crea: C
+    resultat: El commit és a la branca salutació, al nostre ordinador. [[main]] continua on era.
+    comprova: {refs: {main: B, salutacio: C}}
+
+  - plantilla: push-u
+    branca: salutacio
+    resultat: La branca ja és al remot i es pot comparar amb [[main]]. Encara no l’hem integrada.
+    comprova:
+      remot: {origin: {salutacio: C, main: B}}
+
+  - explica: Triem destinació i origen
+    text:
+      - >-
+        A la web de [[GitHub]] obrim una proposta nova. La destinació, que [[GitHub]] anomena [[base]], és [[main]].
+        L’origen, que anomena [[compare]], és la branca salutació.
+      - >-
+        Escrivim un títol i expliquem el canvi i com l’hem provat. Revisem la llista de canvis abans de crear
+        la proposta.
+    pausa: 3.5
+    visual: >-
+      Esquema del formulari, base main i compare salutacio. Subratllar primer la destinació i després l’origen.
+      Text d’exemple, Personalitza la salutació. Prova, python3 helloGit.py.
+
+  - explica: La proposta queda oberta
+    text: >-
+      La proposta ja és visible per a l’equip, amb el commit i les diferències. Ara toca esperar la revisió;
+      encara no s’ha integrat res a [[main]].
+    visual: Esquema de la pull request oberta amb l’estat OBERTA, el commit C i la pestanya de canvis.
+
+resum:
+  - La [[pull request]] es crea a partir d’una branca publicada.
+  - La destinació és [[main]] i l’origen, la branca amb el canvi.
+  - Proposar no és integrar; primer ve la revisió.
+practica: >-
+  En un repositori de pràctiques compartit, publica una branca amb un canvi petit i obre una proposta
+  cap a [[main]] amb una descripció de com l’has provat.

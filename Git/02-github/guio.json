@@ -1,0 +1,886 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 2,
+  "slug": "02-github",
+  "title": "Connectar amb GitHub: accés i primer clon",
+  "short_title": "GITHUB",
+  "card": [
+    "CONNECTAR AMB GITHUB",
+    "Accés des de la terminal i primer clon"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "02-github.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Segona lliçó. Connectar amb GitHub.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Segona lliçó. Connectar amb "
+      },
+      {
+        "lang": "en-US",
+        "text": "GitHub"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  },
+  "objective": "autoritzar la terminal per treballar amb [[GitHub]] i clonar un repositori buit per començar el projecte.",
+  "start_note": "Git configurat com a la lliçó anterior. Compte de GitHub creat. GitHub CLI instal·lat o pendent d’instal·lar. Les pantalles web i les sortides de gh són de mostra; el clon s’executa contra un remot local.",
+  "start_spoken": "Tenim Git configurat i un compte de GitHub. Ara connectarem la terminal amb aquest compte.",
+  "summary": [
+    "La terminal necessita una autorització pròpia per treballar amb GitHub.",
+    "gh auth login la crea i gh auth status la comprova.",
+    "git clone crea la carpeta local connectada al remot origin."
+  ],
+  "practice": "Autoritza la terminal amb el teu compte, crea un repositori buit de pràctiques a GitHub i clona’l en una carpeta nova. Comprova el remot abans de continuar.",
+  "practice_script": "practiques/02-github.sh",
+  "scenes": [
+    {
+      "id": "e02_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a autoritzar la terminal per treballar amb GitHub i clonar un repositori buit per començar el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a autoritzar la terminal per treballar amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i clonar un repositori buit per començar el projecte."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Tenim Git configurat i un compte de GitHub. Ara connectarem la terminal amb aquest compte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Tenim "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " configurat i un compte de "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Ara connectarem la terminal amb aquest compte."
+            }
+          ],
+          "visual": "Punt de partida: Git configurat com a la lliçó anterior. Compte de GitHub creat. GitHub CLI instal·lat o pendent d’instal·lar. Les pantalles web i les sortides de gh són de mostra; el clon s’executa contra un remot local.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a autoritzar la terminal per treballar amb GitHub i clonar un repositori buit per començar el projecte. Tenim Git configurat i un compte de GitHub. Ara connectarem la terminal amb aquest compte."
+    },
+    {
+      "id": "e02_01",
+      "label": "EXPLICACIÓ",
+      "title": "Dues eines, dues funcions",
+      "mode": "principal",
+      "visual": "Ordinador amb Git a l’esquerra, núvol de GitHub a la dreta i un cadenat a la fletxa que els uneix.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Git treballa al nostre ordinador. GitHub és un servei on guardem una còpia per compartir-la.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " treballa al nostre ordinador. "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és un servei on guardem una còpia per compartir-la."
+            }
+          ],
+          "visual": "Ordinador amb Git a l’esquerra, núvol de GitHub a la dreta i un cadenat a la fletxa que els uneix.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        },
+        {
+          "id": "pas_004",
+          "narration": "Per enviar-hi commits, la terminal ha de demostrar qui som. La contrasenya del compte no serveix per a la terminal: necessitem una autorització pròpia.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Per enviar-hi "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", la terminal ha de demostrar qui som. La contrasenya del compte no serveix per a la terminal: necessitem una autorització pròpia."
+            }
+          ],
+          "visual": "Ordinador amb Git a l’esquerra, núvol de GitHub a la dreta i un cadenat a la fletxa que els uneix.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "narration": "Git treballa al nostre ordinador. GitHub és un servei on guardem una còpia per compartir-la. Per enviar-hi commits, la terminal ha de demostrar qui som. La contrasenya del compte no serveix per a la terminal: necessitem una autorització pròpia."
+    },
+    {
+      "id": "e02_02",
+      "label": "EXPLICACIÓ",
+      "title": "Instal·lem GitHub CLI",
+      "mode": "principal",
+      "visual": "Tres targetes: macOS · brew install gh / Windows · winget install --id GitHub.cli / Linux · el gestor de paquets de la distribució.",
+      "beats": [
+        {
+          "id": "pas_005",
+          "narration": "Farem servir GitHub CLI, l’eina oficial de GitHub per a la terminal. La instal·lem amb el gestor de paquets del sistema; a la pantalla veus l’ordre per a cada sistema.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Farem servir "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub CLI"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", l’eina oficial de "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " per a la terminal. La instal·lem amb el gestor de paquets del sistema; a la pantalla veus l’ordre per a cada sistema."
+            }
+          ],
+          "visual": "Tres targetes: macOS · brew install gh / Windows · winget install --id GitHub.cli / Linux · el gestor de paquets de la distribució.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 1
+        }
+      ],
+      "narration": "Farem servir GitHub CLI, l’eina oficial de GitHub per a la terminal. La instal·lem amb el gestor de paquets del sistema; a la pantalla veus l’ordre per a cada sistema."
+    },
+    {
+      "id": "e02_03",
+      "label": "TERMINAL",
+      "title": "gh auth login",
+      "mode": "principal",
+      "visual": "Sortida de mostra amb les quatre preguntes ressaltades per torns; després, navegador amb el camp del codi d’un sol ús. Codi i compte inventats.",
+      "beats": [
+        {
+          "id": "pas_006",
+          "narration": "Amb gh auth login iniciem l’autorització.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "gh auth login"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " iniciem l’autorització."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: gh auth login. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: gh auth login.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "gh auth login",
+          "highlight": "gh auth login",
+          "state": 1
+        },
+        {
+          "id": "pas_007",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: gh auth login. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "gh auth login"
+          ],
+          "command_display": "gh auth login",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_008",
+          "narration": "Responem amb les fletxes i la tecla de retorn: GitHub punt com, protocol HTTPS, autoritzar Git i iniciar sessió amb el navegador. Copiem el codi que apareix i el confirmem a la pàgina que s’obre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Responem amb les fletxes i la tecla de retorn: "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " punt com, protocol HTTPS, autoritzar "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i iniciar sessió amb el navegador. Copiem el codi que apareix i el confirmem a la pàgina que s’obre."
+            }
+          ],
+          "visual": "Sortida de mostra amb les quatre preguntes ressaltades per torns; després, navegador amb el camp del codi d’un sol ús. Codi i compte inventats. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 4,
+          "commands": [],
+          "command_display": "gh auth login",
+          "event": "result",
+          "state": 2,
+          "simulated": true,
+          "terminal_output": [
+            "? Where do you use GitHub? GitHub.com",
+            "? What is your preferred protocol for Git operations on this host? HTTPS",
+            "? Authenticate Git with your GitHub credentials? Yes",
+            "? How would you like to authenticate GitHub CLI? Login with a web browser",
+            "",
+            "! First copy your one-time code: 1A2B-3C4D",
+            "Press Enter to open https://github.com/login/device in your browser..."
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb gh auth login iniciem l’autorització. Executem l’ordre. Responem amb les fletxes i la tecla de retorn: GitHub punt com, protocol HTTPS, autoritzar Git i iniciar sessió amb el navegador. Copiem el codi que apareix i el confirmem a la pàgina que s’obre."
+    },
+    {
+      "id": "e02_04",
+      "label": "TERMINAL",
+      "title": "gh auth status",
+      "mode": "principal",
+      "visual": "Sortida de mostra; ressaltar el nom del compte i la línia del protocol. El token surt amagat amb asteriscos.",
+      "beats": [
+        {
+          "id": "pas_009",
+          "narration": "Comprovem que la terminal ja està autoritzada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprovem que la terminal ja està autoritzada."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: gh auth status. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: gh auth status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "gh auth status",
+          "highlight": "gh auth status",
+          "state": 2
+        },
+        {
+          "id": "pas_010",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: gh auth status. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "gh auth status"
+          ],
+          "command_display": "gh auth status",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_011",
+          "narration": "Indica el compte connectat i que Git farà servir HTTPS. El codi d’accés queda desat de manera segura al sistema; no l’hem d’escriure ni compartir.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Indica el compte connectat i que "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " farà servir HTTPS. El codi d’accés queda desat de manera segura al sistema; no l’hem d’escriure ni compartir."
+            }
+          ],
+          "visual": "Sortida de mostra; ressaltar el nom del compte i la línia del protocol. El token surt amagat amb asteriscos. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "gh auth status",
+          "event": "result",
+          "state": 3,
+          "simulated": true,
+          "terminal_output": [
+            "github.com",
+            "  ✓ Logged in to github.com account anna-puig (keyring)",
+            "  - Active account: true",
+            "  - Git operations protocol: https",
+            "  - Token: gho_************************************"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comprovem que la terminal ja està autoritzada. Executem l’ordre. Indica el compte connectat i que Git farà servir HTTPS. El codi d’accés queda desat de manera segura al sistema; no l’hem d’escriure ni compartir."
+    },
+    {
+      "id": "e02_05",
+      "label": "EXPLICACIÓ",
+      "title": "Una alternativa a Windows",
+      "mode": "principal",
+      "visual": "Finestra d’inici de sessió del gestor de credencials de Git per a Windows, com a camí alternatiu.",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "A Windows, l’instal·lador de Git també inclou un gestor d’accés. El primer cop que enviem commits, obre el navegador i desa l’autorització. Qualsevol dels dos camins serveix.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "A Windows, l’instal·lador de "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " també inclou un gestor d’accés. El primer cop que enviem "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", obre el navegador i desa l’autorització. Qualsevol dels dos camins serveix."
+            }
+          ],
+          "visual": "Finestra d’inici de sessió del gestor de credencials de Git per a Windows, com a camí alternatiu.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 4
+        }
+      ],
+      "narration": "A Windows, l’instal·lador de Git també inclou un gestor d’accés. El primer cop que enviem commits, obre el navegador i desa l’autorització. Qualsevol dels dos camins serveix."
+    },
+    {
+      "id": "e02_06",
+      "label": "EXPLICACIÓ",
+      "title": "Creem un repositori buit",
+      "mode": "principal",
+      "visual": "Esquema del formulari New repository: nom HelloGit, opcions README, .gitignore i llicència desmarcades. Botó Code amb l’adreça HTTPS ressaltada.",
+      "beats": [
+        {
+          "id": "pas_013",
+          "narration": "A la web de GitHub, creem un repositori nou anomenat HelloGit. No hi afegim cap fitxer inicial: el començarem des de l’ordinador.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "A la web de "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", creem un repositori nou anomenat HelloGit. No hi afegim cap fitxer inicial: el començarem des de l’ordinador."
+            }
+          ],
+          "visual": "Esquema del formulari New repository: nom HelloGit, opcions README, .gitignore i llicència desmarcades. Botó Code amb l’adreça HTTPS ressaltada.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 5
+        }
+      ],
+      "narration": "A la web de GitHub, creem un repositori nou anomenat HelloGit. No hi afegim cap fitxer inicial: el començarem des de l’ordinador."
+    },
+    {
+      "id": "e02_07",
+      "label": "TERMINAL",
+      "title": "git clone <URL-del-repositori> HelloGit",
+      "mode": "principal",
+      "visual": "Animació de la carpeta HelloGit que apareix a l’ordinador, unida al repositori de GitHub.",
+      "beats": [
+        {
+          "id": "pas_014",
+          "narration": "Amb git clone creem la còpia local del repositori.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git clone"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " creem la còpia local del repositori."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git clone <URL-del-repositori> HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git clone.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git clone <URL-del-repositori> HelloGit",
+          "highlight": "git clone",
+          "state": 5
+        },
+        {
+          "id": "pas_015",
+          "narration": "Substituïm aquest marcador per l’adreça que hem copiat del botó Code. No escrivim els signes de menor i major.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Substituïm aquest marcador per l’adreça que hem copiat del botó "
+            },
+            {
+              "lang": "en-US",
+              "text": "Code"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". No escrivim els signes de menor i major."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git clone <URL-del-repositori> HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: <URL-del-repositori>.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git clone <URL-del-repositori> HelloGit",
+          "highlight": "<URL-del-repositori>",
+          "state": 5
+        },
+        {
+          "id": "pas_016",
+          "narration": "És el nom de la carpeta nova que es crearà.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la carpeta nova que es crearà."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git clone <URL-del-repositori> HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HelloGit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git clone <URL-del-repositori> HelloGit",
+          "highlight": "HelloGit",
+          "state": 5
+        },
+        {
+          "id": "pas_017",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git clone <URL-del-repositori> HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git clone <URL-del-repositori> HelloGit"
+          ],
+          "command_display": "git clone <URL-del-repositori> HelloGit",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_018",
+          "narration": "Git avisa que el repositori és buit. És el que esperàvem: ja tenim la carpeta connectada amb GitHub.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " avisa que el repositori és buit. És el que esperàvem: ja tenim la carpeta connectada amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Animació de la carpeta HelloGit que apareix a l’ordinador, unida al repositori de GitHub. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git clone <URL-del-repositori> HelloGit",
+          "event": "result",
+          "state": 6,
+          "simulated": true,
+          "terminal_output": [
+            "Cloning into 'HelloGit'...",
+            "warning: You appear to have cloned an empty repository."
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git clone creem la còpia local del repositori. Substituïm aquest marcador per l’adreça que hem copiat del botó Code. No escrivim els signes de menor i major. És el nom de la carpeta nova que es crearà. Executem l’ordre. Git avisa que el repositori és buit. És el que esperàvem: ja tenim la carpeta connectada amb GitHub."
+    },
+    {
+      "id": "e02_08",
+      "label": "TERMINAL",
+      "title": "cd HelloGit",
+      "mode": "principal",
+      "visual": "El camí de la terminal canvia a ~/HelloGit.",
+      "beats": [
+        {
+          "id": "pas_019",
+          "narration": "Entrem a la carpeta del projecte amb l’ordre cd.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Entrem a la carpeta del projecte amb l’ordre cd."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: cd.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "cd HelloGit",
+          "highlight": "cd",
+          "state": 6
+        },
+        {
+          "id": "pas_020",
+          "narration": "És la carpeta que acabem de crear. Les ordres següents s’executen des de dins.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la carpeta que acabem de crear. Les ordres següents s’executen des de dins."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HelloGit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "cd HelloGit",
+          "highlight": "HelloGit",
+          "state": 6
+        },
+        {
+          "id": "pas_021",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd HelloGit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "cd HelloGit"
+          ],
+          "command_display": "cd HelloGit",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 6
+        },
+        {
+          "id": "pas_022",
+          "narration": "La terminal mostra que som dins del projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La terminal mostra que som dins del projecte."
+            }
+          ],
+          "visual": "El camí de la terminal canvia a ~/HelloGit. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "cd HelloGit",
+          "event": "result",
+          "state": 7,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Entrem a la carpeta del projecte amb l’ordre cd. És la carpeta que acabem de crear. Les ordres següents s’executen des de dins. Executem l’ordre. La terminal mostra que som dins del projecte."
+    },
+    {
+      "id": "e02_09",
+      "label": "TERMINAL",
+      "title": "git remote -v",
+      "mode": "principal",
+      "visual": "Sortida de mostra; ressaltar el nom origin i l’adreça del compte d’exemple.",
+      "beats": [
+        {
+          "id": "pas_023",
+          "narration": "Comprovem amb quin repositori remot està connectada la carpeta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprovem amb quin repositori remot està connectada la carpeta."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git remote -v. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git remote.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git remote -v",
+          "highlight": "git remote",
+          "state": 7
+        },
+        {
+          "id": "pas_024",
+          "narration": "El guionet ve mostra també les adreces.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ve mostra també les adreces."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git remote -v. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -v.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git remote -v",
+          "highlight": "-v",
+          "state": 7
+        },
+        {
+          "id": "pas_025",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git remote -v. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git remote -v"
+          ],
+          "command_display": "git remote -v",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 7
+        },
+        {
+          "id": "pas_026",
+          "narration": "El remot es diu origin i apunta al repositori de GitHub, tant per descarregar com per enviar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El remot es diu "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i apunta al repositori de "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", tant per descarregar com per enviar."
+            }
+          ],
+          "visual": "Sortida de mostra; ressaltar el nom origin i l’adreça del compte d’exemple. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git remote -v",
+          "event": "result",
+          "state": 8,
+          "simulated": true,
+          "terminal_output": [
+            "origin\thttps://github.com/anna-puig/HelloGit.git (fetch)",
+            "origin\thttps://github.com/anna-puig/HelloGit.git (push)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comprovem amb quin repositori remot està connectada la carpeta. El guionet ve mostra també les adreces. Executem l’ordre. El remot es diu origin i apunta al repositori de GitHub, tant per descarregar com per enviar."
+    },
+    {
+      "id": "e02_10",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_027",
+          "narration": "La terminal necessita una autorització pròpia per treballar amb GitHub.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La terminal necessita una autorització pròpia per treballar amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_028",
+          "narration": "gh auth login la crea i gh auth status la comprova.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "gh auth login"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " la crea i "
+            },
+            {
+              "lang": "en-US",
+              "text": "gh auth status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " la comprova."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_029",
+          "narration": "git clone crea la carpeta local connectada al remot origin.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git clone"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea la carpeta local connectada al remot "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "La terminal necessita una autorització pròpia per treballar amb GitHub. gh auth login la crea i gh auth status la comprova. git clone crea la carpeta local connectada al remot origin."
+    },
+    {
+      "id": "e02_11",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_030",
+          "narration": "Autoritza la terminal amb el teu compte, crea un repositori buit de pràctiques a GitHub i clona’l en una carpeta nova. Comprova el remot abans de continuar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Autoritza la terminal amb el teu compte, crea un repositori buit de pràctiques a "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i clona’l en una carpeta nova. Comprova el remot abans de continuar."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "Autoritza la terminal amb el teu compte, crea un repositori buit de pràctiques a GitHub i clona’l en una carpeta nova. Comprova el remot abans de continuar."
+    }
+  ],
+  "commands": [
+    "gh auth login",
+    "gh auth status",
+    "git clone <URL-del-repositori> HelloGit",
+    "cd HelloGit",
+    "git remote -v"
+  ]
+}

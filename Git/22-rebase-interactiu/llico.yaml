@@ -1,0 +1,122 @@
+titol: "Rebase interactiu: agrupa commits abans de publicar"
+titol_curt: REBASE INTERACTIU
+capcalera: [REBASE INTERACTIU, Agrupa commits abans de publicar]
+presentacio: "[[Rebase]] interactiu"
+objectiu: agrupar tres commits relacionats que encara no hem publicat, conservant el contingut final.
+inici: >-
+  Branca activa salutacio a E, amb C, D i E propis i sense publicar sobre B. main a B; treball net.
+  C personalitza, D corregeix la puntuació i E documenta la mateixa millora.
+inici_parlat: >-
+  A la branca salutació hi ha tres commits petits sobre la mateixa millora: la salutació, una correcció
+  de puntuació i unes notes. Encara no els hem publicat.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: commit -q -am "Afegeix una exclamacio"
+  - etiqueta: B
+  - git: switch -q -c salutacio
+  - fitxer: helloGit.py
+    contingut: print("Hola Anna")
+  - git: commit -q -am "Personalitza la salutacio"
+  - etiqueta: C
+  - fitxer: helloGit.py
+    contingut: print("Hola, Anna!")
+  - git: commit -q -am "Corregeix la puntuacio"
+  - etiqueta: D
+  - fitxer: notes.md
+    contingut: La salutació es personalitza per a l’Anna.
+  - git: add notes.md
+  - commit: E
+    missatge: Documenta la salutacio
+
+etapes:
+  - explica: Una millora explicada en tres commits
+    text: >-
+      Els tres commits formen una sola millora. Abans de publicar-los, els agruparem perquè l’historial
+      expliqui el resultat d’una vegada.
+    visual: Graf A, B, C, D i E; etiqueta NO PUBLICATS sobre els tres últims; main a B.
+
+  - plantilla: status-breu
+    resultat: No tenim canvis pendents. Ens quedem l’identificador de l’últim commit per comparar-lo al final.
+    comprova: {status: ""}
+
+  - ordre: git log -3 --oneline
+    text: Revisem els tres commits que volem agrupar.
+    parts:
+      - "-3": Limita la llista als tres últims commits.
+    resultat: Són propis, relacionats i encara no publicats. Fixem-nos que surten del més recent al més antic.
+    visual: Sortida real; distingir aquest ordre del de la llista que obrirà l’editor.
+    comprova:
+      sortida: ["{E} Documenta la salutacio", "{C} Personalitza la salutacio"]
+
+  - ordre: git rebase -i HEAD~3
+    text: Obrim un [[rebase]] interactiu d’aquest tram.
+    parts:
+      - -i: El guionet i obre una llista d’operacions que podem editar.
+      - HEAD~3: La base és tres commits enrere. La llista inclou els tres commits posteriors.
+    sequencia: |-
+      pick {C} Personalitza la salutacio
+      squash {D} Corregeix la puntuacio
+      squash {E} Documenta la salutacio
+    editor: Personalitza la salutacio i documenta el canvi
+    crea: S
+    resultat: >-
+      S’obre l’editor amb la llista, del commit més antic al més recent. Ara hi triarem les operacions.
+    visual: Editor amb pick C, pick D i pick E, amb els identificadors reals. No representar encara el resultat.
+    comprova:
+      pares: {S: [B]}
+      mateix_arbre: [E, S]
+      refs: {main: B}
+
+  - explica: Triem les operacions
+    text:
+      - >-
+        Deixem [[pick]] al primer commit. Als altres dos, canviem la paraula per [[squash]], que els ajunta
+        amb l’anterior.
+      - Desem i tanquem la pestanya de la llista. Fins que no la tanquem, [[Git]] no continua.
+    pausa: 3.5
+    visual: Llista final pick C, squash D i squash E. Subratllar cada acció per separat.
+
+  - explica: Escrivim el missatge conjunt
+    text: >-
+      Tot seguit s’obre una altra pestanya per al missatge del commit nou. Escrivim Personalitza la
+      salutació i documenta el canvi. Desem i tanquem també aquesta pestanya.
+    visual: Missatge complet visible; dos indicadors diferents, LLISTA DESADA i MISSATGE DESAT.
+
+  - explica: Un commit nou amb el mateix resultat
+    text: >-
+      Ara salutació apunta a un sol commit nou, a continuació de [[main]]. Els tres commits antics queden
+      fora de la branca, però no s’esborren de seguida.
+    visual: Graf abans i després amb C, D i E atenuats i S nou; contingut final igual al d’E.
+
+  - plantilla: programa
+    resultat: El programa funciona igual que abans d’agrupar els commits.
+    comprova: {programa: "Hola, Anna!"}
+
+  - ordre: git diff {E} HEAD
+    text: Comparem el contingut final amb l’últim commit antic.
+    parts:
+      - "{E}": És l’identificador de l’últim commit antic, el que ens havíem guardat.
+      - HEAD: És el commit nou.
+    resultat: La sortida és buida. No hi ha cap diferència de contingut, només un historial més clar.
+    visual: Terminal sense sortida amb la llegenda CONTINGUT IGUAL.
+
+  - explica: Si l’operació s’atura
+    text: >-
+      Si en algun pas hi ha un conflicte, el resolem, el provem i el preparem. Després continuem amb
+      [[git rebase]] doble guionet [[continue]], o abandonem amb doble guionet [[abort]].
+    visual: Panell condicional amb els passos editor, prova, git add, i les dues ordres de continuar o avortar.
+
+resum:
+  - Només agrupem commits relacionats que encara no hem publicat.
+  - Cal desar i tancar tant la llista com el missatge.
+  - Els identificadors canvien; comprovem que el contingut final és el mateix.
+practica: >-
+  En una branca local de pràctiques, agrupa tres commits relacionats. Guarda l’identificador de l’últim
+  abans de començar i compara el contingut al final.

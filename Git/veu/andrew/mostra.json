@@ -1,0 +1,63 @@
+{
+  "voice": "en-US-AndrewMultilingualNeural",
+  "rate": "+12%",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "segments": [
+    {
+      "lang": "ca-ES",
+      "text": "Editem el fitxer a la branca salutació. Amb "
+    },
+    {
+      "lang": "en-US",
+      "text": "git add"
+    },
+    {
+      "lang": "ca-ES",
+      "text": " preparem els canvis. Després, "
+    },
+    {
+      "lang": "en-US",
+      "text": "git commit"
+    },
+    {
+      "lang": "ca-ES",
+      "text": " desa una versió del projecte. Consultem l’historial amb "
+    },
+    {
+      "lang": "en-US",
+      "text": "git log"
+    },
+    {
+      "lang": "ca-ES",
+      "text": ". Per compartir la correcció, fem "
+    },
+    {
+      "lang": "en-US",
+      "text": "git push"
+    },
+    {
+      "lang": "ca-ES",
+      "text": " i enviem els canvis a "
+    },
+    {
+      "lang": "en-US",
+      "text": "GitHub"
+    },
+    {
+      "lang": "ca-ES",
+      "text": ". Abans d’integrar novetats, podem fer "
+    },
+    {
+      "lang": "en-US",
+      "text": "git fetch"
+    },
+    {
+      "lang": "ca-ES",
+      "text": " i revisar-les."
+    }
+  ],
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/"
+}

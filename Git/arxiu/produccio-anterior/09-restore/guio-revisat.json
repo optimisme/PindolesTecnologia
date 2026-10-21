@@ -1,0 +1,618 @@
+{
+  "script_format": "git-didactic-v1",
+  "status": "script_revised_media_unchanged",
+  "episode_number": 9,
+  "title": "Restore: desmarca o descarta un canvi local",
+  "series": "Píndoles de Git",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "music_seconds": 4,
+  "objective": "Desfer la selecció d’un canvi o descartar una edició, identificant origen i destinació.",
+  "prerequisites": "El programa ja és seguit. Últim commit V1; treball i preparació V2 després d’una edició i add. No hi ha altres canvis.",
+  "timing": "Sense marques absolutes: es calcularan amb la futura locució.",
+  "scenes": [
+    {
+      "id": "rev_09_00",
+      "title": "Objectiu i punt de partida",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a desfer la selecció d’un canvi o descartar una edició, identificant origen i destinació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a desfer la selecció d’un canvi o descartar una edició, identificant origen i destinació."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "El programa ja és seguit. Últim commit V1; treball i preparació V2 després d’una edició i add. No hi ha altres canvis.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El programa ja és seguit. Últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " V1; treball i preparació V2 després d’una edició i "
+            },
+            {
+              "lang": "en-US",
+              "text": "add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". No hi ha altres canvis."
+            }
+          ],
+          "visual": "Punt de partida complet amb branca activa, fitxers i estat del treball; fer visible qualsevol cas independent.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a desfer la selecció d’un canvi o descartar una edició, identificant origen i destinació. El programa ja és seguit. Últim commit V1; treball i preparació V2 després d’una edició i add. No hi ha altres canvis."
+    },
+    {
+      "id": "rev_09_01",
+      "title": "Dues destinacions diferents",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Podem canviar la preparació o el treball. Abans d’executar restore, identificarem quina zona volem restaurar i de quina versió copiem el contingut.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Podem canviar la preparació o el treball. Abans d’executar "
+            },
+            {
+              "lang": "en-US",
+              "text": "restore"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", identificarem quina zona volem restaurar i de quina versió copiem el contingut."
+            }
+          ],
+          "visual": "Tres panells V2 al treball i índex; V1 a l’últim commit.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Podem canviar la preparació o el treball. Abans d’executar restore, identificarem quina zona volem restaurar i de quina versió copiem el contingut."
+    },
+    {
+      "id": "rev_09_02",
+      "title": "git restore --staged helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Primer desfem la selecció del canvi, conservant l’edició del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Primer desfem la selecció del canvi, conservant l’edició del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git restore --staged helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git restore.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git restore --staged helloGit.py",
+          "highlight": "git restore"
+        },
+        {
+          "id": "pas_005",
+          "narration": "Aquesta opció tria la preparació com a destinació. Per defecte, copia el contingut de l’últim commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquesta opció tria la preparació com a destinació. Per defecte, copia el contingut de l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git restore --staged helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --staged.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git restore --staged helloGit.py",
+          "highlight": "--staged"
+        },
+        {
+          "id": "pas_006",
+          "narration": "Limitem la restauració a aquest fitxer; no desmarquem la resta del projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Limitem la restauració a aquest fitxer; no desmarquem la resta del projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git restore --staged helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git restore --staged helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_007",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git restore --staged helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git restore --staged helloGit.py"
+          ],
+          "command_display": "git restore --staged helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_008",
+          "narration": "La preparació torna a V1 i el treball conserva V2. El fitxer continua seguit; només hem desfet la selecció dels seus canvis.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La preparació torna a V1 i el treball conserva V2. El fitxer continua seguit; només hem desfet la selecció dels seus canvis."
+            }
+          ],
+          "visual": "Fletxa ÚLTIM COMMIT V1 → PREPARACIÓ. Cap fletxa cap al treball. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git restore --staged helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Primer desfem la selecció del canvi, conservant l’edició del fitxer. Aquesta opció tria la preparació com a destinació. Per defecte, copia el contingut de l’últim commit. Limitem la restauració a aquest fitxer; no desmarquem la resta del projecte. Executem l’ordre. La preparació torna a V1 i el treball conserva V2. El fitxer continua seguit; només hem desfet la selecció dels seus canvis."
+    },
+    {
+      "id": "rev_09_03",
+      "title": "git status --short",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_009",
+          "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Aquesta consulta no modifica el projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status"
+        },
+        {
+          "id": "pas_010",
+          "narration": "Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "short"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " demana la forma breu. La primera columna compara preparació i últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; la segona, treball i preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --short.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "--short"
+        },
+        {
+          "id": "pas_011",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_012",
+          "narration": "La modificació ara apareix a la columna de treball, sense preparar. El contingut editat es conserva.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La modificació ara apareix a la columna de treball, sense preparar. El contingut editat es conserva."
+            }
+          ],
+          "visual": "Mostrar la sortida literal amb les dues columnes separades i una llegenda; conservar els espais de davant de cada lletra. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte. Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació. Executem l’ordre. La modificació ara apareix a la columna de treball, sense preparar. El contingut editat es conserva."
+    },
+    {
+      "id": "rev_09_04",
+      "title": "git diff",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_013",
+          "narration": "Llegim el canvi que continua al fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Llegim el canvi que continua al fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git diff.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff",
+          "highlight": "git diff"
+        },
+        {
+          "id": "pas_014",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git diff"
+          ],
+          "command_display": "git diff",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_015",
+          "narration": "La salutació nova encara és al treball. Després de revisar-la, decidim que aquest canvi concret no el volem conservar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La salutació nova encara és al treball. Després de revisar-la, decidim que aquest canvi concret no el volem conservar."
+            }
+          ],
+          "visual": "Comparació V1 de la preparació amb V2 del treball. Mostrar la decisió DESCARTAR AQUESTA EDICIÓ abans de l’ordre següent. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git diff",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Llegim el canvi que continua al fitxer. Executem l’ordre. La salutació nova encara és al treball. Després de revisar-la, decidim que aquest canvi concret no el volem conservar."
+    },
+    {
+      "id": "rev_09_05",
+      "title": "git restore helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_016",
+          "narration": "Ara restaurem el fitxer de treball.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara restaurem el fitxer de treball."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git restore helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git restore.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git restore helloGit.py",
+          "highlight": "git restore"
+        },
+        {
+          "id": "pas_017",
+          "narration": "Sense staged, la destinació és el treball i l’origen per defecte és la preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Sense "
+            },
+            {
+              "lang": "en-US",
+              "text": "staged"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", la destinació és el treball i l’origen per defecte és la preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git restore helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git restore helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_018",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git restore helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git restore helloGit.py"
+          ],
+          "command_display": "git restore helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_019",
+          "narration": "El treball torna a V1, perquè la preparació ja era V1. L’edició sense confirmar s’ha descartat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El treball torna a V1, perquè la preparació ja era V1. L’edició sense confirmar s’ha descartat."
+            }
+          ],
+          "visual": "Fletxa PREPARACIÓ V1 → TREBALL. Retirar V2 del panell de treball sense insinuar que s’ha guardat en un commit. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git restore helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Ara restaurem el fitxer de treball. Sense staged, la destinació és el treball i l’origen per defecte és la preparació. Executem l’ordre. El treball torna a V1, perquè la preparació ja era V1. L’edició sense confirmar s’ha descartat."
+    },
+    {
+      "id": "rev_09_06",
+      "title": "git status --short",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_020",
+          "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Aquesta consulta no modifica el projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status"
+        },
+        {
+          "id": "pas_021",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_022",
+          "narration": "Les tres zones coincideixen i no hi ha canvis pendents. L’historial no ha canviat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les tres zones coincideixen i no hi ha canvis pendents. L’historial no ha canviat."
+            }
+          ],
+          "visual": "Mostrar la sortida literal amb les dues columnes separades i una llegenda; conservar els espais de davant de cada lletra. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte. Executem l’ordre. Les tres zones coincideixen i no hi ha canvis pendents. L’historial no ha canviat."
+    },
+    {
+      "id": "rev_09_07",
+      "title": "Un altre cas: la preparació conté V2",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_023",
+          "narration": "En un cas independent, imaginem V1 a l’historial, V2 preparat i V3 al treball. Restaurar el treball des de la preparació recupera V2, no V1.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un cas independent, imaginem V1 a l’historial, V2 preparat i V3 al treball. Restaurar el treball des de la preparació recupera V2, no V1."
+            }
+          ],
+          "visual": "Separador CAS INDEPENDENT. Mostrar V1 / V2 / V3 i fletxa PREPARACIÓ V2 → TREBALL V2. No encadenar aquest exemple a l’anterior.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "En un cas independent, imaginem V1 a l’historial, V2 preparat i V3 al treball. Restaurar el treball des de la preparació recupera V2, no V1."
+    },
+    {
+      "id": "rev_09_08",
+      "title": "Resum final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_024",
+          "narration": "Amb staged, restaurem la preparació i conservem l’edició del treball.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "staged"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", restaurem la preparació i conservem l’edició del treball."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_025",
+          "narration": "Sense staged, restaurem el treball des de la preparació per defecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Sense "
+            },
+            {
+              "lang": "en-US",
+              "text": "staged"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", restaurem el treball des de la preparació per defecte."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_026",
+          "narration": "Abans de descartar una edició, en revisem el contingut i la destinació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Abans de descartar una edició, en revisem el contingut i la destinació."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "Amb staged, restaurem la preparació i conservem l’edició del treball. Sense staged, restaurem el treball des de la preparació per defecte. Abans de descartar una edició, en revisem el contingut i la destinació."
+    },
+    {
+      "id": "rev_09_09",
+      "title": "Pràctica final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_027",
+          "narration": "En un fitxer de pràctiques, prepara una edició i desmarca-la conservant el treball. Revisa-la amb diff abans de decidir si la vols preparar de nou o descartar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un fitxer de pràctiques, prepara una edició i desmarca-la conservant el treball. Revisa-la amb diff abans de decidir si la vols preparar de nou o descartar."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En un fitxer de pràctiques, prepara una edició i desmarca-la conservant el treball. Revisa-la amb diff abans de decidir si la vols preparar de nou o descartar."
+    }
+  ],
+  "intro": {
+    "narration": "Novena lliçó, Restore.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Novena lliçó, "
+      },
+      {
+        "lang": "en-US",
+        "text": "Restore"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  }
+}

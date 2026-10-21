@@ -1,0 +1,57 @@
+{
+  "text": "Amb git fetch revisem els canvis abans de fer merge.",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "words": [
+    {
+      "start": 0.098666,
+      "end": 0.299541,
+      "text": "Amb"
+    },
+    {
+      "start": 0.299541,
+      "end": 0.489291,
+      "text": "git"
+    },
+    {
+      "start": 0.489291,
+      "end": 0.891082,
+      "text": "fetch"
+    },
+    {
+      "start": 0.891083,
+      "end": 1.337499,
+      "text": "revisem"
+    },
+    {
+      "start": 1.3375,
+      "end": 1.471416,
+      "text": "els"
+    },
+    {
+      "start": 1.471416,
+      "end": 1.917832,
+      "text": "canvis"
+    },
+    {
+      "start": 1.917875,
+      "end": 2.2415,
+      "text": "abans"
+    },
+    {
+      "start": 2.2415,
+      "end": 2.341958,
+      "text": "de"
+    },
+    {
+      "start": 2.341958,
+      "end": 2.464708,
+      "text": "fer"
+    },
+    {
+      "start": 2.46475,
+      "end": 2.967,
+      "text": "merge"
+    }
+  ]
+}

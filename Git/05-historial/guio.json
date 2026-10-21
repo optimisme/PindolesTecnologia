@@ -1,0 +1,958 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 5,
+  "slug": "05-historial",
+  "title": "Llegir l’historial: log, show i diff",
+  "short_title": "HISTORIAL",
+  "card": [
+    "LLEGIR L’HISTORIAL",
+    "Qui, quan i què ha canviat"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "05-historial.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Cinquena lliçó. Llegir l’historial.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Cinquena lliçó. Llegir l’historial."
+      }
+    ]
+  },
+  "objective": "consultar els commits d’un projecte, veure què va canviar cadascun i comparar dues versions.",
+  "start_note": "HelloGit a main amb tres commits: A crea la salutació, B hi afegeix una exclamació i C afegeix un comiat. Sense canvis pendents.",
+  "start_spoken": "Partim d’un projecte amb tres commits a main: la salutació inicial, una exclamació i un comiat.",
+  "summary": [
+    "git log llista els commits; doble guionet oneline en fa un resum.",
+    "git show explica què va canviar un commit concret.",
+    "git diff compara dues versions sense modificar cap fitxer."
+  ],
+  "practice": "En un repositori teu amb uns quants commits, llegeix l’historial resumit, consulta el commit anterior a l’actual i compara la primera versió amb la darrera.",
+  "practice_script": "practiques/05-historial.sh",
+  "scenes": [
+    {
+      "id": "e05_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a consultar els commits d’un projecte, veure què va canviar cadascun i comparar dues versions.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a consultar els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " d’un projecte, veure què va canviar cadascun i comparar dues versions."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Partim d’un projecte amb tres commits a main: la salutació inicial, una exclamació i un comiat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Partim d’un projecte amb tres "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ": la salutació inicial, una exclamació i un comiat."
+            }
+          ],
+          "visual": "Punt de partida: HelloGit a main amb tres commits: A crea la salutació, B hi afegeix una exclamació i C afegeix un comiat. Sense canvis pendents.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a consultar els commits d’un projecte, veure què va canviar cadascun i comparar dues versions. Partim d’un projecte amb tres commits a main: la salutació inicial, una exclamació i un comiat."
+    },
+    {
+      "id": "e05_01",
+      "label": "EXPLICACIÓ",
+      "title": "L’historial és una llista de commits",
+      "mode": "principal",
+      "visual": "Línia de temps A, B i C amb els missatges reals.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Cada commit guarda una instantània del projecte, qui la va fer, quan i un missatge. Llegir l’historial ens ajuda a entendre com hem arribat a la versió actual.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cada "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " guarda una instantània del projecte, qui la va fer, quan i un missatge. Llegir l’historial ens ajuda a entendre com hem arribat a la versió actual."
+            }
+          ],
+          "visual": "Línia de temps A, B i C amb els missatges reals.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "narration": "Cada commit guarda una instantània del projecte, qui la va fer, quan i un missatge. Llegir l’historial ens ajuda a entendre com hem arribat a la versió actual."
+    },
+    {
+      "id": "e05_02",
+      "label": "TERMINAL",
+      "title": "git log",
+      "mode": "principal",
+      "visual": "Sortida real; ressaltar per torns l’identificador, l’autoria, la data i el missatge del primer commit.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "git log mostra els commits de la branca actual.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git log"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " mostra els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la branca actual."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log",
+          "highlight": "git log",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log"
+          ],
+          "command_display": "git log",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "Surten del més recent al més antic. Cada un té un identificador llarg, l’autoria, la data i el missatge. Si la llista és llarga, sortim de la vista amb la tecla q.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Surten del més recent al més antic. Cada un té un identificador llarg, l’autoria, la data i el missatge. Si la llista és llarga, sortim de la vista amb la tecla q."
+            }
+          ],
+          "visual": "Sortida real; ressaltar per torns l’identificador, l’autoria, la data i el missatge del primer commit. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "commit 424337671399e356687a0be79c217d5b2a788fb1",
+            "Author: Anna Puig <anna@example.com>",
+            "Date:   Tue Oct 20 12:09:00 2026 +0200",
+            "",
+            "    Afegeix un comiat",
+            "",
+            "commit 4a464f8ba8264fea7948d3ed2a9c2e2731451cf5",
+            "Author: Anna Puig <anna@example.com>",
+            "Date:   Tue Oct 20 12:06:00 2026 +0200",
+            "",
+            "    Afegeix una exclamacio",
+            "",
+            "commit d3fb44b0696e4f913b7637f461983ae0fd5f1cb3",
+            "Author: Anna Puig <anna@example.com>",
+            "Date:   Tue Oct 20 12:03:00 2026 +0200",
+            "",
+            "    Afegeix la salutacio inicial"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git log mostra els commits de la branca actual. Executem l’ordre. Surten del més recent al més antic. Cada un té un identificador llarg, l’autoria, la data i el missatge. Si la llista és llarga, sortim de la vista amb la tecla q."
+    },
+    {
+      "id": "e05_03",
+      "label": "TERMINAL",
+      "title": "git log --oneline",
+      "mode": "principal",
+      "visual": "Sortida real en tres línies; relacionar cada línia amb A, B i C de la línia de temps.",
+      "beats": [
+        {
+          "id": "pas_007",
+          "narration": "Ara en demanem un resum.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara en demanem un resum."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline",
+          "highlight": "git log",
+          "state": 1
+        },
+        {
+          "id": "pas_008",
+          "narration": "Doble guionet oneline mostra cada commit en una sola línia, amb l’identificador abreujat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "oneline"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " mostra cada "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " en una sola línia, amb l’identificador abreujat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --oneline.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline",
+          "highlight": "--oneline",
+          "state": 1
+        },
+        {
+          "id": "pas_009",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log --oneline"
+          ],
+          "command_display": "git log --oneline",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_010",
+          "narration": "Els set primers caràcters de l’identificador són suficients per referir-nos a un commit en aquest projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Els set primers caràcters de l’identificador són suficients per referir-nos a un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " en aquest projecte."
+            }
+          ],
+          "visual": "Sortida real en tres línies; relacionar cada línia amb A, B i C de la línia de temps. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log --oneline",
+          "event": "result",
+          "state": 2,
+          "simulated": false,
+          "terminal_output": [
+            "4243376 Afegeix un comiat",
+            "4a464f8 Afegeix una exclamacio",
+            "d3fb44b Afegeix la salutacio inicial"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Ara en demanem un resum. Doble guionet oneline mostra cada commit en una sola línia, amb l’identificador abreujat. Executem l’ordre. Els set primers caràcters de l’identificador són suficients per referir-nos a un commit en aquest projecte."
+    },
+    {
+      "id": "e05_04",
+      "label": "EXPLICACIÓ",
+      "title": "HEAD i els passos enrere",
+      "mode": "principal",
+      "visual": "Línia de temps amb HEAD a C, HEAD~1 a B i HEAD~2 a A. Ressaltar cada etiqueta per torns.",
+      "beats": [
+        {
+          "id": "pas_011",
+          "narration": "HEAD és el commit on som ara; en aquest exemple, el darrer de main. Per anomenar commits anteriors sense copiar identificadors, hi afegim una titlla i un número.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "HEAD"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " on som ara; en aquest exemple, el darrer de "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Per anomenar "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " anteriors sense copiar identificadors, hi afegim una titlla i un número."
+            }
+          ],
+          "visual": "Línia de temps amb HEAD a C, HEAD~1 a B i HEAD~2 a A. Ressaltar cada etiqueta per torns.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 3
+        },
+        {
+          "id": "pas_012",
+          "narration": "HEAD titlla u és el commit anterior; HEAD titlla dos, dos passos enrere.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "HEAD"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " titlla u és el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " anterior; "
+            },
+            {
+              "lang": "en-US",
+              "text": "HEAD"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " titlla dos, dos passos enrere."
+            }
+          ],
+          "visual": "Línia de temps amb HEAD a C, HEAD~1 a B i HEAD~2 a A. Ressaltar cada etiqueta per torns.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 3
+        }
+      ],
+      "narration": "HEAD és el commit on som ara; en aquest exemple, el darrer de main. Per anomenar commits anteriors sense copiar identificadors, hi afegim una titlla i un número. HEAD titlla u és el commit anterior; HEAD titlla dos, dos passos enrere."
+    },
+    {
+      "id": "e05_05",
+      "label": "TERMINAL",
+      "title": "git show HEAD",
+      "mode": "principal",
+      "visual": "Sortida real; separar DADES DEL COMMIT i CANVI amb una línia.",
+      "beats": [
+        {
+          "id": "pas_013",
+          "narration": "git show mostra el contingut d’un commit.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git show"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " mostra el contingut d’un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show HEAD. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git show.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show HEAD",
+          "highlight": "git show",
+          "state": 3
+        },
+        {
+          "id": "pas_014",
+          "narration": "Consultem el commit actual, el del comiat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " actual, el del comiat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show HEAD. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HEAD.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show HEAD",
+          "highlight": "HEAD",
+          "state": 3
+        },
+        {
+          "id": "pas_015",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show HEAD. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git show HEAD"
+          ],
+          "command_display": "git show HEAD",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_016",
+          "narration": "Primer surten les dades del commit i després el canvi. La línia amb el signe més és la que s’hi va afegir.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Primer surten les dades del "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i després el canvi. La línia amb el signe més és la que s’hi va afegir."
+            }
+          ],
+          "visual": "Sortida real; separar DADES DEL COMMIT i CANVI amb una línia. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git show HEAD",
+          "event": "result",
+          "state": 4,
+          "simulated": false,
+          "terminal_output": [
+            "commit 424337671399e356687a0be79c217d5b2a788fb1",
+            "Author: Anna Puig <anna@example.com>",
+            "Date:   Tue Oct 20 12:09:00 2026 +0200",
+            "",
+            "    Afegeix un comiat",
+            "",
+            "diff --git a/helloGit.py b/helloGit.py",
+            "index 52662af..097ee02 100644",
+            "--- a/helloGit.py",
+            "+++ b/helloGit.py",
+            "@@ -1 +1,2 @@",
+            " print(\"Hello Git!\")",
+            "+print(\"Fins aviat!\")"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git show mostra el contingut d’un commit. Consultem el commit actual, el del comiat. Executem l’ordre. Primer surten les dades del commit i després el canvi. La línia amb el signe més és la que s’hi va afegir."
+    },
+    {
+      "id": "e05_06",
+      "label": "TERMINAL",
+      "title": "git show HEAD~1",
+      "mode": "principal",
+      "visual": "Sortida real; ressaltar la parella de línies menys i més.",
+      "beats": [
+        {
+          "id": "pas_017",
+          "narration": "Consultem el commit anterior.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " anterior."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show HEAD~1. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git show.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show HEAD~1",
+          "highlight": "git show",
+          "state": 4
+        },
+        {
+          "id": "pas_018",
+          "narration": "Un pas enrere des d’on som; és el commit de l’exclamació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Un pas enrere des d’on som; és el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de l’exclamació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show HEAD~1. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HEAD~1.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show HEAD~1",
+          "highlight": "HEAD~1",
+          "state": 4
+        },
+        {
+          "id": "pas_019",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show HEAD~1. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git show HEAD~1"
+          ],
+          "command_display": "git show HEAD~1",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_020",
+          "narration": "Hi veiem la línia antiga, sense exclamació, i la nova, amb exclamació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Hi veiem la línia antiga, sense exclamació, i la nova, amb exclamació."
+            }
+          ],
+          "visual": "Sortida real; ressaltar la parella de línies menys i més. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git show HEAD~1",
+          "event": "result",
+          "state": 5,
+          "simulated": false,
+          "terminal_output": [
+            "commit 4a464f8ba8264fea7948d3ed2a9c2e2731451cf5",
+            "Author: Anna Puig <anna@example.com>",
+            "Date:   Tue Oct 20 12:06:00 2026 +0200",
+            "",
+            "    Afegeix una exclamacio",
+            "",
+            "diff --git a/helloGit.py b/helloGit.py",
+            "index 078d6bf..52662af 100644",
+            "--- a/helloGit.py",
+            "+++ b/helloGit.py",
+            "@@ -1 +1 @@",
+            "-print(\"Hello Git\")",
+            "+print(\"Hello Git!\")"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem el commit anterior. Un pas enrere des d’on som; és el commit de l’exclamació. Executem l’ordre. Hi veiem la línia antiga, sense exclamació, i la nova, amb exclamació."
+    },
+    {
+      "id": "e05_07",
+      "label": "TERMINAL",
+      "title": "git diff HEAD~2 HEAD -- helloGit.py",
+      "mode": "principal",
+      "visual": "Sortida real; esquema A → C amb els dos canvis agrupats.",
+      "beats": [
+        {
+          "id": "pas_021",
+          "narration": "git diff també compara dues versions qualssevol.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git diff"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " també compara dues versions qualssevol."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff HEAD~2 HEAD -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git diff.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff HEAD~2 HEAD -- helloGit.py",
+          "highlight": "git diff",
+          "state": 5
+        },
+        {
+          "id": "pas_022",
+          "narration": "El primer punt de comparació és la salutació inicial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El primer punt de comparació és la salutació inicial."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff HEAD~2 HEAD -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HEAD~2.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff HEAD~2 HEAD -- helloGit.py",
+          "highlight": "HEAD~2",
+          "state": 5
+        },
+        {
+          "id": "pas_023",
+          "narration": "El segon és la versió actual.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El segon és la versió actual."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff HEAD~2 HEAD -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HEAD.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff HEAD~2 HEAD -- helloGit.py",
+          "highlight": "HEAD",
+          "state": 5
+        },
+        {
+          "id": "pas_024",
+          "narration": "Els dos guionets separen les versions del nom del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Els dos guionets separen les versions del nom del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff HEAD~2 HEAD -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff HEAD~2 HEAD -- helloGit.py",
+          "highlight": "--",
+          "state": 5
+        },
+        {
+          "id": "pas_025",
+          "narration": "Limitem la comparació al programa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Limitem la comparació al programa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff HEAD~2 HEAD -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff HEAD~2 HEAD -- helloGit.py",
+          "highlight": "helloGit.py",
+          "state": 5
+        },
+        {
+          "id": "pas_026",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff HEAD~2 HEAD -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git diff HEAD~2 HEAD -- helloGit.py"
+          ],
+          "command_display": "git diff HEAD~2 HEAD -- helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_027",
+          "narration": "La comparació acumula els dos canvis: l’exclamació i el comiat. No modifica cap fitxer; només els llegeix.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La comparació acumula els dos canvis: l’exclamació i el comiat. No modifica cap fitxer; només els llegeix."
+            }
+          ],
+          "visual": "Sortida real; esquema A → C amb els dos canvis agrupats. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git diff HEAD~2 HEAD -- helloGit.py",
+          "event": "result",
+          "state": 6,
+          "simulated": false,
+          "terminal_output": [
+            "diff --git a/helloGit.py b/helloGit.py",
+            "index 078d6bf..097ee02 100644",
+            "--- a/helloGit.py",
+            "+++ b/helloGit.py",
+            "@@ -1 +1,2 @@",
+            "-print(\"Hello Git\")",
+            "+print(\"Hello Git!\")",
+            "+print(\"Fins aviat!\")"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git diff també compara dues versions qualssevol. El primer punt de comparació és la salutació inicial. El segon és la versió actual. Els dos guionets separen les versions del nom del fitxer. Limitem la comparació al programa. Executem l’ordre. La comparació acumula els dos canvis: l’exclamació i el comiat. No modifica cap fitxer; només els llegeix."
+    },
+    {
+      "id": "e05_08",
+      "label": "EXPLICACIÓ",
+      "title": "Com es llegeix un diff",
+      "mode": "principal",
+      "visual": "Diff anotat amb tres etiquetes textuals, ESBORRADA, AFEGIDA i CONTEXT, a més dels colors.",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "Les línies amb el signe menys desapareixen, i les del signe més s’hi afegeixen. Les línies sense signe són context, per situar el canvi dins del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les línies amb el signe menys desapareixen, i les del signe més s’hi afegeixen. Les línies sense signe són context, per situar el canvi dins del fitxer."
+            }
+          ],
+          "visual": "Diff anotat amb tres etiquetes textuals, ESBORRADA, AFEGIDA i CONTEXT, a més dels colors.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 7
+        }
+      ],
+      "narration": "Les línies amb el signe menys desapareixen, i les del signe més s’hi afegeixen. Les línies sense signe són context, per situar el canvi dins del fitxer."
+    },
+    {
+      "id": "e05_09",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_029",
+          "narration": "git log llista els commits; doble guionet oneline en fa un resum.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git log"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " llista els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "oneline"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " en fa un resum."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_030",
+          "narration": "git show explica què va canviar un commit concret.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git show"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " explica què va canviar un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " concret."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_031",
+          "narration": "git diff compara dues versions sense modificar cap fitxer.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git diff"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " compara dues versions sense modificar cap fitxer."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "git log llista els commits; doble guionet oneline en fa un resum. git show explica què va canviar un commit concret. git diff compara dues versions sense modificar cap fitxer."
+    },
+    {
+      "id": "e05_10",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_032",
+          "narration": "En un repositori teu amb uns quants commits, llegeix l’historial resumit, consulta el commit anterior a l’actual i compara la primera versió amb la darrera.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un repositori teu amb uns quants "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", llegeix l’historial resumit, consulta el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " anterior a l’actual i compara la primera versió amb la darrera."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En un repositori teu amb uns quants commits, llegeix l’historial resumit, consulta el commit anterior a l’actual i compara la primera versió amb la darrera."
+    }
+  ],
+  "commands": [
+    "git log",
+    "git log --oneline",
+    "git show HEAD",
+    "git show HEAD~1",
+    "git diff HEAD~2 HEAD -- helloGit.py"
+  ]
+}

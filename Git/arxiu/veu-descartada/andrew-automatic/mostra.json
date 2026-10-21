@@ -1,0 +1,7 @@
+{
+  "voice": "en-US-AndrewMultilingualNeural",
+  "reference_voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "text": "Amb GitHub compartim el projecte. Git add prepara els canvis i git commit els desa. Creem la branca salutació des de main. Amb fetch revisem les novetats abans de fer merge o rebase. Els fitxers punt log guarden informació. Amb git log consultem l'historial. La correcció queda desada.",
+  "english_terms": ["GitHub", "git add", "git commit", "git log", "main", "fetch", "merge", "rebase", "log"]
+}

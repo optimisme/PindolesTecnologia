@@ -1,0 +1,17 @@
+{
+  "text": "git fetch",
+  "voice": "en-US-GuyNeural",
+  "rate": "+12%",
+  "words": [
+    {
+      "start": 0.094625,
+      "end": 0.2955,
+      "text": "git"
+    },
+    {
+      "start": 0.317875,
+      "end": 0.775458,
+      "text": "fetch"
+    }
+  ]
+}

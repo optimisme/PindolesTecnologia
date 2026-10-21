@@ -1,0 +1,24 @@
+{
+  "catalan": {
+    "voice": "ca-ES-EnricNeural",
+    "rate": "+12%"
+  },
+  "variants": [
+    [
+      "01-original",
+      "GitHub allotja repositoris a internet."
+    ],
+    [
+      "02-jab",
+      "Guit jab allotja repositoris a internet."
+    ],
+    [
+      "03-hab",
+      "Guit hàb allotja repositoris a internet."
+    ]
+  ],
+  "english_reference": {
+    "voice": "en-US-GuyNeural",
+    "text": "GitHub."
+  }
+}

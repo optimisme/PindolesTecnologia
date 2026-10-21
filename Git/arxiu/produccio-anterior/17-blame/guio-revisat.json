@@ -1,0 +1,660 @@
+{
+  "script_format": "git-didactic-v1",
+  "status": "script_revised_media_unchanged",
+  "episode_number": 17,
+  "title": "Blame: investiga l’origen d’una línia",
+  "series": "Píndoles de Git",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "music_seconds": 4,
+  "objective": "Investigar una línia amb blame i comprovar la causa amb show i el context.",
+  "prerequisites": "Historial A–B–C. B canvia la definició salutacio per missatge, però deixa l’ús antic. C només afegeix espais a la línia d’impressió. Treball net; hashes il·lustratius.",
+  "timing": "Sense marques absolutes: es calcularan amb la futura locució.",
+  "scenes": [
+    {
+      "id": "rev_17_00",
+      "title": "Objectiu i punt de partida",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a investigar una línia amb blame i comprovar la causa amb show i el context.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a investigar una línia amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "blame"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i comprovar la causa amb show i el context."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Historial A–B–C. B canvia la definició salutació per missatge, però deixa l’ús antic. C només afegeix espais a la línia d’impressió. Treball net; hashes il·lustratius.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Historial A–B–C. B canvia la definició salutació per missatge, però deixa l’ús antic. C només afegeix espais a la línia d’impressió. Treball net; hashes il·lustratius."
+            }
+          ],
+          "visual": "Punt de partida complet amb branca activa, fitxers i estat del treball; fer visible qualsevol cas independent.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a investigar una línia amb blame i comprovar la causa amb show i el context. Historial A–B–C. B canvia la definició salutació per missatge, però deixa l’ús antic. C només afegeix espais a la línia d’impressió. Treball net; hashes il·lustratius."
+    },
+    {
+      "id": "rev_17_01",
+      "title": "Una línia que falla té un context",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "El programa imprimeix una variable que ja no està definida amb aquell nom. Investigarem les línies relacionades i els commits que les han modificat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El programa imprimeix una variable que ja no està definida amb aquell nom. Investigarem les línies relacionades i els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que les han modificat."
+            }
+          ],
+          "visual": "Editor amb línies numerades: 1 comentari; 2 missatge = \"Hola, Anna!\"; 3 print( salutacio ).",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "El programa imprimeix una variable que ja no està definida amb aquell nom. Investigarem les línies relacionades i els commits que les han modificat."
+    },
+    {
+      "id": "rev_17_02",
+      "title": "python3 helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Reproduïm el problema amb la mateixa prova.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Reproduïm el problema amb la mateixa prova."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3"
+        },
+        {
+          "id": "pas_005",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_006",
+          "narration": "La terminal mostra un error de nom a la línia tres. La línia de l’error orienta la investigació, però encara no identifica la causa històrica.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La terminal mostra un error de nom a la línia tres. La línia de l’error orienta la investigació, però encara no identifica la causa històrica."
+            }
+          ],
+          "visual": "Ressaltar NameError i línia 3 sense atribuir responsabilitats. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Reproduïm el problema amb la mateixa prova. Executem l’ordre. La terminal mostra un error de nom a la línia tres. La línia de l’error orienta la investigació, però encara no identifica la causa històrica."
+    },
+    {
+      "id": "rev_17_03",
+      "title": "git blame helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_007",
+          "narration": "git blame associa les línies a commits de l’historial consultat.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git blame"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " associa les línies a "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de l’historial consultat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git blame helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git blame.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git blame helloGit.py",
+          "highlight": "git blame"
+        },
+        {
+          "id": "pas_008",
+          "narration": "Consultem les línies del programa actual.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem les línies del programa actual."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git blame helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git blame helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_009",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git blame helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git blame helloGit.py"
+          ],
+          "command_display": "git blame helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_010",
+          "narration": "La línia tres s’associa a C. Això indica una modificació de la línia, no una demostració que C introduís l’error.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La línia tres s’associa a C. Això indica una modificació de la línia, no una demostració que C introduís l’error."
+            }
+          ],
+          "visual": "Separar columnes hash, autoria, data i contingut. La columna d’autoria es mostra com a context, sense llenguatge de culpabilitat. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git blame helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git blame associa les línies a commits de l’historial consultat. Consultem les línies del programa actual. Executem l’ordre. La línia tres s’associa a C. Això indica una modificació de la línia, no una demostració que C introduís l’error."
+    },
+    {
+      "id": "rev_17_04",
+      "title": "git blame -L 3,3 helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_011",
+          "narration": "Limitem la consulta a la línia de l’error.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Limitem la consulta a la línia de l’error."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git blame -L 3,3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git blame.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git blame -L 3,3 helloGit.py",
+          "highlight": "git blame"
+        },
+        {
+          "id": "pas_012",
+          "narration": "El guionet ela limita la consulta a un rang de línies.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ela limita la consulta a un rang de línies."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git blame -L 3,3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -L.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git blame -L 3,3 helloGit.py",
+          "highlight": "-L"
+        },
+        {
+          "id": "pas_013",
+          "narration": "El primer número és l’inici i el segon el final; aquí consultem només la línia tres.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El primer número és l’inici i el segon el final; aquí consultem només la línia tres."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git blame -L 3,3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: 3,3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git blame -L 3,3 helloGit.py",
+          "highlight": "3,3"
+        },
+        {
+          "id": "pas_014",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git blame -L 3,3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git blame -L 3,3 helloGit.py"
+          ],
+          "command_display": "git blame -L 3,3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_015",
+          "narration": "Copiem l’identificador de C per revisar què hi va canviar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Copiem l’identificador de C per revisar què hi va canviar."
+            }
+          ],
+          "visual": "Subratllar -L, després el rang i després la fila de la sortida. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git blame -L 3,3 helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Limitem la consulta a la línia de l’error. El guionet ela limita la consulta a un rang de línies. El primer número és l’inici i el segon el final; aquí consultem només la línia tres. Executem l’ordre. Copiem l’identificador de C per revisar què hi va canviar."
+    },
+    {
+      "id": "rev_17_05",
+      "title": "git show c95f4a7 -- helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_016",
+          "narration": "Comprovem el canvi concret de C.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprovem el canvi concret de C."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show c95f4a7 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git show.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show c95f4a7 -- helloGit.py",
+          "highlight": "git show"
+        },
+        {
+          "id": "pas_017",
+          "narration": "És el commit de mostra atribuït a la línia tres.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de mostra atribuït a la línia tres."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show c95f4a7 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: c95f4a7.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show c95f4a7 -- helloGit.py",
+          "highlight": "c95f4a7"
+        },
+        {
+          "id": "pas_018",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show c95f4a7 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git show c95f4a7 -- helloGit.py"
+          ],
+          "command_display": "git show c95f4a7 -- helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_019",
+          "narration": "C només hi havia afegit espais. La variable ja era incorrecta abans d’aquell retoc.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "C només hi havia afegit espais. La variable ja era incorrecta abans d’aquell retoc."
+            }
+          ],
+          "visual": "Diff C amb print(salutacio) → print( salutacio ). Destacar els espais com a canvi de format. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git show c95f4a7 -- helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comprovem el canvi concret de C. És el commit de mostra atribuït a la línia tres. Executem l’ordre. C només hi havia afegit espais. La variable ja era incorrecta abans d’aquell retoc."
+    },
+    {
+      "id": "rev_17_06",
+      "title": "git blame -L 2,2 helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_020",
+          "narration": "Seguim la dependència: la línia que defineix la variable.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Seguim la dependència: la línia que defineix la variable."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git blame -L 2,2 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git blame.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git blame -L 2,2 helloGit.py",
+          "highlight": "git blame"
+        },
+        {
+          "id": "pas_021",
+          "narration": "Ara consultem només la línia dos, on es defineix el nom utilitzat pel programa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara consultem només la línia dos, on es defineix el nom utilitzat pel programa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git blame -L 2,2 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: 2,2.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git blame -L 2,2 helloGit.py",
+          "highlight": "2,2"
+        },
+        {
+          "id": "pas_022",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git blame -L 2,2 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git blame -L 2,2 helloGit.py"
+          ],
+          "command_display": "git blame -L 2,2 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_023",
+          "narration": "Aquesta línia ens porta a B. El nom definit i el nom imprès no coincideixen.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquesta línia ens porta a B. El nom definit i el nom imprès no coincideixen."
+            }
+          ],
+          "visual": "Unir amb una fletxa missatge de la línia 2 i salutacio de la línia 3. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git blame -L 2,2 helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Seguim la dependència: la línia que defineix la variable. Ara consultem només la línia dos, on es defineix el nom utilitzat pel programa. Executem l’ordre. Aquesta línia ens porta a B. El nom definit i el nom imprès no coincideixen."
+    },
+    {
+      "id": "rev_17_07",
+      "title": "git show b62d8e1 -- helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_024",
+          "narration": "Revisem el canvi de B.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Revisem el canvi de B."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show b62d8e1 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git show.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show b62d8e1 -- helloGit.py",
+          "highlight": "git show"
+        },
+        {
+          "id": "pas_025",
+          "narration": "És el commit que modificava la definició de la variable.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que modificava la definició de la variable."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show b62d8e1 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: b62d8e1.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show b62d8e1 -- helloGit.py",
+          "highlight": "b62d8e1"
+        },
+        {
+          "id": "pas_026",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show b62d8e1 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git show b62d8e1 -- helloGit.py"
+          ],
+          "command_display": "git show b62d8e1 -- helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_027",
+          "narration": "B va canviar el nom sense actualitzar-ne l’ús. Ja tenim una explicació del canvi que introdueix la regressió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "B va canviar el nom sense actualitzar-ne l’ús. Ja tenim una explicació del canvi que introdueix la regressió."
+            }
+          ],
+          "visual": "Diff B amb la definició anterior i la nova; mantenir la línia d’impressió visible. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git show b62d8e1 -- helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Revisem el canvi de B. És el commit que modificava la definició de la variable. Executem l’ordre. B va canviar el nom sense actualitzar-ne l’ús. Ja tenim una explicació del canvi que introdueix la regressió."
+    },
+    {
+      "id": "rev_17_08",
+      "title": "Resum final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "Blame orienta cap a modificacions de línies.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Blame"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " orienta cap a modificacions de línies."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_029",
+          "narration": "Show explica què canviava el commit concret.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Show explica què canviava el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " concret."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_030",
+          "narration": "Cal seguir el context i les dependències abans d’atribuir l’origen d’un error.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cal seguir el context i les dependències abans d’atribuir l’origen d’un error."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "Blame orienta cap a modificacions de línies. Show explica què canviava el commit concret. Cal seguir el context i les dependències abans d’atribuir l’origen d’un error."
+    },
+    {
+      "id": "rev_17_09",
+      "title": "Pràctica final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_031",
+          "narration": "Investiga dues línies relacionades d’un fitxer de pràctiques. Revisa els commits amb show i anota el canvi funcional, separant-lo dels retocs de format.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Investiga dues línies relacionades d’un fitxer de pràctiques. Revisa els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb show i anota el canvi funcional, separant-lo dels retocs de format."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "Investiga dues línies relacionades d’un fitxer de pràctiques. Revisa els commits amb show i anota el canvi funcional, separant-lo dels retocs de format."
+    }
+  ],
+  "intro": {
+    "narration": "Dissetena lliçó, Blame.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Dissetena lliçó, "
+      },
+      {
+        "lang": "en-US",
+        "text": "Blame"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  }
+}

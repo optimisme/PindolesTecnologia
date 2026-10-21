@@ -1,0 +1,93 @@
+{
+  "title": "Add interactiu: prepara només una part del fitxer",
+  "episode_number": 23,
+  "short_title": "ADD INTERACTIU",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Vint-i-tresena lliçó, Add interactiu."
+  },
+  "prerequisites": "Exemple independent amb main al commit B i sense canvis preparats. helloGit.py ja és seguit; conté saluda, doble, suma i comiat, i imprimeix saluda() i comiat(). Les funcions doble i suma no es modifiquen. S’edita només el retorn de saluda de Hello Git! a Hola, Anna!, i el de comiat de Fins aviat! a Adeu!. Les dues edicions estan prou separades perquè git add -p helloGit.py mostri dos blocs independents amb el context per defecte. Es respon y al primer bloc (salutació) i n al segon (comiat). L’índex conté només la salutació nova; l’arbre de treball conserva tots dos canvis. Després del commit C, l’índex i HEAD coincideixen amb la salutació nova i el comiat antic; el treball manté el comiat pendent. No hi ha altres fitxers modificats ni remots. Els exemples complets són a exemples/. Les lletres i els hashes de pantalla són il·lustratius.",
+  "scenes": [
+    {
+      "id": "a_hook",
+      "label": "UN FITXER, DUES FEINES",
+      "title": "No tot ha d’entrar al mateix commit",
+      "narration": "Has modificat la salutació i el comiat dins del mateix fitxer. Vols confirmar només la salutació. No cal preparar tot el fitxer: podem triar els blocs de canvi.",
+      "visual": "Dues targetes d’un mateix helloGit.py: saluda retorna Hola, Anna! i comiat retorna Adeu!. La preparació encara és buida."
+    },
+    {
+      "id": "a_diff",
+      "label": "01 / REVISAR LES EDICIONS",
+      "title": "Identifiquem els dos blocs",
+      "narration": "Amb diff revisem què hem editat. En aquest exemple, els dos canvis estan prou separats perquè Git els presenti com dos blocs independents.",
+      "visual": "Terminal mostra dos blocs: -Hello Git! +Hola, Anna! a saluda, i -Fins aviat! +Adeu! a comiat.",
+      "commands": [
+        "git diff -- helloGit.py"
+      ]
+    },
+    {
+      "id": "a_yes",
+      "label": "02 / PREPARAR EL PRIMER BLOC",
+      "title": "Responem y a la salutació",
+      "narration": "Fem add amb l’opció pe sobre el fitxer. Git ensenya el primer bloc i pregunta si el volem preparar. Responem i grega, de yes, per acceptar la salutació.",
+      "visual": "Terminal git add -p helloGit.py, primer bloc de saluda i pregunta Stage this hunk. Es respon y; no és una ordre nova de shell.",
+      "commands": [
+        "git add -p helloGit.py"
+      ]
+    },
+    {
+      "id": "a_no",
+      "label": "03 / DEIXAR EL SEGON BLOC PENDENT",
+      "title": "Responem n al comiat",
+      "narration": "La mateixa sessió mostra el segon bloc. Responem ena per no preparar-lo. El canvi continua al fitxer de treball, però queda fora de la preparació.",
+      "visual": "Continuació de la mateixa sessió interactiva, bloc 2/2 de comiat. Es respon n a Stage this hunk. La sessió acaba sense descartar el canvi."
+    },
+    {
+      "id": "a_compare",
+      "label": "04 / COMPARAR LES DUES ZONES",
+      "title": "Preparat i pendent són diferents",
+      "narration": "Diff amb staged mostra només la salutació preparada. Diff sense aquesta opció mostra el comiat que continua pendent. Les dues consultes ens permeten comprovar la selecció.",
+      "visual": "Dues terminals: git diff --staged mostra la salutació, git diff mostra el comiat.",
+      "commands": [
+        "git diff --staged",
+        "git diff"
+      ]
+    },
+    {
+      "id": "a_commit",
+      "label": "05 / CONFIRMAR LA SELECCIÓ",
+      "title": "El commit incorpora només la salutació",
+      "narration": "Fem commit de la preparació. El nou commit C inclou la salutació, mentre el comiat queda pendent al fitxer. El commit no elimina aquesta edició local.",
+      "visual": "Tres zones: treball amb salutació i comiat nous; índex i commit C amb salutació nova i comiat antic.",
+      "commands": [
+        "git commit -m \"Personalitza la salutacio\""
+      ]
+    },
+    {
+      "id": "a_check",
+      "label": "06 / COMPROVAR QUÈ QUEDA",
+      "title": "El comiat continua sense preparar",
+      "narration": "Revisem el commit i l’estat. Status encara mostra el fitxer modificat sense preparar. Diff confirma que el canvi pendent és només el comiat.",
+      "visual": "Terminal show --stat HEAD, status amb M a la segona columna i diff del comiat. La salutació ja és al commit.",
+      "commands": [
+        "git show --stat HEAD",
+        "git status --short",
+        "git diff"
+      ]
+    },
+    {
+      "id": "a_summary",
+      "label": "JA HO TENS",
+      "title": "Una selecció concreta per a cada commit",
+      "narration": "Revisa els blocs, tria què prepares i comprova el resultat abans de confirmar. Add interactiu ajuda a separar feines, conservant al fitxer els canvis que encara no vols incloure.",
+      "visual": "Tres targetes: revisar, triar y/n i comprovar. Nota final: salutació confirmada, comiat encara pendent."
+    }
+  ],
+  "sources": [
+    "https://git-scm.com/docs/git-add",
+    "https://git-scm.com/docs/git-diff"
+  ]
+}

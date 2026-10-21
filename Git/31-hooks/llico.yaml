@@ -1,0 +1,118 @@
+titol: "Hooks: comprova la sintaxi abans del commit"
+titol_curt: HOOKS
+capcalera: [HOOKS, Comprova la sintaxi abans del commit]
+presentacio: "[[Hooks]]"
+objectiu: crear un control local que revisi la sintaxi del contingut preparat abans de cada commit.
+inici: >-
+  Repositori de pràctiques ordinari, sense hooks actius ni core.hooksPath. Git i python3 disponibles; sistema
+  amb permisos d’execució (macOS, Linux o Git Bash). helloGit.py ja està confirmat.
+inici_parlat: >-
+  Tenim un projecte de pràctiques amb el programa confirmat. Volem que [[Git]] ens avisi si intentem
+  confirmar codi amb errors de sintaxi.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+
+etapes:
+  - explica: Un control abans del commit
+    text: >-
+      Un [[hook]] és un programa que [[Git]] executa en un moment concret. El de tipus [[pre-commit]]
+      s’executa just abans de crear un commit, i el pot aturar.
+    visual: Línia temporal ADD → HOOK → COMMIT. El control s’interposa abans de crear el node.
+
+  - explica: El control llegeix la preparació
+    text:
+      - Creem el fitxer del control a la carpeta de hooks del repositori i hi desem el codi que veus.
+      - >-
+        Llegeix el programa des de la preparació, que és el que entrarà al commit, encara que l’editor tingui
+        una altra versió.
+    visual: >-
+      Editor amb el codi complet de exemples/pre-commit a la ruta .git/hooks/pre-commit. Ressaltar primer la ruta
+      i després :helloGit.py.
+    accions:
+      - fitxer: .git/hooks/pre-commit
+        origen: exemples/pre-commit
+
+  - explica: Dues parts del codi
+    text: >-
+      [[git show]] amb dos punts davant del nom llegeix el contingut preparat. La funció [[compile]] comprova
+      que la sintaxi sigui vàlida, sense executar el programa. Si troba un error, mostra un missatge i atura
+      el commit.
+    visual: Mantenir el codi complet. Subratllar la lectura de l’índex, després compile i després el missatge d’error.
+
+  - ordre: chmod +x .git/hooks/pre-commit
+    text: Fem que el fitxer es pugui executar.
+    parts:
+      - +x: Afegeix el permís d’execució.
+      - .git/hooks/pre-commit: És el fitxer que acabem de desar.
+    resultat: >-
+      [[Git]] executarà aquest control abans de cada commit en aquest repositori. No forma part dels fitxers
+      del projecte.
+    visual: Ruta completa, fitxer desat i indicador EXECUTABLE.
+
+  - explica: Preparem una errada a propòsit
+    text: Treiem el parèntesi final de la salutació i desem. Aquesta versió incorrecta ens servirà per provar el control.
+    visual: Editor amb print("Hola, Anna!" sense el parèntesi final. Etiqueta PROVA DEL CONTROL.
+    accions:
+      - fitxer: helloGit.py
+        origen: exemples/helloGit-incorrecte.py
+
+  - plantilla: add-breu
+    resultat: La versió sense parèntesi entra a la preparació.
+
+  - plantilla: commit
+    missatge: Personalitza la salutacio
+    text: Intentem confirmar el contingut preparat.
+    falla: true
+    resultat: El control mostra l’error de sintaxi i la línia, i [[Git]] no crea el commit.
+    visual: Sortida real del hook; cap node nou. Panell PREPARACIÓ · INCORRECTA.
+    comprova:
+      sortida: ["pre-commit: error de sintaxi a helloGit.py, línia 1"]
+      commits: {ref: main, nombre: 1}
+
+  - explica: Corregim només l’editor
+    text: >-
+      Tornem a posar el parèntesi i desem. Però encara no hem preparat la correcció: el treball és correcte i
+      la preparació conserva l’error.
+    visual: Dos panells, TREBALL amb el parèntesi i PREPARACIÓ sense.
+    accions:
+      - fitxer: helloGit.py
+        origen: exemples/helloGit-correcte.py
+
+  - plantilla: commit-breu
+    missatge: Personalitza la salutacio
+    text: Tornem a intentar el commit, sense preparar la correcció.
+    falla: true
+    resultat: El control torna a fallar, perquè revisa la preparació. Corregir l’editor no n’hi ha prou.
+    visual: Fletxa HOOK → PREPARACIÓ, no cap a l’editor. Cap node nou.
+    comprova:
+      sortida: [error de sintaxi]
+
+  - plantilla: add-breu
+    resultat: Ara la preparació té la versió correcta.
+
+  - plantilla: commit-breu
+    missatge: Personalitza la salutacio
+    crea: B
+    resultat: El control passa sense errors i [[Git]] crea el commit.
+    comprova:
+      status: ""
+      programa: Hola, Anna!
+
+  - explica: Què fa i què no fa aquest control
+    text: >-
+      Comprova la sintaxi, no que el programa faci el que volem. És local: no arriba als altres ordinadors amb
+      un [[push]]. I es pot saltar amb doble guionet [[no-verify]], així que és una ajuda, no una garantia.
+    visual: Etiquetes SINTAXI · LOCAL · NO VIATJA AMB EL PUSH · git commit --no-verify el salta.
+
+resum:
+  - El [[pre-commit]] s’executa abans de crear el commit i el pot aturar.
+  - El control d’aquest exemple revisa el contingut preparat.
+  - Cal preparar la correcció perquè el control la vegi; és una ajuda local.
+practica: >-
+  En un repositori de pràctiques, instal·la el control i prova tres intents. Un amb un error preparat,
+  un amb l’error corregit només a l’editor i l’últim després de preparar la correcció.

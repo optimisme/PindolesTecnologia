@@ -1,0 +1,11 @@
+{
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "commit_spelling": "comít",
+  "variants": [
+    {"id": "01-add-original", "label": "Primera.", "add_spelling": "add"},
+    {"id": "02-add-accent", "label": "Segona.", "add_spelling": "àdd"}
+  ],
+  "written_text": "Git add prepara el canvi; git commit el desa.",
+  "tts_template": "{label} Guit {add} prepara el canvi; Guit comít el desa."
+}

@@ -1,0 +1,225 @@
+{
+  "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git",
+  "layout": "flat-videos-only",
+  "episodes": 26,
+  "updated_episodes": [
+    "00-introduccio",
+    "01-primer-commit"
+  ],
+  "render_profiles": [
+    "0777061acffb8e9be15cd511e1d695bfee1bf49b915d1d377c1ab6d2885a9793",
+    "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7",
+    "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+  ],
+  "files": [
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/00-introduccio/output/00-introduccio.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/00-introduccio.mp4",
+      "sha256": "d4fba0b3ae52afb84a89d916de116f3a95a4cbf038bbefe4052ed265631c9885",
+      "bytes": 4604962,
+      "voice": "en-US-AndrewMultilingualNeural",
+      "render_profile_sha256": "0777061acffb8e9be15cd511e1d695bfee1bf49b915d1d377c1ab6d2885a9793"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/01-primer-commit/output/01-primer-commit.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/01-primer-commit.mp4",
+      "sha256": "d152ceb9d0876c7ddad4165c32e721e76c46c29cb5f815cbe08e550b32603e15",
+      "bytes": 10374782,
+      "voice": "en-US-AndrewMultilingualNeural",
+      "render_profile_sha256": "0777061acffb8e9be15cd511e1d695bfee1bf49b915d1d377c1ab6d2885a9793"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/02-branques/output/02-branques.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/02-branques.mp4",
+      "sha256": "65edc3adbbdb287f583d096852ee86bbdcd9181581e663e840a8dc52152c4897",
+      "bytes": 2572898,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/03-estats/output/03-estats.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/03-estats.mp4",
+      "sha256": "011e2c15facabcc3e9889a37e3fbb4428a733a60818ed36aa89754a8da03ebee",
+      "bytes": 2481238,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/04-sincronitzacio/output/04-sincronitzacio.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/04-sincronitzacio.mp4",
+      "sha256": "0b6d9f01825e98fce5dd2458c623654eed3874c9fd42cd2140603c147db3efb6",
+      "bytes": 2528461,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/05-merge/output/05-merge.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/05-merge.mp4",
+      "sha256": "0d4e857930d1acfb054c3ee0293e31d6f26cd3b2017f6b1cd37bf5a370aebb61",
+      "bytes": 2380111,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/06-conflictes/output/06-conflictes.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/06-conflictes.mp4",
+      "sha256": "5b26f9b2eebfbdd7c0ba30fde51a80cb0d04defdbf840f85da0bd9638b38e54b",
+      "bytes": 2454412,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/07-rebase/output/07-rebase.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/07-rebase.mp4",
+      "sha256": "e28547e0bf52aee74d2337a43a66910dafb8480a880faadd2ffc12976363fea4",
+      "bytes": 2619491,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/08-stash/output/08-stash.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/08-stash.mp4",
+      "sha256": "8cc9a74b15e30d9c2b6903d2ff6d7823d575c300daa1f2272ff0bbe8d295702a",
+      "bytes": 2210187,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/09-restore/output/09-restore.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/09-restore.mp4",
+      "sha256": "b76011803e9212fedf26f4f143c675521c639850bc6365011c2e09901a3df578",
+      "bytes": 2480112,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/10-revert/output/10-revert.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/10-revert.mp4",
+      "sha256": "2e03a308b881648520c3366a1b49e2ed77b3c07f5ccf00b7bf2849afe3634ee9",
+      "bytes": 2379067,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/11-reset/output/11-reset.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/11-reset.mp4",
+      "sha256": "bd97cfc0a19db5ad8d0252c7924f3a60a4bb1b3c35285ae1803b671a10f78ed5",
+      "bytes": 2825332,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/12-reflog/output/12-reflog.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/12-reflog.mp4",
+      "sha256": "6f47509d3306ab59848e3bc9a33d2b13ec24e37da22a2a5ed2acef17f224e396",
+      "bytes": 2670091,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/13-gitignore/output/13-gitignore.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/13-gitignore.mp4",
+      "sha256": "49e9837bcb6e275f55ca41642dccf6569f26d36498fc8e569e094223ab20b5e9",
+      "bytes": 2802376,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/14-tags/output/14-tags.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/14-tags.mp4",
+      "sha256": "49964bc8ddf7c133d7f2fda6ed2d958a0d9111420a40dd2f6a57d5b797b3a38a",
+      "bytes": 2869546,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/15-cherry-pick/output/15-cherry-pick.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/15-cherry-pick.mp4",
+      "sha256": "897f23fea22faf00135a7794f243133f481ff9b42b2e15b4a7d30e4ad8eaa687",
+      "bytes": 2893078,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "a3197dd703570b081ba86ac61ebd32b249fafb2048177fd22ea08a317cdf34b7"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/16-pull-requests/output/16-pull-requests.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/16-pull-requests.mp4",
+      "sha256": "9b1c98c8cd6b728a87e782e9ca5029dbfef414f1cd14badd4ab9cc3b08b66fe4",
+      "bytes": 3310715,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/17-blame/output/17-blame.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/17-blame.mp4",
+      "sha256": "94af09b9af33641bce4f9024ff3206c2bcb42385b2ed5d87ce98903c35ee8e14",
+      "bytes": 2838940,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/18-bisect/output/18-bisect.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/18-bisect.mp4",
+      "sha256": "2f2ab7ecee6b3502d546570716d4de7aee6a442bab5dd09417bda3ec6578b78c",
+      "bytes": 3149719,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/19-amend/output/19-amend.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/19-amend.mp4",
+      "sha256": "0467a64e3dfbee3bb20597dda2b1fc02221f9d87a3ef34f97e1505b6a0a8d784",
+      "bytes": 2865730,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/20-fetch/output/20-fetch.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/20-fetch.mp4",
+      "sha256": "47c51464ea7532525f587b2324bab5060e326072b34831588341c13bfe4c86b4",
+      "bytes": 2883692,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/21-forks/output/21-forks.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/21-forks.mp4",
+      "sha256": "9a3c137f21ed21432f98325c8736bcddcf5f72ed1e0c6f5a6586a2beb8cb0e97",
+      "bytes": 3009874,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/22-rebase-interactiu/output/22-rebase-interactiu.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/22-rebase-interactiu.mp4",
+      "sha256": "57a884defc90c4905499d1437494968188c03113b22d56ae07eeda877aa21ae4",
+      "bytes": 3563542,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/23-add-interactiu/output/23-add-interactiu.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/23-add-interactiu.mp4",
+      "sha256": "db3edf4076f3d6c9fadb7d5f3cafc89cb0abeb988b6c7690115d5c57b8c964bf",
+      "bytes": 3017299,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/24-worktree/output/24-worktree.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/24-worktree.mp4",
+      "sha256": "46fd45f7f8e37812284d7fa1136a8b1981bcf498dc342e321534c1988724d136",
+      "bytes": 3149212,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    },
+    {
+      "source": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/25-hooks/output/25-hooks.mp4",
+      "destination": "/Users/albertpalaciosjimenez/Desktop/PindolesTecnologia/Git/25-hooks.mp4",
+      "sha256": "eb8d91ab7d0518ffec4cbc2c8802704ce7d3e6b67b59b79c231323590c42d4b5",
+      "bytes": 2985846,
+      "voice": "ca-ES-EnricNeural",
+      "render_profile_sha256": "d2e8e6d05aa4fbd6b16ac7bda46de61175bf23a66d186401ec7c1d218bfe84d9"
+    }
+  ],
+  "revision": "lesson 1: git add . with program and new notes file"
+}

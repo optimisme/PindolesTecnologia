@@ -1,0 +1,8 @@
+{
+  "selected_voice": "ca-ES-EnricNeural",
+  "andrew_auto": "rejected",
+  "reason": "L’usuari detecta barreja amb francès, que considera inacceptable.",
+  "enric_feedback": "Més robòtica, però pronuncia molt millor.",
+  "production_decision": "Mantenir Enric i el glossari validat. No modificar ni regenerar els vídeos per aquesta prova.",
+  "azure_ssml": "No s’ha pogut validar: requereix configurar Azure Speech."
+}

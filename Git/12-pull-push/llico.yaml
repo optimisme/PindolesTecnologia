@@ -1,0 +1,127 @@
+titol: "Pull i push: dues còpies al dia"
+titol_curt: PULL I PUSH
+capcalera: ["PULL I PUSH", "Classe i casa, sempre al dia"]
+presentacio: "[[Pull]] i [[push]]"
+objectiu: mantenir al dia dues còpies del projecte, treballant per torns a classe i a casa.
+inici: >-
+  Dues carpetes simulen dos ordinadors. classe/HelloGit i el servidor tenen A i B. casa/HelloGit es va clonar
+  quan només hi havia A. Treball en sèrie, sense canvis pendents.
+inici_parlat: >-
+  A classe hem publicat un commit nou. A casa ja tenim el projecte clonat, però encara amb la versió anterior.
+carpeta: casa/HelloGit
+preparacio:
+  - remot_nu: origin
+  - clona: classe/HelloGit
+    de: origin
+  - cd: classe/HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - git: push -q -u origin main
+  - clona: casa/HelloGit
+    de: origin
+  - fitxer: helloGit.py
+    contingut: print("Hola des de classe!")
+  - git: commit -q -am "Practica de classe"
+  - etiqueta: B
+  - git: push -q
+  - cd: casa/HelloGit
+
+camins:
+  divergent:
+    tipus: alternatiu
+    titol: Si les dues còpies han avançat
+    des_de: inici
+    preparacio:
+      - fitxer: helloGit.py
+        contingut: print("Hola des de casa!")
+      - git: commit -q -am "Canvi a casa sense actualitzar"
+      - etiqueta: X
+
+etapes:
+  - explica: La còpia de casa està endarrerida
+    text: >-
+      La còpia de casa encara té la versió anterior. Abans de tocar res, la posarem al dia amb la feina publicada.
+    visual: Casa a A; servidor i classe a B. Ruta CASA visible a la terminal.
+
+  - plantilla: status-breu
+    resultat: No hi ha canvis pendents a casa. Podem actualitzar sense barrejar feines.
+    comprova: {status: ""}
+
+  - ordre: git pull --ff-only
+    text: "[[git pull]] descarrega les novetats del servidor i les incorpora a la branca."
+    parts:
+      - --ff-only: Només acceptem avançar directament. Si les dues còpies han divergit, l’ordre s’atura.
+    resultat: Casa arriba al commit de classe i el fitxer s’actualitza.
+    visual: Casa avança d’A a B; l’editor mostra la versió nova.
+    comprova:
+      refs: {main: B}
+      programa: Hola des de classe!
+
+  - explica: Continuem des de casa
+    text: Editem i desem una millora a casa. Aquesta vegada, el commit nou naixerà en aquest ordinador.
+    visual: Editor i ruta CASA. Classe continua a B.
+    accions:
+      - fitxer: helloGit.py
+        contingut: print("Hola des de casa!")
+
+  - plantilla: add-breu
+    resultat: La millora de casa queda preparada.
+
+  - plantilla: commit-breu
+    missatge: Millora des de casa
+    crea: C
+    resultat: El commit nou és a casa. El servidor i classe encara no el tenen.
+
+  - plantilla: push
+    resultat: El servidor ja té la millora de casa. Falta actualitzar classe.
+    comprova:
+      remot: {origin: {main: C}}
+
+  - explica: Tornem a classe
+    text: >-
+      A classe encara tenim la versió anterior. Abans de començar a editar, comprovem l’estat i actualitzem.
+    visual: Canvi clar de context a la ruta CLASSE. No reutilitzar la terminal de casa.
+    accions:
+      - cd: classe/HelloGit
+
+  - plantilla: status-breu
+    resultat: No hi ha canvis pendents a classe.
+    comprova: {status: ""}
+
+  - ordre: git pull --ff-only
+    text: Descarreguem i incorporem el commit publicat des de casa.
+    resultat: Classe arriba a la mateixa versió. Les tres còpies comparteixen el mateix commit.
+    visual: Classe passa de B a C; servidor i casa ja eren a C.
+    comprova:
+      refs: {main: C}
+      programa: Hola des de casa!
+
+  - explica: Si oblidem actualitzar
+    cami: divergent
+    text: >-
+      Un altre cas. A casa fem un commit sense haver actualitzat abans. Ara casa i servidor tenen commits
+      diferents després de la mateixa versió.
+    visual: Separador UN ALTRE CAS. Graf amb A; B al servidor i X a casa, tots dos fills d’A.
+
+  - ordre: git pull --ff-only
+    cami: divergent
+    text: Provem d’actualitzar igual que abans.
+    falla: true
+    resultat: >-
+      L’ordre s’atura i no canvia res: no es pot avançar directament. Caldrà integrar les dues històries,
+      per exemple amb una fusió com la de la lliçó de [[merge]].
+    visual: Sortida real amb el missatge d’error ressaltat; el graf no canvia.
+    comprova:
+      sortida: [Not possible to fast-forward]
+      refs: {main: X}
+
+resum:
+  - Abans d’editar, actualitzem amb [[git pull]].
+  - Després de confirmar, publiquem amb [[git push]].
+  - Doble guionet [[ff-only]] atura l’actualització si les còpies han divergit.
+practica: >-
+  Amb dos clons de pràctiques, confirma i publica en un, actualitza l’altre amb [[git pull]] i repeteix-ho
+  en sentit contrari. Comprova que tots dos acaben amb el mateix identificador.

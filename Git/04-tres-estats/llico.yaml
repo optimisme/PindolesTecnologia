@@ -1,0 +1,108 @@
+titol: "Desar, preparar i confirmar: els tres estats"
+titol_curt: TRES ESTATS
+capcalera: ["ELS TRES ESTATS", "Desar, preparar i confirmar"]
+presentacio: Els tres estats
+objectiu: distingir el treball, la preparació i l’historial, també quan editem després de preparar.
+inici: >-
+  helloGit.py confirmat al commit A amb print("Hello Git!"). Sense canvis pendents. A les zones es
+  mostren tres continguts del mateix fitxer: ORIGINAL, SALUTACIÓ NOVA i SALUTACIÓ AMB COMIAT.
+inici_parlat: >-
+  El programa ja està confirmat amb la salutació original i no tenim cap canvi pendent.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+
+etapes:
+  - explica: Tres zones del mateix projecte
+    text: >-
+      Desar a l’editor modifica la carpeta de treball. Preparar selecciona un contingut concret.
+      Confirmar enregistra aquesta selecció a l’historial. Són tres accions diferents.
+    visual: Tres panells persistents, TREBALL, PREPARACIÓ i ÚLTIM COMMIT, tots amb la salutació ORIGINAL.
+
+  - explica: Editem el treball
+    text: >-
+      Canviem la salutació i desem. El treball ja té la salutació nova, però la preparació i l’últim
+      commit encara tenen l’original.
+    visual: TREBALL passa a SALUTACIÓ NOVA; els altres dos panells es queden amb l’ORIGINAL.
+    accions:
+      - fitxer: helloGit.py
+        contingut: print("Hola, Anna!")
+
+  - ordre: git diff
+    text: "[[git diff]] compara el treball amb la preparació."
+    resultat: >-
+      Hi veiem el canvi que encara no hem preparat. La línia amb el signe menys és l’anterior, i la del
+      signe més, la nova.
+    visual: Fletxa PREPARACIÓ → TREBALL sobre la sortida real; llegenda textual per als signes menys i més.
+    comprova:
+      sortida: ['-print("Hello Git!")', '+print("Hola, Anna!")']
+
+  - plantilla: add
+    resultat: >-
+      Ara el treball i la preparació tenen la salutació nova. La preparació és una còpia d’aquest moment;
+      no segueix les edicions que farem després.
+    comprova: {status: "M  helloGit.py"}
+
+  - ordre: git diff --staged
+    text: Ara comparem la preparació amb l’últim commit.
+    parts:
+      - --staged: Doble guionet [[staged]] tria aquesta altra comparació, la del contingut preparat.
+    resultat: La salutació nova està preparada per entrar al proper commit.
+    visual: Fletxa ÚLTIM COMMIT → PREPARACIÓ sobre la sortida real.
+
+  - explica: Desem una altra edició
+    text: >-
+      Afegim una línia de comiat i desem. El treball té la salutació i el comiat, però la preparació
+      continua tenint només la salutació nova.
+    visual: TREBALL passa a SALUTACIÓ AMB COMIAT; PREPARACIÓ es queda amb la SALUTACIÓ NOVA; ÚLTIM COMMIT, ORIGINAL.
+    accions:
+      - fitxer: helloGit.py
+        contingut: |-
+          print("Hola, Anna!")
+          print("Fins aviat!")
+
+  - plantilla: status
+    resultat: >-
+      Apareixen dues emes al mateix fitxer. La primera vol dir que hi ha canvis preparats; la segona, que
+      el treball té canvis que encara no hem preparat.
+    comprova: {status: "MM helloGit.py"}
+
+  - ordre: git diff
+    text: Revisem què queda fora de la preparació.
+    resultat: Només hi surt el comiat. La salutació ja no és pendent, perquè ja és a la preparació.
+    visual: Ressaltar només la línia del comiat a TREBALL.
+    comprova:
+      sortida: ['+print("Fins aviat!")']
+
+  - plantilla: commit
+    missatge: Canvia la salutacio
+    crea: B
+    resultat: >-
+      L’historial guarda la salutació nova. El comiat continua al treball, sense confirmar: el commit no
+      l’ha esborrat.
+    comprova:
+      status: " M helloGit.py"
+      treball: {helloGit.py: "print(\"Hola, Anna!\")\nprint(\"Fins aviat!\")"}
+
+  - plantilla: add-breu
+    resultat: Ara sí, seleccionem també el comiat.
+    comprova: {status: "M  helloGit.py"}
+
+  - plantilla: commit-breu
+    missatge: Afegeix un comiat
+    crea: C
+    resultat: >-
+      Les tres zones tornen a coincidir. La salutació i el comiat han quedat en dos commits diferents.
+    comprova: {status: "", pares: {C: [B]}}
+
+resum:
+  - Desar canvia el treball.
+  - "[[git add]] copia a la preparació el contingut d’aquell moment."
+  - "[[git commit]] enregistra la preparació i deixa la resta d’edicions pendents."
+practica: >-
+  Edita, prepara i torna a editar el mateix fitxer. Compara les dues ordres diff abans de confirmar per
+  saber exactament què entrarà al commit.

@@ -1,0 +1,816 @@
+{
+  "script_format": "git-didactic-v1",
+  "status": "script_revised_media_unchanged",
+  "episode_number": 10,
+  "title": "Revert: desfés un commit publicat",
+  "series": "Píndoles de Git",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "music_seconds": 4,
+  "objective": "Desfer l’efecte d’un commit publicat amb un nou commit invers.",
+  "prerequisites": "Main i origin/main són a C, un commit ordinari ja publicat que introdueix una variable sense definir. Treball net. c95f4a7 és un hash il·lustratiu.",
+  "timing": "Sense marques absolutes: es calcularan amb la futura locució.",
+  "scenes": [
+    {
+      "id": "rev_10_00",
+      "title": "Objectiu i punt de partida",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a desfer l’efecte d’un commit publicat amb un nou commit invers.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a desfer l’efecte d’un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " publicat amb un nou "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " invers."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Main i origin/main són a C, un commit ordinari ja publicat que introdueix una variable sense definir. Treball net. c95f4a7 és un hash il·lustratiu.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin/main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " són a C, un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ordinari ja publicat que introdueix una variable sense definir. Treball net. c95f4a7 és un hash il·lustratiu."
+            }
+          ],
+          "visual": "Punt de partida complet amb branca activa, fitxers i estat del treball; fer visible qualsevol cas independent.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a desfer l’efecte d’un commit publicat amb un nou commit invers. Main i origin/main són a C, un commit ordinari ja publicat que introdueix una variable sense definir. Treball net. c95f4a7 és un hash il·lustratiu."
+    },
+    {
+      "id": "rev_10_01",
+      "title": "Una correcció que també queda registrada",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "El canvi que falla ja està publicat i altres persones el poden tenir. En aquest exemple crearem un commit nou que en desfà l’efecte, mantenint la seqüència de l’historial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El canvi que falla ja està publicat i altres persones el poden tenir. En aquest exemple crearem un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou que en desfà l’efecte, mantenint la seqüència de l’historial."
+            }
+          ],
+          "visual": "Graf A–B–C al local i remot. C queda visible durant tota la demostració.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "El canvi que falla ja està publicat i altres persones el poden tenir. En aquest exemple crearem un commit nou que en desfà l’efecte, mantenint la seqüència de l’historial."
+    },
+    {
+      "id": "rev_10_02",
+      "title": "git status --short",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Aquesta consulta no modifica el projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status"
+        },
+        {
+          "id": "pas_005",
+          "narration": "Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "short"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " demana la forma breu. La primera columna compara preparació i últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; la segona, treball i preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --short.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "--short"
+        },
+        {
+          "id": "pas_006",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_007",
+          "narration": "Comencem sense edicions locals pendents. Així la correcció no barreja altres feines.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comencem sense edicions locals pendents. Així la correcció no barreja altres feines."
+            }
+          ],
+          "visual": "Mostrar la sortida literal amb les dues columnes separades i una llegenda; conservar els espais de davant de cada lletra. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte. Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació. Executem l’ordre. Comencem sense edicions locals pendents. Així la correcció no barreja altres feines."
+    },
+    {
+      "id": "rev_10_03",
+      "title": "git log --oneline",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_008",
+          "narration": "Busquem el canvi a l’historial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Busquem el canvi a l’historial."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline",
+          "highlight": "git log"
+        },
+        {
+          "id": "pas_009",
+          "narration": "Mostra cada commit en una línia, amb identificador i missatge.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Mostra cada "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " en una línia, amb identificador i missatge."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --oneline.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline",
+          "highlight": "--oneline"
+        },
+        {
+          "id": "pas_010",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log --oneline"
+          ],
+          "command_display": "git log --oneline",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_011",
+          "narration": "Localitzem C i copiem el seu identificador real. El hash escrit a la pantalla és només un exemple.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Localitzem C i copiem el seu identificador real. El hash escrit a la pantalla és només un exemple."
+            }
+          ],
+          "visual": "Ressaltar c95f4a7 amb una etiqueta HASH DE MOSTRA · COPIA EL TEU. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log --oneline",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Busquem el canvi a l’historial. Mostra cada commit en una línia, amb identificador i missatge. Executem l’ordre. Localitzem C i copiem el seu identificador real. El hash escrit a la pantalla és només un exemple."
+    },
+    {
+      "id": "rev_10_04",
+      "title": "git show c95f4a7 -- helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "Amb git show revisem el canvi abans de desfer-lo.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git show"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " revisem el canvi abans de desfer-lo."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show c95f4a7 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git show.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show c95f4a7 -- helloGit.py",
+          "highlight": "git show"
+        },
+        {
+          "id": "pas_013",
+          "narration": "És el commit que hem identificat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que hem identificat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show c95f4a7 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: c95f4a7.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show c95f4a7 -- helloGit.py",
+          "highlight": "c95f4a7"
+        },
+        {
+          "id": "pas_014",
+          "narration": "El separador indica que tot seguit especifiquem un camí de fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El separador indica que tot seguit especifiquem un camí de fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show c95f4a7 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show c95f4a7 -- helloGit.py",
+          "highlight": "--"
+        },
+        {
+          "id": "pas_015",
+          "narration": "La consulta es limita al programa que estem investigant.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La consulta es limita al programa que estem investigant."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show c95f4a7 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show c95f4a7 -- helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_016",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show c95f4a7 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git show c95f4a7 -- helloGit.py"
+          ],
+          "command_display": "git show c95f4a7 -- helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_017",
+          "narration": "El canvi substituïa la salutació vàlida per una variable sense definir. Ja sabem quin efecte volem invertir.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El canvi substituïa la salutació vàlida per una variable sense definir. Ja sabem quin efecte volem invertir."
+            }
+          ],
+          "visual": "Mostrar el diff amb l’abans i el després del mateix fitxer. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git show c95f4a7 -- helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git show revisem el canvi abans de desfer-lo. És el commit que hem identificat. El separador indica que tot seguit especifiquem un camí de fitxer. La consulta es limita al programa que estem investigant. Executem l’ordre. El canvi substituïa la salutació vàlida per una variable sense definir. Ja sabem quin efecte volem invertir."
+    },
+    {
+      "id": "rev_10_05",
+      "title": "git revert --no-edit c95f4a7",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_018",
+          "narration": "git revert aplica el canvi invers del commit indicat.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git revert"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " aplica el canvi invers del "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " indicat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git revert --no-edit c95f4a7. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git revert.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git revert --no-edit c95f4a7",
+          "highlight": "git revert"
+        },
+        {
+          "id": "pas_019",
+          "narration": "Accepta el missatge automàtic de la reversió, sense obrir l’editor.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Accepta el missatge automàtic de la reversió, sense obrir l’editor."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git revert --no-edit c95f4a7. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --no-edit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git revert --no-edit c95f4a7",
+          "highlight": "--no-edit"
+        },
+        {
+          "id": "pas_020",
+          "narration": "Indica el commit ordinari que volem revertir en aquest exemple.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Indica el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ordinari que volem revertir en aquest exemple."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git revert --no-edit c95f4a7. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: c95f4a7.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git revert --no-edit c95f4a7",
+          "highlight": "c95f4a7"
+        },
+        {
+          "id": "pas_021",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git revert --no-edit c95f4a7. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git revert --no-edit c95f4a7"
+          ],
+          "command_display": "git revert --no-edit c95f4a7",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_022",
+          "narration": "Es crea D després de C. Main avança; C es conserva i D en desfà l’efecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Es crea D després de C. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " avança; C es conserva i D en desfà l’efecte."
+            }
+          ],
+          "visual": "Afegir D amb C com a pare. No moure main enrere ni esborrar C. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git revert --no-edit c95f4a7",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git revert aplica el canvi invers del commit indicat. Accepta el missatge automàtic de la reversió, sense obrir l’editor. Indica el commit ordinari que volem revertir en aquest exemple. Executem l’ordre. Es crea D després de C. Main avança; C es conserva i D en desfà l’efecte."
+    },
+    {
+      "id": "rev_10_06",
+      "title": "python3 helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_023",
+          "narration": "Provem la versió resultant.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem la versió resultant."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3"
+        },
+        {
+          "id": "pas_024",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_025",
+          "narration": "La salutació torna a funcionar. La prova valida aquest comportament concret, no qualsevol altra part del projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La salutació torna a funcionar. La prova valida aquest comportament concret, no qualsevol altra part del projecte."
+            }
+          ],
+          "visual": "Sortida Hello Git! i contingut restaurat al programa. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem la versió resultant. Executem l’ordre. La salutació torna a funcionar. La prova valida aquest comportament concret, no qualsevol altra part del projecte."
+    },
+    {
+      "id": "rev_10_07",
+      "title": "git push",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_026",
+          "narration": "Amb git push compartim els commits de la branca amb el remot.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " compartim els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la branca amb el remot."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git push.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push",
+          "highlight": "git push"
+        },
+        {
+          "id": "pas_027",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git push"
+          ],
+          "command_display": "git push",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_028",
+          "narration": "El remot incorpora D amb un enviament normal. Les altres còpies podran descarregar la correcció sense perdre l’historial compartit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El remot incorpora D amb un enviament normal. Les altres còpies podran descarregar la correcció sense perdre l’historial compartit."
+            }
+          ],
+          "visual": "Conservar el mateix identificador a local i remot. La fletxa envia commits; no envia edicions sense confirmar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git push",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git push compartim els commits de la branca amb el remot. Executem l’ordre. El remot incorpora D amb un enviament normal. Les altres còpies podran descarregar la correcció sense perdre l’historial compartit."
+    },
+    {
+      "id": "rev_10_08",
+      "title": "L’abast és el canvi indicat",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_029",
+          "narration": "Revert no significa tornar qualsevol projecte sencer a una data. En aquest cas desfà l’últim canvi problemàtic. Amb commits posteriors compatibles, aquests es poden conservar.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Revert"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " no significa tornar qualsevol projecte sencer a una data. En aquest cas desfà l’últim canvi problemàtic. Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " posteriors compatibles, aquests es poden conservar."
+            }
+          ],
+          "visual": "Panell independent amb C, un canvi posterior només a notes.md i un commit invers de C; les notes es mantenen. No executar el cas alternatiu al projecte principal.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Revert no significa tornar qualsevol projecte sencer a una data. En aquest cas desfà l’últim canvi problemàtic. Amb commits posteriors compatibles, aquests es poden conservar."
+    },
+    {
+      "id": "rev_10_09",
+      "title": "Resum final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_030",
+          "narration": "Revert crea un commit invers nou.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Revert"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " invers nou."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_031",
+          "narration": "L’original continua visible i la branca avança.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’original continua visible i la branca avança."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_032",
+          "narration": "Després de provar la correcció, la publiquem com un commit més.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Després de provar la correcció, la publiquem com un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " més."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "Revert crea un commit invers nou. L’original continua visible i la branca avança. Després de provar la correcció, la publiquem com un commit més."
+    },
+    {
+      "id": "rev_10_10",
+      "title": "Pràctica final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_033",
+          "narration": "Reverteix un commit ordinari en un repositori teu de pràctiques. Compara el graf abans i després i comprova que el commit original encara hi és.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Reverteix un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ordinari en un repositori teu de pràctiques. Compara el graf abans i després i comprova que el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " original encara hi és."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "Reverteix un commit ordinari en un repositori teu de pràctiques. Compara el graf abans i després i comprova que el commit original encara hi és."
+    }
+  ],
+  "intro": {
+    "narration": "Desena lliçó, Revert.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Desena lliçó, "
+      },
+      {
+        "lang": "en-US",
+        "text": "Revert"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  }
+}

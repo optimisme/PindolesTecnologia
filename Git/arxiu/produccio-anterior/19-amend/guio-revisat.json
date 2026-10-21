@@ -1,0 +1,888 @@
+{
+  "script_format": "git-didactic-v1",
+  "status": "script_revised_media_unchanged",
+  "episode_number": 19,
+  "title": "Amend: completa l’últim commit local",
+  "series": "Píndoles de Git",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "music_seconds": 4,
+  "objective": "Completar l’últim commit propi amb un fitxer oblidat i entendre la substitució del commit.",
+  "prerequisites": "Main a C, últim commit propi no publicat. notes.md és nou i havia de formar part de C. No hi ha altres canvis locals ni preparats.",
+  "timing": "Sense marques absolutes: es calcularan amb la futura locució.",
+  "scenes": [
+    {
+      "id": "rev_19_00",
+      "title": "Objectiu i punt de partida",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a completar l’últim commit propi amb un fitxer oblidat i entendre la substitució del commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a completar l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " propi amb un fitxer oblidat i entendre la substitució del "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Main a C, últim commit propi no publicat. notes.md és nou i havia de formar part de C. No hi ha altres canvis locals ni preparats.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a C, últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " propi no publicat. "
+            },
+            {
+              "lang": "en-US",
+              "text": "notes.md"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és nou i havia de formar part de C. No hi ha altres canvis locals ni preparats."
+            }
+          ],
+          "visual": "Punt de partida complet amb branca activa, fitxers i estat del treball; fer visible qualsevol cas independent.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a completar l’últim commit propi amb un fitxer oblidat i entendre la substitució del commit. Main a C, últim commit propi no publicat. notes.md és nou i havia de formar part de C. No hi ha altres canvis locals ni preparats."
+    },
+    {
+      "id": "rev_19_01",
+      "title": "Completar l’últim canvi abans de publicar",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Hem confirmat la salutació però hem oblidat les notes. Amend crea un commit nou que substitueix l’últim a la branca, amb el contingut preparat que indiquem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Hem confirmat la salutació però hem oblidat les notes. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Amend"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou que substitueix l’últim a la branca, amb el contingut preparat que indiquem."
+            }
+          ],
+          "visual": "Graf A–B–C i notes.md NOU al treball. Etiqueta NO PUBLICAT a C.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Hem confirmat la salutació però hem oblidat les notes. Amend crea un commit nou que substitueix l’últim a la branca, amb el contingut preparat que indiquem."
+    },
+    {
+      "id": "rev_19_02",
+      "title": "git status --short",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Aquesta consulta no modifica el projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status"
+        },
+        {
+          "id": "pas_005",
+          "narration": "Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "short"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " demana la forma breu. La primera columna compara preparació i últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; la segona, treball i preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --short.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "--short"
+        },
+        {
+          "id": "pas_006",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_007",
+          "narration": "Només les notes són pendents. Comprovem aquesta premissa abans de substituir el commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Només les notes són pendents. Comprovem aquesta premissa abans de substituir el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mostrar la sortida literal amb les dues columnes separades i una llegenda; conservar els espais de davant de cada lletra. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte. Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació. Executem l’ordre. Només les notes són pendents. Comprovem aquesta premissa abans de substituir el commit."
+    },
+    {
+      "id": "rev_19_03",
+      "title": "git add notes.md",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_008",
+          "narration": "Amb git add seleccionem el contingut que volem confirmar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " seleccionem el contingut que volem confirmar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add notes.md. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add notes.md",
+          "highlight": "git add"
+        },
+        {
+          "id": "pas_009",
+          "narration": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add notes.md. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: notes.md.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add notes.md",
+          "highlight": "notes.md"
+        },
+        {
+          "id": "pas_010",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add notes.md. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add notes.md"
+          ],
+          "command_display": "git add notes.md",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_011",
+          "narration": "Les notes queden preparades. La resta del contingut preparat continua coincidint amb C.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les notes queden preparades. La resta del contingut preparat continua coincidint amb C."
+            }
+          ],
+          "visual": "Conservar treball, preparació i historial. Copiar només el contingut seleccionat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add notes.md",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git add seleccionem el contingut que volem confirmar. El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació. Executem l’ordre. Les notes queden preparades. La resta del contingut preparat continua coincidint amb C."
+    },
+    {
+      "id": "rev_19_04",
+      "title": "git diff --staged --stat",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "Revisem què hem seleccionat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Revisem què hem seleccionat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff --staged --stat. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git diff.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff --staged --stat",
+          "highlight": "git diff"
+        },
+        {
+          "id": "pas_013",
+          "narration": "Consulta els canvis preparats respecte de l’últim commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consulta els canvis preparats respecte de l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff --staged --stat. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --staged.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff --staged --stat",
+          "highlight": "--staged"
+        },
+        {
+          "id": "pas_014",
+          "narration": "Mostra un resum dels fitxers afectats; per llegir les línies completes podem consultar el diff preparat sense aquesta opció.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Mostra un resum dels fitxers afectats; per llegir les línies completes podem consultar el diff preparat sense aquesta opció."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff --staged --stat. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --stat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff --staged --stat",
+          "highlight": "--stat"
+        },
+        {
+          "id": "pas_015",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff --staged --stat. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git diff --staged --stat"
+          ],
+          "command_display": "git diff --staged --stat",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_016",
+          "narration": "El resum només mostra les notes noves. No afegirem altres feines per accident.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El resum només mostra les notes noves. No afegirem altres feines per accident."
+            }
+          ],
+          "visual": "Mostrar notes.md al resum i una comprovació del seu contingut. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git diff --staged --stat",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Revisem què hem seleccionat. Consulta els canvis preparats respecte de l’últim commit. Mostra un resum dels fitxers afectats; per llegir les línies completes podem consultar el diff preparat sense aquesta opció. Executem l’ordre. El resum només mostra les notes noves. No afegirem altres feines per accident."
+    },
+    {
+      "id": "rev_19_05",
+      "title": "git commit --amend --no-edit",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_017",
+          "narration": "Substituïm l’últim commit amb git commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Substituïm l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit --amend --no-edit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit --amend --no-edit",
+          "highlight": "git commit"
+        },
+        {
+          "id": "pas_018",
+          "narration": "Crea un commit nou amb el mateix pare que l’anterior, incorporant el contingut preparat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Crea un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou amb el mateix pare que l’anterior, incorporant el contingut preparat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit --amend --no-edit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --amend.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit --amend --no-edit",
+          "highlight": "--amend"
+        },
+        {
+          "id": "pas_019",
+          "narration": "Conserva el missatge anterior sense obrir l’editor.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Conserva el missatge anterior sense obrir l’editor."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit --amend --no-edit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --no-edit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit --amend --no-edit",
+          "highlight": "--no-edit"
+        },
+        {
+          "id": "pas_020",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit --amend --no-edit. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit --amend --no-edit"
+          ],
+          "command_display": "git commit --amend --no-edit",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_021",
+          "narration": "Main passa a C prima, amb pare B i identificador nou. El missatge i l’autoria es conserven; les notes ja hi són incloses.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " passa a C prima, amb pare B i identificador nou. El missatge i l’autoria es conserven; les notes ja hi són incloses."
+            }
+          ],
+          "visual": "Atenuar C fora de la línia actual i crear C′ des de B. No dibuixar C′ com un fill de C. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit --amend --no-edit",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Substituïm l’últim commit amb git commit. Crea un commit nou amb el mateix pare que l’anterior, incorporant el contingut preparat. Conserva el missatge anterior sense obrir l’editor. Executem l’ordre. Main passa a C prima, amb pare B i identificador nou. El missatge i l’autoria es conserven; les notes ja hi són incloses."
+    },
+    {
+      "id": "rev_19_06",
+      "title": "git show --stat HEAD",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_022",
+          "narration": "Comprovem el commit resultant.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprovem el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " resultant."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show --stat HEAD. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git show.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show --stat HEAD",
+          "highlight": "git show"
+        },
+        {
+          "id": "pas_023",
+          "narration": "Resumeix els fitxers del commit consultat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Resumeix els fitxers del "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " consultat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show --stat HEAD. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --stat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show --stat HEAD",
+          "highlight": "--stat"
+        },
+        {
+          "id": "pas_024",
+          "narration": "Assenyala el nou commit actual en aquest exemple.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Assenyala el nou "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " actual en aquest exemple."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show --stat HEAD. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HEAD.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show --stat HEAD",
+          "highlight": "HEAD"
+        },
+        {
+          "id": "pas_025",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show --stat HEAD. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git show --stat HEAD"
+          ],
+          "command_display": "git show --stat HEAD",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_026",
+          "narration": "La salutació i les notes formen part del mateix canvi complet. L’estat del treball queda net.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La salutació i les notes formen part del mateix canvi complet. L’estat del treball queda net."
+            }
+          ],
+          "visual": "Mostrar missatge conservat i fitxer de notes inclòs; main a C′. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git show --stat HEAD",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comprovem el commit resultant. Resumeix els fitxers del commit consultat. Assenyala el nou commit actual en aquest exemple. Executem l’ordre. La salutació i les notes formen part del mateix canvi complet. L’estat del treball queda net."
+    },
+    {
+      "id": "rev_19_07",
+      "title": "Alternativa: canviar només el missatge",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_027",
+          "narration": "En un cas independent tornem a C amb la preparació sense diferències. Podem substituir només el missatge, conservant el contingut i el pare.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un cas independent tornem a C amb la preparació sense diferències. Podem substituir només el missatge, conservant el contingut i el pare."
+            }
+          ],
+          "visual": "Separador CAS INDEPENDENT; recuperar C amb índex igual a C, sense les notes preparades del camí anterior.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "En un cas independent tornem a C amb la preparació sense diferències. Podem substituir només el missatge, conservant el contingut i el pare."
+    },
+    {
+      "id": "rev_19_08",
+      "title": "git commit --amend -m \"Personalitza el missatge\"",
+      "mode": "alternative:message",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "Escrivim un altre missatge per a l’últim commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Escrivim un altre missatge per a l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit --amend -m \"Personalitza el missatge\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit --amend -m \"Personalitza el missatge\"",
+          "highlight": "git commit"
+        },
+        {
+          "id": "pas_029",
+          "narration": "Substitueix l’últim commit a la branca.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Substitueix l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a la branca."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit --amend -m \"Personalitza el missatge\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --amend.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit --amend -m \"Personalitza el missatge\"",
+          "highlight": "--amend"
+        },
+        {
+          "id": "pas_030",
+          "narration": "Introdueix el missatge nou.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Introdueix el missatge nou."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit --amend -m \"Personalitza el missatge\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -m.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit --amend -m \"Personalitza el missatge\"",
+          "highlight": "-m"
+        },
+        {
+          "id": "pas_031",
+          "narration": "Aquest és el text nou. En aquest cas no hem preparat cap canvi de contingut.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquest és el text nou. En aquest cas no hem preparat cap canvi de contingut."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit --amend -m \"Personalitza el missatge\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Personalitza el missatge\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit --amend -m \"Personalitza el missatge\"",
+          "highlight": "\"Personalitza el missatge\""
+        },
+        {
+          "id": "pas_032",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit --amend -m \"Personalitza el missatge\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit --amend -m \"Personalitza el missatge\""
+          ],
+          "command_display": "git commit --amend -m \"Personalitza el missatge\"",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_033",
+          "narration": "Es crea un altre identificador, amb el mateix arbre i pare B. És una alternativa al cas anterior.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Es crea un altre identificador, amb el mateix arbre i pare B. És una alternativa al cas anterior."
+            }
+          ],
+          "visual": "Comparar arbre igual / missatge diferent / hash diferent. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit --amend -m \"Personalitza el missatge\"",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Escrivim un altre missatge per a l’últim commit. Substitueix l’últim commit a la branca. Introdueix el missatge nou. Aquest és el text nou. En aquest cas no hem preparat cap canvi de contingut. Executem l’ordre. Es crea un altre identificador, amb el mateix arbre i pare B. És una alternativa al cas anterior."
+    },
+    {
+      "id": "rev_19_09",
+      "title": "Resum final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_034",
+          "narration": "Amend substitueix l’últim commit a la branca; no n’afegeix un fill.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Amend"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " substitueix l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a la branca; no n’afegeix un fill."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_035",
+          "narration": "Revisem el contingut preparat abans de fer-lo.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Revisem el contingut preparat abans de fer-lo."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_036",
+          "narration": "En aquesta lliçó només reescrivim l’últim commit propi encara no publicat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó només reescrivim l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " propi encara no publicat."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "Amend substitueix l’últim commit a la branca; no n’afegeix un fill. Revisem el contingut preparat abans de fer-lo. En aquesta lliçó només reescrivim l’últim commit propi encara no publicat."
+    },
+    {
+      "id": "rev_19_10",
+      "title": "Pràctica final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_037",
+          "narration": "En un repositori de pràctiques sense publicar, afegeix un fitxer oblidat a l’últim commit. Compara el pare, el missatge, els fitxers i l’identificador abans i després.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un repositori de pràctiques sense publicar, afegeix un fitxer oblidat a l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Compara el pare, el missatge, els fitxers i l’identificador abans i després."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En un repositori de pràctiques sense publicar, afegeix un fitxer oblidat a l’últim commit. Compara el pare, el missatge, els fitxers i l’identificador abans i després."
+    }
+  ],
+  "intro": {
+    "narration": "Dinovena lliçó, Amend.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Dinovena lliçó, "
+      },
+      {
+        "lang": "en-US",
+        "text": "Amend"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  }
+}

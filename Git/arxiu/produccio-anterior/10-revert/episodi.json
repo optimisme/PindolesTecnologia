@@ -1,0 +1,93 @@
+{
+  "title": "Revert: desfés un commit publicat",
+  "episode_number": 10,
+  "short_title": "REVERT",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Desena lliçó, Revert."
+  },
+  "prerequisites": "Main és al commit ordinari C, ja publicat a origin/main, amb el directori de treball net. B tenia print(\"Hello Git!\") i l'últim commit C ho ha substituït per print(salutacio), sense definir la variable. No hi ha commits posteriors ni conflictes. C es mostra com c95f4a7: és un hash il·lustratiu i s'ha de substituir per l'identificador real de git log. A, B, C i D són etiquetes didàctiques. L'exemple usa --no-edit per acceptar el missatge automàtic del revert. La publicació es representa visualment; les comprovacions usen un remot local temporal.",
+  "scenes": [
+    {
+      "id": "w_hook",
+      "label": "UN ERROR JA PUBLICAT",
+      "title": "El commit ja és a GitHub",
+      "narration": "Has publicat un commit i ara el programa falla. Altres persones ja el tenen. Com desfem el canvi conservant l'historial?",
+      "visual": "El graf A–B–C és compartit entre main, GitHub i un company. El fitxer executa print(salutacio) i produeix NameError."
+    },
+    {
+      "id": "w_find",
+      "label": "01 / IDENTIFICAR EL COMMIT",
+      "title": "Busquem quin canvi ha fallat",
+      "narration": "Partim d'un directori net. Amb git log busquem el commit que introdueix l'error i en copiem l'identificador.",
+      "visual": "Status confirma que no hi ha canvis locals. Log mostra c95f4a7 com a últim commit amb l'error.",
+      "commands": [
+        "git status --short",
+        "git log --oneline"
+      ]
+    },
+    {
+      "id": "w_show",
+      "label": "02 / REVISAR L'EFECTE DEL CANVI",
+      "title": "Comprovem què va introduir",
+      "narration": "Git show permet revisar què va canviar. Aquí, el commit substitueix el missatge correcte per una variable que no existeix.",
+      "visual": "La terminal mostra un diff amb -print(\"Hello Git!\") i +print(salutacio). S'associa el canvi al commit C.",
+      "commands": [
+        "git show c95f4a7 -- helloGit.py"
+      ]
+    },
+    {
+      "id": "w_revert",
+      "label": "03 / CREAR EL CANVI INVERS",
+      "title": "Revert crea un commit nou",
+      "narration": "Fem git revert amb l'identificador. L'opció no edit accepta el missatge automàtic. Git crea un commit amb el canvi invers.",
+      "visual": "S'executa git revert --no-edit sobre C i apareix D, fill de C, amb el missatge automàtic Revert. C no desapareix.",
+      "commands": [
+        "git revert --no-edit c95f4a7"
+      ]
+    },
+    {
+      "id": "w_history",
+      "label": "L'HISTORIAL ES CONSERVA",
+      "title": "C continua. D en desfà l'efecte.",
+      "narration": "El commit problemàtic continua a l'historial. Just després n'apareix un de nou que el reverteix. La branca avança; no torna enrere.",
+      "visual": "La línia A–B–C–D conserva tots els commits. Main apunta a D, però origin/main encara és a C fins al push."
+    },
+    {
+      "id": "w_check",
+      "label": "04 / PROVAR EL RESULTAT",
+      "title": "El programa torna a funcionar",
+      "narration": "El fitxer recupera el missatge correcte. Executem el programa i comprovem que no hi hagi canvis locals pendents.",
+      "visual": "HelloGit.py torna a print(\"Hello Git!\"). Python mostra Hello Git! i status no mostra canvis locals.",
+      "commands": [
+        "python3 helloGit.py",
+        "git status --short"
+      ]
+    },
+    {
+      "id": "w_push",
+      "label": "05 / COMPARTIR LA CORRECCIÓ",
+      "title": "Publiquem el commit que reverteix",
+      "narration": "Git push comparteix el nou commit. Els altres ordinadors el poden incorporar amb pull i conservar tota la seqüència.",
+      "visual": "D viatja del repositori local a GitHub. Origin/main avança a D. Un company encara a C pot fer pull sense reescriure l'historial.",
+      "commands": [
+        "git push"
+      ]
+    },
+    {
+      "id": "w_summary",
+      "label": "JA HO TENS",
+      "title": "Desfer l'efecte. Conservar la història.",
+      "narration": "Revert desfà l'efecte d'un commit amb un altre commit. L'original es conserva i la correcció queda registrada: una bona opció per a feina publicada.",
+      "visual": "Es ressalten C, que es conserva, i D, que reverteix el canvi. La branca i el remot comparteixen el nou historial.",
+      "commands": [
+        "git log --oneline",
+        "git revert --no-edit c95f4a7",
+        "git push"
+      ]
+    }
+  ]
+}

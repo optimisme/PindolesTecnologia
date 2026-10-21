@@ -1,0 +1,98 @@
+titol: "Blame: investiga l’origen d’una línia"
+titol_curt: BLAME
+capcalera: [BLAME, Investiga l’origen d’una línia]
+presentacio: "[[Blame]]"
+objectiu: investigar una línia amb [[git blame]] i confirmar la causa d’un error amb [[git show]].
+inici: >-
+  Historial A, B i C, treball net. A funcionava. B canvia el nom de la variable salutacio per missatge però deixa
+  l’ús antic. C només afegeix espais a la línia del print.
+inici_parlat: >-
+  El programa ha deixat de funcionar i volem saber quin canvi ho ha provocat.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: |-
+      # Salutació del projecte
+      salutacio = "Hola, Anna!"
+      print(salutacio)
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio
+  - fitxer: helloGit.py
+    contingut: |-
+      # Salutació del projecte
+      missatge = "Hola, Anna!"
+      print(salutacio)
+  - git: commit -q -am "Reanomena la variable"
+  - etiqueta: B
+  - fitxer: helloGit.py
+    contingut: |-
+      # Salutació del projecte
+      missatge = "Hola, Anna!"
+      print( salutacio )
+  - git: commit -q -am "Ajusta el format"
+  - etiqueta: C
+
+etapes:
+  - explica: Una línia que falla té un context
+    text: >-
+      El programa imprimeix una variable que ja no existeix amb aquell nom. Investigarem les línies relacionades
+      i els commits que les van canviar.
+    visual: Editor amb línies numerades. 1 · comentari; 2 · missatge = "Hola, Anna!"; 3 · print( salutacio ).
+
+  - plantilla: programa
+    falla: true
+    resultat: >-
+      Surt un error de nom a la línia tres. La línia ens orienta, però encara no sabem quin canvi l’ha provocat.
+    visual: Ressaltar NameError i la línia 3 a la sortida real, sense atribuir responsabilitats.
+    comprova:
+      sortida: [NameError, line 3]
+
+  - ordre: git blame helloGit.py
+    text: "[[git blame]] mostra, per a cada línia, l’últim commit que la va modificar."
+    parts:
+      - helloGit.py: Consultem les línies del programa actual.
+    resultat: >-
+      La línia tres s’associa a l’últim commit. Això vol dir que la va tocar, no que hi introduís l’error.
+    visual: Separar a la sortida real les columnes identificador, autoria, data i contingut. Sense llenguatge de culpa.
+    comprova:
+      sortida: ["{C}", "3) print( salutacio )"]
+
+  - ordre: git blame -L 3,3 helloGit.py
+    text: Limitem la consulta a la línia de l’error.
+    parts:
+      - -L: El guionet ela limita la consulta a un rang de línies.
+      - 3,3: El primer número és l’inici i el segon, el final. Aquí només demanem la línia tres.
+    resultat: Copiem l’identificador del commit per veure què hi va canviar.
+    visual: Subratllar -L, després el rang i després la fila de la sortida.
+
+  - ordre: git show {C} -- helloGit.py
+    text: Comprovem el canvi concret d’aquell commit.
+    parts:
+      - "{C}": És l’identificador que ens ha donat [[blame]].
+    resultat: Només hi va afegir espais. La variable ja era incorrecta abans d’aquell retoc.
+    visual: Diff real, print(salutacio) → print( salutacio ). Destacar els espais com un canvi de format.
+
+  - ordre: git blame -L 2,2 helloGit.py
+    text: Seguim la pista fins a la línia que defineix la variable.
+    parts:
+      - 2,2: Ara consultem la línia dos.
+    resultat: Aquesta línia ens porta a un altre commit. El nom definit i el nom que s’imprimeix no coincideixen.
+    visual: Fletxa entre missatge a la línia 2 i salutacio a la línia 3.
+    comprova:
+      sortida: ["{B}"]
+
+  - ordre: git show {B} -- helloGit.py
+    text: Revisem aquest altre commit.
+    parts:
+      - "{B}": És el commit que va canviar la definició de la variable.
+    resultat: Va canviar el nom de la variable sense actualitzar-ne l’ús. Aquí és on va començar l’error.
+    visual: Diff real de B amb la definició antiga i la nova; mantenir visible la línia del print.
+
+resum:
+  - "[[git blame]] indica l’últim commit que va modificar cada línia."
+  - "[[git show]] explica què va canviar aquell commit."
+  - Cal seguir les dependències entre línies abans de concloure d’on ve un error.
+practica: >-
+  En un fitxer de pràctiques, investiga dues línies relacionades. Revisa els commits que les van canviar
+  i separa els canvis funcionals dels retocs de format.

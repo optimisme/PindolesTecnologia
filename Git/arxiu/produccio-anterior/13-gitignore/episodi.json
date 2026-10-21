@@ -1,0 +1,91 @@
+{
+  "title": "Gitignore: tria què entra al repositori",
+  "episode_number": 13,
+  "short_title": "GITIGNORE",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Tretzena lliçó, Git ignore."
+  },
+  "prerequisites": "Repositori de prova independent. helloGit.py i app.log ja estan seguits; app.log té una edició local sense preparar i el seu índex encara coincideix amb HEAD. debug.log i __pycache__/helloGit.pyc són nous no seguits; .gitignore encara no existeix. S’afegeixen els patrons *.log i __pycache__/. Check-ignore es prova amb debug.log, no amb el log ja seguit. Rm --cached retira app.log de l’índex, conserva el fitxer local i prepara la seva eliminació del repositori. Es confirma la regla i l’eliminació en un commit local. Cap fitxer d’aquest exemple es modifica al repositori real.",
+  "scenes": [
+    {
+      "id": "z_hook",
+      "label": "SOROLL AL REPOSITORI",
+      "title": "El codi, els logs i la memòria cau",
+      "narration": "Has executat el programa i status s’omple de fitxers generats. Volem versionar el codi, però deixar fora els logs i la memòria cau.",
+      "visual": "Targetes helloGit.py seguit, app.log seguit i modificat, debug.log nou, __pycache__/ nou.",
+      "commands": [
+        "git status --short"
+      ]
+    },
+    {
+      "id": "z_rules",
+      "label": "01 / ESCRIURE LES REGLES",
+      "title": "Un patró per línia a .gitignore",
+      "narration": "Creem un fitxer anomenat punt git ignore. Una línia amb asterisc punt log ignora els noms acabats en punt log. La regla de memòria cau ignora aquesta carpeta.",
+      "visual": "Editor .gitignore amb *.log i __pycache__/, filtre rep els fitxers nous."
+    },
+    {
+      "id": "z_status",
+      "label": "02 / COMPROVAR EL FILTRE",
+      "title": "Els fitxers nous deixen de fer soroll",
+      "narration": "Tornem a status. El log nou i la memòria cau ja no apareixen. El fitxer de regles sí: també l’hem de versionar perquè es comparteixi amb el projecte.",
+      "visual": "Terminal M app.log i ?? .gitignore. debug.log i __pycache__ apareixen a una zona ignorada.",
+      "commands": [
+        "git status --short"
+      ]
+    },
+    {
+      "id": "z_check",
+      "label": "03 / ENTENDRE UNA REGLA",
+      "title": "Quin patró està ignorant el fitxer?",
+      "narration": "Check ignore, amb l’opció ve, ens diu quina regla ignora debug punt log. Si un fitxer no apareix, això ens ajuda a saber per què.",
+      "visual": "Terminal mostra .gitignore:1:*.log debug.log. Etiquetes fitxer de regles, línia i patró.",
+      "commands": [
+        "git check-ignore -v debug.log"
+      ]
+    },
+    {
+      "id": "z_tracked",
+      "label": "UN CAS DIFERENT / JA SEGUIT",
+      "title": "App.log continua apareixent",
+      "narration": "App punt log encara surt modificat perquè Git ja el seguia. Afegir una regla no deixa de seguir automàticament un fitxer que ja era al repositori.",
+      "visual": "Dues targetes debug.log nou ignorat i app.log ja seguit. Status conserva M app.log."
+    },
+    {
+      "id": "z_untrack",
+      "label": "04 / DEIXAR DE SEGUIR EL LOG",
+      "title": "Cached conserva el fitxer local",
+      "narration": "Si volem deixar de versionar aquest log, fem git rm amb cached. El fitxer es conserva al disc, però preparem la seva eliminació del repositori.",
+      "visual": "App.log passa fora de l’índex i continua al disc. Terminal status D primera columna.",
+      "commands": [
+        "git rm --cached app.log",
+        "git status --short"
+      ]
+    },
+    {
+      "id": "z_commit",
+      "label": "05 / CONFIRMAR LA DECISIÓ",
+      "title": "Compartim la regla amb el projecte",
+      "narration": "Preparem punt git ignore i fem commit. Aquest commit desa les regles i retira el log dels fitxers versionats. La nostra còpia local del log continua existint.",
+      "visual": "Índex .gitignore A i app.log D es confirma. Disc conserva app.log.",
+      "commands": [
+        "git add .gitignore",
+        "git commit -m \"Ignora fitxers generats\""
+      ]
+    },
+    {
+      "id": "z_summary",
+      "label": "JA HO TENS",
+      "title": "Codi versionat. Fitxers generats fora.",
+      "narration": "Les regles filtren els fitxers no seguits. Si Git ja els seguia, cal una decisió separada per retirar-los. Així status torna a mostrar els canvis que ens interessen.",
+      "visual": "Targetes codi versionat, regles compartides, fitxers generats locals. Status final sense canvis.",
+      "commands": [
+        "git status --short"
+      ]
+    }
+  ]
+}

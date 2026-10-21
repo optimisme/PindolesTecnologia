@@ -1,0 +1,1195 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 23,
+  "slug": "23-cherry-pick",
+  "title": "Cherry-pick: porta una correcció a una altra branca",
+  "short_title": "CHERRY-PICK",
+  "card": [
+    "CHERRY-PICK",
+    "Porta una correcció a una altra branca"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "23-cherry-pick.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Vint-i-tresena lliçó. Cherry-pick.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Vint-i-tresena lliçó. "
+      },
+      {
+        "lang": "en-US",
+        "text": "Cherry-pick"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  },
+  "objective": "aplicar a [[main]] només una correcció d’una altra branca, sense portar-hi la resta de la feina.",
+  "start_note": "main a B, amb una errada d’ortografia a la salutació (Helo). salutacio té C, que afegeix notes d’una feina pendent, i D, que només corregeix l’errada. Treball net; D no depèn de C.",
+  "start_spoken": "main té una errada a la salutació. A la branca salutació, entre altres feines encara pendents, ja hi ha un commit que la corregeix.",
+  "summary": [
+    "Triem un commit concret i comprovem que no depengui d’altres canvis.",
+    "La branca activa rep un commit nou, amb un pare i un identificador diferents.",
+    "La branca original es conserva; el resultat s’ha de provar."
+  ],
+  "practice": "En un repositori de pràctiques, crea en una branca una correcció independent d’una altra feina. Porta només la correcció a main i comprova els fitxers de les dues branques.",
+  "practice_script": "practiques/23-cherry-pick.sh",
+  "scenes": [
+    {
+      "id": "e23_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a aplicar a main només una correcció d’una altra branca, sense portar-hi la resta de la feina.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a aplicar a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " només una correcció d’una altra branca, sense portar-hi la resta de la feina."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "main té una errada a la salutació. A la branca salutació, entre altres feines encara pendents, ja hi ha un commit que la corregeix.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " té una errada a la salutació. A la branca salutació, entre altres feines encara pendents, ja hi ha un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que la corregeix."
+            }
+          ],
+          "visual": "Punt de partida: main a B, amb una errada d’ortografia a la salutació (Helo). salutacio té C, que afegeix notes d’una feina pendent, i D, que només corregeix l’errada. Treball net; D no depèn de C.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a aplicar a main només una correcció d’una altra branca, sense portar-hi la resta de la feina. main té una errada a la salutació. A la branca salutació, entre altres feines encara pendents, ja hi ha un commit que la corregeix."
+    },
+    {
+      "id": "e23_01",
+      "label": "EXPLICACIÓ",
+      "title": "Una correcció dins d’una altra feina",
+      "mode": "principal",
+      "visual": "Graf main a B; salutacio a D, amb C entremig. C · notes.md; D · correcció de helloGit.py.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "La branca de la salutació conté una feina encara pendent i una correcció que necessitem ara a main. Portarem només la correcció, després de comprovar que no depèn de la resta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca de la salutació conté una feina encara pendent i una correcció que necessitem ara a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Portarem només la correcció, després de comprovar que no depèn de la resta."
+            }
+          ],
+          "visual": "Graf main a B; salutacio a D, amb C entremig. C · notes.md; D · correcció de helloGit.py.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "narration": "La branca de la salutació conté una feina encara pendent i una correcció que necessitem ara a main. Portarem només la correcció, després de comprovar que no depèn de la resta."
+    },
+    {
+      "id": "e23_02",
+      "label": "TERMINAL",
+      "title": "git log --oneline salutacio",
+      "mode": "principal",
+      "visual": "Ressaltar D a la sortida real i deixar C visible com a FEINA PENDENT.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Busquem el commit de la correcció.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Busquem el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la correcció."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline salutacio",
+          "highlight": "git log",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "Consultem la història d’aquesta branca, sense canviar-hi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem la història d’aquesta branca, sense canviar-hi."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: salutacio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline salutacio",
+          "highlight": "salutacio",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log --oneline salutacio"
+          ],
+          "command_display": "git log --oneline salutacio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_007",
+          "narration": "El primer de la llista és la correcció. En copiem l’identificador.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El primer de la llista és la correcció. En copiem l’identificador."
+            }
+          ],
+          "visual": "Ressaltar D a la sortida real i deixar C visible com a FEINA PENDENT. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log --oneline salutacio",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "efabf94 Corregeix l'errada de la salutacio",
+            "7a1bf65 Comença les notes de la salutacio",
+            "79da3bd Afegeix una exclamacio",
+            "d3fb44b Afegeix la salutacio inicial"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Busquem el commit de la correcció. Consultem la història d’aquesta branca, sense canviar-hi. Executem l’ordre. El primer de la llista és la correcció. En copiem l’identificador."
+    },
+    {
+      "id": "e23_03",
+      "label": "TERMINAL",
+      "title": "git show efabf94 -- helloGit.py",
+      "mode": "principal",
+      "visual": "Diff real amb només la correcció; panell notes.md EXCLÒS.",
+      "beats": [
+        {
+          "id": "pas_008",
+          "narration": "Revisem què canvia aquest commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Revisem què canvia aquest "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show efabf94 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git show.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show efabf94 -- helloGit.py",
+          "highlight": "git show",
+          "state": 1
+        },
+        {
+          "id": "pas_009",
+          "narration": "És l’identificador que hem copiat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És l’identificador que hem copiat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show efabf94 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: efabf94.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show efabf94 -- helloGit.py",
+          "highlight": "efabf94",
+          "state": 1
+        },
+        {
+          "id": "pas_010",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show efabf94 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git show efabf94 -- helloGit.py"
+          ],
+          "command_display": "git show efabf94 -- helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_011",
+          "narration": "Només corregeix la salutació; no necessita les notes del commit anterior.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Només corregeix la salutació; no necessita les notes del "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " anterior."
+            }
+          ],
+          "visual": "Diff real amb només la correcció; panell notes.md EXCLÒS. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git show efabf94 -- helloGit.py",
+          "event": "result",
+          "state": 2,
+          "simulated": false,
+          "terminal_output": [
+            "commit efabf94e43dd066a4c3d86a13b9daec3396b6296",
+            "Author: Anna Puig <anna@example.com>",
+            "Date:   Tue Oct 20 12:11:00 2026 +0200",
+            "",
+            "    Corregeix l'errada de la salutacio",
+            "",
+            "diff --git a/helloGit.py b/helloGit.py",
+            "index e383206..52662af 100644",
+            "--- a/helloGit.py",
+            "+++ b/helloGit.py",
+            "@@ -1 +1 @@",
+            "-print(\"Helo Git!\")",
+            "+print(\"Hello Git!\")"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Revisem què canvia aquest commit. És l’identificador que hem copiat. Executem l’ordre. Només corregeix la salutació; no necessita les notes del commit anterior."
+    },
+    {
+      "id": "e23_04",
+      "label": "TERMINAL",
+      "title": "git status --short",
+      "mode": "principal",
+      "visual": "Sortida literal amb la llegenda de les dues columnes.",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "Consultem l’estat breu amb git status.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat breu amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status",
+          "state": 2
+        },
+        {
+          "id": "pas_013",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_014",
+          "narration": "No hi ha feina pendent que es pugui barrejar amb l’operació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "No hi ha feina pendent que es pugui barrejar amb l’operació."
+            }
+          ],
+          "visual": "Sortida literal amb la llegenda de les dues columnes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result",
+          "state": 3,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat breu amb git status. Executem l’ordre. No hi ha feina pendent que es pugui barrejar amb l’operació."
+    },
+    {
+      "id": "e23_05",
+      "label": "TERMINAL",
+      "title": "git switch main",
+      "mode": "principal",
+      "visual": "Mantenir tots els commits quiets. Moure l’indicador de branca activa i actualitzar l’editor després de l’execució.",
+      "beats": [
+        {
+          "id": "pas_015",
+          "narration": "Amb git switch canviem a la branca on treballarem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git switch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " canviem a la branca on treballarem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git switch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "highlight": "git switch",
+          "state": 3
+        },
+        {
+          "id": "pas_016",
+          "narration": "És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "highlight": "main",
+          "state": 3
+        },
+        {
+          "id": "pas_017",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git switch main"
+          ],
+          "command_display": "git switch main",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_018",
+          "narration": "La correcció s’aplicarà a main, que ara és la branca activa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La correcció s’aplicarà a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", que ara és la branca activa."
+            }
+          ],
+          "visual": "Mantenir tots els commits quiets. Moure l’indicador de branca activa i actualitzar l’editor després de l’execució. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "event": "result",
+          "state": 4,
+          "simulated": false,
+          "terminal_output": [
+            "Switched to branch 'main'"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git switch canviem a la branca on treballarem. És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió. Executem l’ordre. La correcció s’aplicarà a main, que ara és la branca activa."
+    },
+    {
+      "id": "e23_06",
+      "label": "TERMINAL",
+      "title": "git cherry-pick efabf94",
+      "mode": "principal",
+      "visual": "Crear E com a fill de B. Relació conceptual de canvi D → E, diferent d’una relació de pare.",
+      "beats": [
+        {
+          "id": "pas_019",
+          "narration": "git cherry-pick torna a aplicar a la branca activa el canvi d’un commit concret.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git cherry-pick"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " torna a aplicar a la branca activa el canvi d’un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " concret."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git cherry-pick efabf94. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git cherry-pick.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git cherry-pick efabf94",
+          "highlight": "git cherry-pick",
+          "state": 4
+        },
+        {
+          "id": "pas_020",
+          "narration": "Indiquem només la correcció, no tota la branca de la salutació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Indiquem només la correcció, no tota la branca de la salutació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git cherry-pick efabf94. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: efabf94.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git cherry-pick efabf94",
+          "highlight": "efabf94",
+          "state": 4
+        },
+        {
+          "id": "pas_021",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git cherry-pick efabf94. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git cherry-pick efabf94"
+          ],
+          "command_display": "git cherry-pick efabf94",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_022",
+          "narration": "Es crea un commit nou a main, amb el mateix canvi i un identificador diferent. La branca de la salutació es queda com estava.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Es crea un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", amb el mateix canvi i un identificador diferent. La branca de la salutació es queda com estava."
+            }
+          ],
+          "visual": "Crear E com a fill de B. Relació conceptual de canvi D → E, diferent d’una relació de pare. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git cherry-pick efabf94",
+          "event": "result",
+          "state": 5,
+          "simulated": false,
+          "terminal_output": [
+            "[main 439534f] Corregeix l'errada de la salutacio",
+            " Date: Tue Oct 20 12:11:00 2026 +0200",
+            " 1 file changed, 1 insertion(+), 1 deletion(-)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git cherry-pick torna a aplicar a la branca activa el canvi d’un commit concret. Indiquem només la correcció, no tota la branca de la salutació. Executem l’ordre. Es crea un commit nou a main, amb el mateix canvi i un identificador diferent. La branca de la salutació es queda com estava."
+    },
+    {
+      "id": "e23_07",
+      "label": "TERMINAL",
+      "title": "python3 helloGit.py",
+      "mode": "principal",
+      "visual": "Mostrar la sortida real del programa al costat de l’editor.",
+      "beats": [
+        {
+          "id": "pas_023",
+          "narration": "Provem el programa amb la versió desada del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem el programa amb la versió desada del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3",
+          "state": 5
+        },
+        {
+          "id": "pas_024",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_025",
+          "narration": "La salutació ja és correcta a main, i les notes pendents no hi han entrat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La salutació ja és correcta a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", i les notes pendents no hi han entrat."
+            }
+          ],
+          "visual": "Mostrar la sortida real del programa al costat de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result",
+          "state": 6,
+          "simulated": false,
+          "terminal_output": [
+            "Hello Git!"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem el programa amb la versió desada del fitxer. Executem l’ordre. La salutació ja és correcta a main, i les notes pendents no hi han entrat."
+    },
+    {
+      "id": "e23_08",
+      "label": "SI HI HA CONFLICTE",
+      "title": "Si l’aplicació s’atura",
+      "mode": "conflicte",
+      "visual": "Panell condicional amb el conflicte real al fitxer.",
+      "beats": [
+        {
+          "id": "pas_026",
+          "narration": "En un altre cas, main havia canviat la mateixa línia i l’operació s’atura amb un conflicte. Escrivim el resultat correcte i el provem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un altre cas, "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " havia canviat la mateixa línia i l’operació s’atura amb un conflicte. Escrivim el resultat correcte i el provem."
+            }
+          ],
+          "visual": "Panell condicional amb el conflicte real al fitxer.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 7
+        }
+      ],
+      "narration": "En un altre cas, main havia canviat la mateixa línia i l’operació s’atura amb un conflicte. Escrivim el resultat correcte i el provem."
+    },
+    {
+      "id": "e23_09",
+      "label": "SI HI HA CONFLICTE",
+      "title": "python3 helloGit.py",
+      "mode": "conflicte",
+      "visual": "Mostrar la sortida real del programa al costat de l’editor.",
+      "beats": [
+        {
+          "id": "pas_027",
+          "narration": "Provem el programa amb la versió desada del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem el programa amb la versió desada del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3",
+          "state": 7
+        },
+        {
+          "id": "pas_028",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 7
+        },
+        {
+          "id": "pas_029",
+          "narration": "La resolució funciona.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La resolució funciona."
+            }
+          ],
+          "visual": "Mostrar la sortida real del programa al costat de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result",
+          "state": 8,
+          "simulated": false,
+          "terminal_output": [
+            "Hello, Git!"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem el programa amb la versió desada del fitxer. Executem l’ordre. La resolució funciona."
+    },
+    {
+      "id": "e23_10",
+      "label": "SI HI HA CONFLICTE",
+      "title": "git add helloGit.py",
+      "mode": "conflicte",
+      "visual": "Copiar el contingut desat a la preparació.",
+      "beats": [
+        {
+          "id": "pas_030",
+          "narration": "Preparem el fitxer amb git add.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparem el fitxer amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "git add",
+          "state": 8
+        },
+        {
+          "id": "pas_031",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "command_display": "git add helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 8
+        },
+        {
+          "id": "pas_032",
+          "narration": "La resolució queda preparada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La resolució queda preparada."
+            }
+          ],
+          "visual": "Copiar el contingut desat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "event": "result",
+          "state": 9,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Preparem el fitxer amb git add. Executem l’ordre. La resolució queda preparada."
+    },
+    {
+      "id": "e23_11",
+      "label": "SI HI HA CONFLICTE",
+      "title": "git cherry-pick --continue",
+      "mode": "conflicte",
+      "visual": "Només el camí CONTINUAR del cas amb conflicte.",
+      "beats": [
+        {
+          "id": "pas_033",
+          "narration": "Reprenem l’operació pausada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Reprenem l’operació pausada."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git cherry-pick --continue. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git cherry-pick.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git cherry-pick --continue",
+          "highlight": "git cherry-pick",
+          "state": 9
+        },
+        {
+          "id": "pas_034",
+          "narration": "Continua el cherry-pick pendent; no en comença cap de nou.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Continua el "
+            },
+            {
+              "lang": "en-US",
+              "text": "cherry-pick"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " pendent; no en comença cap de nou."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git cherry-pick --continue. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --continue.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git cherry-pick --continue",
+          "highlight": "--continue",
+          "state": 9
+        },
+        {
+          "id": "pas_035",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git cherry-pick --continue. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git cherry-pick --continue"
+          ],
+          "command_display": "git cherry-pick --continue",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 9
+        },
+        {
+          "id": "pas_036",
+          "narration": "Es crea el commit amb la resolució. Pot obrir l’editor amb el missatge original; el desem i el tanquem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Es crea el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb la resolució. Pot obrir l’editor amb el missatge original; el desem i el tanquem."
+            }
+          ],
+          "visual": "Només el camí CONTINUAR del cas amb conflicte. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git cherry-pick --continue",
+          "event": "result",
+          "state": 10,
+          "simulated": false,
+          "terminal_output": [
+            "[main 5e7fe9a] Corregeix l'errada de la salutacio",
+            " Date: Tue Oct 20 12:11:00 2026 +0200",
+            " 1 file changed, 1 insertion(+), 1 deletion(-)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Reprenem l’operació pausada. Continua el cherry-pick pendent; no en comença cap de nou. Executem l’ordre. Es crea el commit amb la resolució. Pot obrir l’editor amb el missatge original; el desem i el tanquem."
+    },
+    {
+      "id": "e23_12",
+      "label": "ALTERNATIVA",
+      "title": "Alternativa, abandonar",
+      "mode": "avorta",
+      "visual": "Bifurcació AVORTAR des del conflicte, mai després de continuar.",
+      "beats": [
+        {
+          "id": "pas_037",
+          "narration": "Des del mateix conflicte, també podem abandonar l’operació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Des del mateix conflicte, també podem abandonar l’operació."
+            }
+          ],
+          "visual": "Bifurcació AVORTAR des del conflicte, mai després de continuar.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 11
+        }
+      ],
+      "narration": "Des del mateix conflicte, també podem abandonar l’operació."
+    },
+    {
+      "id": "e23_13",
+      "label": "ALTERNATIVA",
+      "title": "git cherry-pick --abort",
+      "mode": "avorta",
+      "visual": "Desapareixen el conflicte i l’indicador d’operació pendent.",
+      "beats": [
+        {
+          "id": "pas_038",
+          "narration": "Cancel·lem el cherry-pick pendent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cancel·lem el "
+            },
+            {
+              "lang": "en-US",
+              "text": "cherry-pick"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " pendent."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git cherry-pick --abort. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git cherry-pick.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git cherry-pick --abort",
+          "highlight": "git cherry-pick",
+          "state": 11
+        },
+        {
+          "id": "pas_039",
+          "narration": "Torna a l’estat d’abans de començar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Torna a l’estat d’abans de començar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git cherry-pick --abort. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --abort.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git cherry-pick --abort",
+          "highlight": "--abort",
+          "state": 11
+        },
+        {
+          "id": "pas_040",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git cherry-pick --abort. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git cherry-pick --abort"
+          ],
+          "command_display": "git cherry-pick --abort",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 11
+        },
+        {
+          "id": "pas_041",
+          "narration": "main queda com estava abans d’intentar-ho.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " queda com estava abans d’intentar-ho."
+            }
+          ],
+          "visual": "Desapareixen el conflicte i l’indicador d’operació pendent. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git cherry-pick --abort",
+          "event": "result",
+          "state": 12,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Cancel·lem el cherry-pick pendent. Torna a l’estat d’abans de començar. Executem l’ordre. main queda com estava abans d’intentar-ho."
+    },
+    {
+      "id": "e23_14",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_042",
+          "narration": "Triem un commit concret i comprovem que no depengui d’altres canvis.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Triem un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " concret i comprovem que no depengui d’altres canvis."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_043",
+          "narration": "La branca activa rep un commit nou, amb un pare i un identificador diferents.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca activa rep un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou, amb un pare i un identificador diferents."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_044",
+          "narration": "La branca original es conserva; el resultat s’ha de provar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca original es conserva; el resultat s’ha de provar."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "Triem un commit concret i comprovem que no depengui d’altres canvis. La branca activa rep un commit nou, amb un pare i un identificador diferents. La branca original es conserva; el resultat s’ha de provar."
+    },
+    {
+      "id": "e23_15",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_045",
+          "narration": "En un repositori de pràctiques, crea en una branca una correcció independent d’una altra feina. Porta només la correcció a main i comprova els fitxers de les dues branques.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un repositori de pràctiques, crea en una branca una correcció independent d’una altra feina. Porta només la correcció a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i comprova els fitxers de les dues branques."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En un repositori de pràctiques, crea en una branca una correcció independent d’una altra feina. Porta només la correcció a main i comprova els fitxers de les dues branques."
+    }
+  ],
+  "commands": [
+    "git log --oneline salutacio",
+    "git show efabf94 -- helloGit.py",
+    "git status --short",
+    "git switch main",
+    "git cherry-pick efabf94",
+    "python3 helloGit.py",
+    "git add helloGit.py",
+    "git cherry-pick --continue",
+    "git cherry-pick --abort"
+  ]
+}

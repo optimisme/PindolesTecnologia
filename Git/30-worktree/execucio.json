@@ -1,0 +1,674 @@
+{
+ "llico": "30-worktree",
+ "autoria": [
+  "Anna Puig",
+  "anna@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3"
+   },
+   "estat": {
+    "directori": "~/projecte",
+    "head": "salutacio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "99010b3",
+    "refs": {
+     "main": "99010b3",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git worktree add -b correccio ../projecte-correccio main",
+   "sortida": "HEAD is now at 99010b3 Afegeix una exclamacio\nPreparing worktree (new branch 'correccio')\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3"
+   },
+   "estat": {
+    "directori": "~/projecte",
+    "head": "salutacio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "99010b3",
+    "refs": {
+     "correccio": "99010b3",
+     "main": "99010b3",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git worktree list",
+   "sortida": "~/projecte           99010b3 [salutacio]\n~/projecte-correccio 99010b3 [correccio]\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3"
+   },
+   "estat": {
+    "directori": "~/projecte",
+    "head": "salutacio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "99010b3",
+    "refs": {
+     "correccio": "99010b3",
+     "main": "99010b3",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "cd ../projecte-correccio",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3"
+   },
+   "estat": {
+    "directori": "~/projecte-correccio",
+    "head": "correccio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "99010b3",
+    "refs": {
+     "correccio": "99010b3",
+     "main": "99010b3",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3"
+   },
+   "estat": {
+    "directori": "~/projecte-correccio",
+    "head": "correccio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello, Git!\")\n"
+    },
+    "head_commit": "99010b3",
+    "refs": {
+     "correccio": "99010b3",
+     "main": "99010b3",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Hello, Git!\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3"
+   },
+   "estat": {
+    "directori": "~/projecte-correccio",
+    "head": "correccio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello, Git!\")\n"
+    },
+    "head_commit": "99010b3",
+    "refs": {
+     "correccio": "99010b3",
+     "main": "99010b3",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git add helloGit.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3"
+   },
+   "estat": {
+    "directori": "~/projecte-correccio",
+    "head": "correccio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello, Git!\")\n"
+    },
+    "head_commit": "99010b3",
+    "refs": {
+     "correccio": "99010b3",
+     "main": "99010b3",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     }
+    ],
+    "status": [
+     "M  helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": "git commit -m \"Corregeix la puntuacio\"",
+   "sortida": "[correccio 6ddf684] Corregeix la puntuacio\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3",
+    "D": "6ddf684"
+   },
+   "estat": {
+    "directori": "~/projecte-correccio",
+    "head": "correccio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello, Git!\")\n"
+    },
+    "head_commit": "6ddf684",
+    "refs": {
+     "correccio": "6ddf684",
+     "main": "99010b3",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "6ddf684",
+      "lletra": "D",
+      "pares": [
+       "99010b3"
+      ],
+      "missatge": "Corregeix la puntuacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": "git switch main",
+   "sortida": "Switched to branch 'main'\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3",
+    "D": "6ddf684"
+   },
+   "estat": {
+    "directori": "~/projecte-correccio",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "99010b3",
+    "refs": {
+     "correccio": "6ddf684",
+     "main": "99010b3",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "6ddf684",
+      "lletra": "D",
+      "pares": [
+       "99010b3"
+      ],
+      "missatge": "Corregeix la puntuacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 9,
+   "cami": "principal",
+   "ordre": "git merge --ff-only correccio",
+   "sortida": "Updating 99010b3..6ddf684\nFast-forward\n helloGit.py | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3",
+    "D": "6ddf684"
+   },
+   "estat": {
+    "directori": "~/projecte-correccio",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello, Git!\")\n"
+    },
+    "head_commit": "6ddf684",
+    "refs": {
+     "correccio": "6ddf684",
+     "main": "6ddf684",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "6ddf684",
+      "lletra": "D",
+      "pares": [
+       "99010b3"
+      ],
+      "missatge": "Corregeix la puntuacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 10,
+   "cami": "principal",
+   "ordre": "git -C ../projecte status --short",
+   "sortida": " M helloGit.py\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3",
+    "D": "6ddf684"
+   },
+   "estat": {
+    "directori": "~/projecte-correccio",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello, Git!\")\n"
+    },
+    "head_commit": "6ddf684",
+    "refs": {
+     "correccio": "6ddf684",
+     "main": "6ddf684",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "6ddf684",
+      "lletra": "D",
+      "pares": [
+       "99010b3"
+      ],
+      "missatge": "Corregeix la puntuacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 11,
+   "cami": "principal",
+   "ordre": "cd ../projecte",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3",
+    "D": "6ddf684"
+   },
+   "estat": {
+    "directori": "~/projecte",
+    "head": "salutacio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "99010b3",
+    "refs": {
+     "correccio": "6ddf684",
+     "main": "6ddf684",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "6ddf684",
+      "lletra": "D",
+      "pares": [
+       "99010b3"
+      ],
+      "missatge": "Corregeix la puntuacio"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 12,
+   "cami": "principal",
+   "ordre": "git worktree remove ../projecte-correccio",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "99010b3",
+    "D": "6ddf684"
+   },
+   "estat": {
+    "directori": "~/projecte",
+    "head": "salutacio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "99010b3",
+    "refs": {
+     "correccio": "6ddf684",
+     "main": "6ddf684",
+     "salutacio": "99010b3"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "99010b3",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "6ddf684",
+      "lletra": "D",
+      "pares": [
+       "99010b3"
+      ],
+      "missatge": "Corregeix la puntuacio"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/projecte",
+  "head": "salutacio",
+  "fitxers": {
+   "helloGit.py": "print(\"Hola, Anna!\")\n"
+  },
+  "head_commit": "99010b3",
+  "refs": {
+   "main": "99010b3",
+   "salutacio": "99010b3"
+  },
+  "commits": [
+   {
+    "id": "d3fb44b",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   },
+   {
+    "id": "99010b3",
+    "lletra": "B",
+    "pares": [
+     "d3fb44b"
+    ],
+    "missatge": "Afegeix una exclamacio"
+   }
+  ],
+  "status": [
+   " M helloGit.py"
+  ],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "d3fb44b",
+  "B": "99010b3"
+ }
+}

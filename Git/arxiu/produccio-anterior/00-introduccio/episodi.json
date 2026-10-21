@@ -1,0 +1,300 @@
+{
+  "format_version": 2,
+  "title": "Introducció a Git: versions, historial i col·laboració",
+  "series": "Píndoles de Git",
+  "language": "ca",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "episode_number": 0,
+  "short_title": "INTRODUCCIÓ",
+  "output_name": "00-introduccio.mp4",
+  "intro": {
+    "enabled": true,
+    "narration": "Lliçó zero. Introducció a Git.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Lliçó zero. Introducció a "
+      },
+      {
+        "lang": "en-US",
+        "text": "Git"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  },
+  "prerequisites": "No cal executar cap comanda. Lliçó conceptual prèvia a la primera pràctica.",
+  "scenes": [
+    {
+      "id": "g_problema",
+      "label": "EL PUNT DE PARTIDA",
+      "title": "Un projecte canvia cada dia",
+      "visual": "Un projecte web evoluciona; després, tres còpies amb noms final, final2 i final-definitiu mostren la dificultat de seguir els canvis.",
+      "beats": [
+        {
+          "id": "canvis",
+          "narration": "Un projecte canvia cada dia. Afegim una pàgina, corregim un error o tornem a una idea anterior. Amb el temps, necessitem entendre com hem arribat fins aquí.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Un projecte canvia cada dia. Afegim una pàgina, corregim un error o tornem a una idea anterior. Amb el temps, necessitem entendre com hem arribat fins aquí."
+            }
+          ],
+          "view": "project",
+          "commands": [],
+          "pause_after": 2.5
+        },
+        {
+          "id": "copies",
+          "narration": "Acumular carpetes amb noms com final i definitiu fa difícil saber què conté cadascuna. També complica combinar la feina de diverses persones.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Acumular carpetes amb noms com final i definitiu fa difícil saber què conté cadascuna. També complica combinar la feina de diverses persones."
+            }
+          ],
+          "view": "copies",
+          "commands": [],
+          "pause_after": 3
+        }
+      ],
+      "narration": "Un projecte canvia cada dia. Afegim una pàgina, corregim un error o tornem a una idea anterior. Amb el temps, necessitem entendre com hem arribat fins aquí. Acumular carpetes amb noms com final i definitiu fa difícil saber què conté cadascuna. També complica combinar la feina de diverses persones.",
+      "commands": []
+    },
+    {
+      "id": "g_historial",
+      "label": "CONTROL DE VERSIONS",
+      "title": "Git organitza la història del projecte",
+      "visual": "Historial de tres versions identificades amb missatges. El conjunt forma part del repositori, sense mostrar comandes.",
+      "beats": [
+        {
+          "id": "git",
+          "narration": "Git és un sistema de control de versions. Permet registrar l’estat d’un projecte i consultar després la seva evolució.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és un sistema de control de versions. Permet registrar l’estat d’un projecte i consultar després la seva evolució."
+            }
+          ],
+          "view": "history",
+          "commands": [],
+          "pause_after": 2.5
+        },
+        {
+          "id": "registre",
+          "narration": "Cada registre, anomenat commit, identifica una versió i inclou un missatge que explica el canvi. El repositori conserva aquest historial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cada registre, anomenat "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", identifica una versió i inclou un missatge que explica el canvi. El repositori conserva aquest historial."
+            }
+          ],
+          "view": "records",
+          "commands": [],
+          "pause_after": 3
+        }
+      ],
+      "narration": "Git és un sistema de control de versions. Permet registrar l’estat d’un projecte i consultar després la seva evolució. Cada registre, anomenat commit, identifica una versió i inclou un missatge que explica el canvi. El repositori conserva aquest historial.",
+      "commands": []
+    },
+    {
+      "id": "g_comparar",
+      "label": "ENTENDRE ELS CANVIS",
+      "title": "Comparar ajuda a investigar",
+      "visual": "Dues versions de la mateixa pàgina amb la línia del menú modificada; fletxa cap a la comparació i ressaltat del canvi.",
+      "beats": [
+        {
+          "id": "diferencies",
+          "narration": "Podem comparar dues versions per veure què ha canviat. Si una modificació introdueix un problema, l’historial ens dona un punt de partida per investigar-lo.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Podem comparar dues versions per veure què ha canviat. Si una modificació introdueix un problema, l’historial ens dona un punt de partida per investigar-lo."
+            }
+          ],
+          "view": "compare",
+          "commands": [],
+          "pause_after": 3
+        }
+      ],
+      "narration": "Podem comparar dues versions per veure què ha canviat. Si una modificació introdueix un problema, l’historial ens dona un punt de partida per investigar-lo.",
+      "commands": []
+    },
+    {
+      "id": "g_local",
+      "label": "AL TEU ORDINADOR",
+      "title": "El repositori local conserva les versions",
+      "visual": "Ordinador amb historial propi. Es manté visible quan s’apaga la connexió a internet.",
+      "beats": [
+        {
+          "id": "local",
+          "narration": "Git funciona al teu ordinador. Pots registrar i consultar versions sense connexió a internet. La informació queda al repositori local.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " funciona al teu ordinador. Pots registrar i consultar versions sense connexió a internet. La informació queda al repositori local."
+            }
+          ],
+          "view": "local",
+          "commands": [],
+          "pause_after": 3
+        }
+      ],
+      "narration": "Git funciona al teu ordinador. Pots registrar i consultar versions sense connexió a internet. La informació queda al repositori local.",
+      "commands": []
+    },
+    {
+      "id": "g_compartir",
+      "label": "TREBALL EN EQUIP",
+      "title": "Compartir i integrar la feina",
+      "visual": "Dos ordinadors i un servei remot amb fletxes de compartir. Git i GitHub tenen etiquetes separades.",
+      "beats": [
+        {
+          "id": "servei",
+          "narration": "GitHub és un servei on podem allotjar repositoris i compartir-los. És una de les eines que podem utilitzar amb Git.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és un servei on podem allotjar repositoris i compartir-los. És una de les eines que podem utilitzar amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "view": "remote",
+          "commands": [],
+          "pause_after": 2.5
+        },
+        {
+          "id": "equip",
+          "narration": "Cada persona pot treballar amb la seva còpia i compartir després les versions. La integració permet reunir els canvis i revisar el resultat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cada persona pot treballar amb la seva còpia i compartir després les versions. La integració permet reunir els canvis i revisar el resultat."
+            }
+          ],
+          "view": "team",
+          "commands": [],
+          "pause_after": 3
+        }
+      ],
+      "narration": "GitHub és un servei on podem allotjar repositoris i compartir-los. És una de les eines que podem utilitzar amb Git. Cada persona pot treballar amb la seva còpia i compartir després les versions. La integració permet reunir els canvis i revisar el resultat.",
+      "commands": []
+    },
+    {
+      "id": "g_criteri",
+      "label": "REGISTRAR I REVISAR",
+      "title": "Les decisions continuen sent nostres",
+      "visual": "Editor i historial diferenciats. Desar al fitxer no crea un nou registre. Revisar i provar són passos humans.",
+      "beats": [
+        {
+          "id": "decidir",
+          "narration": "El projecte no es registra a cada tecla. Nosaltres decidim quan guardem una versió a l’historial. Desar un fitxer a l’editor és una acció diferent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El projecte no es registra a cada tecla. Nosaltres decidim quan guardem una versió a l’historial. Desar un fitxer a l’editor és una acció diferent."
+            }
+          ],
+          "view": "intentional",
+          "commands": [],
+          "pause_after": 3
+        },
+        {
+          "id": "provar",
+          "narration": "Una versió registrada tampoc garanteix que tot funcioni bé. Cal revisar els canvis i comprovar el resultat del programa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Una versió registrada tampoc garanteix que tot funcioni bé. Cal revisar els canvis i comprovar el resultat del programa."
+            }
+          ],
+          "view": "review",
+          "commands": [],
+          "pause_after": 3
+        }
+      ],
+      "narration": "El projecte no es registra a cada tecla. Nosaltres decidim quan guardem una versió a l’historial. Desar un fitxer a l’editor és una acció diferent. Una versió registrada tampoc garanteix que tot funcioni bé. Cal revisar els canvis i comprovar el resultat del programa.",
+      "commands": []
+    },
+    {
+      "id": "g_resum",
+      "label": "PER COMENÇAR",
+      "title": "Registrar. Comparar. Col·laborar.",
+      "visual": "Tres idees generals, ressaltades una per una. La pròxima lliçó introduirà les comandes.",
+      "beats": [
+        {
+          "id": "resum",
+          "narration": "Git ens ajuda a conservar versions, entendre les diferències i coordinar la feina. Aquestes són les tres idees amb què comencem.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ens ajuda a conservar versions, entendre les diferències i coordinar la feina. Aquestes són les tres idees amb què comencem."
+            }
+          ],
+          "view": "summary",
+          "commands": [],
+          "pause_after": 3
+        },
+        {
+          "id": "seguent",
+          "narration": "A la primera lliçó pràctica veurem com preparar un canvi, confirmar-lo i publicar-lo. Ho farem pas a pas, amb un exemple complet.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "A la primera lliçó pràctica veurem com preparar un canvi, confirmar-lo i publicar-lo. Ho farem pas a pas, amb un exemple complet."
+            }
+          ],
+          "view": "next",
+          "commands": [],
+          "pause_after": 3
+        }
+      ],
+      "narration": "Git ens ajuda a conservar versions, entendre les diferències i coordinar la feina. Aquestes són les tres idees amb què comencem. A la primera lliçó pràctica veurem com preparar un canvi, confirmar-lo i publicar-lo. Ho farem pas a pas, amb un exemple complet.",
+      "commands": []
+    }
+  ],
+  "lesson_kind": "general",
+  "subtitles": {
+    "english": "quotes-and-italic"
+  }
+}

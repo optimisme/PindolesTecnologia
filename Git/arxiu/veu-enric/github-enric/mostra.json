@@ -1,0 +1,12 @@
+{
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "variants": [
+    {"id": "01-hub", "label": "Primera.", "spelling": "Guit Hub"},
+    {"id": "02-hab", "label": "Segona.", "spelling": "Guit Hàb"},
+    {"id": "03-hahb", "label": "Tercera.", "spelling": "Guit Hahb"},
+    {"id": "04-khab", "label": "Quarta.", "spelling": "Guit Khàb"}
+  ],
+  "template": "Publiquem la branca salutació a {github}.",
+  "catalan_check": "La branca salutació i la branca correcció conserven els noms en català."
+}

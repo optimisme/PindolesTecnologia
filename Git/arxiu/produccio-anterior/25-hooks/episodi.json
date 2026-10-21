@@ -1,0 +1,93 @@
+{
+  "title": "Hooks: comprova la sintaxi abans del commit",
+  "episode_number": 25,
+  "short_title": "HOOKS",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Vint-i-cinquena lliçó, Hooks."
+  },
+  "prerequisites": "Exemple independent en un repositori ordinari amb carpeta .git, main a B i helloGit.py ja seguit amb print(\"Hello Git!\"). No hi ha core.hooksPath personalitzat ni hooks actius. Git i python3 són disponibles al PATH, en un entorn amb execució per shebang i chmod. Es crea .git/hooks/pre-commit executable amb l’script Python d’exemples/pre-commit: check_output de git show :helloGit.py llegeix la versió de l’índex i compile(..., \"exec\") comprova la sintaxi sense executar el programa ni generar memòria cau. El fitxer és obligatori en aquest exemple; si git show falla, el hook també falla. Es prepara una versió de helloGit.py amb print(\"Hola, Anna!\" sense el parèntesi final i el commit falla abans de crear cap C. Es corregeix només l’arbre de treball; un altre commit encara falla perquè l’índex conserva la sintaxi incorrecta. Després d’add, el commit C es crea i l’arbre queda net. El hook és local i no és un fitxer versionat. No s’instal·la cap hook al repositori real; es proporciona un exemple revisable a exemples/pre-commit i les proves s’executen en repositoris temporals. La prova només comprova sintaxi, no errors d’execució ni la correcció funcional.",
+  "scenes": [
+    {
+      "id": "h25_hook",
+      "label": "ABANS DE CONFIRMAR EL CANVI",
+      "title": "Un error de sintaxi pot aturar el commit",
+      "narration": "Has oblidat un parèntesi al programa. Un hook de tipus pre commit pot comprovar la sintaxi abans que Git creï el commit. Prepararem aquest petit control local.",
+      "visual": "Editor amb print(\"Hola, Anna!\" sense el parèntesi de tancament. Un control de sintaxi se situa abans del nou commit."
+    },
+    {
+      "id": "h25_script",
+      "label": "01 / CREAR EL HOOK LOCAL",
+      "title": "Comprovem el contingut de l’índex",
+      "narration": "Creem el fitxer pre commit dins de punt git, hooks. L’script llegeix hello Git des de l’índex i en comprova la sintaxi amb Python. Així revisa la versió que entrarà al commit.",
+      "visual": "Editor de `.git/hooks/pre-commit`. Exemple complet disponible a [exemples/pre-commit](exemples/pre-commit).\n\n```python\n#!/usr/bin/env python3\nimport subprocess\n\nsource = subprocess.check_output(\n    [\"git\", \"show\", \":helloGit.py\"], text=True\n)\ncompile(source, \"helloGit.py\", \"exec\")\n```"
+    },
+    {
+      "id": "h25_enable",
+      "label": "02 / PERMETRE’N L’EXECUCIÓ",
+      "title": "El hook ha de ser executable",
+      "narration": "En aquest entorn, donem permís d’execució al fitxer amb chmod. A partir d’ara, Git executarà aquest hook local quan intentem fer un commit.",
+      "visual": "Fitxer .git/hooks/pre-commit passa de no executable a executable. Es pressuposa el directori de hooks per defecte.",
+      "commands": [
+        "chmod +x .git/hooks/pre-commit"
+      ]
+    },
+    {
+      "id": "h25_fail",
+      "label": "03 / PROVAR UN COMMIT AMB ERROR",
+      "title": "El hook rebutja la sintaxi incorrecta",
+      "narration": "Preparem el fitxer amb l’error i intentem confirmar-lo. La comprovació falla amb un error de sintaxi. Git atura l’operació i l’historial encara no té cap commit nou.",
+      "visual": "Add prepara el contingut incorrecte; commit executa el hook i mostra SyntaxError. Main continua a B.",
+      "commands": [
+        "git add helloGit.py",
+        "git commit -m \"Personalitza la salutacio\""
+      ]
+    },
+    {
+      "id": "h25_index",
+      "label": "04 / CORREGIR EL FITXER NO ÉS SUFICIENT",
+      "title": "L’índex encara conserva l’error",
+      "narration": "Corregim el fitxer a l’editor, però encara no fem add. Un altre intent continua fallant: el hook revisa la preparació, que conserva la versió amb l’error.",
+      "visual": "Treball amb print(\"Hola, Anna!\") correcte; índex amb print(\"Hola, Anna!\" incorrecte. Segon intent de commit també falla.",
+      "commands": [
+        "git commit -m \"Personalitza la salutacio\""
+      ]
+    },
+    {
+      "id": "h25_pass",
+      "label": "05 / PREPARAR LA CORRECCIÓ",
+      "title": "Ara la comprovació passa",
+      "narration": "Tornem a preparar el fitxer corregit i fem commit. L’índex ja té sintaxi correcta, el hook acaba bé i Git crea el commit C.",
+      "visual": "Add actualitza l’índex i el hook permet crear C, fill de B. Treball, índex i HEAD coincideixen.",
+      "commands": [
+        "git add helloGit.py",
+        "git commit -m \"Personalitza la salutacio\""
+      ]
+    },
+    {
+      "id": "h25_local",
+      "label": "ENTENDRE L’ABAST",
+      "title": "El hook és local i comprova sintaxi",
+      "narration": "Comprovem que no quedin canvis pendents. Aquest hook només valida la sintaxi, no el funcionament del programa. A més, no es comparteix automàticament amb un push.",
+      "visual": "Status sense sortida. Dues targetes: .git/hooks/pre-commit local i helloGit.py versionat. No es representa cap publicació.",
+      "commands": [
+        "git status --short"
+      ]
+    },
+    {
+      "id": "h25_summary",
+      "label": "JA HO TENS",
+      "title": "Preparar, comprovar i confirmar",
+      "narration": "El hook revisa la preparació abans del commit. Si volem compartir aquest control, cal distribuir l’script i configurar-lo a cada entorn. És una ajuda local per detectar errors aviat.",
+      "visual": "Tres targetes: índex, comprovació i commit. Recordatori de distribuir i instal·lar l’script als entorns on es vulgui utilitzar."
+    }
+  ],
+  "sources": [
+    "https://git-scm.com/docs/githooks",
+    "https://git-scm.com/docs/git-config",
+    "https://docs.python.org/3/library/functions.html#compile"
+  ]
+}

@@ -1,0 +1,845 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 14,
+  "slug": "14-stash",
+  "title": "Stash: aparca la feina pendent",
+  "short_title": "STASH",
+  "card": [
+    "STASH",
+    "Aparca la feina pendent"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "14-stash.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Catorzena lliçó. Stash.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Catorzena lliçó. "
+      },
+      {
+        "lang": "en-US",
+        "text": "Stash"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  },
+  "objective": "aparcar canvis pendents, atendre una altra tasca i recuperar-los després.",
+  "start_note": "Branca activa salutacio, al mateix commit que main (B). helloGit.py té una edició sense preparar i notes.md és un fitxer nou. No hi ha canvis preparats ni fitxers ignorats.",
+  "start_spoken": "Som a la branca salutació, a mitja feina. Hem modificat el programa i hem creat un fitxer de notes, però encara no ho volem confirmar.",
+  "summary": [
+    "Stash aparca la feina pendent sense fer avançar la branca.",
+    "El guionet u hi inclou els fitxers nous, però no els ignorats.",
+    "En recuperar-la, la feina torna al treball; encara caldrà confirmar-la."
+  ],
+  "practice": "En un repositori de pràctiques, aparca una edició i un fitxer nou. Consulta l’entrada, canvia de branca i torna, i recupera la feina amb la carpeta neta.",
+  "practice_script": "practiques/14-stash.sh",
+  "scenes": [
+    {
+      "id": "e14_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a aparcar canvis pendents, atendre una altra tasca i recuperar-los després.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a aparcar canvis pendents, atendre una altra tasca i recuperar-los després."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Som a la branca salutació, a mitja feina. Hem modificat el programa i hem creat un fitxer de notes, però encara no ho volem confirmar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Som a la branca salutació, a mitja feina. Hem modificat el programa i hem creat un fitxer de notes, però encara no ho volem confirmar."
+            }
+          ],
+          "visual": "Punt de partida: Branca activa salutacio, al mateix commit que main (B). helloGit.py té una edició sense preparar i notes.md és un fitxer nou. No hi ha canvis preparats ni fitxers ignorats.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a aparcar canvis pendents, atendre una altra tasca i recuperar-los després. Som a la branca salutació, a mitja feina. Hem modificat el programa i hem creat un fitxer de notes, però encara no ho volem confirmar."
+    },
+    {
+      "id": "e14_01",
+      "label": "EXPLICACIÓ",
+      "title": "Una interrupció",
+      "mode": "principal",
+      "visual": "Dues targetes, helloGit.py MODIFICAT i notes.md NOU. main i salutacio a B.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Ens demanen una correcció urgent a main. No volem barrejar-hi la feina a mitges, ni confirmar-la encara. L’aparcarem un moment.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ens demanen una correcció urgent a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". No volem barrejar-hi la feina a mitges, ni confirmar-la encara. L’aparcarem un moment."
+            }
+          ],
+          "visual": "Dues targetes, helloGit.py MODIFICAT i notes.md NOU. main i salutacio a B.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "narration": "Ens demanen una correcció urgent a main. No volem barrejar-hi la feina a mitges, ni confirmar-la encara. L’aparcarem un moment."
+    },
+    {
+      "id": "e14_02",
+      "label": "TERMINAL",
+      "title": "git status --short",
+      "mode": "principal",
+      "visual": "Sortida literal amb la llegenda de les dues columnes.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Consultem l’estat breu amb git status.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat breu amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "El programa apareix modificat sense preparar, i les notes, com a fitxer nou. Cap dels dos canvis és a l’historial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El programa apareix modificat sense preparar, i les notes, com a fitxer nou. Cap dels dos canvis és a l’historial."
+            }
+          ],
+          "visual": "Sortida literal amb la llegenda de les dues columnes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            " M helloGit.py",
+            "?? notes.md"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat breu amb git status. Executem l’ordre. El programa apareix modificat sense preparar, i les notes, com a fitxer nou. Cap dels dos canvis és a l’historial."
+    },
+    {
+      "id": "e14_03",
+      "label": "TERMINAL",
+      "title": "git stash push -u -m \"Salutacio pendent\"",
+      "mode": "principal",
+      "visual": "Els dos continguts viatgen a una caixa STASH. main i salutacio continuen a B.",
+      "beats": [
+        {
+          "id": "pas_007",
+          "narration": "git stash push desa la feina pendent en una entrada temporal.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git stash push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " desa la feina pendent en una entrada temporal."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git stash push -u -m \"Salutacio pendent\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git stash push.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git stash push -u -m \"Salutacio pendent\"",
+          "highlight": "git stash push",
+          "state": 1
+        },
+        {
+          "id": "pas_008",
+          "narration": "El guionet u inclou també els fitxers nous. Els fitxers ignorats queden fora.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet u inclou també els fitxers nous. Els fitxers ignorats queden fora."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git stash push -u -m \"Salutacio pendent\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -u.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git stash push -u -m \"Salutacio pendent\"",
+          "highlight": "-u",
+          "state": 1
+        },
+        {
+          "id": "pas_009",
+          "narration": "El guionet ema introdueix un missatge per reconèixer l’entrada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ema introdueix un missatge per reconèixer l’entrada."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git stash push -u -m \"Salutacio pendent\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -m.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git stash push -u -m \"Salutacio pendent\"",
+          "highlight": "-m",
+          "state": 1
+        },
+        {
+          "id": "pas_010",
+          "narration": "Descriu la feina aparcada, la salutació pendent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Descriu la feina aparcada, la salutació pendent."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git stash push -u -m \"Salutacio pendent\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Salutacio pendent\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git stash push -u -m \"Salutacio pendent\"",
+          "highlight": "\"Salutacio pendent\"",
+          "state": 1
+        },
+        {
+          "id": "pas_011",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git stash push -u -m \"Salutacio pendent\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git stash push -u -m \"Salutacio pendent\""
+          ],
+          "command_display": "git stash push -u -m \"Salutacio pendent\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_012",
+          "narration": "El programa torna a la versió confirmada i les notes desapareixen de la carpeta. Els canvis són a l’entrada temporal; la branca no ha avançat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El programa torna a la versió confirmada i les notes desapareixen de la carpeta. Els canvis són a l’entrada temporal; la branca no ha avançat."
+            }
+          ],
+          "visual": "Els dos continguts viatgen a una caixa STASH. main i salutacio continuen a B. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git stash push -u -m \"Salutacio pendent\"",
+          "event": "result",
+          "state": 2,
+          "simulated": false,
+          "terminal_output": [
+            "Saved working directory and index state On salutacio: Salutacio pendent"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git stash push desa la feina pendent en una entrada temporal. El guionet u inclou també els fitxers nous. Els fitxers ignorats queden fora. El guionet ema introdueix un missatge per reconèixer l’entrada. Descriu la feina aparcada, la salutació pendent. Executem l’ordre. El programa torna a la versió confirmada i les notes desapareixen de la carpeta. Els canvis són a l’entrada temporal; la branca no ha avançat."
+    },
+    {
+      "id": "e14_04",
+      "label": "TERMINAL",
+      "title": "git stash list",
+      "mode": "principal",
+      "visual": "Ressaltar stash@{0} i el missatge com a parts de la mateixa entrada a la sortida real.",
+      "beats": [
+        {
+          "id": "pas_013",
+          "narration": "Consultem les entrades guardades.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem les entrades guardades."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git stash list. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git stash list.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git stash list",
+          "highlight": "git stash list",
+          "state": 2
+        },
+        {
+          "id": "pas_014",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git stash list. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git stash list"
+          ],
+          "command_display": "git stash list",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_015",
+          "narration": "Apareix una entrada amb el seu número i el missatge que hem escrit. És feina aparcada, no un commit de la branca.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Apareix una entrada amb el seu número i el missatge que hem escrit. És feina aparcada, no un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la branca."
+            }
+          ],
+          "visual": "Ressaltar stash@{0} i el missatge com a parts de la mateixa entrada a la sortida real. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git stash list",
+          "event": "result",
+          "state": 3,
+          "simulated": false,
+          "terminal_output": [
+            "stash@{0}: On salutacio: Salutacio pendent"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem les entrades guardades. Executem l’ordre. Apareix una entrada amb el seu número i el missatge que hem escrit. És feina aparcada, no un commit de la branca."
+    },
+    {
+      "id": "e14_05",
+      "label": "TERMINAL",
+      "title": "git switch main",
+      "mode": "principal",
+      "visual": "Mantenir tots els commits quiets. Moure l’indicador de branca activa i actualitzar l’editor després de l’execució.",
+      "beats": [
+        {
+          "id": "pas_016",
+          "narration": "Amb git switch canviem a la branca on treballarem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git switch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " canviem a la branca on treballarem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git switch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "highlight": "git switch",
+          "state": 3
+        },
+        {
+          "id": "pas_017",
+          "narration": "És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "highlight": "main",
+          "state": 3
+        },
+        {
+          "id": "pas_018",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git switch main"
+          ],
+          "command_display": "git switch main",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_019",
+          "narration": "Amb la carpeta neta, podríem fer la correcció a main. Per no allargar l’exemple, ometem aquesta correcció i tornem a la nostra feina.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb la carpeta neta, podríem fer la correcció a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Per no allargar l’exemple, ometem aquesta correcció i tornem a la nostra feina."
+            }
+          ],
+          "visual": "Mantenir tots els commits quiets. Moure l’indicador de branca activa i actualitzar l’editor després de l’execució. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "event": "result",
+          "state": 4,
+          "simulated": false,
+          "terminal_output": [
+            "Switched to branch 'main'"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git switch canviem a la branca on treballarem. És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió. Executem l’ordre. Amb la carpeta neta, podríem fer la correcció a main. Per no allargar l’exemple, ometem aquesta correcció i tornem a la nostra feina."
+    },
+    {
+      "id": "e14_06",
+      "label": "TERMINAL",
+      "title": "git switch salutacio",
+      "mode": "principal",
+      "visual": "Mantenir tots els commits quiets. Moure l’indicador de branca activa i actualitzar l’editor després de l’execució.",
+      "beats": [
+        {
+          "id": "pas_020",
+          "narration": "Amb git switch canviem a la branca on treballarem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git switch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " canviem a la branca on treballarem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git switch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch salutacio",
+          "highlight": "git switch",
+          "state": 4
+        },
+        {
+          "id": "pas_021",
+          "narration": "És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: salutacio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch salutacio",
+          "highlight": "salutacio",
+          "state": 4
+        },
+        {
+          "id": "pas_022",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git switch salutacio"
+          ],
+          "command_display": "git switch salutacio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_023",
+          "narration": "Tornem a la branca de la salutació abans de recuperar-hi els canvis.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Tornem a la branca de la salutació abans de recuperar-hi els canvis."
+            }
+          ],
+          "visual": "Mantenir tots els commits quiets. Moure l’indicador de branca activa i actualitzar l’editor després de l’execució. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git switch salutacio",
+          "event": "result",
+          "state": 5,
+          "simulated": false,
+          "terminal_output": [
+            "Switched to branch 'salutacio'"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git switch canviem a la branca on treballarem. És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió. Executem l’ordre. Tornem a la branca de la salutació abans de recuperar-hi els canvis."
+    },
+    {
+      "id": "e14_07",
+      "label": "TERMINAL",
+      "title": "git stash pop",
+      "mode": "principal",
+      "visual": "S’obre la caixa STASH i cada contingut torna al seu fitxer. Cap node nou.",
+      "beats": [
+        {
+          "id": "pas_024",
+          "narration": "git stash pop recupera els canvis i retira l’entrada si tot va bé.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git stash pop"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " recupera els canvis i retira l’entrada si tot va bé."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git stash pop. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git stash pop.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git stash pop",
+          "highlight": "git stash pop",
+          "state": 5
+        },
+        {
+          "id": "pas_025",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git stash pop. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git stash pop"
+          ],
+          "command_display": "git stash pop",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_026",
+          "narration": "Tornen la salutació modificada i les notes. Continuen sent feina pendent, sense confirmar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Tornen la salutació modificada i les notes. Continuen sent feina pendent, sense confirmar."
+            }
+          ],
+          "visual": "S’obre la caixa STASH i cada contingut torna al seu fitxer. Cap node nou. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git stash pop",
+          "event": "result",
+          "state": 6,
+          "simulated": false,
+          "terminal_output": [
+            "On branch salutacio",
+            "Changes not staged for commit:",
+            "  (use \"git add <file>...\" to update what will be committed)",
+            "  (use \"git restore <file>...\" to discard changes in working directory)",
+            "\tmodified:   helloGit.py",
+            "",
+            "Untracked files:",
+            "  (use \"git add <file>...\" to include in what will be committed)",
+            "\tnotes.md",
+            "",
+            "no changes added to commit (use \"git add\" and/or \"git commit -a\")",
+            "Dropped refs/stash@{0} (02aeb75cc8ad5fd9875e68d5714efa411ebb57de)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git stash pop recupera els canvis i retira l’entrada si tot va bé. Executem l’ordre. Tornen la salutació modificada i les notes. Continuen sent feina pendent, sense confirmar."
+    },
+    {
+      "id": "e14_08",
+      "label": "TERMINAL",
+      "title": "git stash list",
+      "mode": "principal",
+      "visual": "Llista buida amb la llegenda CAP ENTRADA; panell condicional separat per al cas amb conflicte.",
+      "beats": [
+        {
+          "id": "pas_027",
+          "narration": "Comprovem la llista després de recuperar-la.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprovem la llista després de recuperar-la."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git stash list. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git stash list.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git stash list",
+          "highlight": "git stash list",
+          "state": 6
+        },
+        {
+          "id": "pas_028",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git stash list. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git stash list"
+          ],
+          "command_display": "git stash list",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 6
+        },
+        {
+          "id": "pas_029",
+          "narration": "Ara és buida, perquè els canvis s’han aplicat bé. Si hi hagués hagut un conflicte, l’entrada no s’hauria esborrat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara és buida, perquè els canvis s’han aplicat bé. Si hi hagués hagut un conflicte, l’entrada no s’hauria esborrat."
+            }
+          ],
+          "visual": "Llista buida amb la llegenda CAP ENTRADA; panell condicional separat per al cas amb conflicte. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git stash list",
+          "event": "result",
+          "state": 7,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comprovem la llista després de recuperar-la. Executem l’ordre. Ara és buida, perquè els canvis s’han aplicat bé. Si hi hagués hagut un conflicte, l’entrada no s’hauria esborrat."
+    },
+    {
+      "id": "e14_09",
+      "label": "EXPLICACIÓ",
+      "title": "Conservar l’entrada",
+      "mode": "principal",
+      "visual": "Comparació APPLY · conserva l’entrada / POP · la retira si s’aplica bé.",
+      "beats": [
+        {
+          "id": "pas_030",
+          "narration": "git stash apply també recupera els canvis, però conserva l’entrada. És una alternativa a pop; no cal fer servir totes dues ordres per recuperar la mateixa feina.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git stash apply"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " també recupera els canvis, però conserva l’entrada. És una alternativa a "
+            },
+            {
+              "lang": "en-US",
+              "text": "pop"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; no cal fer servir totes dues ordres per recuperar la mateixa feina."
+            }
+          ],
+          "visual": "Comparació APPLY · conserva l’entrada / POP · la retira si s’aplica bé.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 8
+        }
+      ],
+      "narration": "git stash apply també recupera els canvis, però conserva l’entrada. És una alternativa a pop; no cal fer servir totes dues ordres per recuperar la mateixa feina."
+    },
+    {
+      "id": "e14_10",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_031",
+          "narration": "Stash aparca la feina pendent sense fer avançar la branca.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Stash"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " aparca la feina pendent sense fer avançar la branca."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_032",
+          "narration": "El guionet u hi inclou els fitxers nous, però no els ignorats.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet u hi inclou els fitxers nous, però no els ignorats."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_033",
+          "narration": "En recuperar-la, la feina torna al treball; encara caldrà confirmar-la.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En recuperar-la, la feina torna al treball; encara caldrà confirmar-la."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "Stash aparca la feina pendent sense fer avançar la branca. El guionet u hi inclou els fitxers nous, però no els ignorats. En recuperar-la, la feina torna al treball; encara caldrà confirmar-la."
+    },
+    {
+      "id": "e14_11",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_034",
+          "narration": "En un repositori de pràctiques, aparca una edició i un fitxer nou. Consulta l’entrada, canvia de branca i torna, i recupera la feina amb la carpeta neta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un repositori de pràctiques, aparca una edició i un fitxer nou. Consulta l’entrada, canvia de branca i torna, i recupera la feina amb la carpeta neta."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En un repositori de pràctiques, aparca una edició i un fitxer nou. Consulta l’entrada, canvia de branca i torna, i recupera la feina amb la carpeta neta."
+    }
+  ],
+  "commands": [
+    "git status --short",
+    "git stash push -u -m \"Salutacio pendent\"",
+    "git stash list",
+    "git switch main",
+    "git switch salutacio",
+    "git stash pop"
+  ]
+}

@@ -1,0 +1,104 @@
+titol: "Configuració inicial: identitat, branca i editor"
+titol_curt: CONFIGURACIÓ
+capcalera: [CONFIGURACIÓ, Prepara l’ordinador per treballar amb Git]
+presentacio: Configuració inicial
+objectiu: comprovar la versió de [[Git]] i deixar configurades l’autoria, la branca inicial i l’editor.
+inici: >-
+  Git instal·lat i una terminal oberta. Usuari sense cap configuració global de Git.
+  La terminal i les sortides són reals; el nom i el correu són d’exemple.
+inici_parlat: >-
+  Partim d’un ordinador amb [[Git]] instal·lat i una terminal oberta. Encara no hem configurat res.
+configuracio_neta: true
+carpeta: .
+
+etapes:
+  - explica: Per què cal configurar Git
+    text:
+      - Cada [[commit]] guarda qui l’ha fet i quan. Per això, abans del primer, cal indicar el nom i el correu.
+      - També triarem el nom de la branca inicial i l’editor que obrirà [[Git]] quan ens demani un text llarg.
+    visual: Targeta d’un commit amb els camps AUTORIA, DATA i MISSATGE ressaltats per torns.
+
+  - ordre: git --version
+    text: Primer comprovem quina versió tenim instal·lada.
+    parts:
+      - --version: Doble guionet [[version]] demana el número de versió; no canvia res.
+    resultat: >-
+      La terminal mostra el número de versió. Les lliçons fan servir ordres com [[git switch]] i
+      [[git restore]], que necessiten la versió dos punt vint-i-tres o una de posterior.
+    visual: Terminal amb la versió real; etiqueta MÍNIM 2.23 al costat.
+
+  - explica: Missatges en català o en anglès
+    text: >-
+      Si l’ordinador està configurat en català, [[Git]] pot respondre en català. Les ordres són exactament
+      les mateixes; als vídeos, les respostes surten en anglès.
+    visual: La mateixa sortida en dos panells, ANGLÈS i CATALÀ, amb l’ordre idèntica a sobre.
+
+  - ordre: git config --global user.name "Anna Puig"
+    text: Amb [[git config]] desem una opció de configuració.
+    parts:
+      - --global: Doble guionet [[global]] desa l’opció per a tots els repositoris del nostre usuari en aquest ordinador.
+      - user.name: És la clau que guarda el nom de l’autoria.
+      - '"Anna Puig"': És el valor. Escriu-hi el teu nom; les cometes el mantenen com un sol argument.
+    resultat: L’ordre no mostra res quan funciona. A partir d’ara, els commits d’aquest usuari portaran aquest nom.
+    visual: Fitxer de configuració global amb la línia name = Anna Puig afegida.
+
+  - ordre: git config --global user.email "anna@example.com"
+    text: Ara desem el correu de l’autoria.
+    parts:
+      - user.email: És la clau del correu que acompanya cada commit.
+      - '"anna@example.com"': És un correu d’exemple. Fes servir el teu, o l’adreça privada que ofereix [[GitHub]] al teu compte.
+    resultat: El correu queda desat al mateix fitxer de configuració.
+    visual: La línia email = anna@example.com s’afegeix sota el nom.
+
+  - explica: Un ordinador compartit
+    text: >-
+      En un ordinador de l’aula, compartit amb altres persones, no fem servir doble guionet [[global]].
+      Executem la mateixa ordre dins del nostre repositori i l’autoria només s’hi aplica allà.
+    visual: >-
+      Dues columnes: ORDINADOR PROPI · git config --global user.name ... / ORDINADOR COMPARTIT · dins del
+      repositori, git config user.name ... sense --global.
+
+  - ordre: git config --global init.defaultBranch main
+    text: Triem el nom de la primera branca dels repositoris nous.
+    parts:
+      - init.defaultBranch: Aquesta clau indica el nom de la branca inicial quan creem un repositori.
+      - main: És el nom que fan servir les lliçons i també [[GitHub]].
+    resultat: Els repositoris que creem a partir d’ara començaran a la branca [[main]].
+    visual: Línia defaultBranch = main a la secció init del fitxer.
+
+  - explica: Un editor que sapiguem tancar
+    text: >-
+      Algunes ordres obren un editor perquè hi escrivim un missatge. Si no en triem cap, sovint s’obre
+      un editor de terminal difícil de tancar. Triarem [[Visual Studio Code]].
+    visual: Editor de terminal amb el cursor parpellejant i, al costat, Visual Studio Code amb una pestanya COMMIT_EDITMSG.
+
+  - ordre: git config --global core.editor "code --wait"
+    text: Configurem l’editor.
+    parts:
+      - core.editor: És la clau de l’editor que obrirà [[Git]].
+      - '"code --wait"': >-
+          Obre [[Visual Studio Code]] i espera que tanquem la pestanya abans de continuar. Cal que l’ordre
+          code funcioni a la terminal; si fas servir un altre editor, posa-hi la seva ordre.
+    resultat: Quan [[Git]] necessiti un missatge, obrirà una pestanya de l’editor. Desem, tanquem la pestanya i l’ordre continua.
+    visual: Línia editor = code --wait. Animació · s’obre una pestanya, es desa, es tanca i la terminal continua.
+
+  - ordre: git config --global --list
+    text: Revisem tota la configuració global.
+    parts:
+      - --list: Doble guionet [[list]] mostra totes les opcions desades.
+    resultat: Hi veiem les quatre opcions que hem configurat. Si n’hi ha alguna d’equivocada, la tornem a escriure amb el valor correcte.
+    visual: Sortida real; ressaltar una línia cada vegada.
+    comprova:
+      sortida:
+        - user.name=Anna Puig
+        - user.email=anna@example.com
+        - init.defaultbranch=main
+        - core.editor=code --wait
+
+resum:
+  - "[[git config]] desa opcions; doble guionet [[global]] les aplica a tots els repositoris de l’usuari."
+  - Nom i correu identifiquen l’autoria de cada commit.
+  - La branca inicial i l’editor eviten sorpreses a les lliçons següents.
+practica: >-
+  Comprova la versió de [[Git]], configura el teu nom, el teu correu, la branca inicial i l’editor,
+  i revisa el resultat amb la llista de configuració.

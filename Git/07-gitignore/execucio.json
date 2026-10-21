@@ -1,0 +1,448 @@
+{
+ "llico": "07-gitignore",
+ "autoria": [
+  "Anna Puig",
+  "anna@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "eb5e121"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "app.log": "Registre d’una versió antiga\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+    },
+    "head_commit": "eb5e121",
+    "refs": {
+     "main": "eb5e121"
+    },
+    "commits": [
+     {
+      "id": "eb5e121",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Hola, Anna!\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "eb5e121"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "app.log": "Registre d’una versió antiga\n",
+     "debug.log": "Hola, Anna!\nHola, Anna!\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+    },
+    "head_commit": "eb5e121",
+    "refs": {
+     "main": "eb5e121"
+    },
+    "commits": [
+     {
+      "id": "eb5e121",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? __pycache__/",
+     "?? debug.log"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git status --short",
+   "sortida": "?? __pycache__/\n?? debug.log\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "eb5e121"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "app.log": "Registre d’una versió antiga\n",
+     "debug.log": "Hola, Anna!\nHola, Anna!\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+    },
+    "head_commit": "eb5e121",
+    "refs": {
+     "main": "eb5e121"
+    },
+    "commits": [
+     {
+      "id": "eb5e121",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? __pycache__/",
+     "?? debug.log"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "eb5e121"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "*.log\n__pycache__/\n",
+     "app.log": "Registre d’una versió antiga\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+    },
+    "head_commit": "eb5e121",
+    "refs": {
+     "main": "eb5e121"
+    },
+    "commits": [
+     {
+      "id": "eb5e121",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? .gitignore"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git status --short",
+   "sortida": "?? .gitignore\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "eb5e121"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "*.log\n__pycache__/\n",
+     "app.log": "Registre d’una versió antiga\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+    },
+    "head_commit": "eb5e121",
+    "refs": {
+     "main": "eb5e121"
+    },
+    "commits": [
+     {
+      "id": "eb5e121",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? .gitignore"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git check-ignore -v debug.log",
+   "sortida": ".gitignore:1:*.log\tdebug.log\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "eb5e121"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "*.log\n__pycache__/\n",
+     "app.log": "Registre d’una versió antiga\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+    },
+    "head_commit": "eb5e121",
+    "refs": {
+     "main": "eb5e121"
+    },
+    "commits": [
+     {
+      "id": "eb5e121",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? .gitignore"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "eb5e121"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "*.log\n__pycache__/\n",
+     "app.log": "Registre d’una versió antiga\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+    },
+    "head_commit": "eb5e121",
+    "refs": {
+     "main": "eb5e121"
+    },
+    "commits": [
+     {
+      "id": "eb5e121",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? .gitignore"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": "git ls-files",
+   "sortida": "app.log\nhelloGit.py\nsalutacions.py\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "eb5e121"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "*.log\n__pycache__/\n",
+     "app.log": "Registre d’una versió antiga\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+    },
+    "head_commit": "eb5e121",
+    "refs": {
+     "main": "eb5e121"
+    },
+    "commits": [
+     {
+      "id": "eb5e121",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? .gitignore"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": "git rm --cached app.log",
+   "sortida": "rm 'app.log'\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "eb5e121"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "*.log\n__pycache__/\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+    },
+    "head_commit": "eb5e121",
+    "refs": {
+     "main": "eb5e121"
+    },
+    "commits": [
+     {
+      "id": "eb5e121",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "D  app.log",
+     "?? .gitignore"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 9,
+   "cami": "principal",
+   "ordre": "git add .gitignore",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "eb5e121"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "*.log\n__pycache__/\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+    },
+    "head_commit": "eb5e121",
+    "refs": {
+     "main": "eb5e121"
+    },
+    "commits": [
+     {
+      "id": "eb5e121",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "A  .gitignore",
+     "D  app.log"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 10,
+   "cami": "principal",
+   "ordre": "git commit -m \"Ignora els fitxers generats\"",
+   "sortida": "[main 20e78ee] Ignora els fitxers generats\n 2 files changed, 2 insertions(+), 1 deletion(-)\n create mode 100644 .gitignore\n delete mode 100644 app.log\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "eb5e121",
+    "B": "20e78ee"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "*.log\n__pycache__/\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+    },
+    "head_commit": "20e78ee",
+    "refs": {
+     "main": "20e78ee"
+    },
+    "commits": [
+     {
+      "id": "eb5e121",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     },
+     {
+      "id": "20e78ee",
+      "lletra": "B",
+      "pares": [
+       "eb5e121"
+      ],
+      "missatge": "Ignora els fitxers generats"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "app.log": "Registre d’una versió antiga\n",
+   "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+   "salutacions.py": "def saluda():\n    return \"Hola, Anna!\"\n"
+  },
+  "head_commit": "eb5e121",
+  "refs": {
+   "main": "eb5e121"
+  },
+  "commits": [
+   {
+    "id": "eb5e121",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix el programa i les salutacions"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "eb5e121"
+ }
+}

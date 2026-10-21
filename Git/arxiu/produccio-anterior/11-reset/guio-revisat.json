@@ -1,0 +1,629 @@
+{
+  "script_format": "git-didactic-v1",
+  "status": "script_revised_media_unchanged",
+  "episode_number": 11,
+  "title": "Reset: torna enrere un commit local",
+  "series": "Píndoles de Git",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "music_seconds": 4,
+  "objective": "Comparar reset soft i mixed sense confondre què passa amb treball i preparació.",
+  "prerequisites": "Main a C, commit propi no publicat, amb treball i preparació nets. B té la salutació original i C la personalitzada. Les dues opcions parteixen independentment de C.",
+  "timing": "Sense marques absolutes: es calcularan amb la futura locució.",
+  "scenes": [
+    {
+      "id": "rev_11_00",
+      "title": "Objectiu i punt de partida",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a comparar reset soft i mixed sense confondre què passa amb treball i preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a comparar "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset soft"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i "
+            },
+            {
+              "lang": "en-US",
+              "text": "mixed"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " sense confondre què passa amb treball i preparació."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Main a C, commit propi no publicat, amb treball i preparació nets. B té la salutació original i C la personalitzada. Les dues opcions parteixen independentment de C.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a C, "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " propi no publicat, amb treball i preparació nets. B té la salutació original i C la personalitzada. Les dues opcions parteixen independentment de C."
+            }
+          ],
+          "visual": "Punt de partida complet amb branca activa, fitxers i estat del treball; fer visible qualsevol cas independent.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a comparar reset soft i mixed sense confondre què passa amb treball i preparació. Main a C, commit propi no publicat, amb treball i preparació nets. B té la salutació original i C la personalitzada. Les dues opcions parteixen independentment de C."
+    },
+    {
+      "id": "rev_11_01",
+      "title": "Reprendre un canvi local",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Volem continuar treballant en el contingut de l’últim commit propi, encara no publicat. Compararem dos tipus de reset que conserven el fitxer de treball.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Volem continuar treballant en el contingut de l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " propi, encara no publicat. Compararem dos tipus de "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que conserven el fitxer de treball."
+            }
+          ],
+          "visual": "Graf A–B–C; main i HEAD a C. Panells treball, preparació i historial amb V2.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Volem continuar treballant en el contingut de l’últim commit propi, encara no publicat. Compararem dos tipus de reset que conserven el fitxer de treball."
+    },
+    {
+      "id": "rev_11_02",
+      "title": "Llegim el punt de destinació",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "HEAD segueix main en aquest exemple. El sufix titlla u indica un pas enrere pel primer pare. Per tant, la destinació és B.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "HEAD"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " segueix "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " en aquest exemple. El sufix titlla u indica un pas enrere pel primer pare. Per tant, la destinació és B."
+            }
+          ],
+          "visual": "Subratllar HEAD i després ~1 a HEAD~1; assenyalar C i B amb una fletxa conceptual, sense executar encara.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "HEAD segueix main en aquest exemple. El sufix titlla u indica un pas enrere pel primer pare. Per tant, la destinació és B."
+    },
+    {
+      "id": "rev_11_03",
+      "title": "git reset --soft HEAD~1",
+      "mode": "alternative:soft",
+      "beats": [
+        {
+          "id": "pas_005",
+          "narration": "Comencem per l’alternativa soft.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comencem per l’alternativa "
+            },
+            {
+              "lang": "en-US",
+              "text": "soft"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git reset --soft HEAD~1. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git reset.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git reset --soft HEAD~1",
+          "highlight": "git reset"
+        },
+        {
+          "id": "pas_006",
+          "narration": "Mou la branca i conserva tant la preparació com el treball.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Mou la branca i conserva tant la preparació com el treball."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git reset --soft HEAD~1. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --soft.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git reset --soft HEAD~1",
+          "highlight": "--soft"
+        },
+        {
+          "id": "pas_007",
+          "narration": "La destinació és el commit anterior al punt actual.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La destinació és el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " anterior al punt actual."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git reset --soft HEAD~1. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HEAD~1.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git reset --soft HEAD~1",
+          "highlight": "HEAD~1"
+        },
+        {
+          "id": "pas_008",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git reset --soft HEAD~1. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git reset --soft HEAD~1"
+          ],
+          "command_display": "git reset --soft HEAD~1",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_009",
+          "narration": "Main passa a B. El treball i la preparació continuen amb V2; el canvi queda preparat respecte de B.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " passa a B. El treball i la preparació continuen amb V2; el canvi queda preparat respecte de B."
+            }
+          ],
+          "visual": "Moure només main i HEAD. Conservar C atenuat fora de la línia actual, sense esborrar-ne l’objecte. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git reset --soft HEAD~1",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comencem per l’alternativa soft. Mou la branca i conserva tant la preparació com el treball. La destinació és el commit anterior al punt actual. Executem l’ordre. Main passa a B. El treball i la preparació continuen amb V2; el canvi queda preparat respecte de B."
+    },
+    {
+      "id": "rev_11_04",
+      "title": "git diff --staged",
+      "mode": "alternative:soft",
+      "beats": [
+        {
+          "id": "pas_010",
+          "narration": "Comprovem el canvi que ha quedat preparat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprovem el canvi que ha quedat preparat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff --staged. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git diff.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff --staged",
+          "highlight": "git diff"
+        },
+        {
+          "id": "pas_011",
+          "narration": "Compara la preparació conservada amb el nou últim commit, que és B.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Compara la preparació conservada amb el nou últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", que és B."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff --staged. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --staged.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff --staged",
+          "highlight": "--staged"
+        },
+        {
+          "id": "pas_012",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff --staged. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git diff --staged"
+          ],
+          "command_display": "git diff --staged",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_013",
+          "narration": "La salutació personalitzada apareix com a canvi preparat. Podem editar-la, tornar a preparar-la i confirmar una versió nova.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La salutació personalitzada apareix com a canvi preparat. Podem editar-la, tornar a preparar-la i confirmar una versió nova."
+            }
+          ],
+          "visual": "Fletxa HISTORIAL V1 → PREPARACIÓ V2. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git diff --staged",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comprovem el canvi que ha quedat preparat. Compara la preparació conservada amb el nou últim commit, que és B. Executem l’ordre. La salutació personalitzada apareix com a canvi preparat. Podem editar-la, tornar a preparar-la i confirmar una versió nova."
+    },
+    {
+      "id": "rev_11_05",
+      "title": "Reiniciem la comparació a C",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_014",
+          "narration": "Ara tornem visualment al punt inicial: main a C, treball net i preparació V2. L’opció següent és una alternativa; no s’executa després de soft.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara tornem visualment al punt inicial: "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a C, treball net i preparació V2. L’opció següent és una alternativa; no s’executa després de "
+            },
+            {
+              "lang": "en-US",
+              "text": "soft"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Separador TORNEM AL PUNT DE PARTIDA. Restaurar el dibuix inicial complet.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Ara tornem visualment al punt inicial: main a C, treball net i preparació V2. L’opció següent és una alternativa; no s’executa després de soft."
+    },
+    {
+      "id": "rev_11_06",
+      "title": "git reset --mixed HEAD~1",
+      "mode": "alternative:mixed",
+      "beats": [
+        {
+          "id": "pas_015",
+          "narration": "Comparem l’alternativa mixed.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comparem l’alternativa "
+            },
+            {
+              "lang": "en-US",
+              "text": "mixed"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git reset --mixed HEAD~1. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git reset.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git reset --mixed HEAD~1",
+          "highlight": "git reset"
+        },
+        {
+          "id": "pas_016",
+          "narration": "Mou la branca i restaura la preparació a la destinació. Conserva el treball.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Mou la branca i restaura la preparació a la destinació. Conserva el treball."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git reset --mixed HEAD~1. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --mixed.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git reset --mixed HEAD~1",
+          "highlight": "--mixed"
+        },
+        {
+          "id": "pas_017",
+          "narration": "Des del punt inicial C, un pas enrere ens torna a B.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Des del punt inicial C, un pas enrere ens torna a B."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git reset --mixed HEAD~1. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HEAD~1.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git reset --mixed HEAD~1",
+          "highlight": "HEAD~1"
+        },
+        {
+          "id": "pas_018",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git reset --mixed HEAD~1. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git reset --mixed HEAD~1"
+          ],
+          "command_display": "git reset --mixed HEAD~1",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_019",
+          "narration": "Main i preparació passen a B, però el treball manté V2. La salutació nova queda sense preparar.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i preparació passen a B, però el treball manté V2. La salutació nova queda sense preparar."
+            }
+          ],
+          "visual": "Moure main i HEAD a B; copiar V1 a preparació; deixar V2 al treball. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git reset --mixed HEAD~1",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comparem l’alternativa mixed. Mou la branca i restaura la preparació a la destinació. Conserva el treball. Des del punt inicial C, un pas enrere ens torna a B. Executem l’ordre. Main i preparació passen a B, però el treball manté V2. La salutació nova queda sense preparar."
+    },
+    {
+      "id": "rev_11_07",
+      "title": "La diferència és a la preparació",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_020",
+          "narration": "En tots dos casos la branca torna a B i el fitxer conserva V2. Soft deixa el canvi preparat; mixed el deixa pendent de preparar. C pot continuar com a objecte accessible localment.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En tots dos casos la branca torna a B i el fitxer conserva V2. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Soft"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " deixa el canvi preparat; "
+            },
+            {
+              "lang": "en-US",
+              "text": "mixed"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " el deixa pendent de preparar. C pot continuar com a objecte accessible localment."
+            }
+          ],
+          "visual": "Taula de dues files amb B / V2 / V2 per soft i B / V1 / V2 per mixed; etiquetes textuals, a més de colors.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En tots dos casos la branca torna a B i el fitxer conserva V2. Soft deixa el canvi preparat; mixed el deixa pendent de preparar. C pot continuar com a objecte accessible localment."
+    },
+    {
+      "id": "rev_11_08",
+      "title": "Resum final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_021",
+          "narration": "En aquest exemple reset mou la branca local a B.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquest exemple "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " mou la branca local a B."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_022",
+          "narration": "Soft conserva la preparació; mixed la restaura a B.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Soft"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " conserva la preparació; "
+            },
+            {
+              "lang": "en-US",
+              "text": "mixed"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " la restaura a B."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_023",
+          "narration": "Tots dos conserven el treball; les alternatives es comparen des del mateix inici.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Tots dos conserven el treball; les alternatives es comparen des del mateix inici."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquest exemple reset mou la branca local a B. Soft conserva la preparació; mixed la restaura a B. Tots dos conserven el treball; les alternatives es comparen des del mateix inici."
+    },
+    {
+      "id": "rev_11_09",
+      "title": "Pràctica final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_024",
+          "narration": "Reprodueix cada alternativa en un repositori de pràctiques separat, amb un últim commit no publicat. Compara treball, índex i historial abans de continuar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Reprodueix cada alternativa en un repositori de pràctiques separat, amb un últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " no publicat. Compara treball, índex i historial abans de continuar."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "Reprodueix cada alternativa en un repositori de pràctiques separat, amb un últim commit no publicat. Compara treball, índex i historial abans de continuar."
+    }
+  ],
+  "intro": {
+    "narration": "Onzena lliçó, Reset.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Onzena lliçó, "
+      },
+      {
+        "lang": "en-US",
+        "text": "Reset"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  }
+}

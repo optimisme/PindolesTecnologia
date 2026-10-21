@@ -1,0 +1,840 @@
+{
+  "script_format": "git-didactic-v1",
+  "status": "script_revised_media_unchanged",
+  "episode_number": 20,
+  "title": "Fetch: consulta els canvis abans d’integrar-los",
+  "series": "Píndoles de Git",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "music_seconds": 4,
+  "objective": "Descarregar, comparar i integrar novetats en tres passos explícits.",
+  "prerequisites": "Main local i origin/main a B, treball net. El servidor origin ja té C. La història és lineal i main segueix origin/main.",
+  "timing": "Sense marques absolutes: es calcularan amb la futura locució.",
+  "scenes": [
+    {
+      "id": "rev_20_00",
+      "title": "Objectiu i punt de partida",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a descarregar, comparar i integrar novetats en tres passos explícits.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a descarregar, comparar i integrar novetats en tres passos explícits."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Main local i origin/main a B, treball net. El servidor origin ja té C. La història és lineal i main segueix origin/main.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " local i "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin/main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a B, treball net. El servidor "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ja té C. La història és lineal i "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " segueix "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin/main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Punt de partida complet amb branca activa, fitxers i estat del treball; fer visible qualsevol cas independent.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a descarregar, comparar i integrar novetats en tres passos explícits. Main local i origin/main a B, treball net. El servidor origin ja té C. La història és lineal i main segueix origin/main."
+    },
+    {
+      "id": "rev_20_01",
+      "title": "La referència local no és una vista en directe",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "El servidor pot haver avançat sense que el nostre ordinador ho sàpiga. origin/main és una referència local de l’última consulta; encara apunta a B.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El servidor pot haver avançat sense que el nostre ordinador ho sàpiga. "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin/main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és una referència local de l’última consulta; encara apunta a B."
+            }
+          ],
+          "visual": "Tres elements separats: main LOCAL B; origin/main LOCAL B; main SERVIDOR C.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "El servidor pot haver avançat sense que el nostre ordinador ho sàpiga. origin/main és una referència local de l’última consulta; encara apunta a B."
+    },
+    {
+      "id": "rev_20_02",
+      "title": "git status --short",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Aquesta consulta no modifica el projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status"
+        },
+        {
+          "id": "pas_005",
+          "narration": "Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "short"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " demana la forma breu. La primera columna compara preparació i últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; la segona, treball i preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --short.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "--short"
+        },
+        {
+          "id": "pas_006",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_007",
+          "narration": "No hi ha canvis locals pendents. Podem observar amb claredat què modifica cada pas.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "No hi ha canvis locals pendents. Podem observar amb claredat què modifica cada pas."
+            }
+          ],
+          "visual": "Mostrar la sortida literal amb les dues columnes separades i una llegenda; conservar els espais de davant de cada lletra. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte. Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació. Executem l’ordre. No hi ha canvis locals pendents. Podem observar amb claredat què modifica cada pas."
+    },
+    {
+      "id": "rev_20_03",
+      "title": "git fetch origin",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_008",
+          "narration": "git fetch descarrega les novetats i actualitza les referències de seguiment.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git fetch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " descarrega les novetats i actualitza les referències de seguiment."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git fetch origin. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git fetch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git fetch origin",
+          "highlight": "git fetch"
+        },
+        {
+          "id": "pas_009",
+          "narration": "Indica el remot que consultem. És el servidor del projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Indica el remot que consultem. És el servidor del projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git fetch origin. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: origin.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git fetch origin",
+          "highlight": "origin"
+        },
+        {
+          "id": "pas_010",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git fetch origin. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git fetch origin"
+          ],
+          "command_display": "git fetch origin",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_011",
+          "narration": "C ja existeix al repositori local i origin/main apunta a C. Main, preparació i treball continuen a B.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "C ja existeix al repositori local i "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin/main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " apunta a C. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", preparació i treball continuen a B."
+            }
+          ],
+          "visual": "Animar descàrrega C i actualització de origin/main. No moure main ni canviar el text de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git fetch origin",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git fetch descarrega les novetats i actualitza les referències de seguiment. Indica el remot que consultem. És el servidor del projecte. Executem l’ordre. C ja existeix al repositori local i origin/main apunta a C. Main, preparació i treball continuen a B."
+    },
+    {
+      "id": "rev_20_04",
+      "title": "git log --oneline main..origin/main",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "Consultem els commits que la branca local encara no conté.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que la branca local encara no conté."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline main..origin/main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline main..origin/main",
+          "highlight": "git log"
+        },
+        {
+          "id": "pas_013",
+          "narration": "Mostra un resum de cada commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Mostra un resum de cada "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline main..origin/main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --oneline.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline main..origin/main",
+          "highlight": "--oneline"
+        },
+        {
+          "id": "pas_014",
+          "narration": "El rang mostra commits accessibles des d’origin/main que no són accessibles des de main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El rang mostra "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " accessibles des d’"
+            },
+            {
+              "lang": "en-US",
+              "text": "origin/main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que no són accessibles des de "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline main..origin/main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: main..origin/main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline main..origin/main",
+          "highlight": "main..origin/main"
+        },
+        {
+          "id": "pas_015",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline main..origin/main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log --oneline main..origin/main"
+          ],
+          "command_display": "git log --oneline main..origin/main",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_016",
+          "narration": "En aquest exemple només apareix C. La consulta tampoc integra el canvi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquest exemple només apareix C. La consulta tampoc integra el canvi."
+            }
+          ],
+          "visual": "Subratllar primer main, després els dos punts i després origin/main; representar conjunts amb el mateix C. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log --oneline main..origin/main",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem els commits que la branca local encara no conté. Mostra un resum de cada commit. El rang mostra commits accessibles des d’origin/main que no són accessibles des de main. Executem l’ordre. En aquest exemple només apareix C. La consulta tampoc integra el canvi."
+    },
+    {
+      "id": "rev_20_05",
+      "title": "git diff main origin/main -- helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_017",
+          "narration": "Comparem el contingut de les dues versions.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comparem el contingut de les dues versions."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff main origin/main -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git diff.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff main origin/main -- helloGit.py",
+          "highlight": "git diff"
+        },
+        {
+          "id": "pas_018",
+          "narration": "El primer punt de comparació és la nostra branca local.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El primer punt de comparació és la nostra branca local."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff main origin/main -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff main origin/main -- helloGit.py",
+          "highlight": "main"
+        },
+        {
+          "id": "pas_019",
+          "narration": "El segon és l’estat descarregat del remot.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El segon és l’estat descarregat del remot."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff main origin/main -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: origin/main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff main origin/main -- helloGit.py",
+          "highlight": "origin/main"
+        },
+        {
+          "id": "pas_020",
+          "narration": "Separa les versions del camí de fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Separa les versions del camí de fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff main origin/main -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff main origin/main -- helloGit.py",
+          "highlight": "--"
+        },
+        {
+          "id": "pas_021",
+          "narration": "Limitem la comparació al programa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Limitem la comparació al programa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff main origin/main -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff main origin/main -- helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_022",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff main origin/main -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git diff main origin/main -- helloGit.py"
+          ],
+          "command_display": "git diff main origin/main -- helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_023",
+          "narration": "Veiem la salutació nova de C, mentre el fitxer del treball encara té l’original de B.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Veiem la salutació nova de C, mentre el fitxer del treball encara té l’original de B."
+            }
+          ],
+          "visual": "Diff i editor actual visibles alhora; cap fletxa de sobreescriptura. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git diff main origin/main -- helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comparem el contingut de les dues versions. El primer punt de comparació és la nostra branca local. El segon és l’estat descarregat del remot. Separa les versions del camí de fitxer. Limitem la comparació al programa. Executem l’ordre. Veiem la salutació nova de C, mentre el fitxer del treball encara té l’original de B."
+    },
+    {
+      "id": "rev_20_06",
+      "title": "git merge --ff-only origin/main",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_024",
+          "narration": "Després de revisar, decidim incorporar el canvi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Després de revisar, decidim incorporar el canvi."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only origin/main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git merge.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --ff-only origin/main",
+          "highlight": "git merge"
+        },
+        {
+          "id": "pas_025",
+          "narration": "Només permet avançar main directament; amb divergències l’ordre s’aturaria.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Només permet avançar "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " directament; amb divergències l’ordre s’aturaria."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only origin/main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --ff-only.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --ff-only origin/main",
+          "highlight": "--ff-only"
+        },
+        {
+          "id": "pas_026",
+          "narration": "És la referència local actualitzada que volem incorporar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la referència local actualitzada que volem incorporar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only origin/main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: origin/main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --ff-only origin/main",
+          "highlight": "origin/main"
+        },
+        {
+          "id": "pas_027",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only origin/main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git merge --ff-only origin/main"
+          ],
+          "command_display": "git merge --ff-only origin/main",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_028",
+          "narration": "Main avança a C i el treball s’actualitza. Aquest és el pas que integra la novetat.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " avança a C i el treball s’actualitza. Aquest és el pas que integra la novetat."
+            }
+          ],
+          "visual": "Moure main fins a C i actualitzar l’editor després de l’execució. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git merge --ff-only origin/main",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Després de revisar, decidim incorporar el canvi. Només permet avançar main directament; amb divergències l’ordre s’aturaria. És la referència local actualitzada que volem incorporar. Executem l’ordre. Main avança a C i el treball s’actualitza. Aquest és el pas que integra la novetat."
+    },
+    {
+      "id": "rev_20_07",
+      "title": "python3 helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_029",
+          "narration": "Provem la versió incorporada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem la versió incorporada."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3"
+        },
+        {
+          "id": "pas_030",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_031",
+          "narration": "El programa executa la salutació de C. Hem separat descarregar, llegir i integrar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El programa executa la salutació de C. Hem separat descarregar, llegir i integrar."
+            }
+          ],
+          "visual": "Sortida Hola, Anna! i graf local coincident amb el servidor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem la versió incorporada. Executem l’ordre. El programa executa la salutació de C. Hem separat descarregar, llegir i integrar."
+    },
+    {
+      "id": "rev_20_08",
+      "title": "Resum final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_032",
+          "narration": "Fetch actualitza les referències de seguiment, sense integrar a main.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Fetch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " actualitza les referències de seguiment, sense integrar a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_033",
+          "narration": "Log i diff permeten revisar el que hem descarregat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Log i diff permeten revisar el que hem descarregat."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_034",
+          "narration": "La integració és posterior; pull combina descàrrega i intent d’integració.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La integració és posterior; "
+            },
+            {
+              "lang": "en-US",
+              "text": "pull"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " combina descàrrega i intent d’integració."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "Fetch actualitza les referències de seguiment, sense integrar a main. Log i diff permeten revisar el que hem descarregat. La integració és posterior; pull combina descàrrega i intent d’integració."
+    },
+    {
+      "id": "rev_20_09",
+      "title": "Pràctica final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_035",
+          "narration": "Amb dos clons de pràctiques, publica una novetat en un i fes fetch a l’altre. Compara main i origin/main abans d’integrar amb el treball net.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb dos clons de pràctiques, publica una novetat en un i fes "
+            },
+            {
+              "lang": "en-US",
+              "text": "fetch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a l’altre. Compara "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin/main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " abans d’integrar amb el treball net."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "Amb dos clons de pràctiques, publica una novetat en un i fes fetch a l’altre. Compara main i origin/main abans d’integrar amb el treball net."
+    }
+  ],
+  "intro": {
+    "narration": "Vintena lliçó, Fetch.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Vintena lliçó, "
+      },
+      {
+        "lang": "en-US",
+        "text": "Fetch"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  }
+}

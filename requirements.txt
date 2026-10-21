@@ -1,0 +1,4 @@
+# Producció completa (veu Azure, imatges i guions)
+-r requirements-comprovacions.txt
+azure-cognitiveservices-speech==1.52.0
+python-dotenv==1.2.4

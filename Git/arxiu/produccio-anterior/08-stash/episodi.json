@@ -1,0 +1,96 @@
+{
+  "title": "Stash: aparca la feina pendent",
+  "episode_number": 8,
+  "short_title": "STASH",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Vuitena lliçó, Stash."
+  },
+  "prerequisites": "Branca salutacio creada des de main al mateix commit B. HelloGit.py està seguit i confirmat amb print(\"Hello Git!\"); ara té l'edició no preparada print(\"Hola, Anna!\"). Notes.md és un fitxer nou no seguit i no ignorat. No hi ha canvis preparats a l'índex. Les comandes usen helloGit.py i notes.md en minúscula. No es modifica main durant l'exemple. Stash crea una entrada separada; no afegeix cap commit a la branca. Les lletres són didàctiques.",
+  "scenes": [
+    {
+      "id": "t_hook",
+      "label": "UNA INTERRUPCIÓ",
+      "title": "La feina encara no està acabada",
+      "narration": "Tens una salutació a mig fer i et demanen arreglar un error a main. Com aparques aquesta feina sense perdre-la?",
+      "visual": "Un editor mostra el missatge pendent i notes.md. Apareix una petició per atendre main, sense modificar encara la branca."
+    },
+    {
+      "id": "t_status",
+      "label": "01 / VEURE QUÈ HI HA PENDENT",
+      "title": "Un fitxer modificat i un de nou",
+      "narration": "Hi ha un fitxer modificat i un de nou. Git status els mostra com a feina pendent de commit.",
+      "visual": "La terminal mostra M a la segona columna per a helloGit.py i ?? per a notes.md. Encara no hi ha canvis preparats.",
+      "commands": [
+        "git status --short"
+      ]
+    },
+    {
+      "id": "t_push",
+      "label": "02 / GUARDAR TEMPORALMENT",
+      "title": "Stash aparta els canvis",
+      "narration": "Fem git stash push amb l'opció u. Guardem els canvis i els fitxers nous no seguits; el directori de treball queda net.",
+      "visual": "Els dos canvis es copien a una entrada separada. HelloGit.py torna al contingut confirmat i notes.md desapareix del directori de treball.",
+      "commands": [
+        "git stash push -u -m \"Salutacio pendent\""
+      ]
+    },
+    {
+      "id": "t_list",
+      "label": "03 / CONSULTAR EL QUE HEM DESAT",
+      "title": "La feina queda a l'stash",
+      "narration": "L'entrada conserva la feina i un missatge per reconèixer-la. Git stash list mostra les entrades que tenim desades.",
+      "visual": "El calaix de stash conté helloGit.py i notes.md. La terminal mostra stash@{0}: On salutacio: Salutacio pendent.",
+      "commands": [
+        "git stash list"
+      ]
+    },
+    {
+      "id": "t_main",
+      "label": "04 / ATENDRE L'ALTRA TASCA",
+      "title": "Ara podem canviar a main",
+      "narration": "Ara canviem a main per atendre l'altra tasca. La feina continua a l'stash, sense afegir cap commit a salutació.",
+      "visual": "La branca activa passa a main, que mostra el missatge original. L'entrada d'stash queda visible i el commit de salutacio no es mou.",
+      "commands": [
+        "git switch main"
+      ]
+    },
+    {
+      "id": "t_back",
+      "label": "05 / TORNAR A LA FEINA",
+      "title": "Recuperem la branca de treball",
+      "narration": "Quan acabem, tornem a salutació. Comprovem que el directori de treball és net abans de recuperar els canvis.",
+      "visual": "Tornem a salutacio. Git status --short no produeix cap línia. L'entrada d'stash encara hi és.",
+      "commands": [
+        "git switch salutacio",
+        "git status --short"
+      ]
+    },
+    {
+      "id": "t_pop",
+      "label": "06 / RECUPERAR ELS CANVIS",
+      "title": "La feina torna a l'editor",
+      "narration": "Amb git stash pop recuperem el fitxer modificat i el fitxer nou. Si s'apliquen bé, aquesta entrada s'elimina de la llista.",
+      "visual": "Els canvis tornen del calaix al directori de treball. El missatge personalitzat i notes.md reapareixen. L'aplicació és compatible i l'entrada es retira.",
+      "commands": [
+        "git stash pop",
+        "git stash list"
+      ]
+    },
+    {
+      "id": "t_summary",
+      "label": "JA HO TENS",
+      "title": "Aparca. Canvia de tasca. Recupera.",
+      "narration": "La feina torna a estar pendent de commit. Stash serveix per fer una pausa; després la podem continuar i confirmar quan estigui llesta.",
+      "visual": "Resum dels tres passos. La feina recuperada continua sense confirmar, i els punters de main i salutacio es conserven al commit B.",
+      "commands": [
+        "git stash push -u",
+        "git stash list",
+        "git stash pop"
+      ]
+    }
+  ]
+}

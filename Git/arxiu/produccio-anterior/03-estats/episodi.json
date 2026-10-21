@@ -1,0 +1,91 @@
+{
+  "title": "Desar, preparar i fer commit: els tres estats",
+  "episode_number": 3,
+  "short_title": "ELS TRES ESTATS",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Tercera lliçó, Els tres estats."
+  },
+  "prerequisites": "Fitxer helloGit.py ja seguit per Git i confirmat amb print(\"Hello Git!\"). Sense canvis pendents. Les etiquetes V1, V2 i V3 representen continguts del mateix fitxer, no fitxers duplicats.",
+  "scenes": [
+    {
+      "id": "s_hook",
+      "label": "QUÈ ENTRARÀ AL COMMIT?",
+      "title": "Has editat després de git add?",
+      "narration": "Has desat el fitxer i has fet git add. Després hi escrius una altra línia. Si ara fas commit, hi entrarà també aquesta última línia?",
+      "visual": "Dues còpies conceptuals del mateix fitxer: la versió preparada i una edició posterior amb una segona línia."
+    },
+    {
+      "id": "s_spaces",
+      "label": "TRES ESPAIS",
+      "title": "Desar és només el primer pas",
+      "narration": "Tres espais: carpeta de treball, preparació i historial. Desar a l'editor només modifica el primer; encara no crea cap commit.",
+      "visual": "Tres zones amb una còpia V1 del fitxer i una fletxa per a add i una altra per a commit."
+    },
+    {
+      "id": "s_edit",
+      "label": "01 / DESAR UN CANVI",
+      "title": "El canvi és al fitxer de treball",
+      "narration": "El fitxer ja té un commit. Canviem el missatge: git diff mostra els canvis que encara no hem preparat.",
+      "visual": "La carpeta de treball passa a V2. Preparació i historial continuen a V1. La terminal mostra el diff del missatge.",
+      "commands": [
+        "git diff"
+      ]
+    },
+    {
+      "id": "s_add",
+      "label": "02 / PREPARAR",
+      "title": "Add copia l'estat d'ara",
+      "narration": "Git add copia l'estat actual a la preparació. Git diff amb l'opció staged mostra què entrarà al pròxim commit.",
+      "visual": "Una còpia V2 viatja a la preparació, mentre que V2 també continua al directori de treball i l'historial encara és V1.",
+      "commands": [
+        "git add helloGit.py",
+        "git diff --staged"
+      ]
+    },
+    {
+      "id": "s_again",
+      "label": "03 / EDITAR UNA ALTRA VEGADA",
+      "title": "La preparació no canvia sola",
+      "narration": "Després d'add, afegim una segona línia. Aquesta edició queda a la carpeta de treball; la preparació conserva l'estat anterior.",
+      "visual": "V3 conté un comiat nou. La preparació conserva V2 i l'historial V1. Es remarca que add no és un vincle viu amb el fitxer."
+    },
+    {
+      "id": "s_compare",
+      "label": "PREPARATS I PENDENTS",
+      "title": "Dos diffs. Dues comparacions.",
+      "narration": "Git status mostra canvis preparats i pendents al mateix fitxer. Git diff mostra els pendents; l'opció staged, els preparats.",
+      "visual": "Dos terminals mostren git diff amb la línia nova i git diff --staged amb el canvi de salutació. MM indica canvis als dos llocs.",
+      "commands": [
+        "git status --short",
+        "git diff",
+        "git diff --staged"
+      ]
+    },
+    {
+      "id": "s_commit",
+      "label": "04 / FER COMMIT",
+      "title": "Es confirma el que has preparat",
+      "narration": "Si fem commit ara, guardem només el que havíem preparat. L'última línia continua al fitxer, però encara no és a l'historial.",
+      "visual": "L'historial avança a V2. Preparació i historial coincideixen; el fitxer de treball encara és V3 i té un canvi pendent.",
+      "commands": [
+        "git commit -m \"Canvia salutacio\"",
+        "git status --short"
+      ]
+    },
+    {
+      "id": "s_summary",
+      "label": "ARA INCLOEM L'ÚLTIMA EDICIÓ",
+      "title": "Desar. Preparar. Confirmar.",
+      "narration": "Per incloure-la, repetim git add i fem un altre commit. Recorda: desar modifica, add prepara i commit guarda a l'historial.",
+      "visual": "V3 es copia a la preparació i després es confirma. Les tres zones acaben amb el mateix contingut, sense canvis pendents.",
+      "commands": [
+        "git add helloGit.py",
+        "git commit -m \"Afegeix comiat\""
+      ]
+    }
+  ]
+}

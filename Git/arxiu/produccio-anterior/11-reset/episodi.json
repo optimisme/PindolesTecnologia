@@ -1,0 +1,85 @@
+{
+  "title": "Reset: torna enrere un commit local",
+  "episode_number": 11,
+  "short_title": "RESET",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Onzena lliçó, Reset."
+  },
+  "prerequisites": "Main apunta a C, un commit propi encara no publicat. Arbre i índex nets. B conté print(\"Hello Git!\"), C conté print(\"Hola, Anna!\"). A, B, C i els hashes són il·lustratius. Es comparen dues alternatives independents que parteixen de C: soft i mixed. No s’executen seguides. HEAD segueix main; el reset mou main a B i C queda fora de la línia de main, sense esborrar immediatament l’objecte. No hi ha altres edicions pendents.",
+  "scenes": [
+    {
+      "id": "x_hook",
+      "label": "UN COMMIT MASSA AVIAT",
+      "title": "Vull continuar editant aquest canvi",
+      "narration": "Has fet un commit, però encara hi vols treballar. És teu i no l’has publicat. Amb reset podem fer retrocedir la branca i conservar el canvi al fitxer.",
+      "visual": "Graf A–B–C, main a C. C conté el missatge Hola, Anna! i es marca com a només local."
+    },
+    {
+      "id": "x_before",
+      "label": "01 / PUNT DE PARTIDA",
+      "title": "Main és a C. Tot està confirmat.",
+      "narration": "Partim d’un directori net. Main és al commit C. El treball, la preparació i l’últim commit contenen la mateixa versió del fitxer.",
+      "visual": "Zones treball V2, preparació V2 i HEAD V2. Terminal status net i log C–B–A.",
+      "commands": [
+        "git status --short",
+        "git log --oneline"
+      ]
+    },
+    {
+      "id": "x_soft",
+      "label": "OPCIÓ A / CONSERVAR LA PREPARACIÓ",
+      "title": "Soft mou la branca a B",
+      "narration": "Fem reset amb soft i HEAD, titlla, u: el commit anterior. Main retrocedeix a B, però el fitxer i la preparació conserven el contingut de C.",
+      "visual": "Main passa de C a B; C queda atenuat. Zones V2 V2 V1.",
+      "commands": [
+        "git reset --soft HEAD~1"
+      ]
+    },
+    {
+      "id": "x_softcheck",
+      "label": "RESULTAT DE SOFT",
+      "title": "El canvi continua preparat",
+      "narration": "Status mostra el canvi preparat. Diff amb staged el compara amb B. Podem continuar editant, tornar a preparar el fitxer i fer un altre commit.",
+      "visual": "M a la primera columna. Diff staged mostra la substitució del missatge. No s’executa cap altre reset.",
+      "commands": [
+        "git status --short",
+        "git diff --staged"
+      ]
+    },
+    {
+      "id": "x_restart",
+      "label": "OPCIÓ B / CAS INDEPENDENT",
+      "title": "Tornem al punt de partida C",
+      "narration": "Ara comparem una alternativa. Imaginem de nou el punt de partida: main a C i tot net. Aquesta opció no s’executa després de l’anterior.",
+      "visual": "Cartell ALTERNATIVA INDEPENDENT. Graf main C i les tres zones V2. Sense comandes per reconstruir el cas."
+    },
+    {
+      "id": "x_mixed",
+      "label": "OPCIÓ B / TORNAR A PREPARAR",
+      "title": "Mixed deixa el canvi sense preparar",
+      "narration": "Amb mixed, main també retrocedeix a B. La preparació passa al contingut de B, però el fitxer conserva el canvi. Ara queda pendent de preparar.",
+      "visual": "Graf main B; C atenuat; zones treball V2, preparació V1, HEAD V1.",
+      "commands": [
+        "git reset --mixed HEAD~1"
+      ]
+    },
+    {
+      "id": "x_compare",
+      "label": "COMPARAR ELS RESULTATS",
+      "title": "El fitxer es conserva en tots dos casos",
+      "narration": "Soft deixa el canvi preparat. Mixed el deixa sense preparar. En tots dos casos main apunta a B i el fitxer manté el missatge nou.",
+      "visual": "Dues targetes independents SOFT V2/V2/V1 i MIXED V2/V1/V1. Estat M en columna 1 o 2 respectivament."
+    },
+    {
+      "id": "x_summary",
+      "label": "JA HO TENS",
+      "title": "Un pas enrere per continuar treballant",
+      "narration": "Aquí hem reescrit una branca local encara no publicada. C ja no surt a la seva línia, però pot continuar al repositori. A la pròxima lliçó el recuperarem amb reflog.",
+      "visual": "Main B i C atenuat amb etiqueta Fora de main. Enllaç visual cap a la lliçó RE FLOG. No es mostra hard ni force push."
+    }
+  ]
+}

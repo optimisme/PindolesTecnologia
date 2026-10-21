@@ -1,0 +1,91 @@
+{
+  "title": "Restore: desmarca o descarta un canvi local",
+  "episode_number": 9,
+  "short_title": "RESTORE",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Novena lliçó, Restore."
+  },
+  "prerequisites": "HelloGit.py és un fitxer seguit, amb print(\"Hello Git!\") a l'últim commit. L'hem editat a print(\"Hola, Anna!\") i hem fet git add helloGit.py. No hi ha altres canvis. L'exemple usa el nom helloGit.py en minúscula. Restore --staged restaura per defecte l'índex des de HEAD i conserva el directori de treball. Restore sense staged restaura per defecte el directori de treball des de l'índex. Es descarta l'edició local només després d'haver-la revisat i haver decidit que no es vol conservar.",
+  "scenes": [
+    {
+      "id": "u_hook",
+      "label": "UN CANVI PREPARAT PER ERROR",
+      "title": "Volies preparar aquest fitxer?",
+      "narration": "Has preparat un canvi amb git add, però t'has equivocat de fitxer. Vols treure'l de preparació sense perdre l'edició.",
+      "visual": "HelloGit.py apareix seleccionat a la preparació, amb el missatge nou. L'objectiu és desmarcar-lo conservant el fitxer editat."
+    },
+    {
+      "id": "u_before",
+      "label": "ABANS DE RESTORE",
+      "title": "El missatge nou està preparat",
+      "narration": "Treball i preparació tenen el missatge nou. L'últim commit conserva l'original. Són les tres zones que ja coneixem.",
+      "visual": "Treball V2, preparació V2 i historial V1. La terminal mostra M a la primera columna perquè el canvi està preparat.",
+      "commands": [
+        "git status --short"
+      ]
+    },
+    {
+      "id": "u_unstage",
+      "label": "01 / TREURE DE PREPARACIÓ",
+      "title": "Desmarcar conserva l'edició",
+      "narration": "Git restore amb l'opció staged i el nom del fitxer el treu de preparació. L'edició del directori de treball es conserva.",
+      "visual": "L'índex torna de V2 a V1 per còpia de HEAD. Treball conserva V2. La fletxa va d'historial a preparació.",
+      "commands": [
+        "git restore --staged helloGit.py"
+      ]
+    },
+    {
+      "id": "u_diff",
+      "label": "02 / REVISAR QUÈ CONTINUA MODIFICAT",
+      "title": "El canvi continua al fitxer",
+      "narration": "Git status ara marca el canvi com a pendent de preparar. Amb git diff podem revisar exactament què continua modificat.",
+      "visual": "Treball V2, preparació V1 i historial V1. Status té M a la segona columna. El diff mostra la salutació nova respecte de l'original.",
+      "commands": [
+        "git status --short",
+        "git diff"
+      ]
+    },
+    {
+      "id": "u_decide",
+      "label": "03 / DECIDIR DESCARTAR L'EDICIÓ",
+      "title": "Aquest canvi local no el volem",
+      "narration": "Després de revisar-lo, decidim que tampoc volem conservar aquest canvi local. Encara no té cap commit: el descartarem del fitxer.",
+      "visual": "Es compara el missatge editat amb el que es conservarà. Una etiqueta explicita que aquesta edició local es descartarà, sense presentar-ho com una recuperació automàtica."
+    },
+    {
+      "id": "u_restore",
+      "label": "04 / RESTAURAR EL FITXER DE TREBALL",
+      "title": "Restore copia des de la preparació",
+      "narration": "Fem git restore amb el nom del fitxer. Restaura el treball des de la preparació, que ara coincideix amb l'últim commit.",
+      "visual": "La fletxa va de preparació a treball i copia V1. L'edició V2 desapareix del fitxer. L'índex i l'historial no canvien.",
+      "commands": [
+        "git restore helloGit.py"
+      ]
+    },
+    {
+      "id": "u_check",
+      "label": "05 / COMPROVAR EL RESULTAT",
+      "title": "El missatge original reapareix",
+      "narration": "El missatge original reapareix i git status queda sense canvis pendents. No hem creat ni esborrat cap commit de l'historial.",
+      "visual": "Les tres zones contenen V1. Status --short no mostra cap línia i els commits no es mouen.",
+      "commands": [
+        "git status --short"
+      ]
+    },
+    {
+      "id": "u_summary",
+      "label": "DUES OPERACIONS DIFERENTS",
+      "title": "Desmarcar o descartar?",
+      "narration": "Amb staged, desmarquem i conservem l'edició. Sense staged, restaurem el treball des de la preparació. Tria l'operació segons què vols conservar.",
+      "visual": "Dos panells distingeixen treure de preparació i descartar una edició de treball. Les comandes estan vinculades a les seves fletxes i efectes.",
+      "commands": [
+        "git restore --staged helloGit.py",
+        "git restore helloGit.py"
+      ]
+    }
+  ]
+}

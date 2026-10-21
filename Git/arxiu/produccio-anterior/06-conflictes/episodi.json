@@ -1,0 +1,92 @@
+{
+  "title": "Conflictes: dues edicions, una decisió",
+  "episode_number": 6,
+  "short_title": "CONFLICTES",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Sisena lliçó, Conflictes."
+  },
+  "prerequisites": "Arbre de treball net a main. Des d'una mateixa base B amb print(\"Hello Git!\"), main ha creat D amb print(\"Hola, classe!\") i salutacio ha creat C amb print(\"Hola, Anna!\"). Les dues branques modifiquen la mateixa línia. Marcadors de conflicte del format merge habitual. Les lletres representen commits il·lustratius.",
+  "scenes": [
+    {
+      "id": "c_hook",
+      "label": "DUES EDICIONS INCOMPATIBLES",
+      "title": "Quin missatge s'ha de quedar?",
+      "narration": "Dues branques han canviat la mateixa línia de manera diferent. En fer merge, quin missatge s'ha de quedar? Git necessita que decidim el resultat.",
+      "visual": "Dos editors mostren Hola, classe! i Hola, Anna! amb la mateixa línia ressaltada."
+    },
+    {
+      "id": "c_before",
+      "label": "UN MATEIX PUNT DE PARTIDA",
+      "title": "La mateixa línia, dos canvis",
+      "narration": "Les dues branques parteixen del mateix missatge. A main l'hem canviat per Hola, classe; a salutació, per Hola, Anna.",
+      "visual": "El graf B–D i B–C connecta les dues edicions al mateix ancestre. S'etiqueten main i salutacio."
+    },
+    {
+      "id": "c_stop",
+      "label": "01 / INTENTAR LA FUSIÓ",
+      "title": "Merge s'atura per decidir",
+      "narration": "Des de main, executem git merge salutació. La fusió s'atura amb un conflicte. Encara no s'ha creat el commit que uneix els canvis.",
+      "visual": "La terminal indica CONFLICT (content). El graf continua amb D i C separats; encara no hi ha cap commit M.",
+      "commands": [
+        "git merge salutacio"
+      ]
+    },
+    {
+      "id": "c_markers",
+      "label": "02 / LLEGIR EL CONFLICTE",
+      "title": "Git assenyala les dues versions",
+      "narration": "Git status identifica el fitxer pendent. Dins del fitxer, els marcadors separen la versió de main i la de salutació.",
+      "visual": "Un terminal mostra UU helloGit.py. L'editor conté tots els marcadors: <<<<<<< HEAD, ======= i >>>>>>> salutacio.",
+      "commands": [
+        "git status --short"
+      ]
+    },
+    {
+      "id": "c_edit",
+      "label": "03 / ESCRIURE I PROVAR EL RESULTAT",
+      "title": "El resultat el decidim nosaltres",
+      "narration": "Editem el fitxer i triem el text final: Hola, grup. Eliminem tots els marcadors i comprovem que el programa funciona.",
+      "visual": "El fitxer queda amb print(\"Hola, grup!\"), sense marcadors. Python l'executa i mostra Hola, grup!.",
+      "commands": [
+        "python3 helloGit.py"
+      ]
+    },
+    {
+      "id": "c_add",
+      "label": "04 / MARCAR COM A RESOLT",
+      "title": "Add prepara la resolució",
+      "narration": "Ara git add marca el conflicte com a resolt. Preparar el fitxer no crea encara el commit de merge.",
+      "visual": "El fitxer resolt s'afegeix a l'índex. Status passa d'UU a M preparat. La fusió continua pendent de commit.",
+      "commands": [
+        "git add helloGit.py",
+        "git status --short"
+      ]
+    },
+    {
+      "id": "c_commit",
+      "label": "05 / ACABAR LA FUSIÓ",
+      "title": "Ara sí: un commit amb dos pares",
+      "narration": "Amb git commit, acabem la fusió. El nou commit connecta els dos historials i conserva el contingut que hem revisat.",
+      "visual": "Apareix M amb pares D i C; main avança a M i salutacio continua a C. El text final és Hola, grup!.",
+      "commands": [
+        "git commit -m \"Resol conflicte\""
+      ]
+    },
+    {
+      "id": "c_summary",
+      "label": "JA HO TENS",
+      "title": "Revisa. Resol. Prova. Confirma.",
+      "narration": "Per resoldre un conflicte, revisa les dues propostes, escriu el resultat correcte, prova'l i confirma'l. Main ja incorpora la teva decisió.",
+      "visual": "Resum: revisar les propostes, eliminar els marcadors, provar el codi, add i commit.",
+      "commands": [
+        "python3 helloGit.py",
+        "git add helloGit.py",
+        "git commit -m \"Resol conflicte\""
+      ]
+    }
+  ]
+}

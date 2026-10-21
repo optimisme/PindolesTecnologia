@@ -1,0 +1,1251 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 30,
+  "slug": "30-worktree",
+  "title": "Worktree: corregeix main sense interrompre la feina",
+  "short_title": "WORKTREE",
+  "card": [
+    "WORKTREE",
+    "Dues carpetes, un historial compartit"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "30-worktree.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Trentena lliçó. Worktree.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Trentena lliçó. "
+      },
+      {
+        "lang": "en-US",
+        "text": "Worktree"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  },
+  "objective": "fer una correcció en una segona carpeta de treball sense tocar la feina pendent de la primera.",
+  "start_note": "Carpeta projecte a la branca salutacio, amb una edició sense preparar a helloGit.py. main és a B i no està activa a cap altra carpeta. La carpeta auxiliar encara no existeix.",
+  "start_spoken": "Som a la branca salutació, a mitja feina. Ens demanen una correcció ràpida a main i no volem tocar el que tenim a mig fer.",
+  "summary": [
+    "Les carpetes d’un worktree comparteixen historial i branques.",
+    "Cada carpeta té treball, preparació i branca activa propis.",
+    "Retirar una carpeta neta conserva els commits i les branques."
+  ],
+  "practice": "En un repositori de pràctiques, deixa una edició pendent i crea un worktree per a una correcció petita. Comprova l’estat de les dues carpetes abans de retirar l’auxiliar.",
+  "practice_script": "practiques/30-worktree.sh",
+  "scenes": [
+    {
+      "id": "e30_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a fer una correcció en una segona carpeta de treball sense tocar la feina pendent de la primera.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a fer una correcció en una segona carpeta de treball sense tocar la feina pendent de la primera."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Som a la branca salutació, a mitja feina. Ens demanen una correcció ràpida a main i no volem tocar el que tenim a mig fer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Som a la branca salutació, a mitja feina. Ens demanen una correcció ràpida a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i no volem tocar el que tenim a mig fer."
+            }
+          ],
+          "visual": "Punt de partida: Carpeta projecte a la branca salutacio, amb una edició sense preparar a helloGit.py. main és a B i no està activa a cap altra carpeta. La carpeta auxiliar encara no existeix.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a fer una correcció en una segona carpeta de treball sense tocar la feina pendent de la primera. Som a la branca salutació, a mitja feina. Ens demanen una correcció ràpida a main i no volem tocar el que tenim a mig fer."
+    },
+    {
+      "id": "e30_01",
+      "label": "EXPLICACIÓ",
+      "title": "Dues carpetes, preparacions separades",
+      "mode": "principal",
+      "visual": "Dos espais, ORIGINAL a salutacio amb un canvi pendent i AUXILIAR encara inexistent.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Un worktree és una segona carpeta de treball connectada al mateix repositori. Té els seus fitxers, la seva preparació i la seva branca activa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Un "
+            },
+            {
+              "lang": "en-US",
+              "text": "worktree"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és una segona carpeta de treball connectada al mateix repositori. Té els seus fitxers, la seva preparació i la seva branca activa."
+            }
+          ],
+          "visual": "Dos espais, ORIGINAL a salutacio amb un canvi pendent i AUXILIAR encara inexistent.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "narration": "Un worktree és una segona carpeta de treball connectada al mateix repositori. Té els seus fitxers, la seva preparació i la seva branca activa."
+    },
+    {
+      "id": "e30_02",
+      "label": "TERMINAL",
+      "title": "git worktree add -b correccio ../projecte-correccio main",
+      "mode": "principal",
+      "visual": "Crear la segona carpeta; el text de l’editor original no es mou.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "git worktree add crea la carpeta nova.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git worktree add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea la carpeta nova."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git worktree add -b correccio ../projecte-correccio main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git worktree add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git worktree add -b correccio ../projecte-correccio main",
+          "highlight": "git worktree add",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "El guionet be crea una branca nova per a aquesta carpeta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet be crea una branca nova per a aquesta carpeta."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git worktree add -b correccio ../projecte-correccio main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -b.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git worktree add -b correccio ../projecte-correccio main",
+          "highlight": "-b",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "És el nom de la branca de la correcció.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca de la correcció."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git worktree add -b correccio ../projecte-correccio main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: correccio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git worktree add -b correccio ../projecte-correccio main",
+          "highlight": "correccio",
+          "state": 0
+        },
+        {
+          "id": "pas_007",
+          "narration": "És el camí de la carpeta nova, al costat de l’original.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el camí de la carpeta nova, al costat de l’original."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git worktree add -b correccio ../projecte-correccio main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: ../projecte-correccio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git worktree add -b correccio ../projecte-correccio main",
+          "highlight": "../projecte-correccio",
+          "state": 0
+        },
+        {
+          "id": "pas_008",
+          "narration": "És el punt de partida; la correcció comença a la versió de main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el punt de partida; la correcció comença a la versió de "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git worktree add -b correccio ../projecte-correccio main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git worktree add -b correccio ../projecte-correccio main",
+          "highlight": "main",
+          "state": 0
+        },
+        {
+          "id": "pas_009",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git worktree add -b correccio ../projecte-correccio main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git worktree add -b correccio ../projecte-correccio main"
+          ],
+          "command_display": "git worktree add -b correccio ../projecte-correccio main",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_010",
+          "narration": "La carpeta auxiliar comença neta, a la branca correcció. L’original conserva l’edició pendent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La carpeta auxiliar comença neta, a la branca correcció. L’original conserva l’edició pendent."
+            }
+          ],
+          "visual": "Crear la segona carpeta; el text de l’editor original no es mou. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git worktree add -b correccio ../projecte-correccio main",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "HEAD is now at 99010b3 Afegeix una exclamacio",
+            "Preparing worktree (new branch 'correccio')"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git worktree add crea la carpeta nova. El guionet be crea una branca nova per a aquesta carpeta. És el nom de la branca de la correcció. És el camí de la carpeta nova, al costat de l’original. És el punt de partida; la correcció comença a la versió de main. Executem l’ordre. La carpeta auxiliar comença neta, a la branca correcció. L’original conserva l’edició pendent."
+    },
+    {
+      "id": "e30_03",
+      "label": "TERMINAL",
+      "title": "git worktree list",
+      "mode": "principal",
+      "visual": "Dues files amb camí i branca a la sortida real; indicador AQUÍ SOM a l’original.",
+      "beats": [
+        {
+          "id": "pas_011",
+          "narration": "Consultem les carpetes connectades.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem les carpetes connectades."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git worktree list. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git worktree list.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git worktree list",
+          "highlight": "git worktree list",
+          "state": 1
+        },
+        {
+          "id": "pas_012",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git worktree list. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git worktree list"
+          ],
+          "command_display": "git worktree list",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_013",
+          "narration": "Cada línia mostra una carpeta i la seva branca activa. Encara treballem des de l’original.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cada línia mostra una carpeta i la seva branca activa. Encara treballem des de l’original."
+            }
+          ],
+          "visual": "Dues files amb camí i branca a la sortida real; indicador AQUÍ SOM a l’original. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git worktree list",
+          "event": "result",
+          "state": 2,
+          "simulated": false,
+          "terminal_output": [
+            "~/projecte           99010b3 [salutacio]",
+            "~/projecte-correccio 99010b3 [correccio]"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem les carpetes connectades. Executem l’ordre. Cada línia mostra una carpeta i la seva branca activa. Encara treballem des de l’original."
+    },
+    {
+      "id": "e30_04",
+      "label": "TERMINAL",
+      "title": "cd ../projecte-correccio",
+      "mode": "principal",
+      "visual": "AQUÍ SOM passa a l’auxiliar; l’editor original continua de referència.",
+      "beats": [
+        {
+          "id": "pas_014",
+          "narration": "Entrem a la carpeta auxiliar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Entrem a la carpeta auxiliar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd ../projecte-correccio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: cd.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "cd ../projecte-correccio",
+          "highlight": "cd",
+          "state": 2
+        },
+        {
+          "id": "pas_015",
+          "narration": "Els dos punts pugen a la carpeta superior i, des d’allà, entrem a la nova.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Els dos punts pugen a la carpeta superior i, des d’allà, entrem a la nova."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd ../projecte-correccio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: ../projecte-correccio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "cd ../projecte-correccio",
+          "highlight": "../projecte-correccio",
+          "state": 2
+        },
+        {
+          "id": "pas_016",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd ../projecte-correccio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "cd ../projecte-correccio"
+          ],
+          "command_display": "cd ../projecte-correccio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_017",
+          "narration": "La terminal és a la carpeta de la correcció, que no té canvis pendents.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La terminal és a la carpeta de la correcció, que no té canvis pendents."
+            }
+          ],
+          "visual": "AQUÍ SOM passa a l’auxiliar; l’editor original continua de referència. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "cd ../projecte-correccio",
+          "event": "result",
+          "state": 3,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Entrem a la carpeta auxiliar. Els dos punts pugen a la carpeta superior i, des d’allà, entrem a la nova. Executem l’ordre. La terminal és a la carpeta de la correcció, que no té canvis pendents."
+    },
+    {
+      "id": "e30_05",
+      "label": "EXPLICACIÓ",
+      "title": "Fem només la correcció",
+      "mode": "principal",
+      "visual": "Editor auxiliar amb print(\"Hello, Git!\"). L’original continua amb print(\"Hola, Anna!\") sense confirmar.",
+      "beats": [
+        {
+          "id": "pas_018",
+          "narration": "Afegim una coma a la salutació original, desem i provem el programa en aquesta carpeta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Afegim una coma a la salutació original, desem i provem el programa en aquesta carpeta."
+            }
+          ],
+          "visual": "Editor auxiliar amb print(\"Hello, Git!\"). L’original continua amb print(\"Hola, Anna!\") sense confirmar.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 4
+        }
+      ],
+      "narration": "Afegim una coma a la salutació original, desem i provem el programa en aquesta carpeta."
+    },
+    {
+      "id": "e30_06",
+      "label": "TERMINAL",
+      "title": "python3 helloGit.py",
+      "mode": "principal",
+      "visual": "Mostrar la sortida real del programa al costat de l’editor.",
+      "beats": [
+        {
+          "id": "pas_019",
+          "narration": "Provem el programa amb la versió desada del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem el programa amb la versió desada del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3",
+          "state": 4
+        },
+        {
+          "id": "pas_020",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_021",
+          "narration": "Surt la salutació amb coma. La feina de l’altra carpeta continua al seu lloc.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Surt la salutació amb coma. La feina de l’altra carpeta continua al seu lloc."
+            }
+          ],
+          "visual": "Mostrar la sortida real del programa al costat de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result",
+          "state": 5,
+          "simulated": false,
+          "terminal_output": [
+            "Hello, Git!"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem el programa amb la versió desada del fitxer. Executem l’ordre. Surt la salutació amb coma. La feina de l’altra carpeta continua al seu lloc."
+    },
+    {
+      "id": "e30_07",
+      "label": "TERMINAL",
+      "title": "git add helloGit.py",
+      "mode": "principal",
+      "visual": "Copiar el contingut desat a la preparació.",
+      "beats": [
+        {
+          "id": "pas_022",
+          "narration": "Preparem el fitxer amb git add.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparem el fitxer amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "git add",
+          "state": 5
+        },
+        {
+          "id": "pas_023",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "command_display": "git add helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_024",
+          "narration": "La correcció queda preparada només a la carpeta auxiliar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La correcció queda preparada només a la carpeta auxiliar."
+            }
+          ],
+          "visual": "Copiar el contingut desat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "event": "result",
+          "state": 6,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Preparem el fitxer amb git add. Executem l’ordre. La correcció queda preparada només a la carpeta auxiliar."
+    },
+    {
+      "id": "e30_08",
+      "label": "TERMINAL",
+      "title": "git commit -m \"Corregeix la puntuacio\"",
+      "mode": "principal",
+      "visual": "Crear el node nou només en executar.",
+      "beats": [
+        {
+          "id": "pas_025",
+          "narration": "Confirmem el canvi amb git commit i el missatge: Corregeix la puntuació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Confirmem el canvi amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i el missatge: Corregeix la puntuació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Corregeix la puntuacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Corregeix la puntuacio\"",
+          "highlight": "git commit",
+          "state": 6
+        },
+        {
+          "id": "pas_026",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Corregeix la puntuacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Corregeix la puntuacio\""
+          ],
+          "command_display": "git commit -m \"Corregeix la puntuacio\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 6
+        },
+        {
+          "id": "pas_027",
+          "narration": "El commit de la correcció no inclou la feina pendent de la salutació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la correcció no inclou la feina pendent de la salutació."
+            }
+          ],
+          "visual": "Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Corregeix la puntuacio\"",
+          "event": "result",
+          "state": 7,
+          "simulated": false,
+          "terminal_output": [
+            "[correccio 6ddf684] Corregeix la puntuacio",
+            " 1 file changed, 1 insertion(+), 1 deletion(-)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Confirmem el canvi amb git commit i el missatge: Corregeix la puntuació. Executem l’ordre. El commit de la correcció no inclou la feina pendent de la salutació."
+    },
+    {
+      "id": "e30_09",
+      "label": "TERMINAL",
+      "title": "git switch main",
+      "mode": "principal",
+      "visual": "Mantenir tots els commits quiets. Moure l’indicador de branca activa i actualitzar l’editor després de l’execució.",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "Amb git switch canviem a la branca on treballarem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git switch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " canviem a la branca on treballarem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git switch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "highlight": "git switch",
+          "state": 7
+        },
+        {
+          "id": "pas_029",
+          "narration": "És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "highlight": "main",
+          "state": 7
+        },
+        {
+          "id": "pas_030",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git switch main"
+          ],
+          "command_display": "git switch main",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 7
+        },
+        {
+          "id": "pas_031",
+          "narration": "Canviem a main dins de la carpeta auxiliar. Es pot fer perquè main no és activa a cap altra carpeta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Canviem a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " dins de la carpeta auxiliar. Es pot fer perquè "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " no és activa a cap altra carpeta."
+            }
+          ],
+          "visual": "Mantenir tots els commits quiets. Moure l’indicador de branca activa i actualitzar l’editor després de l’execució. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "event": "result",
+          "state": 8,
+          "simulated": false,
+          "terminal_output": [
+            "Switched to branch 'main'"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git switch canviem a la branca on treballarem. És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió. Executem l’ordre. Canviem a main dins de la carpeta auxiliar. Es pot fer perquè main no és activa a cap altra carpeta."
+    },
+    {
+      "id": "e30_10",
+      "label": "TERMINAL",
+      "title": "git merge --ff-only correccio",
+      "mode": "principal",
+      "visual": "main i correccio a D; salutacio a B; dues preparacions separades.",
+      "beats": [
+        {
+          "id": "pas_032",
+          "narration": "Incorporem la correcció a main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Incorporem la correcció a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only correccio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git merge.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --ff-only correccio",
+          "highlight": "git merge",
+          "state": 8
+        },
+        {
+          "id": "pas_033",
+          "narration": "És la branca que acabem de confirmar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la branca que acabem de confirmar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only correccio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: correccio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --ff-only correccio",
+          "highlight": "correccio",
+          "state": 8
+        },
+        {
+          "id": "pas_034",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only correccio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git merge --ff-only correccio"
+          ],
+          "command_display": "git merge --ff-only correccio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 8
+        },
+        {
+          "id": "pas_035",
+          "narration": "main avança fins a la correcció. L’original continua a salutació amb l’edició pendent intacta.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " avança fins a la correcció. L’original continua a salutació amb l’edició pendent intacta."
+            }
+          ],
+          "visual": "main i correccio a D; salutacio a B; dues preparacions separades. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git merge --ff-only correccio",
+          "event": "result",
+          "state": 9,
+          "simulated": false,
+          "terminal_output": [
+            "Updating 99010b3..6ddf684",
+            "Fast-forward",
+            " helloGit.py | 2 +-",
+            " 1 file changed, 1 insertion(+), 1 deletion(-)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Incorporem la correcció a main. És la branca que acabem de confirmar. Executem l’ordre. main avança fins a la correcció. L’original continua a salutació amb l’edició pendent intacta."
+    },
+    {
+      "id": "e30_11",
+      "label": "TERMINAL",
+      "title": "git -C ../projecte status --short",
+      "mode": "principal",
+      "visual": "Consulta identificada com ORIGINAL, diferenciada de l’estat de l’auxiliar.",
+      "beats": [
+        {
+          "id": "pas_036",
+          "narration": "Consultem la carpeta original sense sortir de l’auxiliar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem la carpeta original sense sortir de l’auxiliar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git -C ../projecte status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git -C ../projecte status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git -C ../projecte status --short",
+          "highlight": "git -C ../projecte status",
+          "state": 9
+        },
+        {
+          "id": "pas_037",
+          "narration": "El guionet ce majúscula indica la carpeta on Git ha d’executar l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ce majúscula indica la carpeta on "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ha d’executar l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git -C ../projecte status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -C.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git -C ../projecte status --short",
+          "highlight": "-C",
+          "state": 9
+        },
+        {
+          "id": "pas_038",
+          "narration": "És la carpeta original.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la carpeta original."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git -C ../projecte status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: ../projecte.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git -C ../projecte status --short",
+          "highlight": "../projecte",
+          "state": 9
+        },
+        {
+          "id": "pas_039",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git -C ../projecte status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git -C ../projecte status --short"
+          ],
+          "command_display": "git -C ../projecte status --short",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 9
+        },
+        {
+          "id": "pas_040",
+          "narration": "L’original continua amb la salutació modificada i sense preparar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’original continua amb la salutació modificada i sense preparar."
+            }
+          ],
+          "visual": "Consulta identificada com ORIGINAL, diferenciada de l’estat de l’auxiliar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git -C ../projecte status --short",
+          "event": "result",
+          "state": 10,
+          "simulated": false,
+          "terminal_output": [
+            " M helloGit.py"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem la carpeta original sense sortir de l’auxiliar. El guionet ce majúscula indica la carpeta on Git ha d’executar l’ordre. És la carpeta original. Executem l’ordre. L’original continua amb la salutació modificada i sense preparar."
+    },
+    {
+      "id": "e30_12",
+      "label": "TERMINAL",
+      "title": "cd ../projecte",
+      "mode": "principal",
+      "visual": "Ruta original i editor amb la feina pendent intacta.",
+      "beats": [
+        {
+          "id": "pas_041",
+          "narration": "Tornem a la carpeta original.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Tornem a la carpeta original."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd ../projecte. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: cd.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "cd ../projecte",
+          "highlight": "cd",
+          "state": 10
+        },
+        {
+          "id": "pas_042",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: cd ../projecte. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "cd ../projecte"
+          ],
+          "command_display": "cd ../projecte",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 10
+        },
+        {
+          "id": "pas_043",
+          "narration": "Tornem a la feina de la salutació. La correcció ja és a main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Tornem a la feina de la salutació. La correcció ja és a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Ruta original i editor amb la feina pendent intacta. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "cd ../projecte",
+          "event": "result",
+          "state": 11,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Tornem a la carpeta original. Executem l’ordre. Tornem a la feina de la salutació. La correcció ja és a main."
+    },
+    {
+      "id": "e30_13",
+      "label": "TERMINAL",
+      "title": "git worktree remove ../projecte-correccio",
+      "mode": "principal",
+      "visual": "Retirar només la icona de la carpeta, sense esborrar etiquetes ni nodes del graf.",
+      "beats": [
+        {
+          "id": "pas_044",
+          "narration": "Retirem la carpeta auxiliar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Retirem la carpeta auxiliar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git worktree remove ../projecte-correccio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git worktree remove.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git worktree remove ../projecte-correccio",
+          "highlight": "git worktree remove",
+          "state": 11
+        },
+        {
+          "id": "pas_045",
+          "narration": "Esborra la carpeta. Només ho fa si no té canvis pendents, com en aquest cas.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Esborra la carpeta. Només ho fa si no té canvis pendents, com en aquest cas."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git worktree remove ../projecte-correccio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: remove.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git worktree remove ../projecte-correccio",
+          "highlight": "remove",
+          "state": 11
+        },
+        {
+          "id": "pas_046",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git worktree remove ../projecte-correccio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git worktree remove ../projecte-correccio"
+          ],
+          "command_display": "git worktree remove ../projecte-correccio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 11
+        },
+        {
+          "id": "pas_047",
+          "narration": "La carpeta auxiliar desapareix. main, la branca correcció i el commit es conserven.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La carpeta auxiliar desapareix. "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", la branca correcció i el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " es conserven."
+            }
+          ],
+          "visual": "Retirar només la icona de la carpeta, sense esborrar etiquetes ni nodes del graf. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git worktree remove ../projecte-correccio",
+          "event": "result",
+          "state": 12,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Retirem la carpeta auxiliar. Esborra la carpeta. Només ho fa si no té canvis pendents, com en aquest cas. Executem l’ordre. La carpeta auxiliar desapareix. main, la branca correcció i el commit es conserven."
+    },
+    {
+      "id": "e30_14",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_048",
+          "narration": "Les carpetes d’un worktree comparteixen historial i branques.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les carpetes d’un "
+            },
+            {
+              "lang": "en-US",
+              "text": "worktree"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " comparteixen historial i branques."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_049",
+          "narration": "Cada carpeta té treball, preparació i branca activa propis.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cada carpeta té treball, preparació i branca activa propis."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_050",
+          "narration": "Retirar una carpeta neta conserva els commits i les branques.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Retirar una carpeta neta conserva els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i les branques."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "Les carpetes d’un worktree comparteixen historial i branques. Cada carpeta té treball, preparació i branca activa propis. Retirar una carpeta neta conserva els commits i les branques."
+    },
+    {
+      "id": "e30_15",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_051",
+          "narration": "En un repositori de pràctiques, deixa una edició pendent i crea un worktree per a una correcció petita. Comprova l’estat de les dues carpetes abans de retirar l’auxiliar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un repositori de pràctiques, deixa una edició pendent i crea un "
+            },
+            {
+              "lang": "en-US",
+              "text": "worktree"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " per a una correcció petita. Comprova l’estat de les dues carpetes abans de retirar l’auxiliar."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En un repositori de pràctiques, deixa una edició pendent i crea un worktree per a una correcció petita. Comprova l’estat de les dues carpetes abans de retirar l’auxiliar."
+    }
+  ],
+  "commands": [
+    "git worktree add -b correccio ../projecte-correccio main",
+    "git worktree list",
+    "cd ../projecte-correccio",
+    "python3 helloGit.py",
+    "git add helloGit.py",
+    "git commit -m \"Corregeix la puntuacio\"",
+    "git switch main",
+    "git merge --ff-only correccio",
+    "git -C ../projecte status --short",
+    "cd ../projecte",
+    "git worktree remove ../projecte-correccio"
+  ]
+}

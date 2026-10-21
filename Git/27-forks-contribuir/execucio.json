@@ -1,0 +1,515 @@
+{
+ "llico": "27-forks-contribuir",
+ "autoria": [
+  "Anna Puig",
+  "anna@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "17875ff",
+    "C": "a1adccd"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "a1adccd",
+    "refs": {
+     "main": "a1adccd",
+     "origin": "a1adccd",
+     "origin/main": "a1adccd",
+     "upstream": "a1adccd",
+     "upstream/main": "a1adccd"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "a1adccd",
+      "lletra": "C",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git switch -c salutacio",
+   "sortida": "Switched to a new branch 'salutacio'\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "17875ff",
+    "C": "a1adccd"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "a1adccd",
+    "refs": {
+     "main": "a1adccd",
+     "salutacio": "a1adccd",
+     "origin": "a1adccd",
+     "origin/main": "a1adccd",
+     "upstream": "a1adccd",
+     "upstream/main": "a1adccd"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "a1adccd",
+      "lletra": "C",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "17875ff",
+    "C": "a1adccd"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "a1adccd",
+    "refs": {
+     "main": "a1adccd",
+     "salutacio": "a1adccd",
+     "origin": "a1adccd",
+     "origin/main": "a1adccd",
+     "upstream": "a1adccd",
+     "upstream/main": "a1adccd"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "a1adccd",
+      "lletra": "C",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Hola, Anna!\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "17875ff",
+    "C": "a1adccd"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "a1adccd",
+    "refs": {
+     "main": "a1adccd",
+     "salutacio": "a1adccd",
+     "origin": "a1adccd",
+     "origin/main": "a1adccd",
+     "upstream": "a1adccd",
+     "upstream/main": "a1adccd"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "a1adccd",
+      "lletra": "C",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git add helloGit.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "17875ff",
+    "C": "a1adccd"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "a1adccd",
+    "refs": {
+     "main": "a1adccd",
+     "salutacio": "a1adccd",
+     "origin": "a1adccd",
+     "origin/main": "a1adccd",
+     "upstream": "a1adccd",
+     "upstream/main": "a1adccd"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "a1adccd",
+      "lletra": "C",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [
+     "M  helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git commit -m \"Personalitza la salutacio\"",
+   "sortida": "[salutacio 53a1c5c] Personalitza la salutacio\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "17875ff",
+    "C": "a1adccd",
+    "D": "53a1c5c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "53a1c5c",
+    "refs": {
+     "main": "a1adccd",
+     "salutacio": "53a1c5c",
+     "origin": "a1adccd",
+     "origin/main": "a1adccd",
+     "upstream": "a1adccd",
+     "upstream/main": "a1adccd"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "a1adccd",
+      "lletra": "C",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "53a1c5c",
+      "lletra": "D",
+      "pares": [
+       "a1adccd"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git push -u origin salutacio",
+   "sortida": "branch 'salutacio' set up to track 'origin/salutacio'.\nTo ~/fork.git\n * [new branch]      salutacio -> salutacio\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "17875ff",
+    "C": "a1adccd",
+    "D": "53a1c5c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "53a1c5c",
+    "refs": {
+     "main": "a1adccd",
+     "salutacio": "53a1c5c",
+     "origin": "a1adccd",
+     "origin/main": "a1adccd",
+     "origin/salutacio": "53a1c5c",
+     "upstream": "a1adccd",
+     "upstream/main": "a1adccd"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "a1adccd",
+      "lletra": "C",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "53a1c5c",
+      "lletra": "D",
+      "pares": [
+       "a1adccd"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "17875ff",
+    "C": "a1adccd",
+    "D": "53a1c5c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "53a1c5c",
+    "refs": {
+     "main": "a1adccd",
+     "salutacio": "53a1c5c",
+     "origin": "a1adccd",
+     "origin/main": "a1adccd",
+     "origin/salutacio": "53a1c5c",
+     "upstream": "a1adccd",
+     "upstream/main": "a1adccd"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "a1adccd",
+      "lletra": "C",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "53a1c5c",
+      "lletra": "D",
+      "pares": [
+       "a1adccd"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "17875ff",
+    "C": "a1adccd",
+    "D": "53a1c5c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Anna!\")\n"
+    },
+    "head_commit": "53a1c5c",
+    "refs": {
+     "main": "a1adccd",
+     "salutacio": "53a1c5c",
+     "origin": "a1adccd",
+     "origin/main": "a1adccd",
+     "origin/salutacio": "53a1c5c",
+     "upstream": "a1adccd",
+     "upstream/main": "a1adccd"
+    },
+    "commits": [
+     {
+      "id": "17875ff",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "a1adccd",
+      "lletra": "C",
+      "pares": [
+       "17875ff"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "53a1c5c",
+      "lletra": "D",
+      "pares": [
+       "a1adccd"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "README.md": "Projecte HelloGit\n",
+   "helloGit.py": "print(\"Hello Git!\")\n"
+  },
+  "head_commit": "a1adccd",
+  "refs": {
+   "main": "a1adccd",
+   "origin": "a1adccd",
+   "origin/main": "a1adccd",
+   "upstream": "a1adccd",
+   "upstream/main": "a1adccd"
+  },
+  "commits": [
+   {
+    "id": "17875ff",
+    "lletra": "B",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   },
+   {
+    "id": "a1adccd",
+    "lletra": "C",
+    "pares": [
+     "17875ff"
+    ],
+    "missatge": "Afegeix el README"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "B": "17875ff",
+  "C": "a1adccd"
+ }
+}

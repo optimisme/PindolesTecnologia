@@ -1,0 +1,98 @@
+titol: "Clone: el projecte en un altre ordinador"
+titol_curt: CLONE
+capcalera: [CLONE, El projecte en un altre ordinador]
+presentacio: "[[Clone]]"
+objectiu: publicar un canvi des de classe i obtenir el projecte complet en un altre ordinador.
+inici: >-
+  Dues carpetes simulen dos ordinadors. A classe/HelloGit hi ha main a A, publicada a origin. A casa encara
+  no hi ha cap còpia. El remot representa GitHub.
+inici_parlat: >-
+  A classe tenim el projecte publicat a [[GitHub]]. A casa encara no en tenim cap còpia.
+urls:
+  <URL-del-repositori>: origin
+carpeta: classe/HelloGit
+preparacio:
+  - remot_nu: origin
+  - clona: classe/HelloGit
+    de: origin
+  - cd: classe/HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - git: push -q -u origin main
+
+etapes:
+  - explica: Cada ordinador té la seva còpia
+    text: >-
+      L’ordinador de classe i el de casa tenen repositoris independents. [[GitHub]] és el punt de trobada.
+      Fer un commit en un ordinador no actualitza els altres.
+    visual: Classe i casa amb el servidor al mig. Les fletxes només apareixen quan s’executa una ordre.
+
+  - explica: Acabem el canvi a classe
+    text: Editem la salutació i desem. Abans de marxar, la confirmarem i la publicarem.
+    visual: Editor de CLASSE amb print("Hola des de classe!").
+    accions:
+      - fitxer: helloGit.py
+        contingut: print("Hola des de classe!")
+
+  - plantilla: add-breu
+    resultat: El canvi de classe queda preparat.
+
+  - plantilla: commit-breu
+    missatge: Practica de classe
+    crea: B
+    resultat: El commit nou existeix a classe. El servidor encara no el té.
+    comprova: {refs: {main: B, origin/main: A}}
+
+  - plantilla: push
+    resultat: El servidor ja té el commit de classe. Ara és el punt de trobada amb la versió nova.
+    comprova:
+      remot: {origin: {main: B}}
+
+  - explica: A casa, el primer cop
+    text: >-
+      A casa encara no tenim el projecte. Per obtenir-lo, el clonem una sola vegada; després ja treballarem
+      sempre en aquella carpeta.
+    visual: Canvi clar de context a la ruta CASA. Panell CAP CÒPIA LOCAL.
+    accions:
+      - carpeta: casa
+      - cd: casa
+
+  - ordre: git clone <URL-del-repositori> HelloGit
+    text: "[[git clone]] crea una còpia local amb tots els fitxers i tot l’historial."
+    parts:
+      - <URL-del-repositori>: Substituïm aquest marcador per l’adreça del repositori, sense els signes de menor i major.
+      - HelloGit: És el nom de la carpeta que es crearà.
+    resultat: La carpeta nova ja conté el projecte i el remot [[origin]] queda configurat.
+    sortida_mostra: Cloning into 'HelloGit'...
+    visual: Animar la creació de la carpeta HelloGit a CASA i la còpia dels commits A i B.
+    comprova:
+      existeix: [HelloGit/helloGit.py]
+
+  - ordre: cd HelloGit
+    text: Entrem a la carpeta del projecte.
+    parts:
+      - HelloGit: És la carpeta creada pel clonatge.
+    resultat: La terminal de casa és dins del projecte.
+    visual: Ruta CASA · ~/HelloGit a la terminal.
+
+  - ordre: git log --oneline
+    text: Comprovem l’historial que hem rebut.
+    resultat: Hi ha els dos commits, també el que vam fer a classe. Els identificadors són els mateixos als dos ordinadors.
+    visual: Sortida real al costat del graf de classe; ressaltar el mateix identificador als dos llocs.
+    comprova:
+      sortida: ["{B} Practica de classe", "{A} Afegeix la salutacio inicial"]
+
+  - plantilla: programa
+    resultat: A casa ja tenim la versió de classe i podem continuar la feina.
+    comprova: {programa: Hola des de classe!}
+
+resum:
+  - Cada ordinador té un repositori propi; el servidor és el punt de trobada.
+  - "[[git push]] envia els commits confirmats al servidor."
+  - "[[git clone]] es fa un sol cop per ordinador i porta tot l’historial."
+practica: >-
+  Publica un commit d’un repositori de pràctiques i clona’l en una altra carpeta, com si fos un altre
+  ordinador. Compara l’historial de les dues còpies.

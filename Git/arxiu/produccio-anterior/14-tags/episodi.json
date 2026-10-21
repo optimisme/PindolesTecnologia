@@ -1,0 +1,97 @@
+{
+  "title": "Tags: identifica una versió del projecte",
+  "episode_number": 14,
+  "short_title": "TAGS",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Catorzena lliçó, Tags."
+  },
+  "prerequisites": "Exemple independent, main a B i arbre net. Origin/main també apunta a B i main té upstream configurat. B conté print(\"Hello Git!\") a helloGit.py. No existeix v1.0. Es crea una etiqueta anotada amb -a i missatge -m. Després s’edita el fitxer a print(\"Hola, Anna!\") i es confirma C, fill de B. L’etiqueta continua referint-se a B. Es publica primer main amb git push i després explícitament v1.0. No es crea cap Release de GitHub. Els grafs i hashes són didàctics; les proves fan servir un remot local temporal.",
+  "scenes": [
+    {
+      "id": "g_hook",
+      "label": "UNA ENTREGA CONCRETA",
+      "title": "Aquesta és la versió 1.0",
+      "narration": "Avui entregues una versió que funciona. Demà continuaràs canviant el projecte. Com identifiques exactament el punt de l’entrega? Amb una etiqueta, o tag.",
+      "visual": "Graf A–B, B ressaltat amb un marcador v1.0 que apareix sobre el commit."
+    },
+    {
+      "id": "g_before",
+      "label": "01 / REVISAR QUÈ ETIQUETEM",
+      "title": "El commit B és el de l’entrega",
+      "narration": "Partim de main al commit B, sense canvis pendents. Provem el programa. L’etiqueta assenyalarà aquest commit; les edicions sense confirmar no hi entrarien.",
+      "visual": "Fitxer de B, sortida Hello Git! i estat net.",
+      "commands": [
+        "python3 helloGit.py",
+        "git status --short"
+      ]
+    },
+    {
+      "id": "g_create",
+      "label": "02 / POSAR NOM A LA VERSIÓ",
+      "title": "Creem una etiqueta anotada",
+      "narration": "Creem ve u punt zero amb tag, l’opció a i un missatge. És una etiqueta anotada: afegeix informació sobre l’entrega sense crear un commit nou.",
+      "visual": "Animació etiqueta v1.0 lligada a B. El graf conserva A i B sense nous nodes.",
+      "commands": [
+        "git tag -a v1.0 -m \"Primera entrega\""
+      ]
+    },
+    {
+      "id": "g_list",
+      "label": "03 / CONSULTAR L’ETIQUETA",
+      "title": "Podem trobar i revisar l’entrega",
+      "narration": "Tag amb list mostra les etiquetes. Show permet consultar-ne la informació i el commit associat. Ja tenim un nom fàcil de recordar per aquesta entrega.",
+      "visual": "Terminal mostra v1.0, etiqueta anotada i commit b62d8e1.",
+      "commands": [
+        "git tag --list",
+        "git show v1.0"
+      ]
+    },
+    {
+      "id": "g_advance",
+      "label": "04 / CONTINUAR TREBALLANT",
+      "title": "Main avança. V1.0 es queda a B.",
+      "narration": "Ara canviem el missatge i fem un altre commit. Main avança a C. L’etiqueta continua a B: seguir treballant a la branca no la mou.",
+      "visual": "Editor a Hola, Anna!; C apareix amb main mentre v1.0 es conserva a B.",
+      "commands": [
+        "git add helloGit.py",
+        "git commit -m \"Canvia missatge\""
+      ]
+    },
+    {
+      "id": "g_read",
+      "label": "05 / CONSULTAR EL CONTINGUT",
+      "title": "Què contenia la versió 1.0?",
+      "narration": "Amb show i el nom de l’etiqueta podem llegir aquell fitxer tal com era a l’entrega. El nostre fitxer actual continua amb el missatge nou.",
+      "visual": "Dues targetes editor C amb Hola, Anna! i sortida de git show v1.0:helloGit.py amb Hello Git!.",
+      "commands": [
+        "git show v1.0:helloGit.py"
+      ]
+    },
+    {
+      "id": "g_push",
+      "label": "06 / COMPARTIR L’ETIQUETA",
+      "title": "Publiquem main i després v1.0",
+      "narration": "Publiquem els commits amb push. Després enviem explícitament l’etiqueta a origin. Així el remot també podrà identificar l’entrega pel mateix nom.",
+      "visual": "Main C viatja al remot; després v1.0 apareix també a B del remot. Dues accions consecutives.",
+      "commands": [
+        "git push",
+        "git push origin v1.0"
+      ]
+    },
+    {
+      "id": "g_summary",
+      "label": "JA HO TENS",
+      "title": "Un nom per tornar a una entrega",
+      "narration": "Una branca avança amb els commits. Una etiqueta identifica un punt concret de l’historial. Crea-la al commit correcte i publica-la quan vulguis compartir aquella versió.",
+      "visual": "Graf A–B–C amb main C i v1.0 B, repetit al remot; resum crear, consultar, publicar."
+    }
+  ],
+  "sources": [
+    "https://git-scm.com/docs/git-tag",
+    "https://git-scm.com/book/en/v2/Git-Basics-Tagging"
+  ]
+}

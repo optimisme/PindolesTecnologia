@@ -1,8 +1,27 @@
-# .env Settings
-*.env
-!*.env.example
-
-# General
+# Sistema
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Configuració local i credencials
+.env
+*.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Mitjans generats: es poden refer amb les eines i ocupen massa per a Git.
+# Els vídeos finals es guarden fora del repositori (vegeu README.md).
+build/
+output/
+audio/
+*.mp4
+*.mp3
+*.wav
+*.m4a
+*.log

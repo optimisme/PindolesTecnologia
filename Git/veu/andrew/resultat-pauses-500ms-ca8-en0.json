@@ -1,0 +1,23 @@
+{
+  "voice": "en-US-AndrewMultilingualNeural",
+  "transport": "azure-speech-sdk",
+  "ssml_sha256": "07d7d860f9b003f0c4226be10bed9f93c566f3a4c8496ffd9d590787406cc864",
+  "languages": [
+    "ca-ES",
+    "en-US"
+  ],
+  "production_changed": false,
+  "language_switch_pause_ms": 500,
+  "language_rates": {
+    "ca-ES": "+8%",
+    "en-US": "+0%"
+  },
+  "status": "audio_generated",
+  "audio_generated": true,
+  "connection": {
+    "endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/"
+  },
+  "duration": 26.808,
+  "audio_sha256": "65d56ab01710e4a1daa18a77d166725580fdb4c94650577b80d3cd252311f94a",
+  "output": "/Users/albertpalaciosjimenez/Documents/GitHub/DAM-LlenguatgeMarques/01-Git/vids/veu/andrew/output/andrew-idiomes-explicits-pauses-500ms-ca8-en0.mp3"
+}

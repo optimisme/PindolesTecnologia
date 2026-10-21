@@ -1,0 +1,1153 @@
+{
+  "script_format": "git-didactic-v1",
+  "status": "script_revised_media_unchanged",
+  "episode_number": 22,
+  "title": "Rebase interactiu: agrupa commits abans de publicar",
+  "series": "Píndoles de Git",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "music_seconds": 4,
+  "objective": "Agrupar tres commits relacionats no publicats i conservar el contingut final.",
+  "prerequisites": "Salutacio activa a E amb C, D i E propis no publicats sobre B. Main a B; treball net. C personalitza, D retoca la puntuació i E documenta la mateixa millora.",
+  "timing": "Sense marques absolutes: es calcularan amb la futura locució.",
+  "scenes": [
+    {
+      "id": "rev_22_00",
+      "title": "Objectiu i punt de partida",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a agrupar tres commits relacionats no publicats i conservar el contingut final.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a agrupar tres "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " relacionats no publicats i conservar el contingut final."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Salutacio activa a E amb C, D i E propis no publicats sobre B. Main a B; treball net. C personalitza, D retoca la puntuació i E documenta la mateixa millora.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Salutacio activa a E amb C, D i E propis no publicats sobre B. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a B; treball net. C personalitza, D retoca la puntuació i E documenta la mateixa millora."
+            }
+          ],
+          "visual": "Punt de partida complet amb branca activa, fitxers i estat del treball; fer visible qualsevol cas independent.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a agrupar tres commits relacionats no publicats i conservar el contingut final. Salutacio activa a E amb C, D i E propis no publicats sobre B. Main a B; treball net. C personalitza, D retoca la puntuació i E documenta la mateixa millora."
+    },
+    {
+      "id": "rev_22_01",
+      "title": "Una millora explicada en tres commits",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "La feina és una mateixa millora repartida en tres commits. Abans de publicar-los, els agruparem perquè l’historial expliqui el resultat de manera coherent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La feina és una mateixa millora repartida en tres "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Abans de publicar-los, els agruparem perquè l’historial expliqui el resultat de manera coherent."
+            }
+          ],
+          "visual": "Graf A–B–C–D–E; etiqueta NO PUBLICATS sobre C–E i main a B.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "La feina és una mateixa millora repartida en tres commits. Abans de publicar-los, els agruparem perquè l’historial expliqui el resultat de manera coherent."
+    },
+    {
+      "id": "rev_22_02",
+      "title": "git status --short",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Aquesta consulta no modifica el projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status"
+        },
+        {
+          "id": "pas_005",
+          "narration": "Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "short"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " demana la forma breu. La primera columna compara preparació i últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; la segona, treball i preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --short.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "--short"
+        },
+        {
+          "id": "pas_006",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_007",
+          "narration": "Comencem sense canvis locals pendents. Conservem l’identificador real d’E per comparar després el contingut final.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comencem sense canvis locals pendents. Conservem l’identificador real d’E per comparar després el contingut final."
+            }
+          ],
+          "visual": "Mostrar la sortida literal amb les dues columnes separades i una llegenda; conservar els espais de davant de cada lletra. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte. Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació. Executem l’ordre. Comencem sense canvis locals pendents. Conservem l’identificador real d’E per comparar després el contingut final."
+    },
+    {
+      "id": "rev_22_03",
+      "title": "git log -3 --oneline",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_008",
+          "narration": "Revisem els tres commits que volem agrupar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Revisem els tres "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que volem agrupar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log -3 --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log -3 --oneline",
+          "highlight": "git log"
+        },
+        {
+          "id": "pas_009",
+          "narration": "Limita la consulta als tres últims commits.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Limita la consulta als tres últims "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log -3 --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log -3 --oneline",
+          "highlight": "-3"
+        },
+        {
+          "id": "pas_010",
+          "narration": "Permet llegir-ne els identificadors i els missatges en un resum.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Permet llegir-ne els identificadors i els missatges en un resum."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log -3 --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --oneline.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log -3 --oneline",
+          "highlight": "--oneline"
+        },
+        {
+          "id": "pas_011",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log -3 --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log -3 --oneline"
+          ],
+          "command_display": "git log -3 --oneline",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_012",
+          "narration": "Confirmem que els tres canvis són propis, relacionats i encara no publicats.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Confirmem que els tres canvis són propis, relacionats i encara no publicats."
+            }
+          ],
+          "visual": "Distingir ordre del log, més recent primer, de l’ordre que tindrà l’editor interactiu. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log -3 --oneline",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Revisem els tres commits que volem agrupar. Limita la consulta als tres últims commits. Permet llegir-ne els identificadors i els missatges en un resum. Executem l’ordre. Confirmem que els tres canvis són propis, relacionats i encara no publicats."
+    },
+    {
+      "id": "rev_22_04",
+      "title": "git rebase -i HEAD~3",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_013",
+          "narration": "Obrim una reescriptura interactiva d’aquest tram.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Obrim una reescriptura interactiva d’aquest tram."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rebase -i HEAD~3. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git rebase.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rebase -i HEAD~3",
+          "highlight": "git rebase"
+        },
+        {
+          "id": "pas_014",
+          "narration": "El guionet i obre una llista editable d’operacions.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet i obre una llista editable d’operacions."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rebase -i HEAD~3. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -i.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rebase -i HEAD~3",
+          "highlight": "-i"
+        },
+        {
+          "id": "pas_015",
+          "narration": "La base és B, tres passos enrere des d’E. La llista inclou els commits posteriors: C, D i E.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La base és B, tres passos enrere des d’E. La llista inclou els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " posteriors: C, D i E."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rebase -i HEAD~3. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HEAD~3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rebase -i HEAD~3",
+          "highlight": "HEAD~3"
+        },
+        {
+          "id": "pas_016",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rebase -i HEAD~3. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git rebase -i HEAD~3"
+          ],
+          "command_display": "git rebase -i HEAD~3",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_017",
+          "narration": "L’editor mostra els commits del més antic al més recent. Encara falta editar, desar i tancar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’editor mostra els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " del més antic al més recent. Encara falta editar, desar i tancar."
+            }
+          ],
+          "visual": "Editor amb pick C Personalitza, pick D Puntuacio, pick E Documenta. No representar la reescriptura com a acabada. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git rebase -i HEAD~3",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Obrim una reescriptura interactiva d’aquest tram. El guionet i obre una llista editable d’operacions. La base és B, tres passos enrere des d’E. La llista inclou els commits posteriors: C, D i E. Executem l’ordre. L’editor mostra els commits del més antic al més recent. Encara falta editar, desar i tancar."
+    },
+    {
+      "id": "rev_22_05",
+      "title": "Escollim les operacions",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_018",
+          "narration": "Deixem pick al primer commit. Als altres dos canviem l’acció a squash, que els agrupa amb l’anterior.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Deixem "
+            },
+            {
+              "lang": "en-US",
+              "text": "pick"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " al primer "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Als altres dos canviem l’acció a "
+            },
+            {
+              "lang": "en-US",
+              "text": "squash"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", que els agrupa amb l’anterior."
+            }
+          ],
+          "visual": "Llista final: pick C Personalitza; squash D Puntuacio; squash E Documenta. Subratllar cada acció per separat.",
+          "pause_after": 3.5,
+          "commands": []
+        },
+        {
+          "id": "pas_019",
+          "narration": "Desem i tanquem l’editor de la llista. Aquesta acció permet que Git continuï; escriure la llista sense desar-la no completa el pas.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Desem i tanquem l’editor de la llista. Aquesta acció permet que "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " continuï; escriure la llista sense desar-la no completa el pas."
+            }
+          ],
+          "visual": "Llista final: pick C Personalitza; squash D Puntuacio; squash E Documenta. Subratllar cada acció per separat.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "Deixem pick al primer commit. Als altres dos canviem l’acció a squash, que els agrupa amb l’anterior. Desem i tanquem l’editor de la llista. Aquesta acció permet que Git continuï; escriure la llista sense desar-la no completa el pas."
+    },
+    {
+      "id": "rev_22_06",
+      "title": "Escrivim el missatge conjunt",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_020",
+          "narration": "A continuació s’obre l’editor del missatge. Escrivim Personalitza la salutació i documenta el canvi. Desem i tanquem també aquest editor.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "A continuació s’obre l’editor del missatge. Escrivim Personalitza la salutació i documenta el canvi. Desem i tanquem també aquest editor."
+            }
+          ],
+          "visual": "Missatge conjunt complet visible; dos indicadors diferents LLISTA DESADA i MISSATGE DESAT.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "A continuació s’obre l’editor del missatge. Escrivim Personalitza la salutació i documenta el canvi. Desem i tanquem també aquest editor."
+    },
+    {
+      "id": "rev_22_07",
+      "title": "Un node nou amb el mateix resultat",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_021",
+          "narration": "La branca de salutació apunta a S, amb pare B i un identificador nou. Main continua a B. Els antics C, D i E queden fora de la línia de la branca, sense esborrar-se immediatament.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca de salutació apunta a S, amb pare B i un identificador nou. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " continua a B. Els antics C, D i E queden fora de la línia de la branca, sense esborrar-se immediatament."
+            }
+          ],
+          "visual": "Graf abans/després amb C–E atenuats i S nou; contingut final igual al d’E.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "La branca de salutació apunta a S, amb pare B i un identificador nou. Main continua a B. Els antics C, D i E queden fora de la línia de la branca, sense esborrar-se immediatament."
+    },
+    {
+      "id": "rev_22_08",
+      "title": "python3 helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_022",
+          "narration": "Executem el programa per comprovar el contingut desat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem el programa per comprovar el contingut desat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3"
+        },
+        {
+          "id": "pas_023",
+          "narration": "És el fitxer de la còpia de treball que acabem d’editar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el fitxer de la còpia de treball que acabem d’editar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_024",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_025",
+          "narration": "El programa conserva el resultat final després d’agrupar els commits.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El programa conserva el resultat final després d’agrupar els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mostrar la sortida real del programa al costat de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Executem el programa per comprovar el contingut desat. És el fitxer de la còpia de treball que acabem d’editar. Executem l’ordre. El programa conserva el resultat final després d’agrupar els commits."
+    },
+    {
+      "id": "rev_22_09",
+      "title": "git diff e18a3b6 HEAD --",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_026",
+          "narration": "Comparem els fitxers finals amb l’antic E.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comparem els fitxers finals amb l’antic E."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff e18a3b6 HEAD --. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git diff.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff e18a3b6 HEAD --",
+          "highlight": "git diff"
+        },
+        {
+          "id": "pas_027",
+          "narration": "És el hash de mostra de l’antic E; fem servir el que havíem conservat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el hash de mostra de l’antic E; fem servir el que havíem conservat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff e18a3b6 HEAD --. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: e18a3b6.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff e18a3b6 HEAD --",
+          "highlight": "e18a3b6"
+        },
+        {
+          "id": "pas_028",
+          "narration": "És el nou commit S.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nou "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " S."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff e18a3b6 HEAD --. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: HEAD.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff e18a3b6 HEAD --",
+          "highlight": "HEAD"
+        },
+        {
+          "id": "pas_029",
+          "narration": "Tanquem la llista de versions sense restringir-la a un fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Tanquem la llista de versions sense restringir-la a un fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff e18a3b6 HEAD --. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff e18a3b6 HEAD --",
+          "highlight": "--"
+        },
+        {
+          "id": "pas_030",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff e18a3b6 HEAD --. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git diff e18a3b6 HEAD --"
+          ],
+          "command_display": "git diff e18a3b6 HEAD --",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_031",
+          "narration": "La sortida buida indica que no hi ha diferències de contingut en aquesta comparació. Provem també el programa per comprovar-ne el comportament.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La sortida buida indica que no hi ha diferències de contingut en aquesta comparació. Provem també el programa per comprovar-ne el comportament."
+            }
+          ],
+          "visual": "Sortida buida amb llegenda CONTINGUT IGUAL; terminal de prova separat. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git diff e18a3b6 HEAD --",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comparem els fitxers finals amb l’antic E. És el hash de mostra de l’antic E; fem servir el que havíem conservat. És el nou commit S. Tanquem la llista de versions sense restringir-la a un fitxer. Executem l’ordre. La sortida buida indica que no hi ha diferències de contingut en aquesta comparació. Provem també el programa per comprovar-ne el comportament."
+    },
+    {
+      "id": "rev_22_10",
+      "title": "Si l’operació s’atura",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_032",
+          "narration": "En un cas amb conflictes, editem la resolució, la provem i fem add del fitxer. Després podem continuar; també podem abandonar l’operació pendent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un cas amb conflictes, editem la resolució, la provem i fem "
+            },
+            {
+              "lang": "en-US",
+              "text": "add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " del fitxer. Després podem continuar; també podem abandonar l’operació pendent."
+            }
+          ],
+          "visual": "Panell condicional separat amb editor → prova → git add helloGit.py.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "En un cas amb conflictes, editem la resolució, la provem i fem add del fitxer. Després podem continuar; també podem abandonar l’operació pendent."
+    },
+    {
+      "id": "rev_22_11",
+      "title": "python3 helloGit.py",
+      "mode": "conditional:conflict",
+      "beats": [
+        {
+          "id": "pas_033",
+          "narration": "Executem el programa per comprovar el contingut desat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem el programa per comprovar el contingut desat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3"
+        },
+        {
+          "id": "pas_034",
+          "narration": "És el fitxer de la còpia de treball que acabem d’editar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el fitxer de la còpia de treball que acabem d’editar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_035",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_036",
+          "narration": "La resolució funciona amb la prova d’aquest exemple.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La resolució funciona amb la prova d’aquest exemple."
+            }
+          ],
+          "visual": "Mostrar la sortida real del programa al costat de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Executem el programa per comprovar el contingut desat. És el fitxer de la còpia de treball que acabem d’editar. Executem l’ordre. La resolució funciona amb la prova d’aquest exemple."
+    },
+    {
+      "id": "rev_22_12",
+      "title": "git add helloGit.py",
+      "mode": "conditional:conflict",
+      "beats": [
+        {
+          "id": "pas_037",
+          "narration": "Amb git add seleccionem el contingut que volem confirmar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " seleccionem el contingut que volem confirmar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "git add"
+        },
+        {
+          "id": "pas_038",
+          "narration": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_039",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "command_display": "git add helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_040",
+          "narration": "La resolució revisada queda preparada per continuar l’operació pendent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La resolució revisada queda preparada per continuar l’operació pendent."
+            }
+          ],
+          "visual": "Conservar treball, preparació i historial. Copiar només el contingut seleccionat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git add seleccionem el contingut que volem confirmar. El nom identifica el fitxer que preparem. La còpia desada ara és la que entra a la preparació. Executem l’ordre. La resolució revisada queda preparada per continuar l’operació pendent."
+    },
+    {
+      "id": "rev_22_13",
+      "title": "git rebase --continue",
+      "mode": "conditional:conflict",
+      "beats": [
+        {
+          "id": "pas_041",
+          "narration": "Reprenem el rebase pausat després de preparar la resolució.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Reprenem el "
+            },
+            {
+              "lang": "en-US",
+              "text": "rebase"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " pausat després de preparar la resolució."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rebase --continue. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git rebase.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rebase --continue",
+          "highlight": "git rebase"
+        },
+        {
+          "id": "pas_042",
+          "narration": "Continua l’operació en curs; pot demanar més resolucions.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Continua l’operació en curs; pot demanar més resolucions."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rebase --continue. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --continue.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rebase --continue",
+          "highlight": "--continue"
+        },
+        {
+          "id": "pas_043",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rebase --continue. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git rebase --continue"
+          ],
+          "command_display": "git rebase --continue",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_044",
+          "narration": "La reescriptura avança fins al resultat revisat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La reescriptura avança fins al resultat revisat."
+            }
+          ],
+          "visual": "Només camí CONTINUAR. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git rebase --continue",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Reprenem el rebase pausat després de preparar la resolució. Continua l’operació en curs; pot demanar més resolucions. Executem l’ordre. La reescriptura avança fins al resultat revisat."
+    },
+    {
+      "id": "rev_22_14",
+      "title": "git rebase --abort",
+      "mode": "alternative:abort",
+      "beats": [
+        {
+          "id": "pas_045",
+          "narration": "Podem optar per abandonar el rebase pendent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Podem optar per abandonar el "
+            },
+            {
+              "lang": "en-US",
+              "text": "rebase"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " pendent."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rebase --abort. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git rebase.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rebase --abort",
+          "highlight": "git rebase"
+        },
+        {
+          "id": "pas_046",
+          "narration": "Recupera l’estat de partida d’aquesta operació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Recupera l’estat de partida d’aquesta operació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rebase --abort. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --abort.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rebase --abort",
+          "highlight": "--abort"
+        },
+        {
+          "id": "pas_047",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rebase --abort. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git rebase --abort"
+          ],
+          "command_display": "git rebase --abort",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_048",
+          "narration": "Aquest camí alternatiu conserva la història inicial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquest camí alternatiu conserva la història inicial."
+            }
+          ],
+          "visual": "Camí AVORTAR des de l’aturada, mai després de completar continue. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git rebase --abort",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Podem optar per abandonar el rebase pendent. Recupera l’estat de partida d’aquesta operació. Executem l’ordre. Aquest camí alternatiu conserva la història inicial."
+    },
+    {
+      "id": "rev_22_15",
+      "title": "Resum final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_049",
+          "narration": "Agrupem només els commits relacionats del tram seleccionat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Agrupem només els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " relacionats del tram seleccionat."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_050",
+          "narration": "Cal desar i tancar tant la llista com el missatge conjunt.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cal desar i tancar tant la llista com el missatge conjunt."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_051",
+          "narration": "L’historial canvia i els identificadors són nous; comprovem que el contingut final es conservi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’historial canvia i els identificadors són nous; comprovem que el contingut final es conservi."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "Agrupem només els commits relacionats del tram seleccionat. Cal desar i tancar tant la llista com el missatge conjunt. L’historial canvia i els identificadors són nous; comprovem que el contingut final es conservi."
+    },
+    {
+      "id": "rev_22_16",
+      "title": "Pràctica final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_052",
+          "narration": "En una branca local de pràctiques no publicada, agrupa tres commits relacionats. Conserva el hash final antic i compara els continguts després de la reescriptura.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En una branca local de pràctiques no publicada, agrupa tres "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " relacionats. Conserva el hash final antic i compara els continguts després de la reescriptura."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En una branca local de pràctiques no publicada, agrupa tres commits relacionats. Conserva el hash final antic i compara els continguts després de la reescriptura."
+    }
+  ],
+  "intro": {
+    "narration": "Vint-i-dosena lliçó, Rebase interactiu.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Vint-i-dosena lliçó, "
+      },
+      {
+        "lang": "en-US",
+        "text": "Rebase"
+      },
+      {
+        "lang": "ca-ES",
+        "text": " interactiu."
+      }
+    ]
+  }
+}

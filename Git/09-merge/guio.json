@@ -1,0 +1,959 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 9,
+  "slug": "09-merge",
+  "title": "Merge: porta la prova a main",
+  "short_title": "MERGE",
+  "card": [
+    "MERGE",
+    "Porta la prova a main"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "09-merge.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Novena lliçó. Merge.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Novena lliçó. "
+      },
+      {
+        "lang": "en-US",
+        "text": "Merge"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  },
+  "objective": "integrar la branca salutacio a [[main]] i distingir l’avançament directe de la fusió amb dos pares.",
+  "start_note": "Branca activa salutacio, sense canvis pendents. main és a B i salutacio a C, que descendeix directament de B. C conté print(\"Hola, Anna!\"), ja provat.",
+  "start_spoken": "Som a la branca salutació, amb la salutació personalitzada ja confirmada i provada. main encara té la versió original.",
+  "summary": [
+    "La branca activa és la que rep la integració.",
+    "Un avançament directe mou l’etiqueta sense crear cap commit.",
+    "Quan les branques han divergit, la fusió crea un commit amb dos pares."
+  ],
+  "practice": "En un repositori de pràctiques, crea una branca, confirma-hi un canvi i integra’l a main amb avançament directe. Executa el programa i esborra la branca integrada.",
+  "practice_script": "practiques/09-merge.sh",
+  "scenes": [
+    {
+      "id": "e09_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a integrar la branca salutació a main i distingir l’avançament directe de la fusió amb dos pares.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a integrar la branca salutació a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i distingir l’avançament directe de la fusió amb dos pares."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Som a la branca salutació, amb la salutació personalitzada ja confirmada i provada. main encara té la versió original.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Som a la branca salutació, amb la salutació personalitzada ja confirmada i provada. "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " encara té la versió original."
+            }
+          ],
+          "visual": "Punt de partida: Branca activa salutacio, sense canvis pendents. main és a B i salutacio a C, que descendeix directament de B. C conté print(\"Hola, Anna!\"), ja provat.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a integrar la branca salutació a main i distingir l’avançament directe de la fusió amb dos pares. Som a la branca salutació, amb la salutació personalitzada ja confirmada i provada. main encara té la versió original."
+    },
+    {
+      "id": "e09_01",
+      "label": "EXPLICACIÓ",
+      "title": "Origen i destinació",
+      "mode": "principal",
+      "visual": "Graf A, B i C; main a B i salutacio a C. Etiquetes ORIGEN a salutacio i DESTINACIÓ a main.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Volem portar a main el canvi de la salutació. git merge incorpora una branca a la branca activa; per això, primer ens hem de situar a la destinació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Volem portar a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " el canvi de la salutació. "
+            },
+            {
+              "lang": "en-US",
+              "text": "git merge"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " incorpora una branca a la branca activa; per això, primer ens hem de situar a la destinació."
+            }
+          ],
+          "visual": "Graf A, B i C; main a B i salutacio a C. Etiquetes ORIGEN a salutacio i DESTINACIÓ a main.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "narration": "Volem portar a main el canvi de la salutació. git merge incorpora una branca a la branca activa; per això, primer ens hem de situar a la destinació."
+    },
+    {
+      "id": "e09_02",
+      "label": "TERMINAL",
+      "title": "git switch main",
+      "mode": "principal",
+      "visual": "Mantenir tots els commits quiets. Moure l’indicador de branca activa i actualitzar l’editor després de l’execució.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Amb git switch canviem a la branca on treballarem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git switch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " canviem a la branca on treballarem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git switch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "highlight": "git switch",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: main.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "highlight": "main",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch main. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git switch main"
+          ],
+          "command_display": "git switch main",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_007",
+          "narration": "La destinació activa ara és main, amb la salutació original. La branca salutació es conserva.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La destinació activa ara és "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", amb la salutació original. La branca salutació es conserva."
+            }
+          ],
+          "visual": "Mantenir tots els commits quiets. Moure l’indicador de branca activa i actualitzar l’editor després de l’execució. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git switch main",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "Switched to branch 'main'"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git switch canviem a la branca on treballarem. És el nom de la branca de destinació. Els fitxers s’actualitzen a la seva versió. Executem l’ordre. La destinació activa ara és main, amb la salutació original. La branca salutació es conserva."
+    },
+    {
+      "id": "e09_03",
+      "label": "TERMINAL",
+      "title": "git branch --show-current",
+      "mode": "principal",
+      "visual": "Ressaltar main tant a la sortida com al graf.",
+      "beats": [
+        {
+          "id": "pas_008",
+          "narration": "Confirmem on som abans d’integrar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Confirmem on som abans d’integrar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch --show-current. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git branch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch --show-current",
+          "highlight": "git branch",
+          "state": 1
+        },
+        {
+          "id": "pas_009",
+          "narration": "Aquesta opció mostra només el nom de la branca activa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquesta opció mostra només el nom de la branca activa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch --show-current. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --show-current.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch --show-current",
+          "highlight": "--show-current",
+          "state": 1
+        },
+        {
+          "id": "pas_010",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch --show-current. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git branch --show-current"
+          ],
+          "command_display": "git branch --show-current",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_011",
+          "narration": "La terminal respon main. Encara no hem integrat res.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La terminal respon "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Encara no hem integrat res."
+            }
+          ],
+          "visual": "Ressaltar main tant a la sortida com al graf. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git branch --show-current",
+          "event": "result",
+          "state": 2,
+          "simulated": false,
+          "terminal_output": [
+            "main"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Confirmem on som abans d’integrar. Aquesta opció mostra només el nom de la branca activa. Executem l’ordre. La terminal respon main. Encara no hem integrat res."
+    },
+    {
+      "id": "e09_04",
+      "label": "TERMINAL",
+      "title": "git merge --ff-only salutacio",
+      "mode": "principal",
+      "visual": "Moure només l’etiqueta main de B a C sobre el graf existent. Conservar salutacio i tots els nodes.",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "git merge incorpora la història de la branca que indiquem.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git merge"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " incorpora la història de la branca que indiquem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git merge.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --ff-only salutacio",
+          "highlight": "git merge",
+          "state": 2
+        },
+        {
+          "id": "pas_013",
+          "narration": "Només acceptem un avançament directe. Funciona quan main no té commits propis que la branca no tingui; si no, l’ordre s’atura sense canviar res.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Només acceptem un avançament directe. Funciona quan "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " no té "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " propis que la branca no tingui; si no, l’ordre s’atura sense canviar res."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --ff-only.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --ff-only salutacio",
+          "highlight": "--ff-only",
+          "state": 2
+        },
+        {
+          "id": "pas_014",
+          "narration": "És la branca que incorporem. No canvia la branca activa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la branca que incorporem. No canvia la branca activa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: salutacio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --ff-only salutacio",
+          "highlight": "salutacio",
+          "state": 2
+        },
+        {
+          "id": "pas_015",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --ff-only salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git merge --ff-only salutacio"
+          ],
+          "command_display": "git merge --ff-only salutacio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_016",
+          "narration": "main avança fins al commit de la salutació. Les dues etiquetes apunten al mateix commit i no s’ha creat cap commit nou.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " avança fins al "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la salutació. Les dues etiquetes apunten al mateix "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i no s’ha creat cap "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou."
+            }
+          ],
+          "visual": "Moure només l’etiqueta main de B a C sobre el graf existent. Conservar salutacio i tots els nodes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git merge --ff-only salutacio",
+          "event": "result",
+          "state": 3,
+          "simulated": false,
+          "terminal_output": [
+            "Updating 4a464f8..7452593",
+            "Fast-forward",
+            " helloGit.py | 2 +-",
+            " 1 file changed, 1 insertion(+), 1 deletion(-)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git merge incorpora la història de la branca que indiquem. Només acceptem un avançament directe. Funciona quan main no té commits propis que la branca no tingui; si no, l’ordre s’atura sense canviar res. És la branca que incorporem. No canvia la branca activa. Executem l’ordre. main avança fins al commit de la salutació. Les dues etiquetes apunten al mateix commit i no s’ha creat cap commit nou."
+    },
+    {
+      "id": "e09_05",
+      "label": "TERMINAL",
+      "title": "python3 helloGit.py",
+      "mode": "principal",
+      "visual": "Mostrar la sortida real del programa al costat de l’editor.",
+      "beats": [
+        {
+          "id": "pas_017",
+          "narration": "Provem el programa amb la versió desada del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem el programa amb la versió desada del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3",
+          "state": 3
+        },
+        {
+          "id": "pas_018",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_019",
+          "narration": "A main també surt la salutació personalitzada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "A "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " també surt la salutació personalitzada."
+            }
+          ],
+          "visual": "Mostrar la sortida real del programa al costat de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result",
+          "state": 4,
+          "simulated": false,
+          "terminal_output": [
+            "Hola, Anna!"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem el programa amb la versió desada del fitxer. Executem l’ordre. A main també surt la salutació personalitzada."
+    },
+    {
+      "id": "e09_06",
+      "label": "TERMINAL",
+      "title": "git branch -d salutacio",
+      "mode": "principal",
+      "visual": "Retirar l’etiqueta salutacio; el node C continua al graf amb l’etiqueta main.",
+      "beats": [
+        {
+          "id": "pas_020",
+          "narration": "La branca de la prova ja ha fet la seva feina. Amb git branch la podem esborrar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca de la prova ja ha fet la seva feina. Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git branch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " la podem esborrar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -d salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git branch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch -d salutacio",
+          "highlight": "git branch",
+          "state": 4
+        },
+        {
+          "id": "pas_021",
+          "narration": "El guionet de esborra l’etiqueta de la branca, no els commits. Només ho fa si la branca ja està integrada; si no, Git s’hi nega i ens avisa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet de esborra l’etiqueta de la branca, no els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Només ho fa si la branca ja està integrada; si no, "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " s’hi nega i ens avisa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -d salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -d.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch -d salutacio",
+          "highlight": "-d",
+          "state": 4
+        },
+        {
+          "id": "pas_022",
+          "narration": "És la branca que retirem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la branca que retirem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -d salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: salutacio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch -d salutacio",
+          "highlight": "salutacio",
+          "state": 4
+        },
+        {
+          "id": "pas_023",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -d salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git branch -d salutacio"
+          ],
+          "command_display": "git branch -d salutacio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_024",
+          "narration": "Desapareix l’etiqueta salutació. El commit de la salutació continua a la història de main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Desapareix l’etiqueta salutació. El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la salutació continua a la història de "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Retirar l’etiqueta salutacio; el node C continua al graf amb l’etiqueta main. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git branch -d salutacio",
+          "event": "result",
+          "state": 5,
+          "simulated": false,
+          "terminal_output": [
+            "Deleted branch salutacio (was 7452593)."
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "La branca de la prova ja ha fet la seva feina. Amb git branch la podem esborrar. El guionet de esborra l’etiqueta de la branca, no els commits. Només ho fa si la branca ja està integrada; si no, Git s’hi nega i ens avisa. És la branca que retirem. Executem l’ordre. Desapareix l’etiqueta salutació. El commit de la salutació continua a la història de main."
+    },
+    {
+      "id": "e09_07",
+      "label": "UN ALTRE CAS",
+      "title": "Un altre cas, dues branques que han avançat",
+      "mode": "divergent",
+      "visual": "Separador UN ALTRE CAS. Tornar a B i dibuixar dos camins, C a salutacio i D a main. No reutilitzar el resultat anterior.",
+      "beats": [
+        {
+          "id": "pas_025",
+          "narration": "Partim ara d’un cas diferent. Abans d’integrar, algú ha afegit un commit a main amb unes notes. Les dues branques han avançat i ja no és possible un avançament directe.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Partim ara d’un cas diferent. Abans d’integrar, algú ha afegit un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb unes notes. Les dues branques han avançat i ja no és possible un avançament directe."
+            }
+          ],
+          "visual": "Separador UN ALTRE CAS. Tornar a B i dibuixar dos camins, C a salutacio i D a main. No reutilitzar el resultat anterior.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 6
+        }
+      ],
+      "narration": "Partim ara d’un cas diferent. Abans d’integrar, algú ha afegit un commit a main amb unes notes. Les dues branques han avançat i ja no és possible un avançament directe."
+    },
+    {
+      "id": "e09_08",
+      "label": "UN ALTRE CAS",
+      "title": "git merge salutacio",
+      "mode": "divergent",
+      "visual": "Pestanya de l’editor amb el missatge Merge branch 'salutacio'. En tancar-la, aparèixer M connectat a D i C.",
+      "beats": [
+        {
+          "id": "pas_026",
+          "narration": "En aquest cas, git merge crea un commit de fusió que uneix les dues històries.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquest cas, "
+            },
+            {
+              "lang": "en-US",
+              "text": "git merge"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de fusió que uneix les dues històries."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git merge.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge salutacio",
+          "highlight": "git merge",
+          "state": 6
+        },
+        {
+          "id": "pas_027",
+          "narration": "Incorporem aquesta branca a la branca activa, que continua sent main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Incorporem aquesta branca a la branca activa, que continua sent "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: salutacio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge salutacio",
+          "highlight": "salutacio",
+          "state": 6
+        },
+        {
+          "id": "pas_028",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git merge salutacio"
+          ],
+          "command_display": "git merge salutacio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 6
+        },
+        {
+          "id": "pas_029",
+          "narration": "S’obre l’editor que vam configurar amb un missatge proposat. El desem i tanquem la pestanya, i es crea el commit de fusió, amb dos pares.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "S’obre l’editor que vam configurar amb un missatge proposat. El desem i tanquem la pestanya, i es crea el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de fusió, amb dos pares."
+            }
+          ],
+          "visual": "Pestanya de l’editor amb el missatge Merge branch 'salutacio'. En tancar-la, aparèixer M connectat a D i C. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git merge salutacio",
+          "event": "result",
+          "state": 7,
+          "simulated": false,
+          "terminal_output": [
+            "Merge made by the 'ort' strategy.",
+            " helloGit.py | 2 +-",
+            " 1 file changed, 1 insertion(+), 1 deletion(-)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "En aquest cas, git merge crea un commit de fusió que uneix les dues històries. Incorporem aquesta branca a la branca activa, que continua sent main. Executem l’ordre. S’obre l’editor que vam configurar amb un missatge proposat. El desem i tanquem la pestanya, i es crea el commit de fusió, amb dos pares."
+    },
+    {
+      "id": "e09_09",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_030",
+          "narration": "La branca activa és la que rep la integració.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca activa és la que rep la integració."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_031",
+          "narration": "Un avançament directe mou l’etiqueta sense crear cap commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Un avançament directe mou l’etiqueta sense crear cap "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_032",
+          "narration": "Quan les branques han divergit, la fusió crea un commit amb dos pares.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Quan les branques han divergit, la fusió crea un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb dos pares."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "La branca activa és la que rep la integració. Un avançament directe mou l’etiqueta sense crear cap commit. Quan les branques han divergit, la fusió crea un commit amb dos pares."
+    },
+    {
+      "id": "e09_10",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_033",
+          "narration": "En un repositori de pràctiques, crea una branca, confirma-hi un canvi i integra’l a main amb avançament directe. Executa el programa i esborra la branca integrada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un repositori de pràctiques, crea una branca, confirma-hi un canvi i integra’l a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb avançament directe. Executa el programa i esborra la branca integrada."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En un repositori de pràctiques, crea una branca, confirma-hi un canvi i integra’l a main amb avançament directe. Executa el programa i esborra la branca integrada."
+    }
+  ],
+  "commands": [
+    "git switch main",
+    "git branch --show-current",
+    "git merge --ff-only salutacio",
+    "python3 helloGit.py",
+    "git branch -d salutacio",
+    "git merge salutacio"
+  ]
+}

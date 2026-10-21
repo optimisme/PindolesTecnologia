@@ -1,0 +1,96 @@
+{
+  "title": "Blame: investiga l’origen d’una línia",
+  "episode_number": 17,
+  "short_title": "BLAME",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Dissetena lliçó, Blame."
+  },
+  "prerequisites": "Exemple independent amb historial lineal A–B–C, main a C i arbre net. A conté tres línies a helloGit.py: # Programa de salutació; salutacio = \"Hello Git!\"; print(salutacio). B canvia només la línia 2 a missatge = \"Hola, Anna!\", i introdueix NameError a la línia 3. C només canvia la línia 3 a print( salutacio ), un canvi d’espais. Blame sense -w atribueix la línia 3 a C, però la regressió es va introduir a B. Els hashes a31b2c4, b62d8e1 i c95f4a7 són il·lustratius, igual que l’autor Demo i les dates. No hi ha canvis sense confirmar ni publicació. Les comandes només consulten l’historial; la prova del programa falla deliberadament.",
+  "scenes": [
+    {
+      "id": "k_hook",
+      "label": "INVESTIGAR UNA LÍNIA",
+      "title": "Quan va canviar aquesta línia?",
+      "narration": "El programa falla en imprimir una variable. Volem entendre d’on surt aquella línia i quins canvis l’envolten. Blame ens ajuda a començar la investigació.",
+      "visual": "Editor amb tres línies: missatge definit a la 2 i print( salutacio ) a la 3. NameError en executar.",
+      "commands": [
+        "python3 helloGit.py"
+      ]
+    },
+    {
+      "id": "k_blame",
+      "label": "01 / CONSULTAR LES ANOTACIONS",
+      "title": "Cada línia té un commit associat",
+      "narration": "Git blame mostra el commit que va modificar per últim cada línia, amb informació d’autoria i data. Aquí, la línia que falla apunta a C.",
+      "visual": "Terminal amb blame: línia 1 A, línia 2 B, línia 3 C. Es ressalten el hash i el número de línia.",
+      "commands": [
+        "git blame helloGit.py"
+      ]
+    },
+    {
+      "id": "k_focus",
+      "label": "02 / LIMITAR LA CONSULTA",
+      "title": "Ens centrem en la línia tres",
+      "narration": "Amb l’opció ela i el rang tres, tres, consultem només aquella línia. Copiem l’identificador de C per revisar el canvi que va fer.",
+      "visual": "Terminal blame -L 3,3 i la línia 3 de C. Es remarca c95f4a7, identificador il·lustratiu.",
+      "commands": [
+        "git blame -L 3,3 helloGit.py"
+      ]
+    },
+    {
+      "id": "k_show",
+      "label": "03 / REVISAR EL CANVI",
+      "title": "C només hi havia afegit espais",
+      "narration": "Show ens ensenya la diferència de C. Només hi va afegir espais: la variable ja era incorrecta abans. L’última modificació no és necessàriament l’origen de l’error.",
+      "visual": "Diff de C: -print(salutacio), +print( salutacio ). Etiqueta CANVI DE FORMAT.",
+      "commands": [
+        "git show c95f4a7 -- helloGit.py"
+      ]
+    },
+    {
+      "id": "k_definition",
+      "label": "04 / SEGUIR LES DEPENDÈNCIES",
+      "title": "On es defineix aquesta variable?",
+      "narration": "Mirem la línia anterior. Ara defineix missatge, però després imprimim salutacio. Consultem aquesta altra línia amb blame: ens porta al commit B.",
+      "visual": "Editor connecta missatge de línia 2 amb salutacio de línia 3. Terminal blame -L 2,2 atribueix la definició a B.",
+      "commands": [
+        "git blame -L 2,2 helloGit.py"
+      ]
+    },
+    {
+      "id": "k_origin",
+      "label": "05 / ENTENDRE LA REGRESSIÓ",
+      "title": "B va canviar el nom de la variable",
+      "narration": "Show confirma que B havia canviat el nom de la variable sense actualitzar la línia que l’utilitza. Aquí tenim el canvi que va introduir l’error.",
+      "visual": "Diff de B: -salutacio = \"Hello Git!\", +missatge = \"Hola, Anna!\"; print(salutacio) es manté com a context.",
+      "commands": [
+        "git show b62d8e1 -- helloGit.py"
+      ]
+    },
+    {
+      "id": "k_context",
+      "label": "MIRAR EL CONTEXT",
+      "title": "Una línia sola no explica tot el canvi",
+      "narration": "Podem consultar també l’historial del fitxer. Blame ens orienta cap a un commit; show i el context ens permeten entendre què va passar realment.",
+      "visual": "Graf A correcte, B introdueix l’error i C modifica el format. Log del fitxer mostra C, B i A.",
+      "commands": [
+        "git log --oneline -- helloGit.py"
+      ]
+    },
+    {
+      "id": "k_summary",
+      "label": "JA HO TENS",
+      "title": "Línia, commit i context",
+      "narration": "Comença per la línia, revisa el commit i segueix les seves dependències. Blame és una eina per comprendre l’historial, no una prova automàtica de la causa d’un error.",
+      "visual": "Tres targetes: Blame localitza, Show explica, Context completa. La consulta no modifica els fitxers."
+    }
+  ],
+  "sources": [
+    "https://git-scm.com/docs/git-blame",
+    "https://git-scm.com/docs/git-show"
+  ]
+}

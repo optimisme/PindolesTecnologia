@@ -1,0 +1,16 @@
+{
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "narration": "Amb Git, fem un commit a main. Després fem push i pull. Revisem el canvi abans de fer merge o rebase. Amb fetch descarreguem les novetats.",
+  "pronunciations": {
+    "Git": "Guit",
+    "commit": "camít",
+    "main": "méin",
+    "push": "puix",
+    "pull": "pul",
+    "merge": "mèrtx",
+    "rebase": "ribéis",
+    "fetch": "fètx"
+  },
+  "note": "Comparació inicial conservada com a referència. La segona mostra és la base, però l’usuari després ha substituït camít per còmit i ha escollit add sense modificar i GitHub com Guit Hàb. El glossari de producció vigent és ../pronunciacions.json."
+}

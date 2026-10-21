@@ -1,0 +1,25 @@
+{
+  "status": "approved",
+  "selection_date": "2026-10-20",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "pause_directions": [
+    "ca-ES to en-US",
+    "en-US to ca-ES"
+  ],
+  "production_migration": "lessons_0_1_pending_review",
+  "existing_videos_changed": true,
+  "updated_episodes": [
+    "00-introduccio",
+    "01-primer-commit"
+  ],
+  "historical_ca8_sample": {
+    "audio": "output/andrew-idiomes-explicits-pauses-500ms-ca8-en0.mp3",
+    "report": "resultat-pauses-500ms-ca8-en0.json",
+    "ca_rate": "+8%"
+  }
+}

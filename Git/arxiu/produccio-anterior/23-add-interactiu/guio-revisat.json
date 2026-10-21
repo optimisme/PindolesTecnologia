@@ -1,0 +1,862 @@
+{
+  "script_format": "git-didactic-v1",
+  "status": "script_revised_media_unchanged",
+  "episode_number": 23,
+  "title": "Add interactiu: prepara només una part del fitxer",
+  "series": "Píndoles de Git",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "music_seconds": 4,
+  "objective": "Preparar una part d’un fitxer i deixar l’altra edició pendent al treball.",
+  "prerequisites": "helloGit.py ja seguit, sense canvis preparats. Modifiquem salutació i comiat, prou separats perquè apareguin en dos blocs independents de diff.",
+  "timing": "Sense marques absolutes: es calcularan amb la futura locució.",
+  "scenes": [
+    {
+      "id": "rev_23_00",
+      "title": "Objectiu i punt de partida",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a preparar una part d’un fitxer i deixar l’altra edició pendent al treball.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a preparar una part d’un fitxer i deixar l’altra edició pendent al treball."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "helloGit.py ja seguit, sense canvis preparats. Modifiquem salutació i comiat, prou separats perquè apareguin en dos blocs independents de diff.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "helloGit.py"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ja seguit, sense canvis preparats. Modifiquem salutació i comiat, prou separats perquè apareguin en dos blocs independents de diff."
+            }
+          ],
+          "visual": "Punt de partida complet amb branca activa, fitxers i estat del treball; fer visible qualsevol cas independent.",
+          "pause_after": 3.5,
+          "commands": []
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a preparar una part d’un fitxer i deixar l’altra edició pendent al treball. helloGit.py ja seguit, sense canvis preparats. Modifiquem salutació i comiat, prou separats perquè apareguin en dos blocs independents de diff."
+    },
+    {
+      "id": "rev_23_01",
+      "title": "Dues edicions, dos canvis separables",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "El programa té una funció de salutació i una de comiat, separades per altres funcions que no canviem. Mostrem el contingut inicial abans d’editar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El programa té una funció de salutació i una de comiat, separades per altres funcions que no canviem. Mostrem el contingut inicial abans d’editar."
+            }
+          ],
+          "visual": "Editor amb les dues edicions ressaltades i les funcions intermèdies sense canvis. No presentar dos blocs garantits per a qualsevol fitxer.\nCodi inicial complet:\n```python\ndef saluda():\n    return \"Hello Git!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Fins aviat!\"\n\n\nprint(saluda())\nprint(comiat())\n```\nCodi editat complet:\n```python\ndef saluda():\n    return \"Hola, Anna!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Adeu!\"\n\n\nprint(saluda())\nprint(comiat())\n```\nMostrar les dues funcions modificades per torns; conservar les intermèdies sense canvis com a context.",
+          "pause_after": 3,
+          "commands": []
+        },
+        {
+          "id": "pas_004",
+          "narration": "Canviem la salutació a Hola, Anna! i el comiat a Adeu! Volem confirmar només la salutació i conservar el comiat com a feina pendent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Canviem la salutació a Hola, Anna! i el comiat a Adeu! Volem confirmar només la salutació i conservar el comiat com a feina pendent."
+            }
+          ],
+          "visual": "Editor amb les dues edicions ressaltades i les funcions intermèdies sense canvis. No presentar dos blocs garantits per a qualsevol fitxer.\nCodi inicial complet:\n```python\ndef saluda():\n    return \"Hello Git!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Fins aviat!\"\n\n\nprint(saluda())\nprint(comiat())\n```\nCodi editat complet:\n```python\ndef saluda():\n    return \"Hola, Anna!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Adeu!\"\n\n\nprint(saluda())\nprint(comiat())\n```\nMostrar les dues funcions modificades per torns; conservar les intermèdies sense canvis com a context.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "El programa té una funció de salutació i una de comiat, separades per altres funcions que no canviem. Mostrem el contingut inicial abans d’editar. Canviem la salutació a Hola, Anna! i el comiat a Adeu! Volem confirmar només la salutació i conservar el comiat com a feina pendent."
+    },
+    {
+      "id": "rev_23_02",
+      "title": "git diff -- helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_005",
+          "narration": "Revisem el contingut abans de seleccionar-lo.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Revisem el contingut abans de seleccionar-lo."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git diff.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff -- helloGit.py",
+          "highlight": "git diff"
+        },
+        {
+          "id": "pas_006",
+          "narration": "Separa les opcions del camí de fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Separa les opcions del camí de fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff -- helloGit.py",
+          "highlight": "--"
+        },
+        {
+          "id": "pas_007",
+          "narration": "Consultem els dos blocs del mateix fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem els dos blocs del mateix fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff -- helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_008",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git diff -- helloGit.py"
+          ],
+          "command_display": "git diff -- helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_009",
+          "narration": "El primer bloc modifica la salutació i el segon, el comiat. Els signes de diff no formen part del codi que editem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El primer bloc modifica la salutació i el segon, el comiat. Els signes de diff no formen part del codi que editem."
+            }
+          ],
+          "visual": "Dos blocs clarament separats i numerats BLOC 1 / BLOC 2. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git diff -- helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Revisem el contingut abans de seleccionar-lo. Separa les opcions del camí de fitxer. Consultem els dos blocs del mateix fitxer. Executem l’ordre. El primer bloc modifica la salutació i el segon, el comiat. Els signes de diff no formen part del codi que editem."
+    },
+    {
+      "id": "rev_23_03",
+      "title": "git add -p helloGit.py",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_010",
+          "narration": "Entrem a la preparació interactiva.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Entrem a la preparació interactiva."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add -p helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add -p helloGit.py",
+          "highlight": "git add"
+        },
+        {
+          "id": "pas_011",
+          "narration": "El guionet pe permet seleccionar blocs de canvi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet pe permet seleccionar blocs de canvi."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add -p helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -p.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add -p helloGit.py",
+          "highlight": "-p"
+        },
+        {
+          "id": "pas_012",
+          "narration": "Limitem la sessió al fitxer del programa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Limitem la sessió al fitxer del programa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add -p helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add -p helloGit.py",
+          "highlight": "helloGit.py"
+        },
+        {
+          "id": "pas_013",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add -p helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add -p helloGit.py"
+          ],
+          "command_display": "git add -p helloGit.py",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_014",
+          "narration": "Git mostra el primer bloc i espera una resposta. Encara no introduïm una altra comanda de terminal.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " mostra el primer bloc i espera una resposta. Encara no introduïm una altra comanda de terminal."
+            }
+          ],
+          "visual": "Terminal en mode INTERACTIU, primer bloc de salutació i opcions de resposta. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add -p helloGit.py",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Entrem a la preparació interactiva. El guionet pe permet seleccionar blocs de canvi. Limitem la sessió al fitxer del programa. Executem l’ordre. Git mostra el primer bloc i espera una resposta. Encara no introduïm una altra comanda de terminal."
+    },
+    {
+      "id": "rev_23_04",
+      "title": "y",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_015",
+          "narration": "Responem i grega, de yes, per preparar el primer bloc.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Responem i grega, de "
+            },
+            {
+              "lang": "en-US",
+              "text": "yes"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", per preparar el primer bloc."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: y. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: y.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "y",
+          "highlight": "y"
+        },
+        {
+          "id": "pas_016",
+          "narration": "Introduïm la resposta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Introduïm la resposta."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: y. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "y"
+          ],
+          "command_display": "y",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_017",
+          "narration": "La salutació passa a la preparació. La mateixa sessió continua amb el segon bloc.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La salutació passa a la preparació. La mateixa sessió continua amb el segon bloc."
+            }
+          ],
+          "visual": "Moure només el bloc de salutació del treball a l’índex. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "y",
+          "event": "result"
+        }
+      ],
+      "input_kind": "interactive",
+      "narration": "Responem i grega, de yes, per preparar el primer bloc. Introduïm la resposta. La salutació passa a la preparació. La mateixa sessió continua amb el segon bloc."
+    },
+    {
+      "id": "rev_23_05",
+      "title": "n",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_018",
+          "narration": "Responem ena per deixar fora el segon bloc.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Responem ena per deixar fora el segon bloc."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: n. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: n.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "n",
+          "highlight": "n"
+        },
+        {
+          "id": "pas_019",
+          "narration": "Introduïm la resposta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Introduïm la resposta."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: n. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "n"
+          ],
+          "command_display": "n",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_020",
+          "narration": "El comiat continua al treball i no entra a la preparació. La sessió acaba en aquest exemple de dos blocs.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El comiat continua al treball i no entra a la preparació. La sessió acaba en aquest exemple de dos blocs."
+            }
+          ],
+          "visual": "Conservar el comiat al treball. Tornar a mostrar el prompt normal de la terminal. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "n",
+          "event": "result"
+        }
+      ],
+      "input_kind": "interactive",
+      "narration": "Responem ena per deixar fora el segon bloc. Introduïm la resposta. El comiat continua al treball i no entra a la preparació. La sessió acaba en aquest exemple de dos blocs."
+    },
+    {
+      "id": "rev_23_06",
+      "title": "git diff --staged",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_021",
+          "narration": "Comprovem què hem preparat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprovem què hem preparat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff --staged. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git diff.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff --staged",
+          "highlight": "git diff"
+        },
+        {
+          "id": "pas_022",
+          "narration": "Compara la preparació amb l’últim commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Compara la preparació amb l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff --staged. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --staged.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff --staged",
+          "highlight": "--staged"
+        },
+        {
+          "id": "pas_023",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff --staged. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git diff --staged"
+          ],
+          "command_display": "git diff --staged",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_024",
+          "narration": "Només hi ha la salutació nova. Aquesta és la selecció que enregistrarem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Només hi ha la salutació nova. Aquesta és la selecció que enregistrarem."
+            }
+          ],
+          "visual": "Fletxa ÚLTIM COMMIT → PREPARACIÓ; comiat antic a les dues zones. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git diff --staged",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comprovem què hem preparat. Compara la preparació amb l’últim commit. Executem l’ordre. Només hi ha la salutació nova. Aquesta és la selecció que enregistrarem."
+    },
+    {
+      "id": "rev_23_07",
+      "title": "git diff",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_025",
+          "narration": "Comprovem què queda pendent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprovem què queda pendent."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git diff.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff",
+          "highlight": "git diff"
+        },
+        {
+          "id": "pas_026",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git diff"
+          ],
+          "command_display": "git diff",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_027",
+          "narration": "Només apareix el comiat nou. La salutació ja coincideix entre treball i preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Només apareix el comiat nou. La salutació ja coincideix entre treball i preparació."
+            }
+          ],
+          "visual": "Fletxa PREPARACIÓ → TREBALL; destacar el comiat sense preparar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git diff",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comprovem què queda pendent. Executem l’ordre. Només apareix el comiat nou. La salutació ja coincideix entre treball i preparació."
+    },
+    {
+      "id": "rev_23_08",
+      "title": "git commit -m \"Personalitza la salutacio\"",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "Amb git commit enregistrarem el contingut preparat en una versió local.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " enregistrarem el contingut preparat en una versió local."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "git commit"
+        },
+        {
+          "id": "pas_029",
+          "narration": "El guionet ema indica que a continuació escrivim el missatge del canvi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ema indica que a continuació escrivim el missatge del canvi."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -m.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "-m"
+        },
+        {
+          "id": "pas_030",
+          "narration": "El text entre cometes descriu la feina: Personalitza la salutació. Les cometes agrupen el missatge en un sol argument.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El text entre cometes descriu la feina: Personalitza la salutació. Les cometes agrupen el missatge en un sol argument."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Personalitza la salutacio\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "\"Personalitza la salutacio\""
+        },
+        {
+          "id": "pas_031",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Personalitza la salutacio\""
+          ],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_032",
+          "narration": "El commit nou incorpora la salutació. L’edició del comiat continua al treball; el commit no l’ha eliminada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou incorpora la salutació. L’edició del comiat continua al treball; el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " no l’ha eliminada."
+            }
+          ],
+          "visual": "Subratllar commit, després -m i després el missatge. Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git commit enregistrarem el contingut preparat en una versió local. El guionet ema indica que a continuació escrivim el missatge del canvi. El text entre cometes descriu la feina: Personalitza la salutació. Les cometes agrupen el missatge en un sol argument. Executem l’ordre. El commit nou incorpora la salutació. L’edició del comiat continua al treball; el commit no l’ha eliminada."
+    },
+    {
+      "id": "rev_23_09",
+      "title": "git status --short",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_033",
+          "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Aquesta consulta no modifica el projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status"
+        },
+        {
+          "id": "pas_034",
+          "narration": "Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "short"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " demana la forma breu. La primera columna compara preparació i últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; la segona, treball i preparació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --short.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "--short"
+        },
+        {
+          "id": "pas_035",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech"
+        },
+        {
+          "id": "pas_036",
+          "narration": "El fitxer encara apareix modificat sense preparar pel canvi de comiat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El fitxer encara apareix modificat sense preparar pel canvi de comiat."
+            }
+          ],
+          "visual": "Mostrar la sortida literal amb les dues columnes separades i una llegenda; conservar els espais de davant de cada lletra. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result"
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat amb git status. Aquesta consulta no modifica el projecte. Doble guionet short demana la forma breu. La primera columna compara preparació i últim commit; la segona, treball i preparació. Executem l’ordre. El fitxer encara apareix modificat sense preparar pel canvi de comiat."
+    },
+    {
+      "id": "rev_23_10",
+      "title": "El bloc és la unitat de selecció d’aquest exemple",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_037",
+          "narration": "Aquí les edicions formen dos blocs independents. Si Git les agrupa en un sol bloc, cal revisar com dividir-lo o ajustar la selecció; no assumim que cada línia es presenta separadament.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Aquí les edicions formen dos blocs independents. Si "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " les agrupa en un sol bloc, cal revisar com dividir-lo o ajustar la selecció; no assumim que cada línia es presenta separadament."
+            }
+          ],
+          "visual": "Comparació conceptual DOS BLOCS SEPARATS / UN BLOC CONJUNT, sense introduir noves respostes interactives en aquesta lliçó.",
+          "pause_after": 3,
+          "commands": []
+        }
+      ],
+      "narration": "Aquí les edicions formen dos blocs independents. Si Git les agrupa en un sol bloc, cal revisar com dividir-lo o ajustar la selecció; no assumim que cada línia es presenta separadament."
+    },
+    {
+      "id": "rev_23_11",
+      "title": "Resum final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_038",
+          "narration": "L’opció p permet preparar blocs concrets.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’opció p permet preparar blocs concrets."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_039",
+          "narration": "Les respostes y i n pertanyen a la sessió interactiva.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les respostes y i n pertanyen a la sessió interactiva."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_040",
+          "narration": "El commit enregistra la selecció i conserva la resta d’edicions al treball.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " enregistra la selecció i conserva la resta d’edicions al treball."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "L’opció p permet preparar blocs concrets. Les respostes y i n pertanyen a la sessió interactiva. El commit enregistra la selecció i conserva la resta d’edicions al treball."
+    },
+    {
+      "id": "rev_23_12",
+      "title": "Pràctica final",
+      "mode": "main",
+      "beats": [
+        {
+          "id": "pas_041",
+          "narration": "En un fitxer de pràctiques amb dues edicions separades, prepara un bloc i rebutja l’altre. Compara els dos diffs abans de confirmar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un fitxer de pràctiques amb dues edicions separades, prepara un bloc i rebutja l’altre. Compara els dos diffs abans de confirmar."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En un fitxer de pràctiques amb dues edicions separades, prepara un bloc i rebutja l’altre. Compara els dos diffs abans de confirmar."
+    }
+  ],
+  "intro": {
+    "narration": "Vint-i-tresena lliçó, Add interactiu.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Vint-i-tresena lliçó, "
+      },
+      {
+        "lang": "en-US",
+        "text": "Add"
+      },
+      {
+        "lang": "ca-ES",
+        "text": " interactiu."
+      }
+    ]
+  }
+}

@@ -1,0 +1,953 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 24,
+  "slug": "24-pull-request-obrir",
+  "title": "Pull request: proposa un canvi a l’equip",
+  "short_title": "PULL REQUEST",
+  "card": [
+    "PULL REQUEST",
+    "Proposa un canvi a l’equip"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "24-pull-request-obrir.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Vint-i-quatrena lliçó. Pull requests, primera part.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Vint-i-quatrena lliçó. "
+      },
+      {
+        "lang": "en-US",
+        "text": "Pull requests"
+      },
+      {
+        "lang": "ca-ES",
+        "text": ", primera part."
+      }
+    ]
+  },
+  "objective": "publicar una branca i obrir una proposta perquè l’equip la revisi abans d’integrar-la.",
+  "start_note": "Projecte clonat, main al dia amb origin/main a B i treball net. Tenim permís per publicar branques al repositori. La interfície de GitHub és un esquema amb dades inventades.",
+  "start_spoken": "Treballem en equip en un repositori compartit de GitHub. La nostra còpia de main és al dia i no tenim canvis pendents.",
+  "summary": [
+    "La pull request es crea a partir d’una branca publicada.",
+    "La destinació és main i l’origen, la branca amb el canvi.",
+    "Proposar no és integrar; primer ve la revisió."
+  ],
+  "practice": "En un repositori de pràctiques compartit, publica una branca amb un canvi petit i obre una proposta cap a main amb una descripció de com l’has provat.",
+  "practice_script": "practiques/24-pull-request-obrir.sh",
+  "scenes": [
+    {
+      "id": "e24_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a publicar una branca i obrir una proposta perquè l’equip la revisi abans d’integrar-la.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a publicar una branca i obrir una proposta perquè l’equip la revisi abans d’integrar-la."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_002",
+          "narration": "Treballem en equip en un repositori compartit de GitHub. La nostra còpia de main és al dia i no tenim canvis pendents.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Treballem en equip en un repositori compartit de "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". La nostra còpia de "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és al dia i no tenim canvis pendents."
+            }
+          ],
+          "visual": "Punt de partida: Projecte clonat, main al dia amb origin/main a B i treball net. Tenim permís per publicar branques al repositori. La interfície de GitHub és un esquema amb dades inventades.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a publicar una branca i obrir una proposta perquè l’equip la revisi abans d’integrar-la. Treballem en equip en un repositori compartit de GitHub. La nostra còpia de main és al dia i no tenim canvis pendents."
+    },
+    {
+      "id": "e24_01",
+      "label": "EXPLICACIÓ",
+      "title": "Una proposta abans d’integrar",
+      "mode": "principal",
+      "visual": "Esquema main / salutacio / PROPOSTA. main no es mou.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Una pull request és una proposta per incorporar els commits d’una branca a una altra. És l’espai on l’equip revisa i comenta els canvis abans d’integrar-los.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Una "
+            },
+            {
+              "lang": "en-US",
+              "text": "pull request"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és una proposta per incorporar els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " d’una branca a una altra. És l’espai on l’equip revisa i comenta els canvis abans d’integrar-los."
+            }
+          ],
+          "visual": "Esquema main / salutacio / PROPOSTA. main no es mou.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "narration": "Una pull request és una proposta per incorporar els commits d’una branca a una altra. És l’espai on l’equip revisa i comenta els canvis abans d’integrar-los."
+    },
+    {
+      "id": "e24_02",
+      "label": "TERMINAL",
+      "title": "git status --short",
+      "mode": "principal",
+      "visual": "Sortida literal amb la llegenda de les dues columnes.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Consultem l’estat breu amb git status.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat breu amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "Comencem sense canvis pendents.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comencem sense canvis pendents."
+            }
+          ],
+          "visual": "Sortida literal amb la llegenda de les dues columnes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result",
+          "state": 1,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat breu amb git status. Executem l’ordre. Comencem sense canvis pendents."
+    },
+    {
+      "id": "e24_03",
+      "label": "TERMINAL",
+      "title": "git switch -c salutacio",
+      "mode": "principal",
+      "visual": "Afegir l’etiqueta nova al commit actual sense crear cap node i moure-hi l’indicador de branca activa.",
+      "beats": [
+        {
+          "id": "pas_007",
+          "narration": "Amb git switch seleccionem la branca on treballarem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git switch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " seleccionem la branca on treballarem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch -c salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git switch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch -c salutacio",
+          "highlight": "git switch",
+          "state": 1
+        },
+        {
+          "id": "pas_008",
+          "narration": "El guionet ce crea una branca nova i hi canvia.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ce crea una branca nova i hi canvia."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch -c salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -c.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch -c salutacio",
+          "highlight": "-c",
+          "state": 1
+        },
+        {
+          "id": "pas_009",
+          "narration": "És el nom de la branca nova. Comença al commit actual.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca nova. Comença al "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " actual."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch -c salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: salutacio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch -c salutacio",
+          "highlight": "salutacio",
+          "state": 1
+        },
+        {
+          "id": "pas_010",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch -c salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git switch -c salutacio"
+          ],
+          "command_display": "git switch -c salutacio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_011",
+          "narration": "Treballarem en una branca pròpia perquè es pugui revisar per separat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Treballarem en una branca pròpia perquè es pugui revisar per separat."
+            }
+          ],
+          "visual": "Afegir l’etiqueta nova al commit actual sense crear cap node i moure-hi l’indicador de branca activa. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git switch -c salutacio",
+          "event": "result",
+          "state": 2,
+          "simulated": false,
+          "terminal_output": [
+            "Switched to a new branch 'salutacio'"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git switch seleccionem la branca on treballarem. El guionet ce crea una branca nova i hi canvia. És el nom de la branca nova. Comença al commit actual. Executem l’ordre. Treballarem en una branca pròpia perquè es pugui revisar per separat."
+    },
+    {
+      "id": "e24_04",
+      "label": "EXPLICACIÓ",
+      "title": "Fem el canvi",
+      "mode": "principal",
+      "visual": "Editor amb print(\"Hola, Anna\").",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "Personalitzem la salutació i la provem abans de confirmar-la.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Personalitzem la salutació i la provem abans de confirmar-la."
+            }
+          ],
+          "visual": "Editor amb print(\"Hola, Anna\").",
+          "pause_after": 3,
+          "commands": [],
+          "state": 3
+        }
+      ],
+      "narration": "Personalitzem la salutació i la provem abans de confirmar-la."
+    },
+    {
+      "id": "e24_05",
+      "label": "TERMINAL",
+      "title": "python3 helloGit.py",
+      "mode": "principal",
+      "visual": "Mostrar la sortida real del programa al costat de l’editor.",
+      "beats": [
+        {
+          "id": "pas_013",
+          "narration": "Provem el programa amb la versió desada del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem el programa amb la versió desada del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3",
+          "state": 3
+        },
+        {
+          "id": "pas_014",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_015",
+          "narration": "Surt la salutació personalitzada, encara sense exclamació. Aquesta és la primera versió de la proposta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Surt la salutació personalitzada, encara sense exclamació. Aquesta és la primera versió de la proposta."
+            }
+          ],
+          "visual": "Mostrar la sortida real del programa al costat de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result",
+          "state": 4,
+          "simulated": false,
+          "terminal_output": [
+            "Hola, Anna"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem el programa amb la versió desada del fitxer. Executem l’ordre. Surt la salutació personalitzada, encara sense exclamació. Aquesta és la primera versió de la proposta."
+    },
+    {
+      "id": "e24_06",
+      "label": "TERMINAL",
+      "title": "git add helloGit.py",
+      "mode": "principal",
+      "visual": "Copiar el contingut desat a la preparació.",
+      "beats": [
+        {
+          "id": "pas_016",
+          "narration": "Preparem el fitxer amb git add.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparem el fitxer amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "git add",
+          "state": 4
+        },
+        {
+          "id": "pas_017",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "command_display": "git add helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_018",
+          "narration": "El canvi queda preparat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El canvi queda preparat."
+            }
+          ],
+          "visual": "Copiar el contingut desat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "event": "result",
+          "state": 5,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Preparem el fitxer amb git add. Executem l’ordre. El canvi queda preparat."
+    },
+    {
+      "id": "e24_07",
+      "label": "TERMINAL",
+      "title": "git commit -m \"Personalitza la salutacio\"",
+      "mode": "principal",
+      "visual": "Crear el node nou només en executar.",
+      "beats": [
+        {
+          "id": "pas_019",
+          "narration": "Confirmem el canvi amb git commit i el missatge: Personalitza la salutació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Confirmem el canvi amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i el missatge: Personalitza la salutació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "git commit",
+          "state": 5
+        },
+        {
+          "id": "pas_020",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Personalitza la salutacio\""
+          ],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_021",
+          "narration": "El commit és a la branca salutació, al nostre ordinador. main continua on era.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és a la branca salutació, al nostre ordinador. "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " continua on era."
+            }
+          ],
+          "visual": "Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "result",
+          "state": 6,
+          "simulated": false,
+          "terminal_output": [
+            "[salutacio 4f5620c] Personalitza la salutacio",
+            " 1 file changed, 1 insertion(+), 1 deletion(-)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Confirmem el canvi amb git commit i el missatge: Personalitza la salutació. Executem l’ordre. El commit és a la branca salutació, al nostre ordinador. main continua on era."
+    },
+    {
+      "id": "e24_08",
+      "label": "TERMINAL",
+      "title": "git push -u origin salutacio",
+      "mode": "principal",
+      "visual": "La branca apareix al remot amb el mateix commit que al local.",
+      "beats": [
+        {
+          "id": "pas_022",
+          "narration": "Amb git push publiquem la branca al remot.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " publiquem la branca al remot."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push -u origin salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git push.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push -u origin salutacio",
+          "highlight": "git push",
+          "state": 6
+        },
+        {
+          "id": "pas_023",
+          "narration": "El guionet u desa la relació de seguiment; els enviaments següents podran ser només git push.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet u desa la relació de seguiment; els enviaments següents podran ser només "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push -u origin salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -u.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push -u origin salutacio",
+          "highlight": "-u",
+          "state": 6
+        },
+        {
+          "id": "pas_024",
+          "narration": "origin és el nom del remot on publiquem.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és el nom del remot on publiquem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push -u origin salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: origin.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push -u origin salutacio",
+          "highlight": "origin",
+          "state": 6
+        },
+        {
+          "id": "pas_025",
+          "narration": "És el nom de la branca que publiquem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca que publiquem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push -u origin salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: salutacio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push -u origin salutacio",
+          "highlight": "salutacio",
+          "state": 6
+        },
+        {
+          "id": "pas_026",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push -u origin salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git push -u origin salutacio"
+          ],
+          "command_display": "git push -u origin salutacio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 6
+        },
+        {
+          "id": "pas_027",
+          "narration": "La branca ja és al remot i es pot comparar amb main. Encara no l’hem integrada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca ja és al remot i es pot comparar amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Encara no l’hem integrada."
+            }
+          ],
+          "visual": "La branca apareix al remot amb el mateix commit que al local. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git push -u origin salutacio",
+          "event": "result",
+          "state": 7,
+          "simulated": false,
+          "terminal_output": [
+            "branch 'salutacio' set up to track 'origin/salutacio'.",
+            "To ~/origin.git",
+            " * [new branch]      salutacio -> salutacio"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git push publiquem la branca al remot. El guionet u desa la relació de seguiment; els enviaments següents podran ser només git push. origin és el nom del remot on publiquem. És el nom de la branca que publiquem. Executem l’ordre. La branca ja és al remot i es pot comparar amb main. Encara no l’hem integrada."
+    },
+    {
+      "id": "e24_09",
+      "label": "EXPLICACIÓ",
+      "title": "Triem destinació i origen",
+      "mode": "principal",
+      "visual": "Esquema del formulari, base main i compare salutacio. Subratllar primer la destinació i després l’origen. Text d’exemple, Personalitza la salutació. Prova, python3 helloGit.py.",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "A la web de GitHub obrim una proposta nova. La destinació, que GitHub anomena base, és main. L’origen, que anomena compare, és la branca salutació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "A la web de "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " obrim una proposta nova. La destinació, que "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " anomena "
+            },
+            {
+              "lang": "en-US",
+              "text": "base"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", és "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". L’origen, que anomena "
+            },
+            {
+              "lang": "en-US",
+              "text": "compare"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", és la branca salutació."
+            }
+          ],
+          "visual": "Esquema del formulari, base main i compare salutacio. Subratllar primer la destinació i després l’origen. Text d’exemple, Personalitza la salutació. Prova, python3 helloGit.py.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": 8
+        },
+        {
+          "id": "pas_029",
+          "narration": "Escrivim un títol i expliquem el canvi i com l’hem provat. Revisem la llista de canvis abans de crear la proposta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Escrivim un títol i expliquem el canvi i com l’hem provat. Revisem la llista de canvis abans de crear la proposta."
+            }
+          ],
+          "visual": "Esquema del formulari, base main i compare salutacio. Subratllar primer la destinació i després l’origen. Text d’exemple, Personalitza la salutació. Prova, python3 helloGit.py.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": 8
+        }
+      ],
+      "narration": "A la web de GitHub obrim una proposta nova. La destinació, que GitHub anomena base, és main. L’origen, que anomena compare, és la branca salutació. Escrivim un títol i expliquem el canvi i com l’hem provat. Revisem la llista de canvis abans de crear la proposta."
+    },
+    {
+      "id": "e24_10",
+      "label": "EXPLICACIÓ",
+      "title": "La proposta queda oberta",
+      "mode": "principal",
+      "visual": "Esquema de la pull request oberta amb l’estat OBERTA, el commit C i la pestanya de canvis.",
+      "beats": [
+        {
+          "id": "pas_030",
+          "narration": "La proposta ja és visible per a l’equip, amb el commit i les diferències. Ara toca esperar la revisió; encara no s’ha integrat res a main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La proposta ja és visible per a l’equip, amb el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i les diferències. Ara toca esperar la revisió; encara no s’ha integrat res a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Esquema de la pull request oberta amb l’estat OBERTA, el commit C i la pestanya de canvis.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 9
+        }
+      ],
+      "narration": "La proposta ja és visible per a l’equip, amb el commit i les diferències. Ara toca esperar la revisió; encara no s’ha integrat res a main."
+    },
+    {
+      "id": "e24_11",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_031",
+          "narration": "La pull request es crea a partir d’una branca publicada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La "
+            },
+            {
+              "lang": "en-US",
+              "text": "pull request"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " es crea a partir d’una branca publicada."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_032",
+          "narration": "La destinació és main i l’origen, la branca amb el canvi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La destinació és "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i l’origen, la branca amb el canvi."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        },
+        {
+          "id": "pas_033",
+          "narration": "Proposar no és integrar; primer ve la revisió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Proposar no és integrar; primer ve la revisió."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": []
+        }
+      ],
+      "narration": "La pull request es crea a partir d’una branca publicada. La destinació és main i l’origen, la branca amb el canvi. Proposar no és integrar; primer ve la revisió."
+    },
+    {
+      "id": "e24_12",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_034",
+          "narration": "En un repositori de pràctiques compartit, publica una branca amb un canvi petit i obre una proposta cap a main amb una descripció de com l’has provat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un repositori de pràctiques compartit, publica una branca amb un canvi petit i obre una proposta cap a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb una descripció de com l’has provat."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": []
+        }
+      ],
+      "narration": "En un repositori de pràctiques compartit, publica una branca amb un canvi petit i obre una proposta cap a main amb una descripció de com l’has provat."
+    }
+  ],
+  "commands": [
+    "git status --short",
+    "git switch -c salutacio",
+    "python3 helloGit.py",
+    "git add helloGit.py",
+    "git commit -m \"Personalitza la salutacio\"",
+    "git push -u origin salutacio"
+  ]
+}

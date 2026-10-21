@@ -1,0 +1,134 @@
+{
+ "llico": "01-configuracio",
+ "autoria": [
+  "Anna Puig",
+  "anna@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git --version",
+   "sortida": "git version 2.55.0\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git config --global user.name \"Anna Puig\"",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git config --global user.email \"anna@example.com\"",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git config --global init.defaultBranch main",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": "git config --global core.editor \"code --wait\"",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 9,
+   "cami": "principal",
+   "ordre": "git config --global --list",
+   "sortida": "user.name=Anna Puig\nuser.email=anna@example.com\ninit.defaultbranch=main\ncore.editor=code --wait\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {},
+   "estat": {
+    "directori": "~"
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~"
+ },
+ "etiquetes_inici": {}
+}

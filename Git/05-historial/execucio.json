@@ -1,0 +1,452 @@
+{
+ "llico": "05-historial",
+ "autoria": [
+  "Anna Puig",
+  "anna@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "4a464f8",
+    "C": "4243376"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "4243376",
+    "refs": {
+     "main": "4243376"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "4a464f8",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "4243376",
+      "lletra": "C",
+      "pares": [
+       "4a464f8"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git log",
+   "sortida": "commit 424337671399e356687a0be79c217d5b2a788fb1\nAuthor: Anna Puig <anna@example.com>\nDate:   Tue Oct 20 12:09:00 2026 +0200\n\n    Afegeix un comiat\n\ncommit 4a464f8ba8264fea7948d3ed2a9c2e2731451cf5\nAuthor: Anna Puig <anna@example.com>\nDate:   Tue Oct 20 12:06:00 2026 +0200\n\n    Afegeix una exclamacio\n\ncommit d3fb44b0696e4f913b7637f461983ae0fd5f1cb3\nAuthor: Anna Puig <anna@example.com>\nDate:   Tue Oct 20 12:03:00 2026 +0200\n\n    Afegeix la salutacio inicial\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "4a464f8",
+    "C": "4243376"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "4243376",
+    "refs": {
+     "main": "4243376"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "4a464f8",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "4243376",
+      "lletra": "C",
+      "pares": [
+       "4a464f8"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git log --oneline",
+   "sortida": "4243376 Afegeix un comiat\n4a464f8 Afegeix una exclamacio\nd3fb44b Afegeix la salutacio inicial\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "4a464f8",
+    "C": "4243376"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "4243376",
+    "refs": {
+     "main": "4243376"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "4a464f8",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "4243376",
+      "lletra": "C",
+      "pares": [
+       "4a464f8"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "4a464f8",
+    "C": "4243376"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "4243376",
+    "refs": {
+     "main": "4243376"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "4a464f8",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "4243376",
+      "lletra": "C",
+      "pares": [
+       "4a464f8"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git show HEAD",
+   "sortida": "commit 424337671399e356687a0be79c217d5b2a788fb1\nAuthor: Anna Puig <anna@example.com>\nDate:   Tue Oct 20 12:09:00 2026 +0200\n\n    Afegeix un comiat\n\ndiff --git a/helloGit.py b/helloGit.py\nindex 52662af..097ee02 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1,2 @@\n print(\"Hello Git!\")\n+print(\"Fins aviat!\")\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "4a464f8",
+    "C": "4243376"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "4243376",
+    "refs": {
+     "main": "4243376"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "4a464f8",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "4243376",
+      "lletra": "C",
+      "pares": [
+       "4a464f8"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git show HEAD~1",
+   "sortida": "commit 4a464f8ba8264fea7948d3ed2a9c2e2731451cf5\nAuthor: Anna Puig <anna@example.com>\nDate:   Tue Oct 20 12:06:00 2026 +0200\n\n    Afegeix una exclamacio\n\ndiff --git a/helloGit.py b/helloGit.py\nindex 078d6bf..52662af 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1 @@\n-print(\"Hello Git\")\n+print(\"Hello Git!\")\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "4a464f8",
+    "C": "4243376"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "4243376",
+    "refs": {
+     "main": "4243376"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "4a464f8",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "4243376",
+      "lletra": "C",
+      "pares": [
+       "4a464f8"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git diff HEAD~2 HEAD -- helloGit.py",
+   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 078d6bf..097ee02 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1,2 @@\n-print(\"Hello Git\")\n+print(\"Hello Git!\")\n+print(\"Fins aviat!\")\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "4a464f8",
+    "C": "4243376"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "4243376",
+    "refs": {
+     "main": "4243376"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "4a464f8",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "4243376",
+      "lletra": "C",
+      "pares": [
+       "4a464f8"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "d3fb44b",
+    "B": "4a464f8",
+    "C": "4243376"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "4243376",
+    "refs": {
+     "main": "4243376"
+    },
+    "commits": [
+     {
+      "id": "d3fb44b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "4a464f8",
+      "lletra": "B",
+      "pares": [
+       "d3fb44b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "4243376",
+      "lletra": "C",
+      "pares": [
+       "4a464f8"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+  },
+  "head_commit": "4243376",
+  "refs": {
+   "main": "4243376"
+  },
+  "commits": [
+   {
+    "id": "d3fb44b",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   },
+   {
+    "id": "4a464f8",
+    "lletra": "B",
+    "pares": [
+     "d3fb44b"
+    ],
+    "missatge": "Afegeix una exclamacio"
+   },
+   {
+    "id": "4243376",
+    "lletra": "C",
+    "pares": [
+     "4a464f8"
+    ],
+    "missatge": "Afegeix un comiat"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "d3fb44b",
+  "B": "4a464f8",
+  "C": "4243376"
+ }
+}

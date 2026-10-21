@@ -1,0 +1,7 @@
+{
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "written_text": "El fitxer acaba en punt log. Aquests logs guarden informació. Amb git log consultem els commits.",
+  "tts_text": "El fitxer acaba en punt lòg. Aquests lògs guarden informació. Amb Guit lòg consultem els còmits.",
+  "status": "prova pendent d’escoltar; no aplicada a producció"
+}

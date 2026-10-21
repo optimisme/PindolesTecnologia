@@ -1,0 +1,93 @@
+{
+  "title": "Fetch: consulta els canvis abans d’integrar-los",
+  "episode_number": 20,
+  "short_title": "FETCH",
+  "voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "fps": 24,
+  "intro": {
+    "enabled": true,
+    "narration": "Vintena lliçó, Fetch."
+  },
+  "prerequisites": "Exemple independent i lineal A–B–C. Main local i la referència local origin/main són a B, amb índex i arbre nets. Origin al servidor ja té main a C, un nou commit compatible d’una altra còpia. B conté print(\"Hello Git!\"); C conté print(\"Hola, Anna!\"). Main és la branca activa i segueix origin/main. Git fetch origin descarrega C i actualitza origin/main sense modificar main, índex ni treball. Main..origin/main llista C i git diff main origin/main -- helloGit.py compara els dos continguts. Només després git merge --ff-only origin/main avança main de B a C, perquè no hi ha divergències i l’arbre continua net. No es fa cap push. Els hashes són il·lustratius. Les comprovacions utilitzen un remot local temporal.",
+  "scenes": [
+    {
+      "id": "p_hook",
+      "label": "CONSULTAR ABANS D’ACTUALITZAR",
+      "title": "Què ha canviat al remot?",
+      "narration": "Una altra persona ha publicat un commit. Vols mirar què ha canviat abans d’incorporar-lo al teu projecte. Fetch permet descarregar-lo i revisar-lo primer.",
+      "visual": "Dues targetes amb B local i C al servidor. El fitxer local conserva Hello Git!; el servidor té Hola, Anna!."
+    },
+    {
+      "id": "p_before",
+      "label": "01 / ENTENDRE origin/main",
+      "title": "La referència local pot estar desactualitzada",
+      "narration": "Partim de main a B i sense canvis pendents. Origin main també apunta a B: és una referència local de l’última consulta, no una vista en directe del servidor.",
+      "visual": "Servidor main C; local main B i origin/main B. Terminal mostra status net i log de la referència a B.",
+      "commands": [
+        "git status --short",
+        "git log -1 --oneline origin/main"
+      ]
+    },
+    {
+      "id": "p_fetch",
+      "label": "02 / DESCARREGAR LES NOVETATS",
+      "title": "Fetch actualitza origin/main",
+      "narration": "Fem fetch d’origin. Git descarrega C i actualitza origin main. Main continua a B, i els fitxers i la preparació conserven el contingut que teníem.",
+      "visual": "C viatja del servidor al repositori local. Origin/main es mou a C; main i fitxers continuen a B.",
+      "commands": [
+        "git fetch origin"
+      ]
+    },
+    {
+      "id": "p_log",
+      "label": "03 / VEURE ELS COMMITS NOUS",
+      "title": "Quins commits encara no té main?",
+      "narration": "Consultem els commits d’origin main que main encara no conté. En aquest exemple només apareix C. Ja podem decidir si volem revisar-ne el canvi.",
+      "visual": "Graf local A–B–C, main B i origin/main C. Log main..origin/main mostra c95f4a7 Canvia missatge.",
+      "commands": [
+        "git log --oneline main..origin/main"
+      ]
+    },
+    {
+      "id": "p_diff",
+      "label": "04 / COMPARAR EL CONTINGUT",
+      "title": "Revisem la diferència sense integrar-la",
+      "narration": "Amb diff comparem el contingut de les dues versions. Aquí només canvia el missatge. Aquesta consulta tampoc modifica el nostre fitxer de treball.",
+      "visual": "Terminal diff de B a C: -print(\"Hello Git!\"), +print(\"Hola, Anna!\").",
+      "commands": [
+        "git diff main origin/main -- helloGit.py"
+      ]
+    },
+    {
+      "id": "p_decide",
+      "label": "ENCARA PODEM DECIDIR",
+      "title": "Descarregat no vol dir incorporat",
+      "narration": "El commit ja és al repositori local, però encara no forma part de main. Podem continuar revisant-lo. En aquest cas, decidim incorporar-lo.",
+      "visual": "Targeta main B fitxer Hello Git! i targeta origin/main C fitxer Hola, Anna!. Nota: cap canvi local després de les consultes."
+    },
+    {
+      "id": "p_merge",
+      "label": "05 / INTEGRAR EXPLÍCITAMENT",
+      "title": "Ara sí: main avança a C",
+      "narration": "Com que no hi ha divergències, podem avançar main amb un merge de tipus fast forward. Ara el fitxer s’actualitza i provem el programa.",
+      "visual": "Main es mou de B a C; origin/main es conserva a C. El programa mostra Hola, Anna!.",
+      "commands": [
+        "git merge --ff-only origin/main",
+        "python3 helloGit.py"
+      ]
+    },
+    {
+      "id": "p_summary",
+      "label": "JA HO TENS",
+      "title": "Descarregar, revisar i integrar",
+      "narration": "Fetch descarrega i actualitza les referències remotes locals. Després pots revisar i integrar. Pull fa una descàrrega i tot seguit intenta integrar-la: convé distingir aquests dos passos.",
+      "visual": "Tres targetes Fetch descarrega, Log i diff revisen, Merge integra. Es recorda que origin/main és una referència local."
+    }
+  ],
+  "sources": [
+    "https://git-scm.com/docs/git-fetch",
+    "https://git-scm.com/docs/git-pull",
+    "https://git-scm.com/docs/git-diff"
+  ]
+}

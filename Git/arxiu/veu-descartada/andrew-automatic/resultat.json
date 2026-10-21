@@ -1,0 +1,92 @@
+{
+  "andrew_voice": "en-US-AndrewMultilingualNeural",
+  "reference_voice": "ca-ES-EnricNeural",
+  "rate": "+12%",
+  "original_text": "Amb GitHub compartim el projecte. Git add prepara els canvis i git commit els desa. Creem la branca salutació des de main. Amb fetch revisem les novetats abans de fer merge o rebase. Els fitxers punt log guarden informació. Amb git log consultem l'historial. La correcció queda desada.",
+  "enric_tts_text": "Amb Guit Hàb compartim el projecte. Guit add prepara els canvis i Guit còmit els desa. Creem la branca salutació des de méin. Amb fètx revisem les novetats abans de fer mèrtx o ribéis. Els fitxers punt lòg guarden informació. Amb Guit lòg consultem l'historial. La correcció queda desada.",
+  "ssml_language_spans": [
+    [
+      "ca-ES",
+      "Amb "
+    ],
+    [
+      "en-US",
+      "GitHub"
+    ],
+    [
+      "ca-ES",
+      " compartim el projecte. "
+    ],
+    [
+      "en-US",
+      "Git add"
+    ],
+    [
+      "ca-ES",
+      " prepara els canvis i "
+    ],
+    [
+      "en-US",
+      "git commit"
+    ],
+    [
+      "ca-ES",
+      " els desa. Creem la branca salutació des de "
+    ],
+    [
+      "en-US",
+      "main"
+    ],
+    [
+      "ca-ES",
+      ". Amb "
+    ],
+    [
+      "en-US",
+      "fetch"
+    ],
+    [
+      "ca-ES",
+      " revisem les novetats abans de fer "
+    ],
+    [
+      "en-US",
+      "merge"
+    ],
+    [
+      "ca-ES",
+      " o "
+    ],
+    [
+      "en-US",
+      "rebase"
+    ],
+    [
+      "ca-ES",
+      ". Els fitxers punt "
+    ],
+    [
+      "en-US",
+      "log"
+    ],
+    [
+      "ca-ES",
+      " guarden informació. Amb "
+    ],
+    [
+      "en-US",
+      "git log"
+    ],
+    [
+      "ca-ES",
+      " consultem l'historial. La correcció queda desada."
+    ]
+  ],
+  "ssml_trial": {
+    "status": "not_available_on_current_connection",
+    "error_type": "NoAudioReceived",
+    "http_status": null,
+    "note": "Petició experimental SSML amb lang. No s’ha generat cap àudio SSML vàlid."
+  },
+  "production_changed": false
+}

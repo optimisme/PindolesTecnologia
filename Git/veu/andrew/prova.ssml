@@ -1,0 +1,19 @@
+<speak xmlns="http://www.w3.org/2001/10/synthesis" version="1.0" xml:lang="en-US">
+  <voice name="en-US-AndrewMultilingualNeural">
+    <prosody rate="+12%">
+      <lang xml:lang="ca-ES">Editem el fitxer a la branca salutació. Amb </lang>
+      <lang xml:lang="en-US">git add</lang>
+      <lang xml:lang="ca-ES"> preparem els canvis. Després, </lang>
+      <lang xml:lang="en-US">git commit</lang>
+      <lang xml:lang="ca-ES"> desa una versió del projecte. Consultem l’historial amb </lang>
+      <lang xml:lang="en-US">git log</lang>
+      <lang xml:lang="ca-ES">. Per compartir la correcció, fem </lang>
+      <lang xml:lang="en-US">git push</lang>
+      <lang xml:lang="ca-ES"> i enviem els canvis a </lang>
+      <lang xml:lang="en-US">GitHub</lang>
+      <lang xml:lang="ca-ES">. Abans d’integrar novetats, podem fer </lang>
+      <lang xml:lang="en-US">git fetch</lang>
+      <lang xml:lang="ca-ES"> i revisar-les.</lang>
+    </prosody>
+  </voice>
+</speak>
