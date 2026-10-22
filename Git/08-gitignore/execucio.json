@@ -1,0 +1,364 @@
+{
+ "llico": "08-gitignore",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Hola, Ermessenda!\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "023d5af"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".env": "CLAU_API=exemple-que-no-es-real\n",
+     "app.log": "Registre d’una versió antiga\n",
+     "debug.log": "Hola, Ermessenda!\nHola, Ermessenda!\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "mostra.log": "Exemple de registre per a la documentació\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n"
+    },
+    "head_commit": "023d5af",
+    "refs": {
+     "main": "023d5af"
+    },
+    "commits": [
+     {
+      "id": "023d5af",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? .env",
+     "?? __pycache__/",
+     "?? debug.log",
+     "?? mostra.log"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git status --short",
+   "sortida": "?? .env\n?? __pycache__/\n?? debug.log\n?? mostra.log\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "023d5af"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".env": "CLAU_API=exemple-que-no-es-real\n",
+     "app.log": "Registre d’una versió antiga\n",
+     "debug.log": "Hola, Ermessenda!\nHola, Ermessenda!\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "mostra.log": "Exemple de registre per a la documentació\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n"
+    },
+    "head_commit": "023d5af",
+    "refs": {
+     "main": "023d5af"
+    },
+    "commits": [
+     {
+      "id": "023d5af",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? .env",
+     "?? __pycache__/",
+     "?? debug.log",
+     "?? mostra.log"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "023d5af"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "# Fitxers generats\n*.log\n!mostra.log\n__pycache__/\n/build/\n\n# Secrets\n.env\n",
+     "app.log": "Registre d’una versió antiga\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "mostra.log": "Exemple de registre per a la documentació\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n"
+    },
+    "head_commit": "023d5af",
+    "refs": {
+     "main": "023d5af"
+    },
+    "commits": [
+     {
+      "id": "023d5af",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? .gitignore",
+     "?? mostra.log"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git status --short --ignored",
+   "sortida": "?? .gitignore\n?? mostra.log\n!! .env\n!! __pycache__/\n!! debug.log\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "023d5af"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "# Fitxers generats\n*.log\n!mostra.log\n__pycache__/\n/build/\n\n# Secrets\n.env\n",
+     "app.log": "Registre d’una versió antiga\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "mostra.log": "Exemple de registre per a la documentació\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n"
+    },
+    "head_commit": "023d5af",
+    "refs": {
+     "main": "023d5af"
+    },
+    "commits": [
+     {
+      "id": "023d5af",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? .gitignore",
+     "?? mostra.log"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git check-ignore -v debug.log",
+   "sortida": ".gitignore:2:*.log\tdebug.log\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "023d5af"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "# Fitxers generats\n*.log\n!mostra.log\n__pycache__/\n/build/\n\n# Secrets\n.env\n",
+     "app.log": "Registre d’una versió antiga\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "mostra.log": "Exemple de registre per a la documentació\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n"
+    },
+    "head_commit": "023d5af",
+    "refs": {
+     "main": "023d5af"
+    },
+    "commits": [
+     {
+      "id": "023d5af",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "?? .gitignore",
+     "?? mostra.log"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git rm --cached app.log",
+   "sortida": "rm 'app.log'\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "023d5af"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "# Fitxers generats\n*.log\n!mostra.log\n__pycache__/\n/build/\n\n# Secrets\n.env\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "mostra.log": "Exemple de registre per a la documentació\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n"
+    },
+    "head_commit": "023d5af",
+    "refs": {
+     "main": "023d5af"
+    },
+    "commits": [
+     {
+      "id": "023d5af",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "D  app.log",
+     "?? .gitignore",
+     "?? mostra.log"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git add .gitignore mostra.log",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "023d5af"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "# Fitxers generats\n*.log\n!mostra.log\n__pycache__/\n/build/\n\n# Secrets\n.env\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "mostra.log": "Exemple de registre per a la documentació\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n"
+    },
+    "head_commit": "023d5af",
+    "refs": {
+     "main": "023d5af"
+    },
+    "commits": [
+     {
+      "id": "023d5af",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     }
+    ],
+    "status": [
+     "A  .gitignore",
+     "D  app.log",
+     "A  mostra.log"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": "git commit -m \"Ignora els fitxers generats i els secrets\"",
+   "sortida": "[main f15e457] Ignora els fitxers generats i els secrets\n 3 files changed, 9 insertions(+), 1 deletion(-)\n create mode 100644 .gitignore\n delete mode 100644 app.log\n create mode 100644 mostra.log\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "023d5af",
+    "B": "f15e457"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitignore": "# Fitxers generats\n*.log\n!mostra.log\n__pycache__/\n/build/\n\n# Secrets\n.env\n",
+     "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+     "mostra.log": "Exemple de registre per a la documentació\n",
+     "salutacions.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n"
+    },
+    "head_commit": "f15e457",
+    "refs": {
+     "main": "f15e457"
+    },
+    "commits": [
+     {
+      "id": "023d5af",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa i les salutacions"
+     },
+     {
+      "id": "f15e457",
+      "lletra": "B",
+      "pares": [
+       "023d5af"
+      ],
+      "missatge": "Ignora els fitxers generats i els secrets"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   ".env": "CLAU_API=exemple-que-no-es-real\n",
+   "app.log": "Registre d’una versió antiga\n",
+   "helloGit.py": "from salutacions import saluda\n\nmissatge = saluda()\nwith open(\"debug.log\", \"a\") as registre:\n    registre.write(missatge + \"\\n\")\nprint(missatge)\n",
+   "mostra.log": "Exemple de registre per a la documentació\n",
+   "salutacions.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n"
+  },
+  "head_commit": "023d5af",
+  "refs": {
+   "main": "023d5af"
+  },
+  "commits": [
+   {
+    "id": "023d5af",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix el programa i les salutacions"
+   }
+  ],
+  "status": [
+   "?? .env",
+   "?? mostra.log"
+  ],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "023d5af"
+ }
+}

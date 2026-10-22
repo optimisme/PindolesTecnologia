@@ -1,0 +1,1085 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 8,
+  "slug": "08-gitignore",
+  "title": "Gitignore: deixa fora els fitxers generats",
+  "short_title": "GITIGNORE",
+  "card": [
+    "GITIGNORE",
+    "Deixa fora els fitxers generats"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "08-gitignore.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Vuitena lliçó. Gitignore.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Vuitena lliçó. "
+      },
+      {
+        "lang": "en-US",
+        "text": "Gitignore"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  },
+  "objective": "escriure un fitxer de regles per ignorar fitxers generats i secrets, i distingir-los dels que [[Git]] ja seguia.",
+  "start_note": "HelloGit amb helloGit.py, salutacions.py i un registre antic app.log, tots tres confirmats. El programa importa salutacions.py i escriu cada execució a debug.log. Hi ha un .env amb una clau i un registre de mostra mostra.log, sense seguir. Encara no hi ha .gitignore.",
+  "start_spoken": "El programa fa servir un segon fitxer amb les salutacions i deixa un registre de cada execució. També tenim un fitxer amb una clau privada i un registre de mostra per a la documentació. Fa temps, vam confirmar per error un registre antic.",
+  "summary": [
+    "Punt gitignore té una regla per línia; l’exclamació hi fa excepcions.",
+    "Les claus no han d’arribar mai a un commit; si s’han publicat, cal canviar-les.",
+    "Les regles no afecten fitxers ja seguits; doble guionet cached els deixa de seguir i els conserva al disc."
+  ],
+  "practice": "En un projecte de pràctiques, genera un registre executant el programa i escriu un punt gitignore amb una regla i una excepció. Comprova-ho amb git status doble guionet ignored i amb git check-ignore. Els fitxers propis de l’editor es poden ignorar només al teu ordinador, amb el fitxer exclude de la carpeta punt git.",
+  "practice_script": "practiques/08-gitignore.sh",
+  "scenes": [
+    {
+      "id": "e08_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a escriure un fitxer de regles per ignorar fitxers generats i secrets, i distingir-los dels que Git ja seguia.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a escriure un fitxer de regles per ignorar fitxers generats i secrets, i distingir-los dels que "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ja seguia."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Escriure un fitxer de regles per ignorar fitxers generats i secrets, i distingir-los dels que Git ja seguia."
+        },
+        {
+          "id": "pas_002",
+          "narration": "El programa fa servir un segon fitxer amb les salutacions i deixa un registre de cada execució. També tenim un fitxer amb una clau privada i un registre de mostra per a la documentació. Fa temps, vam confirmar per error un registre antic.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El programa fa servir un segon fitxer amb les salutacions i deixa un registre de cada execució. També tenim un fitxer amb una clau privada i un registre de mostra per a la documentació. Fa temps, vam confirmar per error un registre antic."
+            }
+          ],
+          "visual": "Punt de partida: HelloGit amb helloGit.py, salutacions.py i un registre antic app.log, tots tres confirmats. El programa importa salutacions.py i escriu cada execució a debug.log. Hi ha un .env amb una clau i un registre de mostra mostra.log, sense seguir. Encara no hi ha .gitignore.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1,
+          "screen_text": "El programa fa servir un segon fitxer amb les salutacions i deixa un registre de cada execució. També tenim un fitxer amb una clau privada i un registre de mostra per a la documentació. Fa temps, vam confirmar per error un registre antic."
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a escriure un fitxer de regles per ignorar fitxers generats i secrets, i distingir-los dels que Git ja seguia. El programa fa servir un segon fitxer amb les salutacions i deixa un registre de cada execució. També tenim un fitxer amb una clau privada i un registre de mostra per a la documentació. Fa temps, vam confirmar per error un registre antic."
+    },
+    {
+      "id": "e08_01",
+      "label": "TERMINAL",
+      "title": "python3 helloGit.py",
+      "mode": "principal",
+      "visual": "Apareixen debug.log i la carpeta __pycache__/ a l’explorador de fitxers.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Provem el programa amb la versió desada del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem el programa amb la versió desada del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3",
+          "state": -1
+        },
+        {
+          "id": "pas_004",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": -1
+        },
+        {
+          "id": "pas_005",
+          "narration": "El programa funciona. En executar-lo, ha creat el registre d’execució i una carpeta de memòria cau, perquè importa el fitxer de salutacions.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El programa funciona. En executar-lo, ha creat el registre d’execució i una carpeta de memòria cau, perquè importa el fitxer de salutacions."
+            }
+          ],
+          "visual": "Apareixen debug.log i la carpeta __pycache__/ a l’explorador de fitxers. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result",
+          "state": 0,
+          "simulated": false,
+          "terminal_output": [
+            "Hola, Ermessenda!"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem el programa amb la versió desada del fitxer. Executem l’ordre. El programa funciona. En executar-lo, ha creat el registre d’execució i una carpeta de memòria cau, perquè importa el fitxer de salutacions."
+    },
+    {
+      "id": "e08_02",
+      "label": "TERMINAL",
+      "title": "git status --short",
+      "mode": "principal",
+      "visual": "Sortida literal amb la llegenda de les dues columnes.",
+      "beats": [
+        {
+          "id": "pas_006",
+          "narration": "Consultem l’estat breu amb git status.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat breu amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status",
+          "state": 0
+        },
+        {
+          "id": "pas_007",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_008",
+          "narration": "Tot apareix com a no seguit: la clau, la memòria cau i els registres. Un git add punt els afegiria tots, també la clau, i qualsevol persona que veiés el repositori la podria llegir.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Tot apareix com a no seguit: la clau, la memòria cau i els registres. Un "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " punt els afegiria tots, també la clau, i qualsevol persona que veiés el repositori la podria llegir."
+            }
+          ],
+          "visual": "Sortida literal amb la llegenda de les dues columnes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "?? .env",
+            "?? __pycache__/",
+            "?? debug.log",
+            "?? mostra.log"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat breu amb git status. Executem l’ordre. Tot apareix com a no seguit: la clau, la memòria cau i els registres. Un git add punt els afegiria tots, també la clau, i qualsevol persona que veiés el repositori la podria llegir."
+    },
+    {
+      "id": "e08_03",
+      "label": "EXPLICACIÓ",
+      "title": "Un fitxer de regles, línia a línia",
+      "mode": "principal",
+      "visual": "Editor .gitignore amb les set línies literals. Ressaltar una línia per frase, en ordre: comentari, *.log, !mostra.log, __pycache__/, /build/ i .env.",
+      "beats": [
+        {
+          "id": "pas_009",
+          "narration": "Creem el fitxer punt gitignore a l’arrel del projecte, amb una regla per línia. La primera comença amb el coixinet: és un comentari.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Creem el fitxer punt "
+            },
+            {
+              "lang": "en-US",
+              "text": "gitignore"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a l’arrel del projecte, amb una regla per línia. La primera comença amb el coixinet: és un comentari."
+            }
+          ],
+          "visual": "Editor .gitignore amb les set línies literals. Ressaltar una línia per frase, en ordre: comentari, *.log, !mostra.log, __pycache__/, /build/ i .env.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 2
+        },
+        {
+          "id": "pas_010",
+          "narration": "Asterisc punt log ignora tots els fitxers que acaben en punt log, a qualsevol carpeta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Asterisc punt "
+            },
+            {
+              "lang": "en-US",
+              "text": "log"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ignora tots els fitxers que acaben en punt "
+            },
+            {
+              "lang": "en-US",
+              "text": "log"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", a qualsevol carpeta."
+            }
+          ],
+          "visual": "Editor .gitignore amb les set línies literals. Ressaltar una línia per frase, en ordre: comentari, *.log, !mostra.log, __pycache__/, /build/ i .env.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 2
+        },
+        {
+          "id": "pas_011",
+          "narration": "L’exclamació fa una excepció: el registre de mostra sí que es compartirà. Una excepció no pot entrar dins d’una carpeta que s’ignora sencera.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’exclamació fa una excepció: el registre de mostra sí que es compartirà. Una excepció no pot entrar dins d’una carpeta que s’ignora sencera."
+            }
+          ],
+          "visual": "Editor .gitignore amb les set línies literals. Ressaltar una línia per frase, en ordre: comentari, *.log, !mostra.log, __pycache__/, /build/ i .env.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 2
+        },
+        {
+          "id": "pas_012",
+          "narration": "La barra final vol dir que la regla només s’aplica a carpetes, a qualsevol nivell. Python crea una carpeta de memòria cau dins de cada carpeta de codi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La barra final vol dir que la regla només s’aplica a carpetes, a qualsevol nivell. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Python"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea una carpeta de memòria cau dins de cada carpeta de codi."
+            }
+          ],
+          "visual": "Editor .gitignore amb les set línies literals. Ressaltar una línia per frase, en ordre: comentari, *.log, !mostra.log, __pycache__/, /build/ i .env.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 2
+        },
+        {
+          "id": "pas_013",
+          "narration": "Una barra al davant limita la regla a l’arrel del projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Una barra al davant limita la regla a l’arrel del projecte."
+            }
+          ],
+          "visual": "Editor .gitignore amb les set línies literals. Ressaltar una línia per frase, en ordre: comentari, *.log, !mostra.log, __pycache__/, /build/ i .env.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 2
+        },
+        {
+          "id": "pas_014",
+          "narration": "L’última regla deixa fora el fitxer de la clau. Aquest fitxer de regles sí que el confirmarem, perquè tothom faci servir els mateixos criteris. GitHub ofereix plantilles per a cada llenguatge.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’última regla deixa fora el fitxer de la clau. Aquest fitxer de regles sí que el confirmarem, perquè tothom faci servir els mateixos criteris. "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ofereix plantilles per a cada llenguatge."
+            }
+          ],
+          "visual": "Editor .gitignore amb les set línies literals. Ressaltar una línia per frase, en ordre: comentari, *.log, !mostra.log, __pycache__/, /build/ i .env.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 2
+        }
+      ],
+      "screen": [
+        "# Fitxers generats  ←  comentari: la línia comença amb #",
+        "*.log  ←  tots els registres, a qualsevol carpeta",
+        "!mostra.log  ←  excepció: aquest sí que es comparteix",
+        "__pycache__/  ←  només carpetes, a qualsevol nivell",
+        "/build/  ←  només la carpeta build de l’arrel",
+        "",
+        "# Secrets",
+        ".env  ←  el fitxer de la clau, mai als commits"
+      ],
+      "screen_file": ".gitignore",
+      "screen_step": true,
+      "narration": "Creem el fitxer punt gitignore a l’arrel del projecte, amb una regla per línia. La primera comença amb el coixinet: és un comentari. Asterisc punt log ignora tots els fitxers que acaben en punt log, a qualsevol carpeta. L’exclamació fa una excepció: el registre de mostra sí que es compartirà. Una excepció no pot entrar dins d’una carpeta que s’ignora sencera. La barra final vol dir que la regla només s’aplica a carpetes, a qualsevol nivell. Python crea una carpeta de memòria cau dins de cada carpeta de codi. Una barra al davant limita la regla a l’arrel del projecte. L’última regla deixa fora el fitxer de la clau. Aquest fitxer de regles sí que el confirmarem, perquè tothom faci servir els mateixos criteris. GitHub ofereix plantilles per a cada llenguatge."
+    },
+    {
+      "id": "e08_04",
+      "label": "TERMINAL",
+      "title": "git status --short --ignored",
+      "mode": "principal",
+      "visual": "Sortida real; ressaltar primer les dues línies amb interrogants i després les tres amb exclamacions.",
+      "beats": [
+        {
+          "id": "pas_015",
+          "narration": "Comprovem l’efecte de les regles amb git status.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprovem l’efecte de les regles amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short --ignored. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short --ignored",
+          "highlight": "git status",
+          "state": 2
+        },
+        {
+          "id": "pas_016",
+          "narration": "Doble guionet ignored també mostra els fitxers ignorats, marcats amb dues exclamacions.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "ignored"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " també mostra els fitxers ignorats, marcats amb dues exclamacions."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short --ignored. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --ignored.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short --ignored",
+          "highlight": "--ignored",
+          "state": 2
+        },
+        {
+          "id": "pas_017",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short --ignored. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short --ignored"
+          ],
+          "command_display": "git status --short --ignored",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_018",
+          "narration": "El fitxer de regles i el registre de mostra surten com a nous: l’excepció funciona. La clau, la memòria cau i el registre d’execució surten amb dues exclamacions. Són al disc, però Git no els afegirà.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El fitxer de regles i el registre de mostra surten com a nous: l’excepció funciona. La clau, la memòria cau i el registre d’execució surten amb dues exclamacions. Són al disc, però "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " no els afegirà."
+            }
+          ],
+          "visual": "Sortida real; ressaltar primer les dues línies amb interrogants i després les tres amb exclamacions. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short --ignored",
+          "event": "result",
+          "state": 3,
+          "simulated": false,
+          "terminal_output": [
+            "?? .gitignore",
+            "?? mostra.log",
+            "!! .env",
+            "!! __pycache__/",
+            "!! debug.log"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comprovem l’efecte de les regles amb git status. Doble guionet ignored també mostra els fitxers ignorats, marcats amb dues exclamacions. Executem l’ordre. El fitxer de regles i el registre de mostra surten com a nous: l’excepció funciona. La clau, la memòria cau i el registre d’execució surten amb dues exclamacions. Són al disc, però Git no els afegirà."
+    },
+    {
+      "id": "e08_05",
+      "label": "TERMINAL",
+      "title": "git check-ignore -v debug.log",
+      "mode": "principal",
+      "visual": "Separar a la sortida real .gitignore, el número de línia, el patró *.log i el nom del fitxer.",
+      "beats": [
+        {
+          "id": "pas_019",
+          "narration": "Quan un fitxer no es comporta com esperem, git check-ignore explica per què s’ignora.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Quan un fitxer no es comporta com esperem, "
+            },
+            {
+              "lang": "en-US",
+              "text": "git check-ignore"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " explica per què s’ignora."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git check-ignore -v debug.log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git check-ignore.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git check-ignore -v debug.log",
+          "highlight": "git check-ignore",
+          "state": 3
+        },
+        {
+          "id": "pas_020",
+          "narration": "El guionet ve demana el detall de la regla que hi coincideix.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ve demana el detall de la regla que hi coincideix."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git check-ignore -v debug.log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -v.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git check-ignore -v debug.log",
+          "highlight": "-v",
+          "state": 3
+        },
+        {
+          "id": "pas_021",
+          "narration": "És el registre que volem investigar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el registre que volem investigar."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git check-ignore -v debug.log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: debug.log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git check-ignore -v debug.log",
+          "highlight": "debug.log",
+          "state": 3
+        },
+        {
+          "id": "pas_022",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git check-ignore -v debug.log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git check-ignore -v debug.log"
+          ],
+          "command_display": "git check-ignore -v debug.log",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_023",
+          "narration": "La sortida indica el fitxer de regles, el número de línia i el patró que coincideix amb el registre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La sortida indica el fitxer de regles, el número de línia i el patró que coincideix amb el registre."
+            }
+          ],
+          "visual": "Separar a la sortida real .gitignore, el número de línia, el patró *.log i el nom del fitxer. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git check-ignore -v debug.log",
+          "event": "result",
+          "state": 4,
+          "simulated": false,
+          "terminal_output": [
+            ".gitignore:2:*.log\tdebug.log"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Quan un fitxer no es comporta com esperem, git check-ignore explica per què s’ignora. El guionet ve demana el detall de la regla que hi coincideix. És el registre que volem investigar. Executem l’ordre. La sortida indica el fitxer de regles, el número de línia i el patró que coincideix amb el registre."
+    },
+    {
+      "id": "e08_06",
+      "label": "TERMINAL",
+      "title": "git rm --cached app.log",
+      "mode": "principal",
+      "visual": "Retirar app.log del panell PREPARACIÓ amb una D; mantenir-lo a la carpeta de treball, sense animació d’esborrar.",
+      "beats": [
+        {
+          "id": "pas_024",
+          "narration": "El registre antic també acaba en punt log, però no ha sortit a la llista: ja formava part d’un commit, i les regles només afecten els fitxers que Git encara no seguia. Decidim deixar de seguir-lo, però conservar-lo a l’ordinador.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El registre antic també acaba en punt "
+            },
+            {
+              "lang": "en-US",
+              "text": "log"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", però no ha sortit a la llista: ja formava part d’un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", i les regles només afecten els fitxers que "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " encara no seguia. Decidim deixar de seguir-lo, però conservar-lo a l’ordinador."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rm --cached app.log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git rm.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rm --cached app.log",
+          "highlight": "git rm",
+          "state": 4
+        },
+        {
+          "id": "pas_025",
+          "narration": "Doble guionet cached el retira només del repositori; el fitxer continua al disc.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "cached"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " el retira només del repositori; el fitxer continua al disc."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rm --cached app.log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --cached.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rm --cached app.log",
+          "highlight": "--cached",
+          "state": 4
+        },
+        {
+          "id": "pas_026",
+          "narration": "És el registre que ja estava seguit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el registre que ja estava seguit."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rm --cached app.log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: app.log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rm --cached app.log",
+          "highlight": "app.log",
+          "state": 4
+        },
+        {
+          "id": "pas_027",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rm --cached app.log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git rm --cached app.log"
+          ],
+          "command_display": "git rm --cached app.log",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_028",
+          "narration": "Queda preparada la retirada del registre, i ara la regla ja l’ignora. Dos avisos. Quan una altra persona baixi aquest commit, Git esborrarà el fitxer de la seva carpeta. I els commits antics el continuen guardant: una clau que ja s’ha publicat s’ha de canviar.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Queda preparada la retirada del registre, i ara la regla ja l’ignora. Dos avisos. Quan una altra persona baixi aquest "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " esborrarà el fitxer de la seva carpeta. I els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " antics el continuen guardant: una clau que ja s’ha publicat s’ha de canviar."
+            }
+          ],
+          "visual": "Retirar app.log del panell PREPARACIÓ amb una D; mantenir-lo a la carpeta de treball, sense animació d’esborrar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git rm --cached app.log",
+          "event": "result",
+          "state": 5,
+          "simulated": false,
+          "terminal_output": [
+            "rm 'app.log'"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "El registre antic també acaba en punt log, però no ha sortit a la llista: ja formava part d’un commit, i les regles només afecten els fitxers que Git encara no seguia. Decidim deixar de seguir-lo, però conservar-lo a l’ordinador. Doble guionet cached el retira només del repositori; el fitxer continua al disc. És el registre que ja estava seguit. Executem l’ordre. Queda preparada la retirada del registre, i ara la regla ja l’ignora. Dos avisos. Quan una altra persona baixi aquest commit, Git esborrarà el fitxer de la seva carpeta. I els commits antics el continuen guardant: una clau que ja s’ha publicat s’ha de canviar."
+    },
+    {
+      "id": "e08_07",
+      "label": "TERMINAL",
+      "title": "git add .gitignore mostra.log",
+      "mode": "principal",
+      "visual": "Copiar .gitignore i mostra.log a la preparació.",
+      "beats": [
+        {
+          "id": "pas_029",
+          "narration": "Preparem el fitxer de regles i el registre de mostra amb git add.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparem el fitxer de regles i el registre de mostra amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add .gitignore mostra.log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add .gitignore mostra.log",
+          "highlight": "git add",
+          "state": 5
+        },
+        {
+          "id": "pas_030",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add .gitignore mostra.log. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add .gitignore mostra.log"
+          ],
+          "command_display": "git add .gitignore mostra.log",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_031",
+          "narration": "Les regles i la mostra queden preparades. La retirada del registre antic ja ho era.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les regles i la mostra queden preparades. La retirada del registre antic ja ho era."
+            }
+          ],
+          "visual": "Copiar .gitignore i mostra.log a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add .gitignore mostra.log",
+          "event": "result",
+          "state": 6,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Preparem el fitxer de regles i el registre de mostra amb git add. Executem l’ordre. Les regles i la mostra queden preparades. La retirada del registre antic ja ho era."
+    },
+    {
+      "id": "e08_08",
+      "label": "TERMINAL",
+      "title": "git commit -m \"Ignora els fitxers generats i els secrets\"",
+      "mode": "principal",
+      "visual": "Crear el node nou només en executar.",
+      "beats": [
+        {
+          "id": "pas_032",
+          "narration": "Confirmem el canvi amb git commit i el missatge: Ignora els fitxers generats i els secrets.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Confirmem el canvi amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i el missatge: Ignora els fitxers generats i els secrets."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Ignora els fitxers generats i els secrets\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Ignora els fitxers generats i els secrets\"",
+          "highlight": "git commit",
+          "state": 6
+        },
+        {
+          "id": "pas_033",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Ignora els fitxers generats i els secrets\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Ignora els fitxers generats i els secrets\""
+          ],
+          "command_display": "git commit -m \"Ignora els fitxers generats i els secrets\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 6
+        },
+        {
+          "id": "pas_034",
+          "narration": "El commit guarda les regles, la mostra i la retirada del registre. El registre antic continua al disc i ara queda ignorat, igual que la clau.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " guarda les regles, la mostra i la retirada del registre. El registre antic continua al disc i ara queda ignorat, igual que la clau."
+            }
+          ],
+          "visual": "Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Ignora els fitxers generats i els secrets\"",
+          "event": "result",
+          "state": 7,
+          "simulated": false,
+          "terminal_output": [
+            "[main f15e457] Ignora els fitxers generats i els secrets",
+            " 3 files changed, 9 insertions(+), 1 deletion(-)",
+            " create mode 100644 .gitignore",
+            " delete mode 100644 app.log",
+            " create mode 100644 mostra.log"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Confirmem el canvi amb git commit i el missatge: Ignora els fitxers generats i els secrets. Executem l’ordre. El commit guarda les regles, la mostra i la retirada del registre. El registre antic continua al disc i ara queda ignorat, igual que la clau."
+    },
+    {
+      "id": "e08_09",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_035",
+          "narration": "Punt gitignore té una regla per línia; l’exclamació hi fa excepcions.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Punt "
+            },
+            {
+              "lang": "en-US",
+              "text": "gitignore"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " té una regla per línia; l’exclamació hi fa excepcions."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": ".gitignore té una regla per línia; l’exclamació hi fa excepcions."
+        },
+        {
+          "id": "pas_036",
+          "narration": "Les claus no han d’arribar mai a un commit; si s’han publicat, cal canviar-les.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les claus no han d’arribar mai a un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; si s’han publicat, cal canviar-les."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Les claus no han d’arribar mai a un commit; si s’han publicat, cal canviar-les."
+        },
+        {
+          "id": "pas_037",
+          "narration": "Les regles no afecten fitxers ja seguits; doble guionet cached els deixa de seguir i els conserva al disc.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les regles no afecten fitxers ja seguits; doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "cached"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " els deixa de seguir i els conserva al disc."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Les regles no afecten fitxers ja seguits; --cached els deixa de seguir i els conserva al disc."
+        }
+      ],
+      "narration": "Punt gitignore té una regla per línia; l’exclamació hi fa excepcions. Les claus no han d’arribar mai a un commit; si s’han publicat, cal canviar-les. Les regles no afecten fitxers ja seguits; doble guionet cached els deixa de seguir i els conserva al disc."
+    },
+    {
+      "id": "e08_10",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_038",
+          "narration": "En un projecte de pràctiques, genera un registre executant el programa i escriu un punt gitignore amb una regla i una excepció. Comprova-ho amb git status doble guionet ignored i amb git check-ignore. Els fitxers propis de l’editor es poden ignorar només al teu ordinador, amb el fitxer exclude de la carpeta punt git.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un projecte de pràctiques, genera un registre executant el programa i escriu un punt "
+            },
+            {
+              "lang": "en-US",
+              "text": "gitignore"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb una regla i una excepció. Comprova-ho amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "ignored"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git check-ignore"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Els fitxers propis de l’editor es poden ignorar només al teu ordinador, amb el fitxer "
+            },
+            {
+              "lang": "en-US",
+              "text": "exclude"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la carpeta punt "
+            },
+            {
+              "lang": "en-US",
+              "text": "git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": [],
+          "screen_text": "En un projecte de pràctiques, genera un registre executant el programa i escriu un .gitignore amb una regla i una excepció. Comprova-ho amb git status --ignored i amb git check-ignore. Els fitxers propis de l’editor es poden ignorar només al teu ordinador, amb el fitxer exclude de la carpeta .git."
+        }
+      ],
+      "narration": "En un projecte de pràctiques, genera un registre executant el programa i escriu un punt gitignore amb una regla i una excepció. Comprova-ho amb git status doble guionet ignored i amb git check-ignore. Els fitxers propis de l’editor es poden ignorar només al teu ordinador, amb el fitxer exclude de la carpeta punt git."
+    }
+  ],
+  "commands": [
+    "python3 helloGit.py",
+    "git status --short",
+    "git status --short --ignored",
+    "git check-ignore -v debug.log",
+    "git rm --cached app.log",
+    "git add .gitignore mostra.log",
+    "git commit -m \"Ignora els fitxers generats i els secrets\""
+  ]
+}

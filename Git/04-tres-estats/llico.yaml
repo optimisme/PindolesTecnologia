@@ -18,19 +18,28 @@ preparacio:
 
 etapes:
   - explica: Tres zones del mateix projecte
+    pantalla:
+      - "TREBALL:  el que desem a l’editor"
+      - "PREPARACIÓ:  el que entrarà al commit"
+      - "HISTORIAL:  els commits confirmats"
     text: >-
       Desar a l’editor modifica la carpeta de treball. Preparar selecciona un contingut concret.
       Confirmar enregistra aquesta selecció a l’historial. Són tres accions diferents.
     visual: Tres panells persistents, TREBALL, PREPARACIÓ i ÚLTIM COMMIT, tots amb la salutació ORIGINAL.
 
   - explica: Editem el treball
+    pantalla:
+      - "helloGit.py:  print(\"Hola, Ermessenda!\")"
+      - "Treball:  salutació nova"
+      - "Preparació:  original"
+      - "Historial:  original"
     text: >-
       Canviem la salutació i desem. El treball ja té la salutació nova, però la preparació i l’últim
       commit encara tenen l’original.
     visual: TREBALL passa a SALUTACIÓ NOVA; els altres dos panells es queden amb l’ORIGINAL.
     accions:
       - fitxer: helloGit.py
-        contingut: print("Hola, Anna!")
+        contingut: print("Hola, Ermessenda!")
 
   - ordre: git diff
     text: "[[git diff]] compara el treball amb la preparació."
@@ -39,7 +48,7 @@ etapes:
       signe més, la nova.
     visual: Fletxa PREPARACIÓ → TREBALL sobre la sortida real; llegenda textual per als signes menys i més.
     comprova:
-      sortida: ['-print("Hello Git!")', '+print("Hola, Anna!")']
+      sortida: ['-print("Hello Git!")', '+print("Hola, Ermessenda!")']
 
   - plantilla: add
     resultat: >-
@@ -55,6 +64,10 @@ etapes:
     visual: Fletxa ÚLTIM COMMIT → PREPARACIÓ sobre la sortida real.
 
   - explica: Desem una altra edició
+    pantalla:
+      - "helloGit.py:  + print(\"Fins aviat!\")"
+      - "Treball:  salutació i comiat"
+      - "Preparació:  només la salutació nova"
     text: >-
       Afegim una línia de comiat i desem. El treball té la salutació i el comiat, però la preparació
       continua tenint només la salutació nova.
@@ -62,7 +75,7 @@ etapes:
     accions:
       - fitxer: helloGit.py
         contingut: |-
-          print("Hola, Anna!")
+          print("Hola, Ermessenda!")
           print("Fins aviat!")
 
   - plantilla: status
@@ -86,7 +99,7 @@ etapes:
       l’ha esborrat.
     comprova:
       status: " M helloGit.py"
-      treball: {helloGit.py: "print(\"Hola, Anna!\")\nprint(\"Fins aviat!\")"}
+      treball: {helloGit.py: "print(\"Hola, Ermessenda!\")\nprint(\"Fins aviat!\")"}
 
   - plantilla: add-breu
     resultat: Ara sí, seleccionem també el comiat.

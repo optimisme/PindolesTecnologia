@@ -6,7 +6,7 @@ que en produeix la veu, les animacions i els subtítols.
 
 | Sèrie | Estat |
 | --- | --- |
-| [Git](Git/README.md) | 32 lliçons amb guió revisat i exemples comprovats; vídeos pendents de produir |
+| [Git](Git/README.md) | 38 lliçons amb guió revisat i exemples comprovats; vídeos pendents de produir |
 | Docker | Carpeta reservada |
 | HTML-CSS | Carpeta reservada |
 

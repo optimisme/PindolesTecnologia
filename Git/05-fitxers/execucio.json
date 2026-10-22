@@ -1,0 +1,324 @@
+{
+ "llico": "05-fitxers",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a735a56"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.txt": "Idees per a la salutació\n",
+     "prova.py": "print(\"prova\")\n"
+    },
+    "head_commit": "a735a56",
+    "refs": {
+     "main": "a735a56"
+    },
+    "commits": [
+     {
+      "id": "a735a56",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa, les notes i una prova"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git rm prova.py",
+   "sortida": "rm 'prova.py'\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a735a56"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.txt": "Idees per a la salutació\n"
+    },
+    "head_commit": "a735a56",
+    "refs": {
+     "main": "a735a56"
+    },
+    "commits": [
+     {
+      "id": "a735a56",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa, les notes i una prova"
+     }
+    ],
+    "status": [
+     "D  prova.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git mv notes.txt notes.md",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a735a56"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.md": "Idees per a la salutació\n"
+    },
+    "head_commit": "a735a56",
+    "refs": {
+     "main": "a735a56"
+    },
+    "commits": [
+     {
+      "id": "a735a56",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa, les notes i una prova"
+     }
+    ],
+    "status": [
+     "R  notes.txt -> notes.md",
+     "D  prova.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git status --short",
+   "sortida": "R  notes.txt -> notes.md\nD  prova.py\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a735a56"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.md": "Idees per a la salutació\n"
+    },
+    "head_commit": "a735a56",
+    "refs": {
+     "main": "a735a56"
+    },
+    "commits": [
+     {
+      "id": "a735a56",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa, les notes i una prova"
+     }
+    ],
+    "status": [
+     "R  notes.txt -> notes.md",
+     "D  prova.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git commit -m \"Ordena els fitxers del projecte\"",
+   "sortida": "[main 55f09bf] Ordena els fitxers del projecte\n 2 files changed, 1 deletion(-)\n rename notes.txt => notes.md (100%)\n delete mode 100644 prova.py\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a735a56",
+    "B": "55f09bf"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.md": "Idees per a la salutació\n"
+    },
+    "head_commit": "55f09bf",
+    "refs": {
+     "main": "55f09bf"
+    },
+    "commits": [
+     {
+      "id": "a735a56",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa, les notes i una prova"
+     },
+     {
+      "id": "55f09bf",
+      "lletra": "B",
+      "pares": [
+       "a735a56"
+      ],
+      "missatge": "Ordena els fitxers del projecte"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "explorador",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a735a56"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.txt": "Idees per a la salutació\n"
+    },
+    "head_commit": "a735a56",
+    "refs": {
+     "main": "a735a56"
+    },
+    "commits": [
+     {
+      "id": "a735a56",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa, les notes i una prova"
+     }
+    ],
+    "status": [
+     " D prova.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "explorador",
+   "ordre": "git status --short",
+   "sortida": " D prova.py\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a735a56"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.txt": "Idees per a la salutació\n"
+    },
+    "head_commit": "a735a56",
+    "refs": {
+     "main": "a735a56"
+    },
+    "commits": [
+     {
+      "id": "a735a56",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa, les notes i una prova"
+     }
+    ],
+    "status": [
+     " D prova.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "explorador",
+   "ordre": "git add prova.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a735a56"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.txt": "Idees per a la salutació\n"
+    },
+    "head_commit": "a735a56",
+    "refs": {
+     "main": "a735a56"
+    },
+    "commits": [
+     {
+      "id": "a735a56",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix el programa, les notes i una prova"
+     }
+    ],
+    "status": [
+     "D  prova.py"
+    ],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "helloGit.py": "print(\"Hello Git!\")\n",
+   "notes.txt": "Idees per a la salutació\n",
+   "prova.py": "print(\"prova\")\n"
+  },
+  "head_commit": "a735a56",
+  "refs": {
+   "main": "a735a56"
+  },
+  "commits": [
+   {
+    "id": "a735a56",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix el programa, les notes i una prova"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "a735a56"
+ }
+}

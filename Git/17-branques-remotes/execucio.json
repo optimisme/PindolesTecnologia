@@ -1,0 +1,365 @@
+{
+ "llico": "17-branques-remotes",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "C": "57b165c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "afc44d6",
+    "refs": {
+     "main": "afc44d6",
+     "proves": "afc44d6",
+     "origin/main": "afc44d6",
+     "origin/prova-antiga": "b7f1da6",
+     "origin/proves": "afc44d6"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "b7f1da6",
+      "lletra": null,
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Prova antiga"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git branch -vv",
+   "sortida": "* main   afc44d6 [origin/main] Afegeix la salutacio inicial\n  proves afc44d6 [origin/proves] Afegeix la salutacio inicial\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "C": "57b165c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "afc44d6",
+    "refs": {
+     "main": "afc44d6",
+     "proves": "afc44d6",
+     "origin/main": "afc44d6",
+     "origin/prova-antiga": "b7f1da6",
+     "origin/proves": "afc44d6"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "b7f1da6",
+      "lletra": null,
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Prova antiga"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git fetch --prune",
+   "sortida": "From ~/origin\n - [deleted]         (none)     -> origin/prova-antiga\n * [new branch]      menu       -> origin/menu\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "C": "57b165c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "afc44d6",
+    "refs": {
+     "main": "afc44d6",
+     "proves": "afc44d6",
+     "origin/main": "afc44d6",
+     "origin/menu": "57b165c",
+     "origin/proves": "afc44d6"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57b165c",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el menu"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git branch -r",
+   "sortida": "  origin/HEAD -> origin/main\n  origin/main\n  origin/menu\n  origin/proves\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "C": "57b165c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "afc44d6",
+    "refs": {
+     "main": "afc44d6",
+     "proves": "afc44d6",
+     "origin/main": "afc44d6",
+     "origin/menu": "57b165c",
+     "origin/proves": "afc44d6"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57b165c",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el menu"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git switch menu",
+   "sortida": "branch 'menu' set up to track 'origin/menu'.\nSwitched to a new branch 'menu'\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "C": "57b165c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "menu",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "menu.py": "print(\"1. Saluda  2. Surt\")\n"
+    },
+    "head_commit": "57b165c",
+    "refs": {
+     "main": "afc44d6",
+     "menu": "57b165c",
+     "proves": "afc44d6",
+     "origin/main": "afc44d6",
+     "origin/menu": "57b165c",
+     "origin/proves": "afc44d6"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57b165c",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el menu"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git push origin --delete proves",
+   "sortida": "To ~/origin.git\n - [deleted]         proves\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "C": "57b165c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "menu",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "menu.py": "print(\"1. Saluda  2. Surt\")\n"
+    },
+    "head_commit": "57b165c",
+    "refs": {
+     "main": "afc44d6",
+     "menu": "57b165c",
+     "proves": "afc44d6",
+     "origin/main": "afc44d6",
+     "origin/menu": "57b165c"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57b165c",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el menu"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git branch -d proves",
+   "sortida": "Deleted branch proves (was afc44d6).\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "C": "57b165c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "menu",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "menu.py": "print(\"1. Saluda  2. Surt\")\n"
+    },
+    "head_commit": "57b165c",
+    "refs": {
+     "main": "afc44d6",
+     "menu": "57b165c",
+     "origin/main": "afc44d6",
+     "origin/menu": "57b165c"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "57b165c",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el menu"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "helloGit.py": "print(\"Hello Git!\")\n"
+  },
+  "head_commit": "afc44d6",
+  "refs": {
+   "main": "afc44d6",
+   "proves": "afc44d6",
+   "origin/main": "afc44d6",
+   "origin/prova-antiga": "b7f1da6",
+   "origin/proves": "afc44d6"
+  },
+  "commits": [
+   {
+    "id": "afc44d6",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   },
+   {
+    "id": "b7f1da6",
+    "lletra": null,
+    "pares": [
+     "afc44d6"
+    ],
+    "missatge": "Prova antiga"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "afc44d6",
+  "C": "57b165c"
+ }
+}

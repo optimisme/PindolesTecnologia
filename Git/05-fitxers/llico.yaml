@@ -1,0 +1,105 @@
+titol: "Esborrar i reanomenar fitxers"
+titol_curt: FITXERS
+capcalera: [ESBORRAR I REANOMENAR, "Treure i canviar de nom fitxers seguits"]
+presentacio: Esborrar i reanomenar fitxers
+objectiu: esborrar i reanomenar fitxers que [[Git]] ja segueix, i confirmar aquests canvis com qualsevol altre.
+inici: >-
+  HelloGit a main amb un commit A que conté helloGit.py, notes.txt i prova.py, un fitxer de proves que
+  ja no cal. Sense canvis pendents.
+inici_parlat: >-
+  El projecte té el programa, un fitxer de notes i un fitxer de proves que ja no necessitem. Tot està
+  confirmat i no hi ha canvis pendents.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - fitxer: notes.txt
+    contingut: Idees per a la salutació
+  - fitxer: prova.py
+    contingut: print("prova")
+  - git: add helloGit.py notes.txt prova.py
+  - commit: A
+    missatge: Afegeix el programa, les notes i una prova
+
+camins:
+  explorador:
+    tipus: alternatiu
+    titol: Un error habitual
+    des_de: inici
+
+etapes:
+  - explica: Esborrar també és un canvi
+    pantalla:
+      - "Esborrar un fitxer seguit:  git rm"
+      - "Canviar-li el nom:  git mv"
+      - "Tots dos canvis es preparen i es confirmen."
+    text: >-
+      Si un fitxer ja és a l’historial, esborrar-lo o canviar-li el nom també són canvis. Els preparem
+      i els confirmem com una edició qualsevol.
+    visual: Explorador amb helloGit.py, notes.txt i prova.py, tots tres marcats SEGUIT.
+
+  - ordre: git rm prova.py
+    text: "[[git rm]] esborra un fitxer seguit."
+    parts:
+      - prova.py: És el fitxer que ja no necessitem.
+    resultat: El fitxer desapareix de la carpeta i l’eliminació queda preparada per al proper commit.
+    visual: prova.py desapareix de l’explorador i apareix al panell PREPARACIÓ amb una D.
+    comprova:
+      no_existeix: [prova.py]
+      status: "D  prova.py"
+
+  - ordre: git mv notes.txt notes.md
+    text: "[[git mv]] canvia el nom d’un fitxer seguit."
+    parts:
+      - notes.txt: És el nom actual.
+      - notes.md: És el nom nou.
+    resultat: El fitxer ja té el nom nou i el canvi de nom també queda preparat.
+    visual: notes.txt es transforma en notes.md; al panell PREPARACIÓ apareix una R amb el nom antic i el nou.
+    comprova:
+      existeix: [notes.md]
+      no_existeix: [notes.txt]
+
+  - plantilla: status-breu
+    resultat: >-
+      La erra indica un canvi de nom, amb el nom antic i el nou. La de indica el fitxer esborrat. Tots
+      dos canvis estan preparats.
+    comprova: {status: "R  notes.txt -> notes.md\nD  prova.py"}
+
+  - plantilla: commit-breu
+    missatge: Ordena els fitxers del projecte
+    crea: B
+    resultat: El commit guarda l’eliminació i el canvi de nom. Les versions antigues continuen a l’historial.
+    comprova:
+      status: ""
+      pares: {B: [A]}
+
+  - explica: Un error habitual, esborrar des de l’explorador
+    pantalla:
+      - "Esborrat des de l’explorador:   D prova.py"
+      - "Falta preparar-ne l’eliminació:  git add prova.py"
+    cami: explorador
+    text: >-
+      Un altre cas. Si esborrem el fitxer des de l’explorador o des de l’editor, [[Git]] veu que falta,
+      però l’eliminació encara no està preparada.
+    visual: Separador UN ERROR HABITUAL. prova.py s’envia a la paperera des de l’explorador.
+    accions:
+      - esborra: prova.py
+
+  - plantilla: status-breu
+    cami: explorador
+    resultat: La de és a la segona columna. El fitxer falta a la carpeta, però el proper commit encara el conservaria.
+    comprova: {status: " D prova.py"}
+
+  - plantilla: add-breu
+    cami: explorador
+    fitxer: prova.py
+    resultat: Preparar el fitxer que falta prepara la seva eliminació. Ara la de és a la primera columna, com abans.
+    comprova: {status: "D  prova.py"}
+
+resum:
+  - "[[git rm]] esborra el fitxer i en prepara l’eliminació."
+  - "[[git mv]] canvia el nom i el deixa preparat."
+  - Si esborrem des de l’explorador, després cal preparar l’eliminació.
+practica: >-
+  En un repositori de pràctiques, esborra un fitxer seguit i canvia el nom d’un altre. Revisa l’estat
+  breu abans de confirmar els dos canvis.

@@ -1,0 +1,495 @@
+{
+ "llico": "32-forks-contribuir",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "afc44d6",
+    "C": "9402422"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "9402422",
+    "refs": {
+     "main": "9402422",
+     "origin/main": "9402422",
+     "upstream/main": "9402422"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "9402422",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git switch -c salutacio",
+   "sortida": "Switched to a new branch 'salutacio'\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "afc44d6",
+    "C": "9402422"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "9402422",
+    "refs": {
+     "main": "9402422",
+     "salutacio": "9402422",
+     "origin/main": "9402422",
+     "upstream/main": "9402422"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "9402422",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "afc44d6",
+    "C": "9402422"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+    },
+    "head_commit": "9402422",
+    "refs": {
+     "main": "9402422",
+     "salutacio": "9402422",
+     "origin/main": "9402422",
+     "upstream/main": "9402422"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "9402422",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Hola, Ermessenda!\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "afc44d6",
+    "C": "9402422"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+    },
+    "head_commit": "9402422",
+    "refs": {
+     "main": "9402422",
+     "salutacio": "9402422",
+     "origin/main": "9402422",
+     "upstream/main": "9402422"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "9402422",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git add helloGit.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "afc44d6",
+    "C": "9402422"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+    },
+    "head_commit": "9402422",
+    "refs": {
+     "main": "9402422",
+     "salutacio": "9402422",
+     "origin/main": "9402422",
+     "upstream/main": "9402422"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "9402422",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [
+     "M  helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git commit -m \"Personalitza la salutacio\"",
+   "sortida": "[salutacio b72a54b] Personalitza la salutacio\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "afc44d6",
+    "C": "9402422",
+    "D": "b72a54b"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+    },
+    "head_commit": "b72a54b",
+    "refs": {
+     "main": "9402422",
+     "salutacio": "b72a54b",
+     "origin/main": "9402422",
+     "upstream/main": "9402422"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "9402422",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "b72a54b",
+      "lletra": "D",
+      "pares": [
+       "9402422"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git push -u origin salutacio",
+   "sortida": "branch 'salutacio' set up to track 'origin/salutacio'.\nTo ~/fork.git\n * [new branch]      salutacio -> salutacio\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "afc44d6",
+    "C": "9402422",
+    "D": "b72a54b"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+    },
+    "head_commit": "b72a54b",
+    "refs": {
+     "main": "9402422",
+     "salutacio": "b72a54b",
+     "origin/main": "9402422",
+     "origin/salutacio": "b72a54b",
+     "upstream/main": "9402422"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "9402422",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "b72a54b",
+      "lletra": "D",
+      "pares": [
+       "9402422"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "afc44d6",
+    "C": "9402422",
+    "D": "b72a54b"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+    },
+    "head_commit": "b72a54b",
+    "refs": {
+     "main": "9402422",
+     "salutacio": "b72a54b",
+     "origin/main": "9402422",
+     "origin/salutacio": "b72a54b",
+     "upstream/main": "9402422"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "9402422",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "b72a54b",
+      "lletra": "D",
+      "pares": [
+       "9402422"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "B": "afc44d6",
+    "C": "9402422",
+    "D": "b72a54b"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+    },
+    "head_commit": "b72a54b",
+    "refs": {
+     "main": "9402422",
+     "salutacio": "b72a54b",
+     "origin/main": "9402422",
+     "origin/salutacio": "b72a54b",
+     "upstream/main": "9402422"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "B",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "9402422",
+      "lletra": "C",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "b72a54b",
+      "lletra": "D",
+      "pares": [
+       "9402422"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "README.md": "Projecte HelloGit\n",
+   "helloGit.py": "print(\"Hello Git!\")\n"
+  },
+  "head_commit": "9402422",
+  "refs": {
+   "main": "9402422",
+   "origin/main": "9402422",
+   "upstream/main": "9402422"
+  },
+  "commits": [
+   {
+    "id": "afc44d6",
+    "lletra": "B",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   },
+   {
+    "id": "9402422",
+    "lletra": "C",
+    "pares": [
+     "afc44d6"
+    ],
+    "missatge": "Afegeix el README"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "B": "afc44d6",
+  "C": "9402422"
+ }
+}

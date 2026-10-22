@@ -70,7 +70,7 @@ Sortida de mostra:
 
 ```text
 github.com
-  ✓ Logged in to github.com account anna-puig (keyring)
+  ✓ Logged in to github.com account ermessenda-carcassona (keyring)
   - Active account: true
   - Git operations protocol: https
   - Token: gho_************************************
@@ -137,8 +137,8 @@ Sortida real: *cap línia*.
 Sortida de mostra:
 
 ```text
-origin	https://github.com/anna-puig/HelloGit.git (fetch)
-origin	https://github.com/anna-puig/HelloGit.git (push)
+origin	https://github.com/ermessenda-carcassona/HelloGit.git (fetch)
+origin	https://github.com/ermessenda-carcassona/HelloGit.git (push)
 ```
 
 **Visual:** Sortida de mostra; ressaltar el nom origin i l’adreça del compte d’exemple.

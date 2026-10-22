@@ -1,8 +1,8 @@
 {
  "llico": "01-configuracio",
  "autoria": [
-  "Anna Puig",
-  "anna@example.com"
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
  ],
  "etapes": [
   {
@@ -44,7 +44,7 @@
   {
    "index": 3,
    "cami": "principal",
-   "ordre": "git config --global user.name \"Anna Puig\"",
+   "ordre": "git config --global user.name \"Ermessenda Carcassona\"",
    "sortida": "",
    "codi": 0,
    "simulat": false,
@@ -56,7 +56,7 @@
   {
    "index": 4,
    "cami": "principal",
-   "ordre": "git config --global user.email \"anna@example.com\"",
+   "ordre": "git config --global user.email \"ermessenda@example.com\"",
    "sortida": "",
    "codi": 0,
    "simulat": false,
@@ -117,7 +117,7 @@
    "index": 9,
    "cami": "principal",
    "ordre": "git config --global --list",
-   "sortida": "user.name=Anna Puig\nuser.email=anna@example.com\ninit.defaultbranch=main\ncore.editor=code --wait\n",
+   "sortida": "user.name=Ermessenda Carcassona\nuser.email=ermessenda@example.com\ninit.defaultbranch=main\ncore.editor=code --wait\n",
    "codi": 0,
    "simulat": false,
    "etiquetes": {},

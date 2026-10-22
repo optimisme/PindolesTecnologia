@@ -39,16 +39,16 @@ verificacio:
   - explica: Segona versió amb notes
     accions:
       - fitxer: helloGit.py
-        contingut: print("Hola, Anna!")
+        contingut: print("Hola, Ermessenda!")
       - fitxer: notes.txt
-        contingut: Salutació personalitzada per a l’Anna.
+        contingut: Salutació personalitzada per a l’Ermessenda.
   - ordre: git add .
     comprova: {status: "M  helloGit.py\nA  notes.txt"}
   - ordre: git commit -m "Personalitza la salutacio i afegeix notes"
     crea: B
     comprova: {pares: {B: [A]}, status: ""}
   - ordre: git push
-    comprova: {remot: {origin: {main: B}}, programa: "Hola, Anna!"}
+    comprova: {remot: {origin: {main: B}}, programa: "Hola, Ermessenda!"}
 escenes:
 - id: i_objectiu
   etiqueta: EL PRIMER EXEMPLE

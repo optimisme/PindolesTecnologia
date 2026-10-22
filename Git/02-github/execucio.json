@@ -1,8 +1,8 @@
 {
  "llico": "02-github",
  "autoria": [
-  "Anna Puig",
-  "anna@example.com"
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
  ],
  "etapes": [
   {
@@ -80,7 +80,7 @@
   {
    "index": 6,
    "cami": "principal",
-   "ordre": "git clone /private/var/folders/b5/wnm055zx64l_xffrqmjg9mh00000gn/T/pindoles-vnynptb_/w/origin.git HelloGit",
+   "ordre": "git clone /private/var/folders/b5/wnm055zx64l_xffrqmjg9mh00000gn/T/pindoles-c37c00jn/w/origin.git HelloGit",
    "sortida": "Cloning into 'HelloGit'...\nwarning: You appear to have cloned an empty repository.\ndone.\n",
    "codi": 0,
    "simulat": false,

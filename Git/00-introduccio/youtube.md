@@ -17,6 +17,15 @@ Punt de partida: No cal tenir res instal·lat per seguir aquesta lliçó.
 
 Practica-ho: 
 
+Capítols:
+0:00 Capçalera i presentació
+0:35 Git organitza la història del projecte
+1:01 Comparar ajuda a investigar
+1:15 El repositori local conserva les versions
+1:30 Compartir i integrar la feina
+1:55 Les decisions continuen sent nostres
+2:21 Registrar. Comparar. Col·laborar.
+
 Lliçó següent: 01 · Configuració inicial: identitat, branca i editor
 
 Llista: Píndoles de Git. Subtítols en català inclosos.
@@ -28,5 +37,3 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Vídeo:** `Git/output/00-introduccio.mp4`  
 **Subtítols:** `00-introduccio/output/00-introduccio.ca.srt`  
 **Miniatura:** `00-introduccio/output/portada.png`
-
-> Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

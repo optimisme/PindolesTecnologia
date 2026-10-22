@@ -1,0 +1,151 @@
+titol: "Conflictes: dues edicions, una decisió"
+titol_curt: CONFLICTES
+capcalera: ["CONFLICTES", "Dues edicions, una decisió"]
+presentacio: Conflictes
+objectiu: llegir un conflicte de fusió, decidir el resultat i confirmar la resolució.
+inici: >-
+  main activa i sense canvis pendents. Des de B, main (D) i salutacio (C) han canviat la mateixa línia,
+  amb print("Hola, classe!") i print("Hola, Ermessenda!") respectivament.
+inici_parlat: >-
+  Som a [[main]]. Des d’una mateixa versió, [[main]] i la branca salutació han canviat la mateixa línia
+  de manera diferent.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: add helloGit.py
+  - commit: B
+    missatge: Afegeix una exclamacio
+  - git: switch -q -c salutacio
+  - fitxer: helloGit.py
+    contingut: print("Hola, Ermessenda!")
+  - git: commit -q -am "Saluda l'Ermessenda"
+  - etiqueta: C
+  - git: switch -q main
+  - fitxer: helloGit.py
+    contingut: print("Hola, classe!")
+  - git: commit -q -am "Saluda la classe"
+  - etiqueta: D
+
+camins:
+  avorta:
+    tipus: alternatiu
+    titol: Alternativa
+    des_de: inici
+    preparacio:
+      - git: merge salutacio
+        falla: true
+
+etapes:
+  - explica: Dues propostes incompatibles
+    pantalla:
+      - "main:  print(\"Hola, classe!\")"
+      - "salutacio:  print(\"Hola, Ermessenda!\")"
+      - "Mateixa línia → cal decidir."
+    text: >-
+      Les dues branques han canviat la mateixa línia de manera diferent. [[Git]] no pot triar per nosaltres:
+      necessita una decisió sobre el contingut.
+    visual: Les dues línies, una sota l’altra, amb el nom de la branca de cada una.
+
+  - ordre: git merge salutacio
+    text: Intentem integrar salutació a la branca activa.
+    parts:
+      - salutacio: És la branca que entra. La destinació continua sent [[main]].
+    falla: true
+    resultat: La fusió s’atura i avisa d’un conflicte. Encara no s’ha creat el commit que uneix les dues històries.
+    visual: Sortida real amb la paraula CONFLICT ressaltada; el graf no té cap node nou.
+    comprova:
+      sortida: [CONFLICT]
+
+  - plantilla: status-breu
+    resultat: Dues us majúscules indiquen un fitxer amb un conflicte sense resoldre. Mirem-ne el contingut.
+    comprova: {status: "UU helloGit.py"}
+
+  - explica: Llegim els marcadors
+    pantalla:
+      - "Inici de la versió actual:  <<<<<<< HEAD"
+      - "Separador:  ======="
+      - "Final de la versió que entra:  >>>>>>> salutacio"
+    text:
+      - >-
+        [[Git]] ha escrit les dues versions al fitxer, entre marcadors. La primera és la de la branca actual,
+        assenyalada com a [[HEAD]], que aquí és [[main]].
+      - >-
+        La línia d’iguals separa les dues propostes, i el darrer marcador tanca la versió que entra, la de
+        salutació. Els marcadors no són codi del programa.
+    pausa: 3.5
+    visual: Editor amb el contingut real del fitxer en conflicte. Subratllar un marcador cada vegada.
+    comprova:
+      treball:
+        helloGit.py: |-
+          <<<<<<< HEAD
+          print("Hola, classe!")
+          =======
+          print("Hola, Ermessenda!")
+          >>>>>>> salutacio
+
+  - explica: Escrivim el resultat acordat
+    pantalla:
+      - "Resultat:  print(\"Hola, grup!\")"
+      - "Sense cap marcador"
+      - "Una sola instrucció vàlida"
+    text: >-
+      Decidim escriure Hola, grup! Esborrem tots els marcadors i deixem una sola instrucció vàlida. La resolució
+      pot combinar les idees; no cal quedar-se amb una de les dues propostes sencera.
+    visual: Animar l’edició fins a print("Hola, grup!"). No preparar el fitxer abans de mostrar aquesta decisió.
+    accions:
+      - fitxer: helloGit.py
+        contingut: print("Hola, grup!")
+
+  - plantilla: programa
+    resultat: La salutació final funciona. Encara falta preparar-la i acabar la fusió.
+    comprova: {programa: "Hola, grup!"}
+
+  - plantilla: add-breu
+    resultat: >-
+      Preparar el fitxer indica a [[Git]] que el conflicte està resolt. No comprova que el programa sigui
+      correcte; per això l’hem provat abans.
+    comprova: {status: "M  helloGit.py"}
+
+  - plantilla: commit-breu
+    missatge: Resol el conflicte de la salutacio
+    crea: M
+    resultat: Ara sí, es crea el commit de fusió, amb dos pares i el contingut que hem decidit.
+    comprova:
+      pares: {M: [D, C]}
+      status: ""
+
+  - explica: Alternativa, abandonar la fusió
+    pantalla:
+      - "Fusió a mig fer:  git merge --abort"
+      - "Torna a l’estat d’abans de la fusió."
+    cami: avorta
+    text: >-
+      En un cas alternatiu, podem abandonar una fusió que encara no hem acabat. Tornem al moment del conflicte,
+      abans de preparar res.
+    visual: Separador ALTERNATIVA. Recuperar l’estat amb el conflicte, no el resultat ja confirmat.
+
+  - ordre: git merge --abort
+    cami: avorta
+    text: Cancel·lem la fusió pendent.
+    parts:
+      - --abort: Doble guionet [[abort]] abandona l’operació i torna a l’estat d’abans d’intentar-la.
+    resultat: El fitxer recupera la versió de [[main]] i no queda cap fusió pendent. Aquest camí només té sentit abans de crear el commit.
+    visual: Desapareixen els marcadors i l’indicador de fusió pendent; cap node nou.
+    comprova:
+      status: ""
+      refs: {main: D}
+      programa: Hola, classe!
+
+resum:
+  - Un conflicte vol dir que cal una decisió sobre el contingut.
+  - Editem, provem i preparem la resolució abans de confirmar-la.
+  - El commit acaba la fusió; avortar és l’alternativa abans d’acabar-la.
+practica: >-
+  Crea dues salutacions incompatibles en dues branques d’un repositori de pràctiques. Resol el conflicte
+  amb una tercera salutació, prova el programa i completa la fusió.

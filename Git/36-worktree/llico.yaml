@@ -1,0 +1,138 @@
+titol: "Worktree: corregeix main sense interrompre la feina"
+titol_curt: WORKTREE
+capcalera: ["WORKTREE", "Dues carpetes, un historial compartit"]
+presentacio: "[[Worktree]]"
+objectiu: fer una correcció en una segona carpeta de treball sense tocar la feina pendent de la primera.
+inici: >-
+  Carpeta projecte a la branca salutacio, amb una edició sense preparar a helloGit.py. main és a B i no està
+  activa a cap altra carpeta. La carpeta auxiliar encara no existeix.
+inici_parlat: >-
+  Som a la branca salutació, a mitja feina. Ens demanen una correcció ràpida a [[main]] i no volem tocar el
+  que tenim a mig fer.
+carpeta: projecte
+preparacio:
+  - repositori: projecte
+  - cd: projecte
+  - fitxer: helloGit.py
+    contingut: print("Hello Git")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: commit -q -am "Afegeix una exclamacio"
+  - etiqueta: B
+  - git: switch -q -c salutacio
+  - fitxer: helloGit.py
+    contingut: print("Hola, Ermessenda!")
+
+etapes:
+  - explica: Dues carpetes, preparacions separades
+    pantalla:
+      - "projecte:  salutacio amb feina pendent"
+      - "projecte-correccio:  correccio des de main"
+      - "Mateix repositori, carpetes separades"
+    text: >-
+      Un [[worktree]] és una segona carpeta de treball connectada al mateix repositori. Té els seus fitxers,
+      la seva preparació i la seva branca activa.
+    visual: Dos espais, ORIGINAL a salutacio amb un canvi pendent i AUXILIAR encara inexistent.
+
+  - ordre: git worktree add -b correccio ../projecte-correccio main
+    text: "[[git worktree]] [[add]] crea la carpeta nova."
+    parts:
+      - -b: El guionet be crea una branca nova per a aquesta carpeta.
+      - correccio: És el nom de la branca de la correcció.
+      - ../projecte-correccio: És el camí de la carpeta nova, al costat de l’original.
+      - main: És el punt de partida; la correcció comença a la versió de [[main]].
+    resultat: La carpeta auxiliar comença neta, a la branca correcció. L’original conserva l’edició pendent.
+    visual: Crear la segona carpeta; el text de l’editor original no es mou.
+    comprova:
+      existeix: [../projecte-correccio/helloGit.py]
+      status: " M helloGit.py"
+
+  - ordre: git worktree list
+    text: Consultem les carpetes connectades.
+    resultat: Cada línia mostra una carpeta i la seva branca activa. Encara treballem des de l’original.
+    visual: Dues files amb camí i branca a la sortida real; indicador AQUÍ SOM a l’original.
+    comprova:
+      sortida: ["[salutacio]", "[correccio]"]
+
+  - ordre: cd ../projecte-correccio
+    text: Entrem a la carpeta auxiliar.
+    parts:
+      - ../projecte-correccio: Els dos punts pugen a la carpeta superior i, des d’allà, entrem a la nova.
+    resultat: La terminal és a la carpeta de la correcció, que no té canvis pendents.
+    visual: AQUÍ SOM passa a l’auxiliar; l’editor original continua de referència.
+
+  - explica: Fem només la correcció
+    pantalla:
+      - "helloGit.py:  print(\"Hello, Git!\")"
+      - "Carpeta:  projecte-correccio"
+      - "L’altra carpeta no canvia."
+    text: Afegim una coma a la salutació original, desem i provem el programa en aquesta carpeta.
+    visual: Editor auxiliar amb print("Hello, Git!"). L’original continua amb print("Hola, Ermessenda!") sense confirmar.
+    accions:
+      - fitxer: helloGit.py
+        contingut: print("Hello, Git!")
+
+  - plantilla: programa
+    resultat: Surt la salutació amb coma. La feina de l’altra carpeta continua al seu lloc.
+    comprova: {programa: "Hello, Git!"}
+
+  - plantilla: add-breu
+    resultat: La correcció queda preparada només a la carpeta auxiliar.
+
+  - plantilla: commit-breu
+    missatge: Corregeix la puntuacio
+    crea: D
+    resultat: El commit de la correcció no inclou la feina pendent de la salutació.
+    comprova: {refs: {correccio: D, main: B}}
+
+  - plantilla: switch
+    branca: main
+    resultat: Canviem a [[main]] dins de la carpeta auxiliar. Es pot fer perquè [[main]] no és activa a cap altra carpeta.
+    comprova: {head: main}
+
+  - ordre: git merge --ff-only correccio
+    text: Incorporem la correcció a [[main]].
+    parts:
+      - correccio: És la branca que acabem de confirmar.
+    resultat: "[[main]] avança fins a la correcció. L’original continua a salutació amb l’edició pendent intacta."
+    visual: main i correccio a D; salutacio a B; dues preparacions separades.
+    comprova:
+      refs: {main: D}
+
+  - ordre: git -C ../projecte status --short
+    text: Consultem la carpeta original sense sortir de l’auxiliar.
+    parts:
+      - -C: El guionet ce majúscula indica la carpeta on [[Git]] ha d’executar l’ordre.
+      - ../projecte: És la carpeta original.
+    resultat: L’original continua amb la salutació modificada i sense preparar.
+    visual: Consulta identificada com ORIGINAL, diferenciada de l’estat de l’auxiliar.
+    comprova:
+      sortida: [" M helloGit.py"]
+
+  - ordre: cd ../projecte
+    text: Tornem a la carpeta original.
+    resultat: Tornem a la feina de la salutació. La correcció ja és a [[main]].
+    visual: Ruta original i editor amb la feina pendent intacta.
+
+  - ordre: git worktree remove ../projecte-correccio
+    text: Retirem la carpeta auxiliar.
+    parts:
+      - remove: Esborra la carpeta. Només ho fa si no té canvis pendents, com en aquest cas.
+    resultat: La carpeta auxiliar desapareix. [[main]], la branca correcció i el commit es conserven.
+    visual: Retirar només la icona de la carpeta, sense esborrar etiquetes ni nodes del graf.
+    comprova:
+      no_existeix: [../projecte-correccio]
+      refs: {main: D, correccio: D}
+      status: " M helloGit.py"
+      programa: Hola, Ermessenda!
+
+resum:
+  - Les carpetes d’un [[worktree]] comparteixen historial i branques.
+  - Cada carpeta té treball, preparació i branca activa propis.
+  - Retirar una carpeta neta conserva els commits i les branques.
+practica: >-
+  En un repositori de pràctiques, deixa una edició pendent i crea un [[worktree]] per a una correcció petita.
+  Comprova l’estat de les dues carpetes abans de retirar l’auxiliar.

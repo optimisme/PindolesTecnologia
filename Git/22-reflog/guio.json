@@ -1,0 +1,989 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 22,
+  "slug": "22-reflog",
+  "title": "Reflog: recupera un commit local",
+  "short_title": "REFLOG",
+  "card": [
+    "REFLOG",
+    "Recupera un commit local"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "22-reflog.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Vint-i-dosena lliçó. Reflog.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Vint-i-dosena lliçó. "
+      },
+      {
+        "lang": "en-US",
+        "text": "Reflog"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  },
+  "objective": "trobar un commit al [[reflog]] i tornar-hi a donar accés amb una branca, sense perdre els canvis preparats.",
+  "start_note": "Continuació de reset soft. main i HEAD a B; treball i preparació conserven el contingut de C. Les entrades locals encara existeixen. recuperacio serà una branca nova.",
+  "start_spoken": "Continuem on ho vam deixar amb reset soft. La branca ha tornat enrere i el commit de la salutació ja no apareix a l’historial de main.",
+  "summary": [
+    "git log recorre la història a partir d’una branca.",
+    "git reflog mostra per on ha passat HEAD en aquest ordinador.",
+    "Una branca nova torna a donar accés a un commit sense canviar la branca activa."
+  ],
+  "practice": "Després d’un reset soft de pràctiques, troba el commit al reflog, revisa’l i crea-hi una branca de recuperació sense canviar de branca.",
+  "practice_script": "practiques/22-reflog.sh",
+  "scenes": [
+    {
+      "id": "e22_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a trobar un commit al reflog i tornar-hi a donar accés amb una branca, sense perdre els canvis preparats.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a trobar un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " al "
+            },
+            {
+              "lang": "en-US",
+              "text": "reflog"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i tornar-hi a donar accés amb una branca, sense perdre els canvis preparats."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Trobar un commit al reflog i tornar-hi a donar accés amb una branca, sense perdre els canvis preparats."
+        },
+        {
+          "id": "pas_002",
+          "narration": "Continuem on ho vam deixar amb reset soft. La branca ha tornat enrere i el commit de la salutació ja no apareix a l’historial de main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Continuem on ho vam deixar amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset soft"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". La branca ha tornat enrere i el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la salutació ja no apareix a l’historial de "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Punt de partida: Continuació de reset soft. main i HEAD a B; treball i preparació conserven el contingut de C. Les entrades locals encara existeixen. recuperacio serà una branca nova.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1,
+          "screen_text": "Continuem on ho vam deixar amb reset soft. La branca ha tornat enrere i el commit de la salutació ja no apareix a l’historial de main."
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a trobar un commit al reflog i tornar-hi a donar accés amb una branca, sense perdre els canvis preparats. Continuem on ho vam deixar amb reset soft. La branca ha tornat enrere i el commit de la salutació ja no apareix a l’historial de main."
+    },
+    {
+      "id": "e22_01",
+      "label": "EXPLICACIÓ",
+      "title": "Un commit fora de la línia actual",
+      "mode": "principal",
+      "visual": "Graf A i B amb main a B; C atenuat. Treball i preparació amb la salutació nova.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "El commit de la salutació ja no surt a la història de main, però no s’ha esborrat. Buscarem on era abans.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la salutació ja no surt a la història de "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", però no s’ha esborrat. Buscarem on era abans."
+            }
+          ],
+          "visual": "Graf A i B amb main a B; C atenuat. Treball i preparació amb la salutació nova.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "screen": [
+        "Després del reset:  main a B",
+        "El commit C no s’ha esborrat.",
+        "Buscarem on era abans."
+      ],
+      "narration": "El commit de la salutació ja no surt a la història de main, però no s’ha esborrat. Buscarem on era abans."
+    },
+    {
+      "id": "e22_02",
+      "label": "TERMINAL",
+      "title": "git log --oneline",
+      "mode": "principal",
+      "visual": "Ressaltar el camí des de main; deixar C fora del recorregut.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Consultem l’historial de la branca activa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’historial de la branca activa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline",
+          "highlight": "git log",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log --oneline"
+          ],
+          "command_display": "git log --oneline",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "Només hi ha dos commits. git log recorre la història a partir de la branca; no mostra on havíem estat abans.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Només hi ha dos "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". "
+            },
+            {
+              "lang": "en-US",
+              "text": "git log"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " recorre la història a partir de la branca; no mostra on havíem estat abans."
+            }
+          ],
+          "visual": "Ressaltar el camí des de main; deixar C fora del recorregut. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log --oneline",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "0d6725b Afegeix una exclamacio",
+            "8bb43f8 Afegeix la salutacio inicial"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’historial de la branca activa. Executem l’ordre. Només hi ha dos commits. git log recorre la història a partir de la branca; no mostra on havíem estat abans."
+    },
+    {
+      "id": "e22_03",
+      "label": "TERMINAL",
+      "title": "git reflog",
+      "mode": "principal",
+      "visual": "Sortida real; ressaltar primer la fila del reset i després la del commit anterior.",
+      "beats": [
+        {
+          "id": "pas_007",
+          "narration": "git reflog mostra per on ha passat HEAD en aquest repositori.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git reflog"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " mostra per on ha passat "
+            },
+            {
+              "lang": "en-US",
+              "text": "HEAD"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " en aquest repositori."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git reflog. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git reflog.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git reflog",
+          "highlight": "git reflog",
+          "state": 1
+        },
+        {
+          "id": "pas_008",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git reflog. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git reflog"
+          ],
+          "command_display": "git reflog",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_009",
+          "narration": "La primera línia és el reset. La segona és el commit de la salutació, abans de tornar enrere. Copiem l’identificador d’aquesta segona línia.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La primera línia és el "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". La segona és el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la salutació, abans de tornar enrere. Copiem l’identificador d’aquesta segona línia."
+            }
+          ],
+          "visual": "Sortida real; ressaltar primer la fila del reset i després la del commit anterior. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git reflog",
+          "event": "result",
+          "state": 2,
+          "simulated": false,
+          "terminal_output": [
+            "0d6725b HEAD@{0}: reset: moving to HEAD~1",
+            "46a3283 HEAD@{1}: commit: Personalitza la salutacio",
+            "0d6725b HEAD@{2}: commit: Afegeix una exclamacio",
+            "8bb43f8 HEAD@{3}: commit (initial): Afegeix la salutacio inicial"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git reflog mostra per on ha passat HEAD en aquest repositori. Executem l’ordre. La primera línia és el reset. La segona és el commit de la salutació, abans de tornar enrere. Copiem l’identificador d’aquesta segona línia."
+    },
+    {
+      "id": "e22_04",
+      "label": "TERMINAL",
+      "title": "git show 46a3283 -- helloGit.py",
+      "mode": "principal",
+      "visual": "Diff real del commit al costat de l’editor actual.",
+      "beats": [
+        {
+          "id": "pas_010",
+          "narration": "Revisem el commit trobat abans de recuperar-lo.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Revisem el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " trobat abans de recuperar-lo."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show 46a3283 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git show.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show 46a3283 -- helloGit.py",
+          "highlight": "git show",
+          "state": 2
+        },
+        {
+          "id": "pas_011",
+          "narration": "És l’identificador que hem copiat. Al teu repositori serà diferent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És l’identificador que hem copiat. Al teu repositori serà diferent."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show 46a3283 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: 46a3283.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show 46a3283 -- helloGit.py",
+          "highlight": "46a3283",
+          "state": 2
+        },
+        {
+          "id": "pas_012",
+          "narration": "Mirem només el canvi del programa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Mirem només el canvi del programa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show 46a3283 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show 46a3283 -- helloGit.py",
+          "highlight": "helloGit.py",
+          "state": 2
+        },
+        {
+          "id": "pas_013",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show 46a3283 -- helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git show 46a3283 -- helloGit.py"
+          ],
+          "command_display": "git show 46a3283 -- helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_014",
+          "narration": "És la salutació personalitzada que buscàvem. Consultar-la no modifica cap fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la salutació personalitzada que buscàvem. Consultar-la no modifica cap fitxer."
+            }
+          ],
+          "visual": "Diff real del commit al costat de l’editor actual. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git show 46a3283 -- helloGit.py",
+          "event": "result",
+          "state": 3,
+          "simulated": false,
+          "terminal_output": [
+            "commit 46a328354b61ae31d80913844bb5a28fafe39ceb",
+            "Author: Ermessenda Carcassona <ermessenda@example.com>",
+            "Date:   Tue Oct 20 12:07:00 2026 +0200",
+            "",
+            "    Personalitza la salutacio",
+            "",
+            "diff --git a/helloGit.py b/helloGit.py",
+            "index 52662af..9dfb79d 100644",
+            "--- a/helloGit.py",
+            "+++ b/helloGit.py",
+            "@@ -1 +1 @@",
+            "-print(\"Hello Git!\")",
+            "+print(\"Hola, Ermessenda!\")"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Revisem el commit trobat abans de recuperar-lo. És l’identificador que hem copiat. Al teu repositori serà diferent. Mirem només el canvi del programa. Executem l’ordre. És la salutació personalitzada que buscàvem. Consultar-la no modifica cap fitxer."
+    },
+    {
+      "id": "e22_05",
+      "label": "TERMINAL",
+      "title": "git branch recuperacio 46a3283",
+      "mode": "principal",
+      "visual": "Afegir només l’etiqueta recuperacio a C. HEAD continua unit a main.",
+      "beats": [
+        {
+          "id": "pas_015",
+          "narration": "Creem una branca que torni a donar accés a aquest commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Creem una branca que torni a donar accés a aquest "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch recuperacio 46a3283. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git branch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch recuperacio 46a3283",
+          "highlight": "git branch",
+          "state": 3
+        },
+        {
+          "id": "pas_016",
+          "narration": "És el nom de la branca nova, recuperació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca nova, recuperació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch recuperacio 46a3283. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: recuperacio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch recuperacio 46a3283",
+          "highlight": "recuperacio",
+          "state": 3
+        },
+        {
+          "id": "pas_017",
+          "narration": "Indica el commit on posem l’etiqueta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Indica el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " on posem l’etiqueta."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch recuperacio 46a3283. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: 46a3283.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch recuperacio 46a3283",
+          "highlight": "46a3283",
+          "state": 3
+        },
+        {
+          "id": "pas_018",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch recuperacio 46a3283. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git branch recuperacio 46a3283"
+          ],
+          "command_display": "git branch recuperacio 46a3283",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_019",
+          "narration": "La branca recuperació apunta al commit trobat. main continua on era i segueix sent la branca activa: no hem canviat de branca.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca recuperació apunta al "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " trobat. "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " continua on era i segueix sent la branca activa: no hem canviat de branca."
+            }
+          ],
+          "visual": "Afegir només l’etiqueta recuperacio a C. HEAD continua unit a main. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git branch recuperacio 46a3283",
+          "event": "result",
+          "state": 4,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Creem una branca que torni a donar accés a aquest commit. És el nom de la branca nova, recuperació. Indica el commit on posem l’etiqueta. Executem l’ordre. La branca recuperació apunta al commit trobat. main continua on era i segueix sent la branca activa: no hem canviat de branca."
+    },
+    {
+      "id": "e22_06",
+      "label": "TERMINAL",
+      "title": "git log --oneline --decorate --all",
+      "mode": "principal",
+      "visual": "Sortida real amb main i recuperacio; preparació intacta.",
+      "beats": [
+        {
+          "id": "pas_020",
+          "narration": "Comprovem totes les branques alhora.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Comprovem totes les branques alhora."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --decorate --all. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline --decorate --all",
+          "highlight": "git log",
+          "state": 4
+        },
+        {
+          "id": "pas_021",
+          "narration": "Escriu el nom de les branques al costat dels seus commits.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Escriu el nom de les branques al costat dels seus "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --decorate --all. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --decorate.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline --decorate --all",
+          "highlight": "--decorate",
+          "state": 4
+        },
+        {
+          "id": "pas_022",
+          "narration": "Doble guionet all inclou totes les branques, no només l’activa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "all"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " inclou totes les branques, no només l’activa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --decorate --all. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --all.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline --decorate --all",
+          "highlight": "--all",
+          "state": 4
+        },
+        {
+          "id": "pas_023",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --decorate --all. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log --oneline --decorate --all"
+          ],
+          "command_display": "git log --oneline --decorate --all",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_024",
+          "narration": "El commit torna a ser visible a través de recuperació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " torna a ser visible a través de recuperació."
+            }
+          ],
+          "visual": "Sortida real amb main i recuperacio; preparació intacta. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log --oneline --decorate --all",
+          "event": "result",
+          "state": 5,
+          "simulated": false,
+          "terminal_output": [
+            "46a3283 (recuperacio) Personalitza la salutacio",
+            "0d6725b (HEAD -> main) Afegeix una exclamacio",
+            "8bb43f8 Afegeix la salutacio inicial"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Comprovem totes les branques alhora. Escriu el nom de les branques al costat dels seus commits. Doble guionet all inclou totes les branques, no només l’activa. Executem l’ordre. El commit torna a ser visible a través de recuperació."
+    },
+    {
+      "id": "e22_07",
+      "label": "TERMINAL",
+      "title": "git status --short",
+      "mode": "principal",
+      "visual": "Sortida literal amb la llegenda de les dues columnes.",
+      "beats": [
+        {
+          "id": "pas_025",
+          "narration": "Consultem l’estat breu amb git status.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat breu amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status",
+          "state": 5
+        },
+        {
+          "id": "pas_026",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_027",
+          "narration": "El canvi que havia deixat reset soft continua preparat. Crear la branca no l’ha tocat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El canvi que havia deixat "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset soft"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " continua preparat. Crear la branca no l’ha tocat."
+            }
+          ],
+          "visual": "Sortida literal amb la llegenda de les dues columnes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result",
+          "state": 6,
+          "simulated": false,
+          "terminal_output": [
+            "M  helloGit.py"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat breu amb git status. Executem l’ordre. El canvi que havia deixat reset soft continua preparat. Crear la branca no l’ha tocat."
+    },
+    {
+      "id": "e22_08",
+      "label": "EXPLICACIÓ",
+      "title": "Una ajuda local amb límits",
+      "mode": "principal",
+      "visual": "Icones LOCAL i RELLOTGE; distinció COMMIT EXISTENT / EDICIÓ SENSE CONFIRMAR.",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "El reflog només existeix al nostre ordinador i les entrades antigues caduquen. Recupera commits; les edicions que mai no hem confirmat no hi són.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "reflog"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " només existeix al nostre ordinador i les entrades antigues caduquen. Recupera "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; les edicions que mai no hem confirmat no hi són."
+            }
+          ],
+          "visual": "Icones LOCAL i RELLOTGE; distinció COMMIT EXISTENT / EDICIÓ SENSE CONFIRMAR.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 7
+        }
+      ],
+      "screen": [
+        "Només en aquest ordinador",
+        "Les entrades antigues caduquen.",
+        "Recupera commits, no edicions sense confirmar."
+      ],
+      "narration": "El reflog només existeix al nostre ordinador i les entrades antigues caduquen. Recupera commits; les edicions que mai no hem confirmat no hi són."
+    },
+    {
+      "id": "e22_09",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_029",
+          "narration": "git log recorre la història a partir d’una branca.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git log"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " recorre la història a partir d’una branca."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "git log recorre la història a partir d’una branca."
+        },
+        {
+          "id": "pas_030",
+          "narration": "git reflog mostra per on ha passat HEAD en aquest ordinador.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git reflog"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " mostra per on ha passat "
+            },
+            {
+              "lang": "en-US",
+              "text": "HEAD"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " en aquest ordinador."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "git reflog mostra per on ha passat HEAD en aquest ordinador."
+        },
+        {
+          "id": "pas_031",
+          "narration": "Una branca nova torna a donar accés a un commit sense canviar la branca activa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Una branca nova torna a donar accés a un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " sense canviar la branca activa."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Una branca nova torna a donar accés a un commit sense canviar la branca activa."
+        }
+      ],
+      "narration": "git log recorre la història a partir d’una branca. git reflog mostra per on ha passat HEAD en aquest ordinador. Una branca nova torna a donar accés a un commit sense canviar la branca activa."
+    },
+    {
+      "id": "e22_10",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_032",
+          "narration": "Després d’un reset soft de pràctiques, troba el commit al reflog, revisa’l i crea-hi una branca de recuperació sense canviar de branca.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Després d’un "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset soft"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de pràctiques, troba el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " al "
+            },
+            {
+              "lang": "en-US",
+              "text": "reflog"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", revisa’l i crea-hi una branca de recuperació sense canviar de branca."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": [],
+          "screen_text": "Després d’un reset soft de pràctiques, troba el commit al reflog, revisa’l i crea-hi una branca de recuperació sense canviar de branca."
+        }
+      ],
+      "narration": "Després d’un reset soft de pràctiques, troba el commit al reflog, revisa’l i crea-hi una branca de recuperació sense canviar de branca."
+    }
+  ],
+  "commands": [
+    "git log --oneline",
+    "git reflog",
+    "git show 46a3283 -- helloGit.py",
+    "git branch recuperacio 46a3283",
+    "git log --oneline --decorate --all",
+    "git status --short"
+  ]
+}

@@ -1,0 +1,936 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 32,
+  "slug": "32-forks-contribuir",
+  "title": "Forks: contribueix al projecte original",
+  "short_title": "FORKS",
+  "card": [
+    "CONTRIBUIR DES D’UN FORK",
+    "Proposa un canvi a l’original"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "32-forks-contribuir.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Trenta-dosena lliçó. Forks, contribuir a l’original.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Trenta-dosena lliçó. "
+      },
+      {
+        "lang": "en-US",
+        "text": "Forks"
+      },
+      {
+        "lang": "ca-ES",
+        "text": ", contribuir a l’original."
+      }
+    ]
+  },
+  "objective": "preparar una contribució al nostre [[fork]] i proposar-la al projecte original amb una [[pull request]].",
+  "start_note": "Continuació de la lliçó anterior. Original, fork i clon local a C. Al clon, origin apunta al fork i upstream a l’original. Treball net. La interfície web és un esquema amb dades inventades.",
+  "start_spoken": "El nostre fork i la còpia local estan al dia amb l’original. Ara hi farem una contribució.",
+  "summary": [
+    "Cada contribució va en una branca pròpia.",
+    "Publiquem la branca al nostre fork, mai a l’original.",
+    "La pull request va del nostre fork cap al main de l’original."
+  ],
+  "practice": "Des del fork de pràctiques, crea una branca amb un canvi petit, publica-la al fork i obre una proposta cap a l’original amb una descripció clara.",
+  "practice_script": "practiques/32-forks-contribuir.sh",
+  "scenes": [
+    {
+      "id": "e32_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a preparar una contribució al nostre fork i proposar-la al projecte original amb una pull request.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a preparar una contribució al nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i proposar-la al projecte original amb una "
+            },
+            {
+              "lang": "en-US",
+              "text": "pull request"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Preparar una contribució al nostre fork i proposar-la al projecte original amb una pull request."
+        },
+        {
+          "id": "pas_002",
+          "narration": "El nostre fork i la còpia local estan al dia amb l’original. Ara hi farem una contribució.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i la còpia local estan al dia amb l’original. Ara hi farem una contribució."
+            }
+          ],
+          "visual": "Punt de partida: Continuació de la lliçó anterior. Original, fork i clon local a C. Al clon, origin apunta al fork i upstream a l’original. Treball net. La interfície web és un esquema amb dades inventades.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1,
+          "screen_text": "El nostre fork i la còpia local estan al dia amb l’original. Ara hi farem una contribució."
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a preparar una contribució al nostre fork i proposar-la al projecte original amb una pull request. El nostre fork i la còpia local estan al dia amb l’original. Ara hi farem una contribució."
+    },
+    {
+      "id": "e32_01",
+      "label": "EXPLICACIÓ",
+      "title": "Una branca per a la contribució",
+      "mode": "principal",
+      "visual": "Tres caixes, ORIGINAL, FORK i LOCAL, totes a C.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Cada contribució va en una branca pròpia, creada a partir del main actualitzat. Així el nostre main es pot continuar posant al dia amb l’original.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cada contribució va en una branca pròpia, creada a partir del "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " actualitzat. Així el nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " es pot continuar posant al dia amb l’original."
+            }
+          ],
+          "visual": "Tres caixes, ORIGINAL, FORK i LOCAL, totes a C.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "screen": [
+        "Cada contribució:  una branca pròpia",
+        "Punt de partida:  main actualitzada"
+      ],
+      "narration": "Cada contribució va en una branca pròpia, creada a partir del main actualitzat. Així el nostre main es pot continuar posant al dia amb l’original."
+    },
+    {
+      "id": "e32_02",
+      "label": "TERMINAL",
+      "title": "git switch -c salutacio",
+      "mode": "principal",
+      "visual": "Afegir l’etiqueta nova al commit actual sense crear cap node i moure-hi l’indicador de branca activa.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Amb git switch seleccionem la branca on treballarem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git switch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " seleccionem la branca on treballarem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch -c salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git switch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch -c salutacio",
+          "highlight": "git switch",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "El guionet ce crea una branca nova i hi canvia.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ce crea una branca nova i hi canvia."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch -c salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -c.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch -c salutacio",
+          "highlight": "-c",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "És el nom de la branca nova. Comença al commit actual.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca nova. Comença al "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " actual."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch -c salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: salutacio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch -c salutacio",
+          "highlight": "salutacio",
+          "state": 0
+        },
+        {
+          "id": "pas_007",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch -c salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git switch -c salutacio"
+          ],
+          "command_display": "git switch -c salutacio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_008",
+          "narration": "La branca de la contribució comença a la versió actualitzada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca de la contribució comença a la versió actualitzada."
+            }
+          ],
+          "visual": "Afegir l’etiqueta nova al commit actual sense crear cap node i moure-hi l’indicador de branca activa. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git switch -c salutacio",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "Switched to a new branch 'salutacio'"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git switch seleccionem la branca on treballarem. El guionet ce crea una branca nova i hi canvia. És el nom de la branca nova. Comença al commit actual. Executem l’ordre. La branca de la contribució comença a la versió actualitzada."
+    },
+    {
+      "id": "e32_03",
+      "label": "EXPLICACIÓ",
+      "title": "Fem la contribució",
+      "mode": "principal",
+      "visual": "Editor amb print(\"Hola, Ermessenda!\").",
+      "beats": [
+        {
+          "id": "pas_009",
+          "narration": "Personalitzem la salutació i la provem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Personalitzem la salutació i la provem."
+            }
+          ],
+          "visual": "Editor amb print(\"Hola, Ermessenda!\").",
+          "pause_after": 3,
+          "commands": [],
+          "state": 2
+        }
+      ],
+      "screen": [
+        "helloGit.py:  print(\"Hola, Ermessenda!\")",
+        "Branca:  salutacio"
+      ],
+      "narration": "Personalitzem la salutació i la provem."
+    },
+    {
+      "id": "e32_04",
+      "label": "TERMINAL",
+      "title": "python3 helloGit.py",
+      "mode": "principal",
+      "visual": "Mostrar la sortida real del programa al costat de l’editor.",
+      "beats": [
+        {
+          "id": "pas_010",
+          "narration": "Provem el programa amb la versió desada del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem el programa amb la versió desada del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3",
+          "state": 2
+        },
+        {
+          "id": "pas_011",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_012",
+          "narration": "La salutació nova funciona a la branca de la contribució.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La salutació nova funciona a la branca de la contribució."
+            }
+          ],
+          "visual": "Mostrar la sortida real del programa al costat de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result",
+          "state": 3,
+          "simulated": false,
+          "terminal_output": [
+            "Hola, Ermessenda!"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem el programa amb la versió desada del fitxer. Executem l’ordre. La salutació nova funciona a la branca de la contribució."
+    },
+    {
+      "id": "e32_05",
+      "label": "TERMINAL",
+      "title": "git add helloGit.py",
+      "mode": "principal",
+      "visual": "Copiar el contingut desat a la preparació.",
+      "beats": [
+        {
+          "id": "pas_013",
+          "narration": "Preparem el fitxer amb git add.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparem el fitxer amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "git add",
+          "state": 3
+        },
+        {
+          "id": "pas_014",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "command_display": "git add helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_015",
+          "narration": "La contribució queda preparada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La contribució queda preparada."
+            }
+          ],
+          "visual": "Copiar el contingut desat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "event": "result",
+          "state": 4,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Preparem el fitxer amb git add. Executem l’ordre. La contribució queda preparada."
+    },
+    {
+      "id": "e32_06",
+      "label": "TERMINAL",
+      "title": "git commit -m \"Personalitza la salutacio\"",
+      "mode": "principal",
+      "visual": "Crear el node nou només en executar.",
+      "beats": [
+        {
+          "id": "pas_016",
+          "narration": "Confirmem el canvi amb git commit i el missatge: Personalitza la salutació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Confirmem el canvi amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i el missatge: Personalitza la salutació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "highlight": "git commit",
+          "state": 4
+        },
+        {
+          "id": "pas_017",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Personalitza la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Personalitza la salutacio\""
+          ],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_018",
+          "narration": "El commit és a la branca local salutació. L’original no en sap res.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és a la branca local salutació. L’original no en sap res."
+            }
+          ],
+          "visual": "Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Personalitza la salutacio\"",
+          "event": "result",
+          "state": 5,
+          "simulated": false,
+          "terminal_output": [
+            "[salutacio b72a54b] Personalitza la salutacio",
+            " 1 file changed, 1 insertion(+), 1 deletion(-)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Confirmem el canvi amb git commit i el missatge: Personalitza la salutació. Executem l’ordre. El commit és a la branca local salutació. L’original no en sap res."
+    },
+    {
+      "id": "e32_07",
+      "label": "TERMINAL",
+      "title": "git push -u origin salutacio",
+      "mode": "principal",
+      "visual": "La branca apareix al remot amb el mateix commit que al local.",
+      "beats": [
+        {
+          "id": "pas_019",
+          "narration": "Amb git push publiquem la branca al remot.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " publiquem la branca al remot."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push -u origin salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git push.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push -u origin salutacio",
+          "highlight": "git push",
+          "state": 5
+        },
+        {
+          "id": "pas_020",
+          "narration": "El guionet u desa la relació de seguiment; els enviaments següents podran ser només git push.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet u desa la relació de seguiment; els enviaments següents podran ser només "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push -u origin salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -u.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push -u origin salutacio",
+          "highlight": "-u",
+          "state": 5
+        },
+        {
+          "id": "pas_021",
+          "narration": "origin és el nom del remot on publiquem.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "origin"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " és el nom del remot on publiquem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push -u origin salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: origin.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push -u origin salutacio",
+          "highlight": "origin",
+          "state": 5
+        },
+        {
+          "id": "pas_022",
+          "narration": "És el nom de la branca que publiquem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca que publiquem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push -u origin salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: salutacio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push -u origin salutacio",
+          "highlight": "salutacio",
+          "state": 5
+        },
+        {
+          "id": "pas_023",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push -u origin salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git push -u origin salutacio"
+          ],
+          "command_display": "git push -u origin salutacio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_024",
+          "narration": "La branca de la contribució ja és al nostre fork. A l’original no hi hem publicat res.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca de la contribució ja és al nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". A l’original no hi hem publicat res."
+            }
+          ],
+          "visual": "La branca apareix al remot amb el mateix commit que al local. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git push -u origin salutacio",
+          "event": "result",
+          "state": 6,
+          "simulated": false,
+          "terminal_output": [
+            "branch 'salutacio' set up to track 'origin/salutacio'.",
+            "To ~/fork.git",
+            " * [new branch]      salutacio -> salutacio"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git push publiquem la branca al remot. El guionet u desa la relació de seguiment; els enviaments següents podran ser només git push. origin és el nom del remot on publiquem. És el nom de la branca que publiquem. Executem l’ordre. La branca de la contribució ja és al nostre fork. A l’original no hi hem publicat res."
+    },
+    {
+      "id": "e32_08",
+      "label": "EXPLICACIÓ",
+      "title": "Proposem el canvi a l’original",
+      "mode": "principal",
+      "visual": "Formulari amb repositori i branca a tots dos costats, base repository original · main i head repository fork · salutacio. No representar cap fusió ni aprovació.",
+      "beats": [
+        {
+          "id": "pas_025",
+          "narration": "A la web de GitHub obrim una pull request. La destinació és main del projecte original; l’origen és la branca salutació del nostre fork.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "A la web de "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " obrim una "
+            },
+            {
+              "lang": "en-US",
+              "text": "pull request"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". La destinació és "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " del projecte original; l’origen és la branca salutació del nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Formulari amb repositori i branca a tots dos costats, base repository original · main i head repository fork · salutacio. No representar cap fusió ni aprovació.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": 7
+        },
+        {
+          "id": "pas_026",
+          "narration": "Expliquem la millora i com l’hem provada. Ara la revisió depèn de les persones que mantenen l’original.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Expliquem la millora i com l’hem provada. Ara la revisió depèn de les persones que mantenen l’original."
+            }
+          ],
+          "visual": "Formulari amb repositori i branca a tots dos costats, base repository original · main i head repository fork · salutacio. No representar cap fusió ni aprovació.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": 7
+        }
+      ],
+      "screen": [
+        "base repository:  original · main",
+        "head repository:  fork · salutacio",
+        "La revisió depèn de l’original."
+      ],
+      "narration": "A la web de GitHub obrim una pull request. La destinació és main del projecte original; l’origen és la branca salutació del nostre fork. Expliquem la millora i com l’hem provada. Ara la revisió depèn de les persones que mantenen l’original."
+    },
+    {
+      "id": "e32_09",
+      "label": "EXPLICACIÓ",
+      "title": "Mentre esperem la revisió",
+      "mode": "principal",
+      "visual": "Cicle COMMIT → PUSH AL FORK → PROPOSTA ACTUALITZADA; a part, FETCH UPSTREAM → MERGE → PUSH ORIGIN MAIN.",
+      "beats": [
+        {
+          "id": "pas_027",
+          "narration": "Si ens demanen canvis, fem nous commits a la mateixa branca i els enviem al fork: la proposta s’actualitza sola. El nostre main el continuem posant al dia amb upstream.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si ens demanen canvis, fem nous "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a la mateixa branca i els enviem al "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ": la proposta s’actualitza sola. El nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " el continuem posant al dia amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "upstream"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Cicle COMMIT → PUSH AL FORK → PROPOSTA ACTUALITZADA; a part, FETCH UPSTREAM → MERGE → PUSH ORIGIN MAIN.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 8
+        }
+      ],
+      "screen": [
+        "Canvis demanats:  commit i push al fork",
+        "Mantenir main al dia:  fetch upstream, merge, push"
+      ],
+      "narration": "Si ens demanen canvis, fem nous commits a la mateixa branca i els enviem al fork: la proposta s’actualitza sola. El nostre main el continuem posant al dia amb upstream."
+    },
+    {
+      "id": "e32_10",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "Cada contribució va en una branca pròpia.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cada contribució va en una branca pròpia."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Cada contribució va en una branca pròpia."
+        },
+        {
+          "id": "pas_029",
+          "narration": "Publiquem la branca al nostre fork, mai a l’original.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Publiquem la branca al nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", mai a l’original."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Publiquem la branca al nostre fork, mai a l’original."
+        },
+        {
+          "id": "pas_030",
+          "narration": "La pull request va del nostre fork cap al main de l’original.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La "
+            },
+            {
+              "lang": "en-US",
+              "text": "pull request"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " va del nostre "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " cap al "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de l’original."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "La pull request va del nostre fork cap al main de l’original."
+        }
+      ],
+      "narration": "Cada contribució va en una branca pròpia. Publiquem la branca al nostre fork, mai a l’original. La pull request va del nostre fork cap al main de l’original."
+    },
+    {
+      "id": "e32_11",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_031",
+          "narration": "Des del fork de pràctiques, crea una branca amb un canvi petit, publica-la al fork i obre una proposta cap a l’original amb una descripció clara.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Des del "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de pràctiques, crea una branca amb un canvi petit, publica-la al "
+            },
+            {
+              "lang": "en-US",
+              "text": "fork"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i obre una proposta cap a l’original amb una descripció clara."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": [],
+          "screen_text": "Des del fork de pràctiques, crea una branca amb un canvi petit, publica-la al fork i obre una proposta cap a l’original amb una descripció clara."
+        }
+      ],
+      "narration": "Des del fork de pràctiques, crea una branca amb un canvi petit, publica-la al fork i obre una proposta cap a l’original amb una descripció clara."
+    }
+  ],
+  "commands": [
+    "git switch -c salutacio",
+    "python3 helloGit.py",
+    "git add helloGit.py",
+    "git commit -m \"Personalitza la salutacio\"",
+    "git push -u origin salutacio"
+  ]
+}

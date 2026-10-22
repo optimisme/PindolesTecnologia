@@ -52,6 +52,8 @@ class SeriesTest(unittest.TestCase):
         self.assertEqual(spoken_number(0), 'Lliçó zero')
         self.assertEqual(spoken_number(21), 'Vint-i-unena lliçó')
         self.assertEqual(spoken_number(31), 'Trenta-unena lliçó')
+        self.assertEqual(spoken_number(37), 'Trenta-setena lliçó')
+        self.assertEqual(spoken_number(40), 'Quarantena lliçó')
 
     def test_all_lessons_compile_and_reject_spoken_hashes(self):
         series = load_series(SERIE)

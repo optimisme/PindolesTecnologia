@@ -94,6 +94,26 @@ class Language:
         return found
 
 
+LETTERS = {'a': 'a', 'be': 'b', 'ce': 'c', 'de': 'd', 'i': 'i', 'ela': 'L', 'ema': 'm', 'pe': 'p',
+           'erra': 'r', 'u': 'u', 've': 'v'}
+
+
+def written(text):
+    """Forma escrita per a la pantalla: «doble guionet global» → «--global», «el guionet u» → «-u»."""
+    text = re.sub(r'[Dd]oble guionet \[\[([^\]]+)\]\]', r'--\1', text)
+    text = re.sub(r'\b[Ee]l guionet (\w+)\b', lambda m: '-'+LETTERS.get(m.group(1), m.group(1)), text)
+    text = re.sub(r'\b[Ll]a essa majúscula', '-S', text)
+    text = re.sub(r'\b[Pp]unt \[\[([^\]]+)\]\]', r'.\1', text)
+    text = re.sub(r'\basterisc \[\[([^\]]+)\]\]', r'* \1', text)
+    text = re.sub(r'\bi grega\b', 'y', re.sub(r'\bena\b', 'n', text))
+    text = text.replace('amb dues uves', '-vv').replace('[[HEAD]] titlla u', 'HEAD~1')
+    text = re.sub(r'(\[\[(?:git|gh) [^\]]+\]\]) amb (-)', r'\1 \2', text)
+    text = plain(text)
+    if not text or text.startswith(('git ', 'gh ', '-', '.')):
+        return text
+    return text[0].upper() + text[1:]
+
+
 def plain(text):
     return re.sub(r'\[\[(.*?)\]\]', r'\1', text)
 
@@ -228,8 +248,9 @@ class Compiler:
         goal = lesson['objectiu']
         self.scene('Objectiu i punt de partida', [
             self.beat('En aquesta lliçó aprendrem a '+goal[0].lower()+goal[1:],
-                      'Objectiu en una frase; esquema general del resultat.', 2.5),
-            self.beat(lesson['inici_parlat'], 'Punt de partida: '+lesson['inici'], 3.5, state=-1)],
+                      'Objectiu en una frase; esquema general del resultat.', 2.5, screen_text=written(goal)),
+            self.beat(lesson['inici_parlat'], 'Punt de partida: '+lesson['inici'], 3.5, state=-1,
+                      screen_text=written(lesson['inici_parlat']))],
             'OBJECTIU')
         stages = [expand(s, self.templates) for s in lesson['etapes']]
         if execution and len(execution['etapes']) < len(stages):
@@ -257,7 +278,23 @@ class Compiler:
             if 'explica' in stage:
                 texts = stage['text'] if isinstance(stage['text'], list) else [stage['text']]
                 beats = [self.beat(t, visual, stage.get('pausa', 3), state=index) for t in texts]
-                self.scene(stage['explica'], beats, label, mode, visual)
+                extra = {'screen': list(stage['pantalla'])} if stage.get('pantalla') else {}
+                steps = stage.get('pantalla') or []
+                if stage.get('pantalla_fitxer'):
+                    # Fitxer anotat: «regla  ←  nota». Les regles han de ser exactament el fitxer que s’escriu.
+                    name = stage['pantalla_fitxer']
+                    rules = [line.split('  ←  ')[0] for line in steps]
+                    content = next((a['contingut'] for a in stage.get('accions', []) if a.get('fitxer') == name), None)
+                    if content is not None and rules != content.split('\n'):
+                        raise ScriptError(f'{stage["explica"]}: la pantalla no coincideix amb el contingut de {name}')
+                    extra['screen_file'] = name
+                    steps = [line for line in steps if '  ←  ' in line]
+                if stage.get('pantalla_pas'):
+                    # Cada frase explica una línia de la pantalla, que es ressalta mentre es diu.
+                    if len(steps) != len(texts):
+                        raise ScriptError(f'{stage["explica"]}: pantalla_pas necessita una línia de pantalla per frase')
+                    extra['screen_step'] = True
+                self.scene(stage['explica'], beats, label, mode, visual, **extra)
                 continue
             command = resolve(stage['ordre'])
             if command not in self.config_out['commands'] and stage.get('tipus') != 'interactiu':
@@ -294,9 +331,10 @@ class Compiler:
             self.scene(command, beats, 'TERMINAL' if label == 'EXPLICACIÓ' else label, mode, visual,
                        input_kind=kind)
         self.scene('Resum final', [self.beat(t, 'Tres idees finals; ressaltar només la idea que s’està explicant.',
-                                             2.5) for t in lesson['resum']], 'RESUM')
+                                             2.5, screen_text=written(t)) for t in lesson['resum']], 'RESUM')
         self.scene('Pràctica final', [self.beat(lesson['practica'], 'Instrucció pràctica completa en pantalla. '
-                                                'Mantenir la referència visual final, sense formular preguntes.', 4)],
+                                                'Mantenir la referència visual final, sense formular preguntes.', 4,
+                                                screen_text=written(lesson['practica']))],
                    'PRÀCTICA')
 
     # ------------------------------------------------------------ revisió
@@ -333,10 +371,10 @@ class Compiler:
                     tokens = shlex.split(command)
                 except ValueError:
                     tokens = command.split()
-                for option in [t for t in tokens if t.startswith('-') and t != '--']:
+                for option in [t.split('=')[0] for t in tokens if t.startswith('-') and t != '--']:
                     # Les opcions llargues signifiquen el mateix a totes les ordres; les curtes
                     # (-u, -c, -d...) canvien de sentit segons l’ordre i s’expliquen per ordre.
-                    key = option.split('=')[0] if option.startswith('--') else (verb, option)
+                    key = option if option.startswith('--') else (verb, option)
                     if option not in highlights and key not in self.known_options:
                         problems.append(f'«{command}»: cal explicar {option} la primera vegada que surt a la sèrie')
                     if option in highlights:

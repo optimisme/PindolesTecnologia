@@ -7,8 +7,8 @@ import subprocess
 import tempfile
 
 FIRST = 'print("Hello Git!")'
-SECOND = 'print("Hola, Anna!")'
-NOTES = 'Salutació personalitzada per a l’Anna.'
+SECOND = 'print("Hola, Ermessenda!")'
+NOTES = 'Salutació personalitzada per a l’Ermessenda.'
 SECOND_MESSAGE = 'Personalitza la salutacio i afegeix notes'
 
 
@@ -106,12 +106,19 @@ def draw_intro(d, scene, t, r):
     def line(x, y, content, style='body', color=None):
         r.text(d, (x, y), content, style, color or r.WHITE)
 
-    def card(x, y, w, h, label, lines=(), color=None, code=False):
+    # Tres columnes amb espai per a una fletxa entre targetes.
+    columns = [(64, 404), (470, 810), (876, 1216)]
+
+    def card(x, y, w, h, label, lines=(), color=None, code=False, title=None, title_code=False):
         color = color or r.MINT
         r.panel(d, (x, y, x+w, y+h))
         line(x+24, y+20, label, 'label', color)
+        top = y+78
+        if title:
+            line(x+24, y+62, title, 'leadcode' if title_code else 'h2', color)
+            top = y+118
         for i, text in enumerate(lines):
-            line(x+24, y+78+39*i, text, 'code' if code else 'body')
+            line(x+24, top+39*i, text, 'code' if code else 'body')
 
     def terminal(command, result=(), title='TERMINAL · ~/HelloGit · main', highlight=None):
         r.terminal(d, (64, 418, 1216, 574), title)
@@ -134,7 +141,9 @@ def draw_intro(d, scene, t, r):
                     d.line((x+130, 325, x+330, 325), fill=r.BORDER, width=5)
                 for j, value in enumerate((a, b)[:count]):
                     r.node(d, x+130+j*200, 325, value, color)
-                line(x+24, 370, 'main', 'label', color)
+                # L’etiqueta de la branca, just a sobre de l’últim commit.
+                tip = x+130+(count-1)*200
+                r.text(d, (tip, 290), 'main', 'label', color, 'mm')
         if transfer:
             r.arrow(d, (557, 322), (722, 322), r.MINT)
             q = r.ease((elapsed-effect)/1.4)
@@ -146,10 +155,11 @@ def draw_intro(d, scene, t, r):
                   ('PREPARACIÓ', 'Seleccionat' if which else 'Encara buit', r.PURPLE),
                   ('HISTORIAL LOCAL', 'Encara sense commits', r.ORANGE)]
         for i, (label, content, color) in enumerate(values):
-            card(64+392*i, 235, 368, 168, label, [content], color=color)
-            if i==0 or (i==1 and which):line(88+392*i,354,FIRST,'tinycode',color)
+            left, right = columns[i]
+            card(left, 235, right-left, 168, label, [content], color=color)
+            if i==0 or (i==1 and which):line(left+24,354,FIRST,'tinycode',color)
         if which:
-            r.arrow(d, (399, 352), (471, 352), r.PURPLE)
+            r.arrow(d, (416, 319), (458, 319), r.PURPLE)
 
     def syntax(command, label, explanation):
         r.terminal(d,(64,230,1216,389),'COMANDA · LLEGEIX-LA PER PARTS')
@@ -233,12 +243,14 @@ def draw_intro(d, scene, t, r):
     if view == 'goal':
         for i, (title, sub, color) in enumerate((('Preparar', 'Triar el contingut', r.PURPLE),
               ('Confirmar', 'Desar una versió', r.ORANGE), ('Publicar', 'Compartir-la', r.MINT))):
-            card(64+392*i, 263, 368, 218, f'0{i+1}', [title, sub], color=color)
+            left, right = columns[i]
+            card(left, 263, right-left, 218, f'0{i+1}', [sub], color=color, title=title)
         r.pill(d, 64, 528, 'UN EXEMPLE COMPLET, PAS A PAS')
     elif view == 'problem':
         card(64, 240, 550, 250, 'ABANS · FUNCIONA', ['salutacio = "Hola!"', 'print(salutacio)', '→ Hola!'], code=True)
         card(666, 240, 550, 250, 'DESPRÉS · ERROR', ['missatge = "Hola!"', 'print(salutacio)', 'NameError: salutacio'], color=r.ORANGE, code=True)
-        d.line((688, 352, 1100, 352), fill=r.ORANGE, width=3)
+        # Subratlla la línia que ha canviat, amb l’amplada real del text.
+        d.line((690, 348, 690+d.textlength('missatge = "Hola!"', font=r.F['code']), 348), fill=r.ORANGE, width=3)
         r.pill(d, 64, 530, 'L’HISTORIAL ENS AJUDA A INVESTIGAR EL CANVI')
     elif view in ('versions', 'versions_decision'):
         r.pill(d, 64, 218, 'EXEMPLE CONCEPTUAL D’HISTORIAL', r.PURPLE, '#312B47')
@@ -306,15 +318,15 @@ def draw_intro(d, scene, t, r):
         selected = {'summary_add':0,'summary_commit':1,'summary_push':2}[view]
         for i,(title,cmd,sub,color) in enumerate((('PREPARAR','git add','Selecciona el contingut',r.PURPLE),
             ('CONFIRMAR','git commit','Desa una versió local',r.ORANGE),('PUBLICAR','git push','Comparteix els commits',r.MINT))):
-            x=64+392*i
-            card(x,252,368,250,title,[cmd,sub],color=color,code=False)
-            if i==selected:d.rounded_rectangle((x-2,250,x+370,504),20,outline=color,width=4)
+            left,right=columns[i]
+            card(left,252,right-left,250,title,[sub],color=color,title=cmd,title_code=True)
+            if i==selected:d.rounded_rectangle((left-2,250,right+2,504),20,outline=color,width=4)
     elif view == 'exercise':
         card(64,235,1152,337,'AL TEU REPOSITORI DE PRÀCTIQUES',[
             '1. Canvia el missatge i prova el programa.',
             '2. Prepara el fitxer i confirma el canvi.',
             '3. Consulta l’historial: git log --oneline',
             '4. Explica el canvi abans de publicar-lo.'])
-        r.pill(d,760,252,'PAUSA EL VÍDEO I PROVA-HO',r.PURPLE,'#312B47')
+        r.pill(d,88,516,'PAUSA EL VÍDEO I PROVA-HO',r.PURPLE,'#312B47')
     else:
         raise ValueError(f'Visual de la introducció desconegut: {view}')

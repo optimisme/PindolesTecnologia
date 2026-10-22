@@ -6,7 +6,7 @@
     python Git/eines/render.py Git/08-branques --verifica   # torna a verificar el vídeo existent
 
 Abans de produir comprova que el guió compilat i la repetició de l’exemple estan al
-dia. Les lliçons amb vistes fetes a mida (0 i 3) les dibuixen els seus mòduls; la
+dia, i que cap text de la composició surt del seu panell o se superposa (revisa_visuals.py). Les lliçons amb vistes fetes a mida (0 i 3) les dibuixen els seus mòduls; la
 resta es dibuixa a partir de l’estat real de cada pas (escenes.py).
 """
 import argparse
@@ -35,7 +35,7 @@ def drawer(config, execution):
                 return draw_general(d, scene, t, dibuix)
             from visuals_primer_commit import draw_intro
             return draw_intro(d, scene, t, dibuix)
-        return escenes.draw_scene(d, scene, t, execution)
+        return escenes.draw_scene(d, scene, t, execution, config)
     return draw
 
 
@@ -57,6 +57,13 @@ def main():
         compile_series(root.parent, check=True)
     except ScriptError as error:
         raise SystemExit(f'El guió no està al dia; executeu primer la repetició i el compilador.\n{error}')
+    # Cap text fora del seu panell, superposat o tallat abans de gastar temps de render.
+    from revisa_visuals import check_lesson
+    item = next(i for i in series['lessons'] if i['folder'] == root)
+    layout = check_lesson(item)
+    if layout:
+        raise SystemExit('La composició té problemes; reviseu-los amb eines/revisa_visuals.py:\n' +
+                         '\n'.join(f'  - {problem} [{where}]' for problem, where in layout.items()))
     config = json.loads((root/'guio.json').read_text())
     path = root/'execucio.json'
     execution = json.loads(path.read_text()) if path.exists() else None

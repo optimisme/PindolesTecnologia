@@ -7,9 +7,9 @@ comprova a partir d’aquí.
 
 ## Estat
 
-- **32 lliçons**, numerades del 0 al 31. L’ordre és a [serie.yaml](serie.yaml).
+- **38 lliçons**, numerades del 0 al 37. L’ordre és a [serie.yaml](serie.yaml).
 - Tots els guions estan revisats i compilats: [GUIONS.md](GUIONS.md) n’indica escenes,
-  passos, paraules i durada estimada (de 2½ a 5½ minuts, uns 158 minuts en total).
+  passos, paraules i durada estimada (de 3 a 6½ minuts, uns 184 minuts en total).
 - Totes les ordres de les lliçons pràctiques s’han executat en repositoris temporals i
   les afirmacions del guió s’han comprovat ([eines/repeticio.py](eines/repeticio.py)).
   Les sortides i els identificadors que es veuran a la pantalla són els reals.
@@ -24,38 +24,44 @@ comprova a partir d’aquí.
 | 1 | Configuració inicial *(nova)* | [guió](01-configuracio/guio.md) | — | [fitxa](01-configuracio/youtube.md) |
 | 2 | Connectar amb GitHub *(nova)* | [guió](02-github/guio.md) | [script](practiques/02-github.sh) | [fitxa](02-github/youtube.md) |
 | 3 | El primer commit | [guió](03-primer-commit/guio.md) | [script](practiques/03-primer-commit.sh) | [fitxa](03-primer-commit/youtube.md) |
-| 4 | Els tres estats | [guió](04-tres-estats/guio.md) | [script](practiques/04-tres-estats.sh) | [fitxa](04-tres-estats/youtube.md) |
-| 5 | Llegir l’historial *(nova)* | [guió](05-historial/guio.md) | [script](practiques/05-historial.sh) | [fitxa](05-historial/youtube.md) |
-| 6 | Add interactiu | [guió](06-add-interactiu/guio.md) | [script](practiques/06-add-interactiu.sh) | [fitxa](06-add-interactiu/youtube.md) |
-| 7 | Gitignore | [guió](07-gitignore/guio.md) | [script](practiques/07-gitignore.sh) | [fitxa](07-gitignore/youtube.md) |
-| 8 | Branques | [guió](08-branques/guio.md) | [script](practiques/08-branques.sh) | [fitxa](08-branques/youtube.md) |
-| 9 | Merge | [guió](09-merge/guio.md) | [script](practiques/09-merge.sh) | [fitxa](09-merge/youtube.md) |
-| 10 | Conflictes | [guió](10-conflictes/guio.md) | [script](practiques/10-conflictes.sh) | [fitxa](10-conflictes/youtube.md) |
-| 11 | Clone *(dividida)* | [guió](11-clone/guio.md) | [script](practiques/11-clone.sh) | [fitxa](11-clone/youtube.md) |
-| 12 | Pull i push *(dividida)* | [guió](12-pull-push/guio.md) | [script](practiques/12-pull-push.sh) | [fitxa](12-pull-push/youtube.md) |
-| 13 | Fetch | [guió](13-fetch/guio.md) | [script](practiques/13-fetch.sh) | [fitxa](13-fetch/youtube.md) |
-| 14 | Stash | [guió](14-stash/guio.md) | [script](practiques/14-stash.sh) | [fitxa](14-stash/youtube.md) |
-| 15 | Restore | [guió](15-restore/guio.md) | [script](practiques/15-restore.sh) | [fitxa](15-restore/youtube.md) |
-| 16 | Amend | [guió](16-amend/guio.md) | [script](practiques/16-amend.sh) | [fitxa](16-amend/youtube.md) |
-| 17 | Reset | [guió](17-reset/guio.md) | [script](practiques/17-reset.sh) | [fitxa](17-reset/youtube.md) |
-| 18 | Reflog | [guió](18-reflog/guio.md) | [script](practiques/18-reflog.sh) | [fitxa](18-reflog/youtube.md) |
-| 19 | Revert | [guió](19-revert/guio.md) | [script](practiques/19-revert.sh) | [fitxa](19-revert/youtube.md) |
-| 20 | Tags | [guió](20-tags/guio.md) | [script](practiques/20-tags.sh) | [fitxa](20-tags/youtube.md) |
-| 21 | Rebase | [guió](21-rebase/guio.md) | [script](practiques/21-rebase.sh) | [fitxa](21-rebase/youtube.md) |
-| 22 | Rebase interactiu | [guió](22-rebase-interactiu/guio.md) | [script](practiques/22-rebase-interactiu.sh) | [fitxa](22-rebase-interactiu/youtube.md) |
-| 23 | Cherry-pick | [guió](23-cherry-pick/guio.md) | [script](practiques/23-cherry-pick.sh) | [fitxa](23-cherry-pick/youtube.md) |
-| 24 | Pull request: proposar *(dividida)* | [guió](24-pull-request-obrir/guio.md) | [script](practiques/24-pull-request-obrir.sh) | [fitxa](24-pull-request-obrir/youtube.md) |
-| 25 | Pull request: revisar i integrar *(dividida)* | [guió](25-pull-request-revisar/guio.md) | [script](practiques/25-pull-request-revisar.sh) | [fitxa](25-pull-request-revisar/youtube.md) |
-| 26 | Forks i upstream *(dividida)* | [guió](26-forks-upstream/guio.md) | [script](practiques/26-forks-upstream.sh) | [fitxa](26-forks-upstream/youtube.md) |
-| 27 | Contribuir des d’un fork *(dividida)* | [guió](27-forks-contribuir/guio.md) | [script](practiques/27-forks-contribuir.sh) | [fitxa](27-forks-contribuir/youtube.md) |
-| 28 | Blame | [guió](28-blame/guio.md) | [script](practiques/28-blame.sh) | [fitxa](28-blame/youtube.md) |
-| 29 | Bisect | [guió](29-bisect/guio.md) | [script](practiques/29-bisect.sh) | [fitxa](29-bisect/youtube.md) |
-| 30 | Worktree | [guió](30-worktree/guio.md) | [script](practiques/30-worktree.sh) | [fitxa](30-worktree/youtube.md) |
-| 31 | Hooks | [guió](31-hooks/guio.md) | [script](practiques/31-hooks.sh) | [fitxa](31-hooks/youtube.md) |
+| 4 | Desar, preparar i confirmar | [guió](04-tres-estats/guio.md) | [script](practiques/04-tres-estats.sh) | [fitxa](04-tres-estats/youtube.md) |
+| 5 | Esborrar i reanomenar fitxers *(nova)* | [guió](05-fitxers/guio.md) | [script](practiques/05-fitxers.sh) | [fitxa](05-fitxers/youtube.md) |
+| 6 | Llegir l’historial *(nova)* | [guió](06-historial/guio.md) | [script](practiques/06-historial.sh) | [fitxa](06-historial/youtube.md) |
+| 7 | Add interactiu | [guió](07-add-interactiu/guio.md) | [script](practiques/07-add-interactiu.sh) | [fitxa](07-add-interactiu/youtube.md) |
+| 8 | Gitignore | [guió](08-gitignore/guio.md) | [script](practiques/08-gitignore.sh) | [fitxa](08-gitignore/youtube.md) |
+| 9 | Finals de línia *(nova)* | [guió](09-finals-linia/guio.md) | [script](practiques/09-finals-linia.sh) | [fitxa](09-finals-linia/youtube.md) |
+| 10 | Branques | [guió](10-branques/guio.md) | [script](practiques/10-branques.sh) | [fitxa](10-branques/youtube.md) |
+| 11 | Merge | [guió](11-merge/guio.md) | [script](practiques/11-merge.sh) | [fitxa](11-merge/youtube.md) |
+| 12 | Conflictes | [guió](12-conflictes/guio.md) | [script](practiques/12-conflictes.sh) | [fitxa](12-conflictes/youtube.md) |
+| 13 | Clone *(dividida)* | [guió](13-clone/guio.md) | [script](practiques/13-clone.sh) | [fitxa](13-clone/youtube.md) |
+| 14 | Pull i push *(dividida)* | [guió](14-pull-push/guio.md) | [script](practiques/14-pull-push.sh) | [fitxa](14-pull-push/youtube.md) |
+| 15 | Quan pull s’atura *(nova)* | [guió](15-pull-divergent/guio.md) | [script](practiques/15-pull-divergent.sh) | [fitxa](15-pull-divergent/youtube.md) |
+| 16 | Fetch | [guió](16-fetch/guio.md) | [script](practiques/16-fetch.sh) | [fitxa](16-fetch/youtube.md) |
+| 17 | Branques remotes *(nova)* | [guió](17-branques-remotes/guio.md) | [script](practiques/17-branques-remotes.sh) | [fitxa](17-branques-remotes/youtube.md) |
+| 18 | Stash | [guió](18-stash/guio.md) | [script](practiques/18-stash.sh) | [fitxa](18-stash/youtube.md) |
+| 19 | Restore | [guió](19-restore/guio.md) | [script](practiques/19-restore.sh) | [fitxa](19-restore/youtube.md) |
+| 20 | Amend | [guió](20-amend/guio.md) | [script](practiques/20-amend.sh) | [fitxa](20-amend/youtube.md) |
+| 21 | Reset | [guió](21-reset/guio.md) | [script](practiques/21-reset.sh) | [fitxa](21-reset/youtube.md) |
+| 22 | Reflog | [guió](22-reflog/guio.md) | [script](practiques/22-reflog.sh) | [fitxa](22-reflog/youtube.md) |
+| 23 | Revert | [guió](23-revert/guio.md) | [script](practiques/23-revert.sh) | [fitxa](23-revert/youtube.md) |
+| 24 | Desfer canvis *(nova)* | [guió](24-desfer/guio.md) | — | [fitxa](24-desfer/youtube.md) |
+| 25 | Tags | [guió](25-tags/guio.md) | [script](practiques/25-tags.sh) | [fitxa](25-tags/youtube.md) |
+| 26 | Rebase | [guió](26-rebase/guio.md) | [script](practiques/26-rebase.sh) | [fitxa](26-rebase/youtube.md) |
+| 27 | Rebase interactiu | [guió](27-rebase-interactiu/guio.md) | [script](practiques/27-rebase-interactiu.sh) | [fitxa](27-rebase-interactiu/youtube.md) |
+| 28 | Cherry-pick | [guió](28-cherry-pick/guio.md) | [script](practiques/28-cherry-pick.sh) | [fitxa](28-cherry-pick/youtube.md) |
+| 29 | Pull request *(dividida)* | [guió](29-pull-request-obrir/guio.md) | [script](practiques/29-pull-request-obrir.sh) | [fitxa](29-pull-request-obrir/youtube.md) |
+| 30 | Pull request *(dividida)* | [guió](30-pull-request-revisar/guio.md) | [script](practiques/30-pull-request-revisar.sh) | [fitxa](30-pull-request-revisar/youtube.md) |
+| 31 | Forks i upstream *(dividida)* | [guió](31-forks-upstream/guio.md) | [script](practiques/31-forks-upstream.sh) | [fitxa](31-forks-upstream/youtube.md) |
+| 32 | Forks *(dividida)* | [guió](32-forks-contribuir/guio.md) | [script](practiques/32-forks-contribuir.sh) | [fitxa](32-forks-contribuir/youtube.md) |
+| 33 | Cercar a l’historial *(nova)* | [guió](33-cercar-historial/guio.md) | [script](practiques/33-cercar-historial.sh) | [fitxa](33-cercar-historial/youtube.md) |
+| 34 | Blame | [guió](34-blame/guio.md) | [script](practiques/34-blame.sh) | [fitxa](34-blame/youtube.md) |
+| 35 | Bisect | [guió](35-bisect/guio.md) | [script](practiques/35-bisect.sh) | [fitxa](35-bisect/youtube.md) |
+| 36 | Worktree | [guió](36-worktree/guio.md) | [script](practiques/36-worktree.sh) | [fitxa](36-worktree/youtube.md) |
+| 37 | Hooks | [guió](37-hooks/guio.md) | [script](practiques/37-hooks.sh) | [fitxa](37-hooks/youtube.md) |
 
-Correspondència amb la numeració anterior: 0→0, 1→3, 2→8, 3→4, 4→11 i 12, 5→9, 6→10,
-7→21, 8→14, 9→15, 10→19, 11→17, 12→18, 13→7, 14→20, 15→23, 16→24 i 25, 17→28, 18→29,
-19→16, 20→13, 21→26 i 27, 22→22, 23→6, 24→30, 25→31. El detall i els motius són a
+Correspondència amb la numeració dels vídeos anteriors: 0→0, 1→3, 2→10, 3→4, 4→13 i 14,
+5→11, 6→12, 7→26, 8→18, 9→19, 10→23, 11→21, 12→22, 13→8, 14→25, 15→28, 16→29 i 30,
+17→34, 18→35, 19→20, 20→16, 21→31 i 32, 22→27, 23→7, 24→36, 25→37. El detall i els motius són a
 [REVISIO_DIDACTICA.md](REVISIO_DIDACTICA.md).
 
 ## Carpetes
@@ -86,7 +92,8 @@ Des de l’arrel del projecte, amb l’entorn de `README.md` preparat:
 .venv/bin/python Git/eines/practiques.py Git         # scripts de pràctica
 .venv/bin/python Git/eines/practiques.py Git --prova # els executa i els compara amb la repetició
 .venv/bin/python -m motor.youtube Git                # fitxes de YouTube
-.venv/bin/python Git/eines/escenes.py Git 08-branques # imatges fixes de revisió dels visuals
+.venv/bin/python Git/eines/escenes.py Git 10-branques # imatges fixes de revisió dels visuals
+.venv/bin/python Git/eines/revisa_visuals.py Git     # textos fora de lloc, superposats o tallats
 .venv/bin/python -m unittest discover -s motor/proves -t .
 ```
 
@@ -158,7 +165,7 @@ parts marcades amb ✔︎.
 - **Vídeos autònoms:** la locució explica el punt de partida i no remet a materials externs. ✔︎
 - **Error habitual amb explicació** quan ajuda: per exemple, `pull --ff-only` amb històries
   divergents o el hook que revisa la preparació i no l’editor.
-- **Exemples coherents:** carpeta `HelloGit`, autoria `Anna Puig`, `v1.0` com a primera
+- **Exemples coherents:** carpeta `HelloGit`, autoria `Ermessenda Carcassona`, `v1.0` com a primera
   entrega i identificadors reals per lliçó.
 
 ## Fonts del contingut

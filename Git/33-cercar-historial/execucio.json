@@ -1,0 +1,485 @@
+{
+ "llico": "33-cercar-historial",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "b8acd78",
+    "B": "045fcf8",
+    "C": "a47f91c",
+    "D": "855fb71",
+    "E": "e6140d0"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola!\")\nprint(\"Fins demà!\")\n",
+     "notes.md": "Idees del projecte i pendents\n"
+    },
+    "head_commit": "e6140d0",
+    "refs": {
+     "main": "e6140d0"
+    },
+    "commits": [
+     {
+      "id": "b8acd78",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "045fcf8",
+      "lletra": "B",
+      "pares": [
+       "b8acd78"
+      ],
+      "missatge": "Afegeix les notes"
+     },
+     {
+      "id": "a47f91c",
+      "lletra": "C",
+      "pares": [
+       "045fcf8"
+      ],
+      "missatge": "Afegeix el comiat"
+     },
+     {
+      "id": "855fb71",
+      "lletra": "D",
+      "pares": [
+       "a47f91c"
+      ],
+      "missatge": "Amplia les notes"
+     },
+     {
+      "id": "e6140d0",
+      "lletra": "E",
+      "pares": [
+       "855fb71"
+      ],
+      "missatge": "Canvia el comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git log --oneline --author=\"Pau\"",
+   "sortida": "855fb71 Amplia les notes\n045fcf8 Afegeix les notes\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "b8acd78",
+    "B": "045fcf8",
+    "C": "a47f91c",
+    "D": "855fb71",
+    "E": "e6140d0"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola!\")\nprint(\"Fins demà!\")\n",
+     "notes.md": "Idees del projecte i pendents\n"
+    },
+    "head_commit": "e6140d0",
+    "refs": {
+     "main": "e6140d0"
+    },
+    "commits": [
+     {
+      "id": "b8acd78",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "045fcf8",
+      "lletra": "B",
+      "pares": [
+       "b8acd78"
+      ],
+      "missatge": "Afegeix les notes"
+     },
+     {
+      "id": "a47f91c",
+      "lletra": "C",
+      "pares": [
+       "045fcf8"
+      ],
+      "missatge": "Afegeix el comiat"
+     },
+     {
+      "id": "855fb71",
+      "lletra": "D",
+      "pares": [
+       "a47f91c"
+      ],
+      "missatge": "Amplia les notes"
+     },
+     {
+      "id": "e6140d0",
+      "lletra": "E",
+      "pares": [
+       "855fb71"
+      ],
+      "missatge": "Canvia el comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git log --oneline -- notes.md",
+   "sortida": "855fb71 Amplia les notes\n045fcf8 Afegeix les notes\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "b8acd78",
+    "B": "045fcf8",
+    "C": "a47f91c",
+    "D": "855fb71",
+    "E": "e6140d0"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola!\")\nprint(\"Fins demà!\")\n",
+     "notes.md": "Idees del projecte i pendents\n"
+    },
+    "head_commit": "e6140d0",
+    "refs": {
+     "main": "e6140d0"
+    },
+    "commits": [
+     {
+      "id": "b8acd78",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "045fcf8",
+      "lletra": "B",
+      "pares": [
+       "b8acd78"
+      ],
+      "missatge": "Afegeix les notes"
+     },
+     {
+      "id": "a47f91c",
+      "lletra": "C",
+      "pares": [
+       "045fcf8"
+      ],
+      "missatge": "Afegeix el comiat"
+     },
+     {
+      "id": "855fb71",
+      "lletra": "D",
+      "pares": [
+       "a47f91c"
+      ],
+      "missatge": "Amplia les notes"
+     },
+     {
+      "id": "e6140d0",
+      "lletra": "E",
+      "pares": [
+       "855fb71"
+      ],
+      "missatge": "Canvia el comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git log --oneline --grep=\"comiat\"",
+   "sortida": "e6140d0 Canvia el comiat\na47f91c Afegeix el comiat\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "b8acd78",
+    "B": "045fcf8",
+    "C": "a47f91c",
+    "D": "855fb71",
+    "E": "e6140d0"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola!\")\nprint(\"Fins demà!\")\n",
+     "notes.md": "Idees del projecte i pendents\n"
+    },
+    "head_commit": "e6140d0",
+    "refs": {
+     "main": "e6140d0"
+    },
+    "commits": [
+     {
+      "id": "b8acd78",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "045fcf8",
+      "lletra": "B",
+      "pares": [
+       "b8acd78"
+      ],
+      "missatge": "Afegeix les notes"
+     },
+     {
+      "id": "a47f91c",
+      "lletra": "C",
+      "pares": [
+       "045fcf8"
+      ],
+      "missatge": "Afegeix el comiat"
+     },
+     {
+      "id": "855fb71",
+      "lletra": "D",
+      "pares": [
+       "a47f91c"
+      ],
+      "missatge": "Amplia les notes"
+     },
+     {
+      "id": "e6140d0",
+      "lletra": "E",
+      "pares": [
+       "855fb71"
+      ],
+      "missatge": "Canvia el comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git log --oneline -S \"Fins aviat\"",
+   "sortida": "e6140d0 Canvia el comiat\na47f91c Afegeix el comiat\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "b8acd78",
+    "B": "045fcf8",
+    "C": "a47f91c",
+    "D": "855fb71",
+    "E": "e6140d0"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola!\")\nprint(\"Fins demà!\")\n",
+     "notes.md": "Idees del projecte i pendents\n"
+    },
+    "head_commit": "e6140d0",
+    "refs": {
+     "main": "e6140d0"
+    },
+    "commits": [
+     {
+      "id": "b8acd78",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "045fcf8",
+      "lletra": "B",
+      "pares": [
+       "b8acd78"
+      ],
+      "missatge": "Afegeix les notes"
+     },
+     {
+      "id": "a47f91c",
+      "lletra": "C",
+      "pares": [
+       "045fcf8"
+      ],
+      "missatge": "Afegeix el comiat"
+     },
+     {
+      "id": "855fb71",
+      "lletra": "D",
+      "pares": [
+       "a47f91c"
+      ],
+      "missatge": "Amplia les notes"
+     },
+     {
+      "id": "e6140d0",
+      "lletra": "E",
+      "pares": [
+       "855fb71"
+      ],
+      "missatge": "Canvia el comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "b8acd78",
+    "B": "045fcf8",
+    "C": "a47f91c",
+    "D": "855fb71",
+    "E": "e6140d0"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola!\")\nprint(\"Fins demà!\")\n",
+     "notes.md": "Idees del projecte i pendents\n"
+    },
+    "head_commit": "e6140d0",
+    "refs": {
+     "main": "e6140d0"
+    },
+    "commits": [
+     {
+      "id": "b8acd78",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "045fcf8",
+      "lletra": "B",
+      "pares": [
+       "b8acd78"
+      ],
+      "missatge": "Afegeix les notes"
+     },
+     {
+      "id": "a47f91c",
+      "lletra": "C",
+      "pares": [
+       "045fcf8"
+      ],
+      "missatge": "Afegeix el comiat"
+     },
+     {
+      "id": "855fb71",
+      "lletra": "D",
+      "pares": [
+       "a47f91c"
+      ],
+      "missatge": "Amplia les notes"
+     },
+     {
+      "id": "e6140d0",
+      "lletra": "E",
+      "pares": [
+       "855fb71"
+      ],
+      "missatge": "Canvia el comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "helloGit.py": "print(\"Hola!\")\nprint(\"Fins demà!\")\n",
+   "notes.md": "Idees del projecte i pendents\n"
+  },
+  "head_commit": "e6140d0",
+  "refs": {
+   "main": "e6140d0"
+  },
+  "commits": [
+   {
+    "id": "b8acd78",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio"
+   },
+   {
+    "id": "045fcf8",
+    "lletra": "B",
+    "pares": [
+     "b8acd78"
+    ],
+    "missatge": "Afegeix les notes"
+   },
+   {
+    "id": "a47f91c",
+    "lletra": "C",
+    "pares": [
+     "045fcf8"
+    ],
+    "missatge": "Afegeix el comiat"
+   },
+   {
+    "id": "855fb71",
+    "lletra": "D",
+    "pares": [
+     "a47f91c"
+    ],
+    "missatge": "Amplia les notes"
+   },
+   {
+    "id": "e6140d0",
+    "lletra": "E",
+    "pares": [
+     "855fb71"
+    ],
+    "missatge": "Canvia el comiat"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "b8acd78",
+  "B": "045fcf8",
+  "C": "a47f91c",
+  "D": "855fb71",
+  "E": "e6140d0"
+ }
+}

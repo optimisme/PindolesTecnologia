@@ -1,0 +1,122 @@
+titol: "Reset: torna enrere un commit local"
+titol_curt: RESET
+capcalera: [RESET, Torna enrere un commit local]
+presentacio: "[[Reset]]"
+objectiu: comparar [[reset]] [[soft]] i [[mixed]] sense confondre què passa amb el treball i la preparació.
+inici: >-
+  main a C, commit propi no publicat, amb treball i preparació nets. B té la salutació ORIGINAL i C la
+  SALUTACIÓ NOVA. Les dues alternatives parteixen de C, cadascuna pel seu compte.
+inici_parlat: >-
+  L’últim commit, encara no publicat, conté la salutació nova. Volem tornar-hi a treballar abans de
+  confirmar-la de nou.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: commit -q -am "Afegeix una exclamacio"
+  - etiqueta: B
+  - fitxer: helloGit.py
+    contingut: print("Hola, Ermessenda!")
+  - git: commit -q -am "Personalitza la salutacio"
+  - etiqueta: C
+
+camins:
+  soft:
+    tipus: alternatiu
+    titol: Alternativa soft
+    des_de: inici
+  mixed:
+    tipus: alternatiu
+    titol: Alternativa mixed
+    des_de: inici
+
+etapes:
+  - explica: Reprendre un commit local
+    pantalla:
+      - "Últim commit:  salutació nova"
+      - "Encara no publicat"
+      - "Compararem:  --soft i --mixed"
+    text: >-
+      Volem continuar treballant en el contingut de l’últim commit. Compararem dues formes de [[reset]]
+      que conserven el fitxer de treball.
+    visual: Graf A, B i C; main i HEAD a C. Panells treball, preparació i historial amb la SALUTACIÓ NOVA.
+
+  - explica: On anirà la branca
+    pantalla:
+      - "On som:  HEAD"
+      - "Un pas enrere:  HEAD~1"
+      - "Destinació:  el commit de l’exclamació"
+    text: >-
+      En aquest exemple, [[HEAD]] segueix [[main]]. [[HEAD]] titlla u vol dir un pas enrere, així que la
+      destinació és el commit anterior, el de l’exclamació.
+    visual: Subratllar HEAD i després ~1 a HEAD~1; fletxa conceptual de C a B, sense executar encara.
+
+  - ordre: git reset --soft HEAD~1
+    cami: soft
+    text: Comencem per l’alternativa [[soft]].
+    parts:
+      - --soft: Mou la branca i conserva la preparació i el treball.
+      - HEAD~1: La destinació és el commit anterior.
+    resultat: >-
+      [[main]] torna al commit anterior. El treball i la preparació conserven la salutació nova, que ara
+      queda preparada respecte d’aquell commit.
+    visual: Moure només main i HEAD. C es queda atenuat fora de la línia, sense esborrar-lo.
+    comprova:
+      refs: {main: B}
+      status: "M  helloGit.py"
+
+  - ordre: git diff --staged
+    cami: soft
+    text: Comprovem el canvi que ha quedat preparat.
+    resultat: La salutació nova surt com a canvi preparat. Podem retocar-la i confirmar-la de nou.
+    visual: Fletxa HISTORIAL → PREPARACIÓ amb la salutació nova.
+    comprova:
+      sortida: ['+print("Hola, Ermessenda!")']
+
+  - explica: Tornem al punt de partida
+    pantalla:
+      - "main torna a l’últim commit."
+      - "L’opció següent és una alternativa."
+      - "No s’executa després de --soft."
+    text: >-
+      Tornem al dibuix inicial, amb [[main]] a l’últim commit. L’opció següent és una alternativa: no
+      s’executa després de [[soft]].
+    visual: Separador TORNEM AL PUNT DE PARTIDA. Restaurar el dibuix inicial complet.
+
+  - ordre: git reset --mixed HEAD~1
+    cami: mixed
+    text: Ara provem l’alternativa [[mixed]].
+    parts:
+      - --mixed: Mou la branca i torna la preparació a la destinació. Conserva el treball.
+    resultat: >-
+      [[main]] i la preparació tornen al commit anterior, però el treball manté la salutació nova. El canvi
+      queda sense preparar.
+    visual: Moure main i HEAD a B; copiar l’ORIGINAL a la preparació; deixar la SALUTACIÓ NOVA al treball.
+    comprova:
+      refs: {main: B}
+      status: " M helloGit.py"
+      programa: Hola, Ermessenda!
+
+  - explica: La diferència és la preparació
+    pantalla:
+      - "--soft:  preparació amb la salutació nova"
+      - "--mixed:  preparació original"
+      - "Totes dues:  el treball conserva la salutació nova"
+    text: >-
+      En tots dos casos la branca torna enrere i el fitxer conserva la salutació nova. [[Soft]] deixa el
+      canvi preparat; [[mixed]] el deixa pendent de preparar.
+    pausa: 4
+    visual: Taula de dues files. SOFT · branca B, preparació nova, treball nou. MIXED · branca B, preparació original, treball nou.
+
+resum:
+  - En aquest exemple, [[reset]] fa tornar la branca local un commit enrere.
+  - "[[Soft]] conserva la preparació; [[mixed]] la torna a la destinació."
+  - Tots dos conserven el treball; només els fem servir amb commits que no hem publicat.
+practica: >-
+  Reprodueix cada alternativa en un repositori de pràctiques separat, amb un últim commit no publicat.
+  Compara el treball, la preparació i l’historial després de cada una.

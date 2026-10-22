@@ -79,7 +79,8 @@
           ],
           "visual": "Objectiu en una frase; esquema general del resultat.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "Autoritzar la terminal per treballar amb GitHub i clonar un repositori buit per començar el projecte."
         },
         {
           "id": "pas_002",
@@ -109,7 +110,8 @@
           "visual": "Punt de partida: Git configurat com a la lliçó anterior. Compte de GitHub creat. GitHub CLI instal·lat o pendent d’instal·lar. Les pantalles web i les sortides de gh són de mostra; el clon s’executa contra un remot local.",
           "pause_after": 3.5,
           "commands": [],
-          "state": -1
+          "state": -1,
+          "screen_text": "Tenim Git configurat i un compte de GitHub. Ara connectarem la terminal amb aquest compte."
         }
       ],
       "narration": "En aquesta lliçó aprendrem a autoritzar la terminal per treballar amb GitHub i clonar un repositori buit per començar el projecte. Tenim Git configurat i un compte de GitHub. Ara connectarem la terminal amb aquest compte."
@@ -170,6 +172,12 @@
           "state": 0
         }
       ],
+      "screen": [
+        "Git · treballa al nostre ordinador",
+        "GitHub · servei per guardar i compartir còpies",
+        "Per enviar-hi commits, la terminal ha de demostrar qui som.",
+        "La contrasenya del compte no serveix per a la terminal."
+      ],
       "narration": "Git treballa al nostre ordinador. GitHub és un servei on guardem una còpia per compartir-la. Per enviar-hi commits, la terminal ha de demostrar qui som. La contrasenya del compte no serveix per a la terminal: necessitem una autorització pròpia."
     },
     {
@@ -209,6 +217,12 @@
           "commands": [],
           "state": 1
         }
+      ],
+      "screen": [
+        "macOS:  brew install gh",
+        "Windows:  winget install --id GitHub.cli",
+        "Linux:  el gestor de paquets de la distribució",
+        "Comprovació:  gh --version"
       ],
       "narration": "Farem servir GitHub CLI, l’eina oficial de GitHub per a la terminal. La instal·lem amb el gestor de paquets del sistema; a la pantalla veus l’ordre per a cada sistema."
     },
@@ -376,7 +390,7 @@
           "simulated": true,
           "terminal_output": [
             "github.com",
-            "  ✓ Logged in to github.com account anna-puig (keyring)",
+            "  ✓ Logged in to github.com account ermessenda-carcassona (keyring)",
             "  - Active account: true",
             "  - Git operations protocol: https",
             "  - Token: gho_************************************"
@@ -424,6 +438,11 @@
           "state": 4
         }
       ],
+      "screen": [
+        "L’instal·lador de Git per a Windows inclou un gestor d’accés.",
+        "El primer git push obre el navegador i desa l’autorització.",
+        "Qualsevol dels dos camins serveix."
+      ],
       "narration": "A Windows, l’instal·lador de Git també inclou un gestor d’accés. El primer cop que enviem commits, obre el navegador i desa l’autorització. Qualsevol dels dos camins serveix."
     },
     {
@@ -455,6 +474,12 @@
           "commands": [],
           "state": 5
         }
+      ],
+      "screen": [
+        "github.com → New repository",
+        "Nom: HelloGit",
+        "Sense README, .gitignore ni llicència",
+        "Botó Code → copiem l’adreça HTTPS"
       ],
       "narration": "A la web de GitHub, creem un repositori nou anomenat HelloGit. No hi afegim cap fitxer inicial: el començarem des de l’ordinador."
     },
@@ -755,8 +780,8 @@
           "state": 8,
           "simulated": true,
           "terminal_output": [
-            "origin\thttps://github.com/anna-puig/HelloGit.git (fetch)",
-            "origin\thttps://github.com/anna-puig/HelloGit.git (push)"
+            "origin\thttps://github.com/ermessenda-carcassona/HelloGit.git (fetch)",
+            "origin\thttps://github.com/ermessenda-carcassona/HelloGit.git (push)"
           ]
         }
       ],
@@ -789,7 +814,8 @@
           ],
           "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "La terminal necessita una autorització pròpia per treballar amb GitHub."
         },
         {
           "id": "pas_028",
@@ -814,7 +840,8 @@
           ],
           "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "gh auth login la crea i gh auth status la comprova."
         },
         {
           "id": "pas_029",
@@ -839,7 +866,8 @@
           ],
           "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "git clone crea la carpeta local connectada al remot origin."
         }
       ],
       "narration": "La terminal necessita una autorització pròpia per treballar amb GitHub. gh auth login la crea i gh auth status la comprova. git clone crea la carpeta local connectada al remot origin."
@@ -870,7 +898,8 @@
           ],
           "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
           "pause_after": 4,
-          "commands": []
+          "commands": [],
+          "screen_text": "Autoritza la terminal amb el teu compte, crea un repositori buit de pràctiques a GitHub i clona’l en una carpeta nova. Comprova el remot abans de continuar."
         }
       ],
       "narration": "Autoritza la terminal amb el teu compte, crea un repositori buit de pràctiques a GitHub i clona’l en una carpeta nova. Comprova el remot abans de continuar."

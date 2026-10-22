@@ -1,0 +1,789 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 17,
+  "slug": "17-branques-remotes",
+  "title": "Branques remotes: consultar, seguir i esborrar",
+  "short_title": "BRANQUES REMOTES",
+  "card": [
+    "BRANQUES REMOTES",
+    "Consultar, seguir i esborrar"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "17-branques-remotes.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Dissetena lliçó. Branques remotes.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Dissetena lliçó. Branques remotes."
+      }
+    ]
+  },
+  "objective": "veure quines branques hi ha al servidor, treballar en una d’elles i netejar les que ja no calen.",
+  "start_note": "HelloGit clonat, main a A. Una companya ha publicat la branca menu (C) i ha esborrat del servidor la branca prova-antiga, que encara tenim referenciada. També hem publicat una branca nostra, proves, que ja no cal.",
+  "start_spoken": "Treballem en equip. Una companya ha publicat una branca nova, i al servidor n’hi ha d’altres que ja no fan falta.",
+  "summary": [
+    "git branch amb dues uves mostra quina branca remota segueix cada branca local.",
+    "git fetch amb doble guionet prune porta les novetats i neteja les referències velles.",
+    "git switch crea la branca local d’una de remota; git push amb doble guionet delete l’esborra del servidor."
+  ],
+  "practice": "Amb dos clons de pràctiques, publica una branca des d’un i esborra’n una altra al servidor. Des de l’altre clon, actualitza amb neteja, canvia a la branca nova i comprova quina branca remota segueix.",
+  "practice_script": "practiques/17-branques-remotes.sh",
+  "scenes": [
+    {
+      "id": "e17_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a veure quines branques hi ha al servidor, treballar en una d’elles i netejar les que ja no calen.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a veure quines branques hi ha al servidor, treballar en una d’elles i netejar les que ja no calen."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Veure quines branques hi ha al servidor, treballar en una d’elles i netejar les que ja no calen."
+        },
+        {
+          "id": "pas_002",
+          "narration": "Treballem en equip. Una companya ha publicat una branca nova, i al servidor n’hi ha d’altres que ja no fan falta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Treballem en equip. Una companya ha publicat una branca nova, i al servidor n’hi ha d’altres que ja no fan falta."
+            }
+          ],
+          "visual": "Punt de partida: HelloGit clonat, main a A. Una companya ha publicat la branca menu (C) i ha esborrat del servidor la branca prova-antiga, que encara tenim referenciada. També hem publicat una branca nostra, proves, que ja no cal.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1,
+          "screen_text": "Treballem en equip. Una companya ha publicat una branca nova, i al servidor n’hi ha d’altres que ja no fan falta."
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a veure quines branques hi ha al servidor, treballar en una d’elles i netejar les que ja no calen. Treballem en equip. Una companya ha publicat una branca nova, i al servidor n’hi ha d’altres que ja no fan falta."
+    },
+    {
+      "id": "e17_01",
+      "label": "EXPLICACIÓ",
+      "title": "Branques del servidor, vistes des de casa",
+      "mode": "principal",
+      "visual": "Servidor amb main, proves i menu; la nostra còpia encara amb origin/main, origin/proves i origin/prova-antiga.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Les referències com origin/main són una còpia local del que hi havia al servidor l’últim cop que el vam consultar. Si al servidor s’hi creen o s’hi esborren branques, no ho sabrem fins que tornem a consultar-lo.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les referències com "
+            },
+            {
+              "lang": "en-US",
+              "text": "origin/main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " són una còpia local del que hi havia al servidor l’últim cop que el vam consultar. Si al servidor s’hi creen o s’hi esborren branques, no ho sabrem fins que tornem a consultar-lo."
+            }
+          ],
+          "visual": "Servidor amb main, proves i menu; la nostra còpia encara amb origin/main, origin/proves i origin/prova-antiga.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "screen": [
+        "Referència local:  origin/main",
+        "És una còpia de l’última consulta.",
+        "Branques noves o esborrades:  cal tornar a consultar"
+      ],
+      "narration": "Les referències com origin/main són una còpia local del que hi havia al servidor l’últim cop que el vam consultar. Si al servidor s’hi creen o s’hi esborren branques, no ho sabrem fins que tornem a consultar-lo."
+    },
+    {
+      "id": "e17_02",
+      "label": "TERMINAL",
+      "title": "git branch -vv",
+      "mode": "principal",
+      "visual": "Sortida real; ressaltar [origin/main] i [origin/proves].",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "git branch amb dues uves mostra les nostres branques amb més detall.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git branch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb dues uves mostra les nostres branques amb més detall."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -vv. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git branch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch -vv",
+          "highlight": "git branch",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "Les dues uves afegeixen la branca del servidor que segueix cada branca local.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les dues uves afegeixen la branca del servidor que segueix cada branca local."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -vv. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -vv.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch -vv",
+          "highlight": "-vv",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -vv. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git branch -vv"
+          ],
+          "command_display": "git branch -vv",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_007",
+          "narration": "Cada branca local indica entre claudàtors quina branca remota segueix. Si estigués endarrerida o avançada, també ho diria.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cada branca local indica entre claudàtors quina branca remota segueix. Si estigués endarrerida o avançada, també ho diria."
+            }
+          ],
+          "visual": "Sortida real; ressaltar [origin/main] i [origin/proves]. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git branch -vv",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "* main   afc44d6 [origin/main] Afegeix la salutacio inicial",
+            "  proves afc44d6 [origin/proves] Afegeix la salutacio inicial"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git branch amb dues uves mostra les nostres branques amb més detall. Les dues uves afegeixen la branca del servidor que segueix cada branca local. Executem l’ordre. Cada branca local indica entre claudàtors quina branca remota segueix. Si estigués endarrerida o avançada, també ho diria."
+    },
+    {
+      "id": "e17_03",
+      "label": "TERMINAL",
+      "title": "git fetch --prune",
+      "mode": "principal",
+      "visual": "Sortida real; ressaltar la línia de la branca nova i la de la branca esborrada.",
+      "beats": [
+        {
+          "id": "pas_008",
+          "narration": "Consultem el servidor i netegem les referències velles.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem el servidor i netegem les referències velles."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git fetch --prune. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git fetch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git fetch --prune",
+          "highlight": "git fetch",
+          "state": 1
+        },
+        {
+          "id": "pas_009",
+          "narration": "Esborra les referències locals de les branques que ja no existeixen al servidor.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Esborra les referències locals de les branques que ja no existeixen al servidor."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git fetch --prune. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --prune.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git fetch --prune",
+          "highlight": "--prune",
+          "state": 1
+        },
+        {
+          "id": "pas_010",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git fetch --prune. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git fetch --prune"
+          ],
+          "command_display": "git fetch --prune",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_011",
+          "narration": "Arriba la branca nova de la companya, i la referència de la branca esborrada desapareix de la nostra còpia.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Arriba la branca nova de la companya, i la referència de la branca esborrada desapareix de la nostra còpia."
+            }
+          ],
+          "visual": "Sortida real; ressaltar la línia de la branca nova i la de la branca esborrada. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git fetch --prune",
+          "event": "result",
+          "state": 2,
+          "simulated": false,
+          "terminal_output": [
+            "From ~/origin",
+            " - [deleted]         (none)     -> origin/prova-antiga",
+            " * [new branch]      menu       -> origin/menu"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem el servidor i netegem les referències velles. Esborra les referències locals de les branques que ja no existeixen al servidor. Executem l’ordre. Arriba la branca nova de la companya, i la referència de la branca esborrada desapareix de la nostra còpia."
+    },
+    {
+      "id": "e17_04",
+      "label": "TERMINAL",
+      "title": "git branch -r",
+      "mode": "principal",
+      "visual": "Sortida real amb tres branques remotes.",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "Llistem les branques del servidor que coneixem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Llistem les branques del servidor que coneixem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -r. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git branch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch -r",
+          "highlight": "git branch",
+          "state": 2
+        },
+        {
+          "id": "pas_013",
+          "narration": "El guionet erra mostra només les branques remotes.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet erra mostra només les branques remotes."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -r. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -r.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch -r",
+          "highlight": "-r",
+          "state": 2
+        },
+        {
+          "id": "pas_014",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -r. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git branch -r"
+          ],
+          "command_display": "git branch -r",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_015",
+          "narration": "Hi ha main, la branca nova i la nostra branca de proves.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Hi ha "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", la branca nova i la nostra branca de proves."
+            }
+          ],
+          "visual": "Sortida real amb tres branques remotes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git branch -r",
+          "event": "result",
+          "state": 3,
+          "simulated": false,
+          "terminal_output": [
+            "  origin/HEAD -> origin/main",
+            "  origin/main",
+            "  origin/menu",
+            "  origin/proves"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Llistem les branques del servidor que coneixem. El guionet erra mostra només les branques remotes. Executem l’ordre. Hi ha main, la branca nova i la nostra branca de proves."
+    },
+    {
+      "id": "e17_05",
+      "label": "TERMINAL",
+      "title": "git switch menu",
+      "mode": "principal",
+      "visual": "Apareix l’etiqueta local menu al costat d’origin/menu; HEAD s’hi uneix.",
+      "beats": [
+        {
+          "id": "pas_016",
+          "narration": "Volem treballar a la branca de la companya.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Volem treballar a la branca de la companya."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch menu. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git switch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch menu",
+          "highlight": "git switch",
+          "state": 3
+        },
+        {
+          "id": "pas_017",
+          "narration": "És el nom de la branca. Com que només existeix al servidor, Git en crea una de local que la segueix.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de la branca. Com que només existeix al servidor, "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " en crea una de local que la segueix."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch menu. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: menu.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git switch menu",
+          "highlight": "menu",
+          "state": 3
+        },
+        {
+          "id": "pas_018",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git switch menu. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git switch menu"
+          ],
+          "command_display": "git switch menu",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_019",
+          "narration": "Ja som a la branca, amb els fitxers de la companya, i la nostra branca local queda connectada amb la del servidor.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ja som a la branca, amb els fitxers de la companya, i la nostra branca local queda connectada amb la del servidor."
+            }
+          ],
+          "visual": "Apareix l’etiqueta local menu al costat d’origin/menu; HEAD s’hi uneix. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git switch menu",
+          "event": "result",
+          "state": 4,
+          "simulated": false,
+          "terminal_output": [
+            "branch 'menu' set up to track 'origin/menu'.",
+            "Switched to a new branch 'menu'"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Volem treballar a la branca de la companya. És el nom de la branca. Com que només existeix al servidor, Git en crea una de local que la segueix. Executem l’ordre. Ja som a la branca, amb els fitxers de la companya, i la nostra branca local queda connectada amb la del servidor."
+    },
+    {
+      "id": "e17_06",
+      "label": "TERMINAL",
+      "title": "git push origin --delete proves",
+      "mode": "principal",
+      "visual": "L’etiqueta proves desapareix del servidor; la local es manté.",
+      "beats": [
+        {
+          "id": "pas_020",
+          "narration": "La nostra branca de proves ja no cal al servidor. L’esborrem amb git push.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La nostra branca de proves ja no cal al servidor. L’esborrem amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin --delete proves. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git push.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push origin --delete proves",
+          "highlight": "git push",
+          "state": 4
+        },
+        {
+          "id": "pas_021",
+          "narration": "Esborra la branca indicada al servidor.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Esborra la branca indicada al servidor."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin --delete proves. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --delete.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push origin --delete proves",
+          "highlight": "--delete",
+          "state": 4
+        },
+        {
+          "id": "pas_022",
+          "narration": "És la branca que retirem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la branca que retirem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin --delete proves. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: proves.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push origin --delete proves",
+          "highlight": "proves",
+          "state": 4
+        },
+        {
+          "id": "pas_023",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin --delete proves. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git push origin --delete proves"
+          ],
+          "command_display": "git push origin --delete proves",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_024",
+          "narration": "La branca desapareix del servidor. La nostra branca local amb el mateix nom encara existeix.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La branca desapareix del servidor. La nostra branca local amb el mateix nom encara existeix."
+            }
+          ],
+          "visual": "L’etiqueta proves desapareix del servidor; la local es manté. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git push origin --delete proves",
+          "event": "result",
+          "state": 5,
+          "simulated": false,
+          "terminal_output": [
+            "To ~/origin.git",
+            " - [deleted]         proves"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "La nostra branca de proves ja no cal al servidor. L’esborrem amb git push. Esborra la branca indicada al servidor. És la branca que retirem. Executem l’ordre. La branca desapareix del servidor. La nostra branca local amb el mateix nom encara existeix."
+    },
+    {
+      "id": "e17_07",
+      "label": "TERMINAL",
+      "title": "git branch -d proves",
+      "mode": "principal",
+      "visual": "Desapareix l’etiqueta local proves.",
+      "beats": [
+        {
+          "id": "pas_025",
+          "narration": "Esborrem també la branca local.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Esborrem també la branca local."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -d proves. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git branch.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git branch -d proves",
+          "highlight": "git branch",
+          "state": 5
+        },
+        {
+          "id": "pas_026",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git branch -d proves. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git branch -d proves"
+          ],
+          "command_display": "git branch -d proves",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_027",
+          "narration": "Ara la branca de proves ja no existeix enlloc. Els commits que contenia continuen a main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara la branca de proves ja no existeix enlloc. Els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que contenia continuen a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Desapareix l’etiqueta local proves. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git branch -d proves",
+          "event": "result",
+          "state": 6,
+          "simulated": false,
+          "terminal_output": [
+            "Deleted branch proves (was afc44d6)."
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Esborrem també la branca local. Executem l’ordre. Ara la branca de proves ja no existeix enlloc. Els commits que contenia continuen a main."
+    },
+    {
+      "id": "e17_08",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "git branch amb dues uves mostra quina branca remota segueix cada branca local.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git branch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb dues uves mostra quina branca remota segueix cada branca local."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "git branch -vv mostra quina branca remota segueix cada branca local."
+        },
+        {
+          "id": "pas_029",
+          "narration": "git fetch amb doble guionet prune porta les novetats i neteja les referències velles.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git fetch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "prune"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " porta les novetats i neteja les referències velles."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "git fetch --prune porta les novetats i neteja les referències velles."
+        },
+        {
+          "id": "pas_030",
+          "narration": "git switch crea la branca local d’una de remota; git push amb doble guionet delete l’esborra del servidor.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git switch"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea la branca local d’una de remota; "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "delete"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " l’esborra del servidor."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "git switch crea la branca local d’una de remota; git push --delete l’esborra del servidor."
+        }
+      ],
+      "narration": "git branch amb dues uves mostra quina branca remota segueix cada branca local. git fetch amb doble guionet prune porta les novetats i neteja les referències velles. git switch crea la branca local d’una de remota; git push amb doble guionet delete l’esborra del servidor."
+    },
+    {
+      "id": "e17_09",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_031",
+          "narration": "Amb dos clons de pràctiques, publica una branca des d’un i esborra’n una altra al servidor. Des de l’altre clon, actualitza amb neteja, canvia a la branca nova i comprova quina branca remota segueix.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb dos clons de pràctiques, publica una branca des d’un i esborra’n una altra al servidor. Des de l’altre clon, actualitza amb neteja, canvia a la branca nova i comprova quina branca remota segueix."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": [],
+          "screen_text": "Amb dos clons de pràctiques, publica una branca des d’un i esborra’n una altra al servidor. Des de l’altre clon, actualitza amb neteja, canvia a la branca nova i comprova quina branca remota segueix."
+        }
+      ],
+      "narration": "Amb dos clons de pràctiques, publica una branca des d’un i esborra’n una altra al servidor. Des de l’altre clon, actualitza amb neteja, canvia a la branca nova i comprova quina branca remota segueix."
+    }
+  ],
+  "commands": [
+    "git branch -vv",
+    "git fetch --prune",
+    "git branch -r",
+    "git switch menu",
+    "git push origin --delete proves",
+    "git branch -d proves"
+  ]
+}

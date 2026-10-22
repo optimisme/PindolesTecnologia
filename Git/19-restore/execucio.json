@@ -1,0 +1,238 @@
+{
+ "llico": "19-restore",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "ca578cb"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+    },
+    "head_commit": "ca578cb",
+    "refs": {
+     "main": "ca578cb"
+    },
+    "commits": [
+     {
+      "id": "ca578cb",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [
+     "M  helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git restore --staged helloGit.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "ca578cb"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+    },
+    "head_commit": "ca578cb",
+    "refs": {
+     "main": "ca578cb"
+    },
+    "commits": [
+     {
+      "id": "ca578cb",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git diff",
+   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 52662af..9dfb79d 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1 @@\n-print(\"Hello Git!\")\n+print(\"Hola, Ermessenda!\")\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "ca578cb"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+    },
+    "head_commit": "ca578cb",
+    "refs": {
+     "main": "ca578cb"
+    },
+    "commits": [
+     {
+      "id": "ca578cb",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git restore helloGit.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "ca578cb"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "ca578cb",
+    "refs": {
+     "main": "ca578cb"
+    },
+    "commits": [
+     {
+      "id": "ca578cb",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "tres-versions",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "ca578cb"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda! Benvinguda.\")\n"
+    },
+    "head_commit": "ca578cb",
+    "refs": {
+     "main": "ca578cb"
+    },
+    "commits": [
+     {
+      "id": "ca578cb",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [
+     "MM helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "tres-versions",
+   "ordre": "git restore helloGit.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "ca578cb"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+    },
+    "head_commit": "ca578cb",
+    "refs": {
+     "main": "ca578cb"
+    },
+    "commits": [
+     {
+      "id": "ca578cb",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [
+     "M  helloGit.py"
+    ],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
+  },
+  "head_commit": "ca578cb",
+  "refs": {
+   "main": "ca578cb"
+  },
+  "commits": [
+   {
+    "id": "ca578cb",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   }
+  ],
+  "status": [
+   "M  helloGit.py"
+  ],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "ca578cb"
+ }
+}

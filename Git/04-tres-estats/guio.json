@@ -63,7 +63,8 @@
           ],
           "visual": "Objectiu en una frase; esquema general del resultat.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "Distingir el treball, la preparació i l’historial, també quan editem després de preparar."
         },
         {
           "id": "pas_002",
@@ -77,7 +78,8 @@
           "visual": "Punt de partida: helloGit.py confirmat al commit A amb print(\"Hello Git!\"). Sense canvis pendents. A les zones es mostren tres continguts del mateix fitxer: ORIGINAL, SALUTACIÓ NOVA i SALUTACIÓ AMB COMIAT.",
           "pause_after": 3.5,
           "commands": [],
-          "state": -1
+          "state": -1,
+          "screen_text": "El programa ja està confirmat amb la salutació original i no tenim cap canvi pendent."
         }
       ],
       "narration": "En aquesta lliçó aprendrem a distingir el treball, la preparació i l’historial, també quan editem després de preparar. El programa ja està confirmat amb la salutació original i no tenim cap canvi pendent."
@@ -103,6 +105,11 @@
           "commands": [],
           "state": 0
         }
+      ],
+      "screen": [
+        "TREBALL:  el que desem a l’editor",
+        "PREPARACIÓ:  el que entrarà al commit",
+        "HISTORIAL:  els commits confirmats"
       ],
       "narration": "Desar a l’editor modifica la carpeta de treball. Preparar selecciona un contingut concret. Confirmar enregistra aquesta selecció a l’historial. Són tres accions diferents."
     },
@@ -135,6 +142,12 @@
           "commands": [],
           "state": 1
         }
+      ],
+      "screen": [
+        "helloGit.py:  print(\"Hola, Ermessenda!\")",
+        "Treball:  salutació nova",
+        "Preparació:  original",
+        "Historial:  original"
       ],
       "narration": "Canviem la salutació i desem. El treball ja té la salutació nova, però la preparació i l’últim commit encara tenen l’original."
     },
@@ -202,12 +215,12 @@
           "simulated": false,
           "terminal_output": [
             "diff --git a/helloGit.py b/helloGit.py",
-            "index 52662af..55b21a2 100644",
+            "index 52662af..9dfb79d 100644",
             "--- a/helloGit.py",
             "+++ b/helloGit.py",
             "@@ -1 +1 @@",
             "-print(\"Hello Git!\")",
-            "+print(\"Hola, Anna!\")"
+            "+print(\"Hola, Ermessenda!\")"
           ]
         }
       ],
@@ -401,12 +414,12 @@
           "simulated": false,
           "terminal_output": [
             "diff --git a/helloGit.py b/helloGit.py",
-            "index 52662af..55b21a2 100644",
+            "index 52662af..9dfb79d 100644",
             "--- a/helloGit.py",
             "+++ b/helloGit.py",
             "@@ -1 +1 @@",
             "-print(\"Hello Git!\")",
-            "+print(\"Hola, Anna!\")"
+            "+print(\"Hola, Ermessenda!\")"
           ]
         }
       ],
@@ -434,6 +447,11 @@
           "commands": [],
           "state": 5
         }
+      ],
+      "screen": [
+        "helloGit.py:  + print(\"Fins aviat!\")",
+        "Treball:  salutació i comiat",
+        "Preparació:  només la salutació nova"
       ],
       "narration": "Afegim una línia de comiat i desem. El treball té la salutació i el comiat, però la preparació continua tenint només la salutació nova."
     },
@@ -603,11 +621,11 @@
           "simulated": false,
           "terminal_output": [
             "diff --git a/helloGit.py b/helloGit.py",
-            "index 55b21a2..56f43b6 100644",
+            "index 9dfb79d..9cc815c 100644",
             "--- a/helloGit.py",
             "+++ b/helloGit.py",
             "@@ -1 +1,2 @@",
-            " print(\"Hola, Anna!\")",
+            " print(\"Hola, Ermessenda!\")",
             "+print(\"Fins aviat!\")"
           ]
         }
@@ -722,7 +740,7 @@
           "state": 8,
           "simulated": false,
           "terminal_output": [
-            "[main 6e2e114] Canvia la salutacio",
+            "[main 7556926] Canvia la salutacio",
             " 1 file changed, 1 insertion(+), 1 deletion(-)"
           ]
         }
@@ -876,7 +894,7 @@
           "state": 10,
           "simulated": false,
           "terminal_output": [
-            "[main 1dbce39] Afegeix un comiat",
+            "[main 59f998f] Afegeix un comiat",
             " 1 file changed, 1 insertion(+)"
           ]
         }
@@ -902,7 +920,8 @@
           ],
           "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "Desar canvia el treball."
         },
         {
           "id": "pas_036",
@@ -919,7 +938,8 @@
           ],
           "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "git add copia a la preparació el contingut d’aquell moment."
         },
         {
           "id": "pas_037",
@@ -936,7 +956,8 @@
           ],
           "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "git commit enregistra la preparació i deixa la resta d’edicions pendents."
         }
       ],
       "narration": "Desar canvia el treball. git add copia a la preparació el contingut d’aquell moment. git commit enregistra la preparació i deixa la resta d’edicions pendents."
@@ -975,7 +996,8 @@
           ],
           "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
           "pause_after": 4,
-          "commands": []
+          "commands": [],
+          "screen_text": "Edita, prepara i torna a editar el mateix fitxer. Compara les dues ordres diff abans de confirmar per saber exactament què entrarà al commit."
         }
       ],
       "narration": "Edita, prepara i torna a editar el mateix fitxer. Compara les dues ordres diff abans de confirmar per saber exactament què entrarà al commit."

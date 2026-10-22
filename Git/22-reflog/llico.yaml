@@ -1,0 +1,108 @@
+titol: "Reflog: recupera un commit local"
+titol_curt: REFLOG
+capcalera: [REFLOG, Recupera un commit local]
+presentacio: "[[Reflog]]"
+objectiu: trobar un commit al [[reflog]] i tornar-hi a donar accés amb una branca, sense perdre els canvis preparats.
+inici: >-
+  Continuació de reset soft. main i HEAD a B; treball i preparació conserven el contingut de C. Les
+  entrades locals encara existeixen. recuperacio serà una branca nova.
+inici_parlat: >-
+  Continuem on ho vam deixar amb [[reset]] [[soft]]. La branca ha tornat enrere i el commit de la
+  salutació ja no apareix a l’historial de [[main]].
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: commit -q -am "Afegeix una exclamacio"
+  - etiqueta: B
+  - fitxer: helloGit.py
+    contingut: print("Hola, Ermessenda!")
+  - git: commit -q -am "Personalitza la salutacio"
+  - etiqueta: C
+  - git: reset -q --soft HEAD~1
+
+etapes:
+  - explica: Un commit fora de la línia actual
+    pantalla:
+      - "Després del reset:  main a B"
+      - "El commit C no s’ha esborrat."
+      - "Buscarem on era abans."
+    text: >-
+      El commit de la salutació ja no surt a la història de [[main]], però no s’ha esborrat. Buscarem
+      on era abans.
+    visual: Graf A i B amb main a B; C atenuat. Treball i preparació amb la salutació nova.
+
+  - ordre: git log --oneline
+    text: Consultem l’historial de la branca activa.
+    resultat: >-
+      Només hi ha dos commits. [[git log]] recorre la història a partir de la branca; no mostra on havíem estat abans.
+    visual: Ressaltar el camí des de main; deixar C fora del recorregut.
+    comprova:
+      sortida: ["{B} Afegeix una exclamacio"]
+
+  - ordre: git reflog
+    text: "[[git reflog]] mostra per on ha passat [[HEAD]] en aquest repositori."
+    resultat: >-
+      La primera línia és el [[reset]]. La segona és el commit de la salutació, abans de tornar enrere.
+      Copiem l’identificador d’aquesta segona línia.
+    visual: Sortida real; ressaltar primer la fila del reset i després la del commit anterior.
+    comprova:
+      sortida: ["{C} HEAD@{1}: commit: Personalitza la salutacio", "HEAD@{0}: reset: moving to HEAD~1"]
+
+  - ordre: git show {C} -- helloGit.py
+    text: Revisem el commit trobat abans de recuperar-lo.
+    parts:
+      - "{C}": És l’identificador que hem copiat. Al teu repositori serà diferent.
+      - helloGit.py: Mirem només el canvi del programa.
+    resultat: És la salutació personalitzada que buscàvem. Consultar-la no modifica cap fitxer.
+    visual: Diff real del commit al costat de l’editor actual.
+
+  - ordre: git branch recuperacio {C}
+    text: Creem una branca que torni a donar accés a aquest commit.
+    parts:
+      - recuperacio: És el nom de la branca nova, recuperació.
+      - "{C}": Indica el commit on posem l’etiqueta.
+    resultat: >-
+      La branca recuperació apunta al commit trobat. [[main]] continua on era i segueix sent la branca
+      activa: no hem canviat de branca.
+    visual: Afegir només l’etiqueta recuperacio a C. HEAD continua unit a main.
+    comprova:
+      refs: {recuperacio: C, main: B}
+      head: main
+
+  - ordre: git log --oneline --decorate --all
+    text: Comprovem totes les branques alhora.
+    parts:
+      - --decorate: Escriu el nom de les branques al costat dels seus commits.
+      - --all: Doble guionet [[all]] inclou totes les branques, no només l’activa.
+    resultat: El commit torna a ser visible a través de recuperació.
+    visual: Sortida real amb main i recuperacio; preparació intacta.
+    comprova:
+      sortida: ["{C} (recuperacio) Personalitza la salutacio", "{B} (HEAD -> main) Afegeix una exclamacio"]
+
+  - plantilla: status-breu
+    resultat: El canvi que havia deixat [[reset]] [[soft]] continua preparat. Crear la branca no l’ha tocat.
+    comprova: {status: "M  helloGit.py"}
+
+  - explica: Una ajuda local amb límits
+    pantalla:
+      - "Només en aquest ordinador"
+      - "Les entrades antigues caduquen."
+      - "Recupera commits, no edicions sense confirmar."
+    text: >-
+      El [[reflog]] només existeix al nostre ordinador i les entrades antigues caduquen. Recupera commits;
+      les edicions que mai no hem confirmat no hi són.
+    visual: Icones LOCAL i RELLOTGE; distinció COMMIT EXISTENT / EDICIÓ SENSE CONFIRMAR.
+
+resum:
+  - "[[git log]] recorre la història a partir d’una branca."
+  - "[[git reflog]] mostra per on ha passat [[HEAD]] en aquest ordinador."
+  - Una branca nova torna a donar accés a un commit sense canviar la branca activa.
+practica: >-
+  Després d’un [[reset]] [[soft]] de pràctiques, troba el commit al [[reflog]], revisa’l i crea-hi una
+  branca de recuperació sense canviar de branca.

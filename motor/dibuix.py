@@ -25,7 +25,8 @@ def font(size, bold=False, mono=False):
 
 F = {"small": font(16), "label": font(17, True), "body": font(24),
      "caption": font(24), "h2": font(31, True), "title": font(47, True),
-     "hero": font(82, True), "code": font(23, mono=True), "tinycode": font(18, mono=True)}
+     "hero": font(82, True), "code": font(23, mono=True), "tinycode": font(18, mono=True),
+     "lead": font(29), "leadcode": font(27, mono=True)}
 
 
 def clamp(t):
@@ -52,10 +53,27 @@ def pill(d, x, y, content, color=MINT, fill="#1E3A35"):
 
 
 def arrow(d, start, end, color=MINT, width=4):
-    d.line((start, end), fill=color, width=width)
+    """Fletxa geomètrica: tija recta i punta triangular plena, en una sola forma suavitzada.
+
+    Es dibuixa a 4× sobre una màscara i es redueix, perquè les vores diagonals no
+    quedin dentades.
+    """
+    scale = 4
     a = math.atan2(end[1] - start[1], end[0] - start[0])
-    d.polygon([end, (end[0] - 12 * math.cos(a - .45), end[1] - 12 * math.sin(a - .45)),
-               (end[0] - 12 * math.cos(a + .45), end[1] - 12 * math.sin(a + .45))], fill=color)
+    length = math.hypot(end[0] - start[0], end[1] - start[1])
+    head = min(width * 3.5, length * .6)
+    half_head, half_shaft = width * 2.2, width / 2
+    # Contorn en coordenades locals (eix x al llarg de la fletxa), de l’inici a la punta.
+    outline = [(0, -half_shaft), (length - head, -half_shaft), (length - head, -half_head), (length, 0),
+               (length - head, half_head), (length - head, half_shaft), (0, half_shaft)]
+    cos, sin = math.cos(a), math.sin(a)
+    points = [(start[0] + x * cos - y * sin, start[1] + x * sin + y * cos) for x, y in outline]
+    left, top = math.floor(min(x for x, _ in points)) - 2, math.floor(min(y for _, y in points)) - 2
+    right, bottom = math.ceil(max(x for x, _ in points)) + 2, math.ceil(max(y for _, y in points)) + 2
+    mask = Image.new('L', ((right - left) * scale, (bottom - top) * scale), 0)
+    ImageDraw.Draw(mask).polygon([((x - left) * scale, (y - top) * scale) for x, y in points], fill=255)
+    mask = mask.resize((right - left, bottom - top), Image.Resampling.LANCZOS)
+    d._image.paste(color, (left, top, right, bottom), mask)
 
 
 def node(d, x, y, label=None, color=ORANGE, scale=1):
@@ -116,7 +134,11 @@ def base(scene, index, total, config=None):
     topic = config.get("short_title", "INTRODUCCIÓ")
     text(d, (1216, 36), f"{episode:02}  /  {topic}     ·     {index+1:02}/{total:02}", "small", MUTED, "rt")
     text(d, (64, 91), scene["label"], "label", ORANGE)
-    text(d, (64, 126), scene["title"], "title")
+    # Els títols llargs (ordres amb missatges) es redueixen fins que hi caben.
+    title, size = scene["title"], 47
+    while size > 26 and d.textlength(title, font=font(size, True)) > W-128:
+        size -= 1
+    d.text((64, 126+(47-size)*.6), title, font=font(size, True), fill=WHITE)
     return im
 
 

@@ -1,0 +1,146 @@
+titol: "Forks i upstream: una còpia pròpia al dia"
+titol_curt: FORKS
+capcalera: [FORKS I UPSTREAM, Una còpia pròpia d’un projecte]
+presentacio: "[[Forks]] i [[upstream]]"
+objectiu: >-
+  relacionar el projecte original, el [[fork]] i el clon local, i mantenir el [[fork]] al dia amb l’original.
+inici: >-
+  Un projecte original a GitHub que admet contribucions, amb A i B. Encara no tenim fork. Dos remots nus
+  locals representen l’original i el fork; la interfície web és un esquema.
+inici_parlat: >-
+  Volem contribuir a un projecte d’una altra persona, on no tenim permís per publicar.
+urls:
+  <URL-del-fork>: fork
+  <URL-original>: original
+carpeta: .
+preparacio:
+  - remot_nu: original
+  - clona: .preparacio
+    de: original
+  - cd: .preparacio
+  - fitxer: helloGit.py
+    contingut: print("Hello Git")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: commit -q -am "Afegeix una exclamacio"
+  - etiqueta: B
+  - git: push -q -u origin main
+  - cd: .
+  - sh: rm -rf .preparacio
+
+etapes:
+  - explica: Tres repositoris
+    pantalla:
+      - "Original:  el projecte on contribuïm"
+      - "Fork:  còpia al nostre compte de GitHub"
+      - "Clon:  còpia a l’ordinador"
+    text: >-
+      L’original és el projecte on volem contribuir. El [[fork]] és una còpia de l’original al nostre compte
+      de [[GitHub]]. El clon és la còpia de treball del nostre ordinador.
+    visual: Tres caixes persistents, ORIGINAL, FORK PROPI i CLON LOCAL. El fork no és una carpeta local.
+
+  - explica: Creem el fork
+    pantalla:
+      - "Botó:  Fork"
+      - "Destinació:  el nostre compte"
+      - "La còpia és a GitHub, encara no a l’ordinador."
+    text: >-
+      A la pàgina de l’original, fem clic al botó [[Fork]] i triem el nostre compte. La còpia queda a [[GitHub]];
+      encara no la tenim a l’ordinador.
+    visual: Esquema del botó Fork i del formulari, amb comptes inventats.
+    accions:
+      - sh: git clone -q --bare original.git fork.git
+
+  - ordre: git clone <URL-del-fork> HelloGit
+    text: Clonem el [[fork]], el repositori del nostre compte.
+    parts:
+      - <URL-del-fork>: És l’adreça del nostre [[fork]], sense els signes de menor i major.
+    resultat: La carpeta conté el projecte i el remot [[origin]] apunta al nostre [[fork]].
+    sortida_mostra: Cloning into 'HelloGit'...
+    visual: Fletxa FORK → LOCAL; etiqueta origin vinculada al fork.
+    comprova:
+      existeix: [HelloGit/helloGit.py]
+
+  - ordre: cd HelloGit
+    text: Entrem a la còpia local.
+    resultat: La terminal és dins del projecte.
+    visual: Ruta visible a la terminal.
+
+  - ordre: git remote add upstream <URL-original>
+    text: Afegim una segona connexió amb [[git remote]].
+    parts:
+      - add: Afegeix un remot nou.
+      - upstream: És el nom que donem al remot de l’original. És un costum, no una paraula obligatòria.
+      - <URL-original>: És l’adreça del projecte original, diferent de la del [[fork]].
+    resultat: "[[origin]] continua apuntant al [[fork]] i [[upstream]] apunta a l’original. Afegir-lo encara no descarrega res."
+    visual: Dues connexions amb noms i adreces diferenciades.
+
+  - ordre: git remote -v
+    text: Comprovem les connexions.
+    resultat: >-
+      Cada nom té la seva adreça. Enviarem la nostra feina a [[origin]] i descarregarem les novetats de [[upstream]].
+    sortida_mostra: |-
+      origin	https://github.com/ermessenda-carcassona/HelloGit.git (fetch)
+      origin	https://github.com/ermessenda-carcassona/HelloGit.git (push)
+      upstream	https://github.com/projecte-original/HelloGit.git (fetch)
+      upstream	https://github.com/projecte-original/HelloGit.git (push)
+    visual: Taula amb nom, adreça i direcció; ressaltar una fila cada vegada.
+    comprova:
+      sortida: [upstream, origin]
+
+  - explica: L’original avança
+    pantalla:
+      - "Original:  commit nou amb README.md"
+      - "Fork i clon:  encara a la versió anterior"
+      - "Cal posar-los al dia."
+    text: >-
+      Mentrestant, l’original incorpora un commit nou. El nostre [[fork]] i la nostra còpia local no se n’assabenten
+      sols: els hem de posar al dia.
+    visual: ORIGINAL amb C; FORK i LOCAL encara a B. La novetat és un README.md.
+    accions:
+      - servidor:
+          - printf 'Projecte HelloGit\n' > README.md
+          - git add README.md
+          - git commit -q -m "Afegeix el README"
+        remot: original
+        crea: C
+
+  - ordre: git fetch upstream
+    text: Descarreguem les novetats de l’original.
+    parts:
+      - upstream: Consultem l’original, no el nostre [[fork]].
+    resultat: La referència [[upstream/main]] apunta al commit nou. El nostre [[main]] encara no ha canviat.
+    visual: Actualitzar només la referència upstream/main.
+    comprova:
+      refs: {upstream/main: C, main: B}
+
+  - ordre: git merge --ff-only upstream/main
+    text: Incorporem la novetat al nostre [[main]].
+    parts:
+      - upstream/main: És la versió de l’original que acabem de descarregar.
+    resultat: El nostre [[main]] avança fins al commit nou. El [[fork]] de [[GitHub]] encara no el té.
+    visual: Moure només main local.
+    comprova:
+      refs: {main: C}
+      remot: {fork: {main: B}}
+
+  - ordre: git push origin main
+    text: Enviem [[main]] al nostre [[fork]].
+    parts:
+      - origin: La destinació és el nostre [[fork]].
+      - main: Publiquem la branca [[main]].
+    resultat: L’original, el [[fork]] i la còpia local tornen a coincidir.
+    visual: Fletxa LOCAL → FORK; cap fletxa cap a l’original.
+    comprova:
+      remot: {fork: {main: C}, original: {main: C}}
+
+resum:
+  - El [[fork]] és una còpia remota al nostre compte; el clon és la còpia local.
+  - "[[origin]] apunta al [[fork]] i [[upstream]], a l’original."
+  - Per posar-nos al dia, descarreguem d’[[upstream]] i publiquem a [[origin]].
+practica: >-
+  Fes un [[fork]] d’un projecte de pràctiques, clona’l i afegeix-hi el remot [[upstream]]. Comprova les
+  dues adreces abans de continuar.

@@ -1,0 +1,109 @@
+titol: "Cercar a l’historial: autoria, fitxers i text"
+titol_curt: CERCAR
+capcalera: [CERCAR A L’HISTORIAL, "Autoria, fitxers i text"]
+presentacio: Cercar a l’historial
+objectiu: trobar commits concrets filtrant l’historial per autoria, per fitxer, per missatge i pel text que canvien.
+inici: >-
+  HelloGit a main amb cinc commits de dues persones, Ermessenda Carcassona i Pau Vila. A, C i E toquen helloGit.py; B i D,
+  notes.md. C afegeix el comiat «Fins aviat!» i E el canvia per «Fins demà!».
+inici_parlat: >-
+  Dues persones han fet cinc commits al projecte. Volem trobar-ne de concrets sense llegir tot l’historial.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hola!")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio
+  - fitxer: notes.md
+    contingut: Idees del projecte
+  - git: add notes.md
+  - git: commit -q -m "Afegeix les notes" --author="Pau Vila <pau@example.com>"
+  - etiqueta: B
+  - fitxer: helloGit.py
+    contingut: |-
+      print("Hola!")
+      print("Fins aviat!")
+  - git: commit -q -am "Afegeix el comiat"
+  - etiqueta: C
+  - fitxer: notes.md
+    contingut: Idees del projecte i pendents
+  - git: commit -q -am "Amplia les notes" --author="Pau Vila <pau@example.com>"
+  - etiqueta: D
+  - fitxer: helloGit.py
+    contingut: |-
+      print("Hola!")
+      print("Fins demà!")
+  - git: commit -q -am "Canvia el comiat"
+  - etiqueta: E
+
+etapes:
+  - explica: Filtrar en lloc de llegir-ho tot
+    pantalla:
+      - "Per autoria:  --author"
+      - "Per fitxer:  -- notes.md"
+      - "Per missatge:  --grep"
+      - "Per text del codi:  -S"
+    text: >-
+      En un projecte real, l’historial pot tenir centenars de commits. [[git log]] accepta filtres que deixen
+      només els que ens interessen.
+    visual: Llista llarga de commits que es redueix a uns pocs en aplicar un filtre.
+
+  - ordre: git log --oneline --author="Pau"
+    text: Primer filtrem per autoria.
+    parts:
+      - --author: Doble guionet [[author]] deixa només els commits d’una persona.
+      - '"Pau"': És el text que ha d’aparèixer al nom o al correu de l’autoria.
+    resultat: Només surten els dos commits de les notes, els que va fer en Pau.
+    visual: Sortida real amb dues línies; nom de l’autoria al costat de cada una.
+    comprova:
+      sortida: ["{D} Amplia les notes", "{B} Afegeix les notes"]
+
+  - ordre: git log --oneline -- notes.md
+    text: Ara, els commits que han tocat un fitxer concret.
+    parts:
+      - "--": Els dos guionets separen les opcions del nom del fitxer.
+      - notes.md: És el fitxer que ens interessa.
+    resultat: Surten els commits que van canviar les notes, sense els del programa.
+    visual: Sortida real; ressaltar notes.md a l’explorador.
+    comprova:
+      sortida: ["{D} Amplia les notes", "{B} Afegeix les notes"]
+
+  - ordre: git log --oneline --grep="comiat"
+    text: També podem buscar dins dels missatges.
+    parts:
+      - --grep: Doble guionet [[grep]] busca un text als missatges dels commits.
+      - '"comiat"': És la paraula que busquem.
+    resultat: Surten els dos commits que parlen del comiat al missatge.
+    visual: Sortida real amb la paraula comiat ressaltada a cada missatge.
+    comprova:
+      sortida: ["{E} Canvia el comiat", "{C} Afegeix el comiat"]
+
+  - ordre: git log --oneline -S "Fins aviat"
+    text: Finalment, busquem quan va aparèixer o desaparèixer un text del codi.
+    parts:
+      - -S: La essa majúscula busca els commits que afegeixen o treuen aquest text dels fitxers, no dels missatges.
+      - '"Fins aviat"': És el text del programa que busquem.
+    resultat: >-
+      Surten dos commits, el que va afegir aquest comiat i el que el va canviar per un altre. Així sabem quan va
+      entrar al codi i quan en va sortir.
+    visual: Sortida real; al costat, el fitxer amb la línia print("Fins aviat!") que apareix a C i desapareix a E.
+    comprova:
+      sortida: ["{E} Canvia el comiat", "{C} Afegeix el comiat"]
+
+  - explica: Combinar filtres
+    pantalla:
+      - "Exemple:  git log --oneline --author=\"Ermessenda\" -- helloGit.py"
+      - "Després:  git show amb l’identificador"
+    text: >-
+      Els filtres es poden combinar en una mateixa ordre, per exemple autoria i fitxer. Quan hem trobat el commit,
+      [[git show]] ens n’explica el contingut.
+    visual: Ordre de mostra git log --oneline --author="Ermessenda" -- helloGit.py i, a sota, git show amb l’identificador trobat.
+
+resum:
+  - Doble guionet [[author]] i el nom d’un fitxer filtren per persona i per fitxer.
+  - Doble guionet [[grep]] busca als missatges.
+  - La essa majúscula busca quan un text va entrar o sortir del codi.
+practica: >-
+  En un repositori de pràctiques amb uns quants commits, busca els teus commits, els que han tocat un fitxer
+  i el commit que va afegir una línia concreta.

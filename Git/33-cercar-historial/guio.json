@@ -1,0 +1,792 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 33,
+  "slug": "33-cercar-historial",
+  "title": "Cercar a l’historial: autoria, fitxers i text",
+  "short_title": "CERCAR",
+  "card": [
+    "CERCAR A L’HISTORIAL",
+    "Autoria, fitxers i text"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "33-cercar-historial.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Trenta-tresena lliçó. Cercar a l’historial.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Trenta-tresena lliçó. Cercar a l’historial."
+      }
+    ]
+  },
+  "objective": "trobar commits concrets filtrant l’historial per autoria, per fitxer, per missatge i pel text que canvien.",
+  "start_note": "HelloGit a main amb cinc commits de dues persones, Ermessenda Carcassona i Pau Vila. A, C i E toquen helloGit.py; B i D, notes.md. C afegeix el comiat «Fins aviat!» i E el canvia per «Fins demà!».",
+  "start_spoken": "Dues persones han fet cinc commits al projecte. Volem trobar-ne de concrets sense llegir tot l’historial.",
+  "summary": [
+    "Doble guionet author i el nom d’un fitxer filtren per persona i per fitxer.",
+    "Doble guionet grep busca als missatges.",
+    "La essa majúscula busca quan un text va entrar o sortir del codi."
+  ],
+  "practice": "En un repositori de pràctiques amb uns quants commits, busca els teus commits, els que han tocat un fitxer i el commit que va afegir una línia concreta.",
+  "practice_script": "practiques/33-cercar-historial.sh",
+  "scenes": [
+    {
+      "id": "e33_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a trobar commits concrets filtrant l’historial per autoria, per fitxer, per missatge i pel text que canvien.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a trobar "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " concrets filtrant l’historial per autoria, per fitxer, per missatge i pel text que canvien."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Trobar commits concrets filtrant l’historial per autoria, per fitxer, per missatge i pel text que canvien."
+        },
+        {
+          "id": "pas_002",
+          "narration": "Dues persones han fet cinc commits al projecte. Volem trobar-ne de concrets sense llegir tot l’historial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Dues persones han fet cinc "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " al projecte. Volem trobar-ne de concrets sense llegir tot l’historial."
+            }
+          ],
+          "visual": "Punt de partida: HelloGit a main amb cinc commits de dues persones, Ermessenda Carcassona i Pau Vila. A, C i E toquen helloGit.py; B i D, notes.md. C afegeix el comiat «Fins aviat!» i E el canvia per «Fins demà!».",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1,
+          "screen_text": "Dues persones han fet cinc commits al projecte. Volem trobar-ne de concrets sense llegir tot l’historial."
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a trobar commits concrets filtrant l’historial per autoria, per fitxer, per missatge i pel text que canvien. Dues persones han fet cinc commits al projecte. Volem trobar-ne de concrets sense llegir tot l’historial."
+    },
+    {
+      "id": "e33_01",
+      "label": "EXPLICACIÓ",
+      "title": "Filtrar en lloc de llegir-ho tot",
+      "mode": "principal",
+      "visual": "Llista llarga de commits que es redueix a uns pocs en aplicar un filtre.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "En un projecte real, l’historial pot tenir centenars de commits. git log accepta filtres que deixen només els que ens interessen.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un projecte real, l’historial pot tenir centenars de "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". "
+            },
+            {
+              "lang": "en-US",
+              "text": "git log"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " accepta filtres que deixen només els que ens interessen."
+            }
+          ],
+          "visual": "Llista llarga de commits que es redueix a uns pocs en aplicar un filtre.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "screen": [
+        "Per autoria:  --author",
+        "Per fitxer:  -- notes.md",
+        "Per missatge:  --grep",
+        "Per text del codi:  -S"
+      ],
+      "narration": "En un projecte real, l’historial pot tenir centenars de commits. git log accepta filtres que deixen només els que ens interessen."
+    },
+    {
+      "id": "e33_02",
+      "label": "TERMINAL",
+      "title": "git log --oneline --author=\"Pau\"",
+      "mode": "principal",
+      "visual": "Sortida real amb dues línies; nom de l’autoria al costat de cada una.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Primer filtrem per autoria.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Primer filtrem per autoria."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --author=\"Pau\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline --author=\"Pau\"",
+          "highlight": "git log",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "Doble guionet author deixa només els commits d’una persona.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "author"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " deixa només els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " d’una persona."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --author=\"Pau\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --author.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline --author=\"Pau\"",
+          "highlight": "--author",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "És el text que ha d’aparèixer al nom o al correu de l’autoria.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el text que ha d’aparèixer al nom o al correu de l’autoria."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --author=\"Pau\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Pau\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline --author=\"Pau\"",
+          "highlight": "\"Pau\"",
+          "state": 0
+        },
+        {
+          "id": "pas_007",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --author=\"Pau\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log --oneline --author=\"Pau\""
+          ],
+          "command_display": "git log --oneline --author=\"Pau\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_008",
+          "narration": "Només surten els dos commits de les notes, els que va fer en Pau.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Només surten els dos "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de les notes, els que va fer en Pau."
+            }
+          ],
+          "visual": "Sortida real amb dues línies; nom de l’autoria al costat de cada una. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log --oneline --author=\"Pau\"",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "855fb71 Amplia les notes",
+            "045fcf8 Afegeix les notes"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Primer filtrem per autoria. Doble guionet author deixa només els commits d’una persona. És el text que ha d’aparèixer al nom o al correu de l’autoria. Executem l’ordre. Només surten els dos commits de les notes, els que va fer en Pau."
+    },
+    {
+      "id": "e33_03",
+      "label": "TERMINAL",
+      "title": "git log --oneline -- notes.md",
+      "mode": "principal",
+      "visual": "Sortida real; ressaltar notes.md a l’explorador.",
+      "beats": [
+        {
+          "id": "pas_009",
+          "narration": "Ara, els commits que han tocat un fitxer concret.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara, els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que han tocat un fitxer concret."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline -- notes.md. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline -- notes.md",
+          "highlight": "git log",
+          "state": 1
+        },
+        {
+          "id": "pas_010",
+          "narration": "Els dos guionets separen les opcions del nom del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Els dos guionets separen les opcions del nom del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline -- notes.md. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline -- notes.md",
+          "highlight": "--",
+          "state": 1
+        },
+        {
+          "id": "pas_011",
+          "narration": "És el fitxer que ens interessa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el fitxer que ens interessa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline -- notes.md. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: notes.md.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline -- notes.md",
+          "highlight": "notes.md",
+          "state": 1
+        },
+        {
+          "id": "pas_012",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline -- notes.md. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log --oneline -- notes.md"
+          ],
+          "command_display": "git log --oneline -- notes.md",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_013",
+          "narration": "Surten els commits que van canviar les notes, sense els del programa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Surten els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que van canviar les notes, sense els del programa."
+            }
+          ],
+          "visual": "Sortida real; ressaltar notes.md a l’explorador. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log --oneline -- notes.md",
+          "event": "result",
+          "state": 2,
+          "simulated": false,
+          "terminal_output": [
+            "855fb71 Amplia les notes",
+            "045fcf8 Afegeix les notes"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Ara, els commits que han tocat un fitxer concret. Els dos guionets separen les opcions del nom del fitxer. És el fitxer que ens interessa. Executem l’ordre. Surten els commits que van canviar les notes, sense els del programa."
+    },
+    {
+      "id": "e33_04",
+      "label": "TERMINAL",
+      "title": "git log --oneline --grep=\"comiat\"",
+      "mode": "principal",
+      "visual": "Sortida real amb la paraula comiat ressaltada a cada missatge.",
+      "beats": [
+        {
+          "id": "pas_014",
+          "narration": "També podem buscar dins dels missatges.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "També podem buscar dins dels missatges."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --grep=\"comiat\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline --grep=\"comiat\"",
+          "highlight": "git log",
+          "state": 2
+        },
+        {
+          "id": "pas_015",
+          "narration": "Doble guionet grep busca un text als missatges dels commits.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "grep"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " busca un text als missatges dels "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --grep=\"comiat\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --grep.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline --grep=\"comiat\"",
+          "highlight": "--grep",
+          "state": 2
+        },
+        {
+          "id": "pas_016",
+          "narration": "És la paraula que busquem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la paraula que busquem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --grep=\"comiat\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"comiat\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline --grep=\"comiat\"",
+          "highlight": "\"comiat\"",
+          "state": 2
+        },
+        {
+          "id": "pas_017",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline --grep=\"comiat\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log --oneline --grep=\"comiat\""
+          ],
+          "command_display": "git log --oneline --grep=\"comiat\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_018",
+          "narration": "Surten els dos commits que parlen del comiat al missatge.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Surten els dos "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que parlen del comiat al missatge."
+            }
+          ],
+          "visual": "Sortida real amb la paraula comiat ressaltada a cada missatge. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log --oneline --grep=\"comiat\"",
+          "event": "result",
+          "state": 3,
+          "simulated": false,
+          "terminal_output": [
+            "e6140d0 Canvia el comiat",
+            "a47f91c Afegeix el comiat"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "També podem buscar dins dels missatges. Doble guionet grep busca un text als missatges dels commits. És la paraula que busquem. Executem l’ordre. Surten els dos commits que parlen del comiat al missatge."
+    },
+    {
+      "id": "e33_05",
+      "label": "TERMINAL",
+      "title": "git log --oneline -S \"Fins aviat\"",
+      "mode": "principal",
+      "visual": "Sortida real; al costat, el fitxer amb la línia print(\"Fins aviat!\") que apareix a C i desapareix a E.",
+      "beats": [
+        {
+          "id": "pas_019",
+          "narration": "Finalment, busquem quan va aparèixer o desaparèixer un text del codi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Finalment, busquem quan va aparèixer o desaparèixer un text del codi."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline -S \"Fins aviat\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git log.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline -S \"Fins aviat\"",
+          "highlight": "git log",
+          "state": 3
+        },
+        {
+          "id": "pas_020",
+          "narration": "La essa majúscula busca els commits que afegeixen o treuen aquest text dels fitxers, no dels missatges.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La essa majúscula busca els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que afegeixen o treuen aquest text dels fitxers, no dels missatges."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline -S \"Fins aviat\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -S.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline -S \"Fins aviat\"",
+          "highlight": "-S",
+          "state": 3
+        },
+        {
+          "id": "pas_021",
+          "narration": "És el text del programa que busquem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el text del programa que busquem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline -S \"Fins aviat\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Fins aviat\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git log --oneline -S \"Fins aviat\"",
+          "highlight": "\"Fins aviat\"",
+          "state": 3
+        },
+        {
+          "id": "pas_022",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git log --oneline -S \"Fins aviat\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git log --oneline -S \"Fins aviat\""
+          ],
+          "command_display": "git log --oneline -S \"Fins aviat\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_023",
+          "narration": "Surten dos commits, el que va afegir aquest comiat i el que el va canviar per un altre. Així sabem quan va entrar al codi i quan en va sortir.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Surten dos "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", el que va afegir aquest comiat i el que el va canviar per un altre. Així sabem quan va entrar al codi i quan en va sortir."
+            }
+          ],
+          "visual": "Sortida real; al costat, el fitxer amb la línia print(\"Fins aviat!\") que apareix a C i desapareix a E. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git log --oneline -S \"Fins aviat\"",
+          "event": "result",
+          "state": 4,
+          "simulated": false,
+          "terminal_output": [
+            "e6140d0 Canvia el comiat",
+            "a47f91c Afegeix el comiat"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Finalment, busquem quan va aparèixer o desaparèixer un text del codi. La essa majúscula busca els commits que afegeixen o treuen aquest text dels fitxers, no dels missatges. És el text del programa que busquem. Executem l’ordre. Surten dos commits, el que va afegir aquest comiat i el que el va canviar per un altre. Així sabem quan va entrar al codi i quan en va sortir."
+    },
+    {
+      "id": "e33_06",
+      "label": "EXPLICACIÓ",
+      "title": "Combinar filtres",
+      "mode": "principal",
+      "visual": "Ordre de mostra git log --oneline --author=\"Ermessenda\" -- helloGit.py i, a sota, git show amb l’identificador trobat.",
+      "beats": [
+        {
+          "id": "pas_024",
+          "narration": "Els filtres es poden combinar en una mateixa ordre, per exemple autoria i fitxer. Quan hem trobat el commit, git show ens n’explica el contingut.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Els filtres es poden combinar en una mateixa ordre, per exemple autoria i fitxer. Quan hem trobat el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", "
+            },
+            {
+              "lang": "en-US",
+              "text": "git show"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ens n’explica el contingut."
+            }
+          ],
+          "visual": "Ordre de mostra git log --oneline --author=\"Ermessenda\" -- helloGit.py i, a sota, git show amb l’identificador trobat.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 5
+        }
+      ],
+      "screen": [
+        "Exemple:  git log --oneline --author=\"Ermessenda\" -- helloGit.py",
+        "Després:  git show amb l’identificador"
+      ],
+      "narration": "Els filtres es poden combinar en una mateixa ordre, per exemple autoria i fitxer. Quan hem trobat el commit, git show ens n’explica el contingut."
+    },
+    {
+      "id": "e33_07",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_025",
+          "narration": "Doble guionet author i el nom d’un fitxer filtren per persona i per fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "author"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i el nom d’un fitxer filtren per persona i per fitxer."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "--author i el nom d’un fitxer filtren per persona i per fitxer."
+        },
+        {
+          "id": "pas_026",
+          "narration": "Doble guionet grep busca als missatges.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "grep"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " busca als missatges."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "--grep busca als missatges."
+        },
+        {
+          "id": "pas_027",
+          "narration": "La essa majúscula busca quan un text va entrar o sortir del codi.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La essa majúscula busca quan un text va entrar o sortir del codi."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "-S busca quan un text va entrar o sortir del codi."
+        }
+      ],
+      "narration": "Doble guionet author i el nom d’un fitxer filtren per persona i per fitxer. Doble guionet grep busca als missatges. La essa majúscula busca quan un text va entrar o sortir del codi."
+    },
+    {
+      "id": "e33_08",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "En un repositori de pràctiques amb uns quants commits, busca els teus commits, els que han tocat un fitxer i el commit que va afegir una línia concreta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un repositori de pràctiques amb uns quants "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", busca els teus "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", els que han tocat un fitxer i el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que va afegir una línia concreta."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": [],
+          "screen_text": "En un repositori de pràctiques amb uns quants commits, busca els teus commits, els que han tocat un fitxer i el commit que va afegir una línia concreta."
+        }
+      ],
+      "narration": "En un repositori de pràctiques amb uns quants commits, busca els teus commits, els que han tocat un fitxer i el commit que va afegir una línia concreta."
+    }
+  ],
+  "commands": [
+    "git log --oneline --author=\"Pau\"",
+    "git log --oneline -- notes.md",
+    "git log --oneline --grep=\"comiat\"",
+    "git log --oneline -S \"Fins aviat\""
+  ]
+}

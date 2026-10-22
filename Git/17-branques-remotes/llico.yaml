@@ -1,0 +1,126 @@
+titol: "Branques remotes: consultar, seguir i esborrar"
+titol_curt: BRANQUES REMOTES
+capcalera: [BRANQUES REMOTES, "Consultar, seguir i esborrar"]
+presentacio: Branques remotes
+objectiu: veure quines branques hi ha al servidor, treballar en una d’elles i netejar les que ja no calen.
+inici: >-
+  HelloGit clonat, main a A. Una companya ha publicat la branca menu (C) i ha esborrat del servidor la branca
+  prova-antiga, que encara tenim referenciada. També hem publicat una branca nostra, proves, que ja no cal.
+inici_parlat: >-
+  Treballem en equip. Una companya ha publicat una branca nova, i al servidor n’hi ha d’altres que ja no
+  fan falta.
+preparacio:
+  - remot_nu: origin
+  - clona: HelloGit
+    de: origin
+  - cd: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - git: push -q -u origin main
+  - git: branch proves
+  - git: push -q -u origin proves
+  - clona: companya
+    de: origin
+  - cd: companya
+  - git: switch -q -c prova-antiga
+  - fitxer: prova.md
+    contingut: Prova antiga
+  - git: add prova.md
+  - git: commit -q -m "Prova antiga"
+  - git: push -q -u origin prova-antiga
+  - cd: HelloGit
+  - git: fetch -q
+  - cd: companya
+  - git: push -q origin --delete prova-antiga
+  - git: switch -q main
+  - git: switch -q -c menu
+  - fitxer: menu.py
+    contingut: print("1. Saluda  2. Surt")
+  - git: add menu.py
+  - commit: C
+    missatge: Afegeix el menu
+  - git: push -q -u origin menu
+  - cd: HelloGit
+
+etapes:
+  - explica: Branques del servidor, vistes des de casa
+    pantalla:
+      - "Referència local:  origin/main"
+      - "És una còpia de l’última consulta."
+      - "Branques noves o esborrades:  cal tornar a consultar"
+    text: >-
+      Les referències com [[origin/main]] són una còpia local del que hi havia al servidor l’últim cop que
+      el vam consultar. Si al servidor s’hi creen o s’hi esborren branques, no ho sabrem fins que tornem a consultar-lo.
+    visual: Servidor amb main, proves i menu; la nostra còpia encara amb origin/main, origin/proves i origin/prova-antiga.
+
+  - ordre: git branch -vv
+    text: "[[git branch]] amb dues uves mostra les nostres branques amb més detall."
+    parts:
+      - -vv: Les dues uves afegeixen la branca del servidor que segueix cada branca local.
+    resultat: >-
+      Cada branca local indica entre claudàtors quina branca remota segueix. Si estigués endarrerida o
+      avançada, també ho diria.
+    visual: Sortida real; ressaltar [origin/main] i [origin/proves].
+    comprova:
+      sortida: ["[origin/main]", "[origin/proves]"]
+
+  - ordre: git fetch --prune
+    text: Consultem el servidor i netegem les referències velles.
+    parts:
+      - --prune: Esborra les referències locals de les branques que ja no existeixen al servidor.
+    resultat: >-
+      Arriba la branca nova de la companya, i la referència de la branca esborrada desapareix de la nostra
+      còpia.
+    visual: Sortida real; ressaltar la línia de la branca nova i la de la branca esborrada.
+    comprova:
+      refs: {origin/menu: C, origin/prova-antiga: null}
+
+  - ordre: git branch -r
+    text: Llistem les branques del servidor que coneixem.
+    parts:
+      - -r: El guionet erra mostra només les branques remotes.
+    resultat: Hi ha [[main]], la branca nova i la nostra branca de proves.
+    visual: Sortida real amb tres branques remotes.
+    comprova:
+      sortida: [origin/menu, origin/proves]
+
+  - ordre: git switch menu
+    text: Volem treballar a la branca de la companya.
+    parts:
+      - menu: >-
+          És el nom de la branca. Com que només existeix al servidor, [[Git]] en crea una de local que la segueix.
+    resultat: Ja som a la branca, amb els fitxers de la companya, i la nostra branca local queda connectada amb la del servidor.
+    visual: Apareix l’etiqueta local menu al costat d’origin/menu; HEAD s’hi uneix.
+    comprova:
+      head: menu
+      refs: {menu: C}
+      existeix: [menu.py]
+
+  - ordre: git push origin --delete proves
+    text: La nostra branca de proves ja no cal al servidor. L’esborrem amb [[git push]].
+    parts:
+      - --delete: Esborra la branca indicada al servidor.
+      - proves: És la branca que retirem.
+    resultat: La branca desapareix del servidor. La nostra branca local amb el mateix nom encara existeix.
+    visual: L’etiqueta proves desapareix del servidor; la local es manté.
+    comprova:
+      remot: {origin: {proves: null}}
+      refs: {proves: A}
+
+  - ordre: git branch -d proves
+    text: Esborrem també la branca local.
+    resultat: Ara la branca de proves ja no existeix enlloc. Els commits que contenia continuen a [[main]].
+    visual: Desapareix l’etiqueta local proves.
+    comprova:
+      refs: {proves: null}
+
+resum:
+  - "[[git branch]] amb dues uves mostra quina branca remota segueix cada branca local."
+  - "[[git fetch]] amb doble guionet [[prune]] porta les novetats i neteja les referències velles."
+  - "[[git switch]] crea la branca local d’una de remota; [[git push]] amb doble guionet [[delete]] l’esborra del servidor."
+practica: >-
+  Amb dos clons de pràctiques, publica una branca des d’un i esborra’n una altra al servidor. Des de l’altre
+  clon, actualitza amb neteja, canvia a la branca nova i comprova quina branca remota segueix.

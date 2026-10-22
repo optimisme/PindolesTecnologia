@@ -17,7 +17,7 @@ async def prepare_opening(root, config, generate_voice):
     duration = music_duration+voice_duration
     voice_wav = root/'build'/'entrada.wav'
     r.run(['ffmpeg', '-y', '-v', 'error', '-i', audio, '-af',
-           f'adelay=150,apad,atrim=duration={voice_duration},afade=t=in:d=0.01',
+           f'adelay=150:all=1,apad,atrim=duration={voice_duration},afade=t=in:d=0.01',
            '-ar', '48000', '-ac', '2', '-c:a', 'pcm_s16le', voice_wav])
     raw = root/'build'/'sintonia-original.wav'
     music = root/'build'/'sintonia.wav'

@@ -1,0 +1,74 @@
+titol: "Desfer canvis: quina ordre triar"
+titol_curt: DESFER CANVIS
+capcalera: [DESFER CANVIS, Quina ordre triar en cada cas]
+presentacio: Desfer canvis
+tipus: conceptual
+objectiu: triar l’ordre adequada per desfer un canvi segons on és i si ja l’hem compartit.
+inici: >-
+  Lliçó de repàs sense ordres noves. Reuneix restore, stash, amend, reset, reflog i revert en un esquema de decisió.
+inici_parlat: >-
+  Ja coneixem diverses ordres per desfer canvis. En aquesta lliçó les ordenem per saber quan fer servir cadascuna.
+
+etapes:
+  - explica: Dues coses a mirar primer
+    pantalla:
+      - "1. On és el canvi:  treball, preparació o commit"
+      - "2. Si és en un commit:  publicat o no"
+    text: >-
+      Abans de desfer res, mirem on és el canvi, al treball, a la preparació o en un commit. I, si és en un
+      commit, si ja l’hem publicat.
+    visual: Esquema de decisió amb dues preguntes en forma d’etiqueta, ON ÉS EL CANVI i JA ESTÀ PUBLICAT, sense signes d’interrogació.
+
+  - explica: El canvi encara no està confirmat
+    pantalla:
+      - "Descartar una edició:  git restore helloGit.py"
+      - "Desfer la preparació:  git restore --staged helloGit.py"
+      - "Guardar per més tard:  git stash"
+    text:
+      - >-
+        Si només és al treball i no el volem, [[git restore]] amb el nom del fitxer el descarta. No es pot
+        recuperar, perquè mai no l’hem confirmat.
+      - Si està preparat però encara no el volem confirmar, [[git restore]] amb doble guionet [[staged]] desfà la preparació i conserva l’edició.
+      - Si és feina a mitges que volem guardar per més tard, [[git stash]] l’aparca.
+    visual: Branca SENSE CONFIRMAR de l’esquema, amb les tres ordres git restore helloGit.py, git restore --staged helloGit.py i git stash.
+
+  - explica: El canvi és en un commit que no hem publicat
+    pantalla:
+      - "Completar l’últim:  git commit --amend"
+      - "Refer commits locals:  git reset --soft HEAD~1"
+      - "Recuperar-ne un:  git reflog"
+    text:
+      - Si a l’últim commit li falta alguna cosa o té el missatge malament, el completem amb [[git commit]] doble guionet [[amend]].
+      - >-
+        Si volem refer un o més commits locals, [[git reset]] fa tornar la branca enrere. Amb [[soft]] o [[mixed]],
+        els canvis continuen al treball.
+      - Si després d’un [[reset]] trobem a faltar un commit, el [[git reflog]] ens diu on era i una branca nova el recupera.
+    visual: Branca CONFIRMAT, NO PUBLICAT, amb git commit --amend, git reset --soft HEAD~1 i git reflog.
+
+  - explica: El canvi ja està publicat
+    pantalla:
+      - "Desfer amb un commit nou:  git revert"
+      - "I compartir-lo:  git push"
+    text: >-
+      Si altres persones ja poden tenir el commit, no el traiem de l’historial. [[git revert]] crea un commit
+      nou que en desfà l’efecte, i l’enviem amb un [[push]] normal.
+    visual: Branca PUBLICAT, amb git revert i una fletxa cap a git push.
+
+  - explica: La regla que ho resumeix
+    pantalla:
+      - "Reescriuen l’historial:  amend, reset, rebase"
+      - "Afegeix un commit:  revert"
+      - "Feina compartida → revert"
+    text: >-
+      [[Amend]], [[reset]] i [[rebase]] reescriuen l’historial: només els fem servir amb feina pròpia que
+      encara no hem compartit. Per a la feina compartida, desfem amb un commit nou.
+    pausa: 4
+    visual: Taula de dues columnes, REESCRIU L’HISTORIAL · amend, reset, rebase / AFEGEIX UN COMMIT · revert.
+
+resum:
+  - Sense confirmar, [[git restore]]; per guardar-ho per més tard, [[git stash]].
+  - En commits locals, [[amend]] o [[reset]], i el [[reflog]] si cal recuperar-ne un.
+  - En commits publicats, [[git revert]].
+practica: >-
+  Escriu en un paper l’esquema de decisió amb un exemple propi per a cada cas. Després, prova-ne un parell
+  en un repositori de pràctiques.

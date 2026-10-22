@@ -1,0 +1,389 @@
+{
+ "llico": "31-forks-upstream",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de"
+   },
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de"
+   },
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git clone /private/var/folders/b5/wnm055zx64l_xffrqmjg9mh00000gn/T/pindoles-83zifs7j/w/fork.git HelloGit",
+   "sortida": "Cloning into 'HelloGit'...\ndone.\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de"
+   },
+   "estat": {
+    "directori": "~"
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "cd HelloGit",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "1a6c8de",
+    "refs": {
+     "main": "1a6c8de",
+     "origin/main": "1a6c8de"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git remote add upstream /private/var/folders/b5/wnm055zx64l_xffrqmjg9mh00000gn/T/pindoles-83zifs7j/w/original.git",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "1a6c8de",
+    "refs": {
+     "main": "1a6c8de",
+     "origin/main": "1a6c8de"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git remote -v",
+   "sortida": "origin\t~/fork.git (fetch)\norigin\t~/fork.git (push)\nupstream\t~/original.git (fetch)\nupstream\t~/original.git (push)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "1a6c8de",
+    "refs": {
+     "main": "1a6c8de",
+     "origin/main": "1a6c8de"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "27b372d"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "1a6c8de",
+    "refs": {
+     "main": "1a6c8de",
+     "origin/main": "1a6c8de"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": "git fetch upstream",
+   "sortida": "From ~/original\n * [new branch]      main       -> upstream/main\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "27b372d"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "1a6c8de",
+    "refs": {
+     "main": "1a6c8de",
+     "origin/main": "1a6c8de",
+     "upstream/main": "27b372d"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "27b372d",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": "git merge --ff-only upstream/main",
+   "sortida": "Updating 1a6c8de..27b372d\nFast-forward\n README.md | 1 +\n 1 file changed, 1 insertion(+)\n create mode 100644 README.md\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "27b372d"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "27b372d",
+    "refs": {
+     "main": "27b372d",
+     "origin/main": "1a6c8de",
+     "upstream/main": "27b372d"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "27b372d",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 9,
+   "cami": "principal",
+   "ordre": "git push origin main",
+   "sortida": "To ~/fork.git\n   1a6c8de..27b372d  main -> main\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "27b372d"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "27b372d",
+    "refs": {
+     "main": "27b372d",
+     "origin/main": "27b372d",
+     "upstream/main": "27b372d"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "27b372d",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~"
+ },
+ "etiquetes_inici": {
+  "A": "a97b48b",
+  "B": "1a6c8de"
+ }
+}

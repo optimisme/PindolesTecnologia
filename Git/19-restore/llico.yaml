@@ -1,0 +1,102 @@
+titol: "Restore: desmarca o descarta un canvi local"
+titol_curt: RESTORE
+capcalera: [RESTORE, Desmarca o descarta un canvi local]
+presentacio: "[[Restore]]"
+objectiu: desfer la preparació d’un canvi o descartar una edició, sabent d’on es copia cada contingut.
+inici: >-
+  helloGit.py confirmat amb la salutació ORIGINAL (A). Treball i preparació amb la SALUTACIÓ NOVA després
+  d’editar i fer add. Cap altre canvi.
+inici_parlat: >-
+  Hem canviat la salutació i l’hem preparada, però encara no l’hem confirmada. L’últim commit té la
+  salutació original.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hola, Ermessenda!")
+  - git: add helloGit.py
+
+camins:
+  tres-versions:
+    tipus: alternatiu
+    titol: Un altre cas
+    des_de: inici
+    preparacio:
+      - fitxer: helloGit.py
+        contingut: print("Hola, Ermessenda! Benvinguda.")
+
+etapes:
+  - explica: Dues destinacions diferents
+    pantalla:
+      - "Desfer la preparació:  git restore --staged"
+      - "Descartar l’edició:  git restore"
+      - "Primer decidim la zona; després l’ordre."
+    text: >-
+      Podem desfer canvis a la preparació o al treball. Abans d’executar [[git restore]], decidim quina zona
+      volem restaurar i d’on en copiarem el contingut.
+    visual: Tres panells, TREBALL i PREPARACIÓ amb la SALUTACIÓ NOVA, ÚLTIM COMMIT amb l’ORIGINAL.
+
+  - ordre: git restore --staged helloGit.py
+    text: Primer desfem la preparació, però conservem l’edició del fitxer.
+    parts:
+      - --staged: Doble guionet [[staged]] tria la preparació com a destinació. Hi copia el contingut de l’últim commit.
+      - helloGit.py: Només afecta aquest fitxer.
+    resultat: >-
+      La preparació torna a l’original i el treball conserva la salutació nova. Només hem desfet la
+      selecció; l’edició continua al fitxer.
+    visual: Fletxa ÚLTIM COMMIT → PREPARACIÓ. Cap fletxa cap al treball.
+    comprova:
+      status: " M helloGit.py"
+      programa: Hola, Ermessenda!
+
+  - ordre: git diff
+    text: Llegim el canvi que continua al fitxer.
+    resultat: >-
+      La salutació nova encara és al treball. Després de revisar-la, decidim que aquest canvi concret no
+      el volem conservar.
+    visual: Sortida real. Mostrar la decisió DESCARTAR AQUESTA EDICIÓ abans de l’ordre següent.
+
+  - ordre: git restore helloGit.py
+    text: Ara restaurem el fitxer de treball.
+    parts:
+      - helloGit.py: Sense doble guionet [[staged]], la destinació és el treball i el contingut surt de la preparació.
+    resultat: >-
+      El treball torna a l’original, perquè la preparació ja era l’original. L’edició s’ha descartat i no
+      es pot recuperar amb [[Git]], perquè mai no l’havíem confirmada.
+    visual: Fletxa PREPARACIÓ → TREBALL. Retirar la salutació nova sense insinuar que s’ha guardat enlloc.
+    comprova:
+      status: ""
+      programa: Hello Git!
+
+  - explica: Un altre cas, tres versions
+    pantalla:
+      - "Últim commit:  original"
+      - "Preparació:  salutació nova"
+      - "Treball:  salutació amb benvinguda"
+      - "git restore copia de la preparació."
+    cami: tres-versions
+    text: >-
+      En un cas diferent, la preparació té la salutació nova i el treball té una tercera versió, amb una
+      benvinguda. Restaurar el treball hi copia el que hi ha a la preparació, no l’últim commit.
+    visual: Separador UN ALTRE CAS. ÚLTIM COMMIT · original / PREPARACIÓ · salutació nova / TREBALL · amb benvinguda.
+
+  - ordre: git restore helloGit.py
+    cami: tres-versions
+    text: Restaurem el treball en aquest altre cas.
+    resultat: El fitxer recupera la salutació nova, que és la que hi havia a la preparació.
+    visual: Fletxa PREPARACIÓ → TREBALL amb la salutació nova.
+    comprova:
+      status: "M  helloGit.py"
+      programa: Hola, Ermessenda!
+
+resum:
+  - Amb doble guionet [[staged]], desfem la preparació i conservem l’edició.
+  - Sense aquesta opció, restaurem el treball a partir de la preparació.
+  - Abans de descartar una edició, la revisem; un canvi mai confirmat no es pot recuperar.
+practica: >-
+  En un fitxer de pràctiques, prepara una edició i desfés la preparació conservant el fitxer. Revisa-la
+  amb [[git diff]] abans de decidir si la tornes a preparar o la descartes.

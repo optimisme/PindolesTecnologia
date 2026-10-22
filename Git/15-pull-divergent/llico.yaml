@@ -1,0 +1,140 @@
+titol: "Quan pull s’atura: històries divergents"
+titol_curt: PULL DIVERGENT
+capcalera: [QUAN PULL S’ATURA, "Dues còpies que han avançat alhora"]
+presentacio: Quan [[pull]] s’atura
+objectiu: integrar una còpia local i un servidor que han avançat amb commits diferents.
+inici: >-
+  Dues carpetes simulen classe i casa. Totes dues partien d’A. Classe ha publicat B (notes.md). Casa ha fet
+  X (helloGit.py) sense actualitzar abans. Canvis compatibles; sense canvis pendents.
+inici_parlat: >-
+  A casa hem fet un commit sense actualitzar abans. Mentrestant, des de classe s’havia publicat un altre
+  commit. Les dues còpies han avançat per camins diferents.
+carpeta: casa/HelloGit
+preparacio:
+  - remot_nu: origin
+  - clona: classe/HelloGit
+    de: origin
+  - cd: classe/HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - git: push -q -u origin main
+  - clona: casa/HelloGit
+    de: origin
+  - fitxer: notes.md
+    contingut: Notes de classe
+  - git: add notes.md
+  - commit: B
+    missatge: Afegeix les notes de classe
+  - git: push -q
+  - cd: casa/HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hola des de casa!")
+  - git: commit -q -am "Saluda des de casa"
+  - etiqueta: X
+  - git: fetch -q
+
+camins:
+  rebase:
+    tipus: alternatiu
+    titol: L’altra opció
+    des_de: inici
+
+etapes:
+  - explica: Dos camins des del mateix commit
+    pantalla:
+      - "Servidor:  commit de classe"
+      - "Casa:  commit de casa"
+      - "Cap dels dos conté l’altre."
+    text: >-
+      El servidor té el commit de classe i la nostra còpia té el de casa. Tots dos parteixen de la mateixa
+      versió, però cap dels dos conté l’altre.
+    visual: Graf amb A; B a origin/main i X a main, tots dos fills d’A.
+
+  - ordre: git pull --ff-only
+    text: Provem d’actualitzar com sempre.
+    falla: true
+    resultat: L’ordre s’atura sense canviar res, perquè no es pot avançar directament. Cal decidir com unim les dues històries.
+    visual: Sortida real amb l’error ressaltat; el graf no canvia.
+    comprova:
+      sortida: [Not possible to fast-forward]
+      refs: {main: X}
+
+  - explica: Dues maneres d’unir-les
+    pantalla:
+      - "Fusió:  git pull --no-rebase"
+      - "Reaplicar:  git pull --rebase"
+    text: >-
+      Podem fusionar-les, amb un commit de dos pares, com a la lliçó de [[merge]]. O podem tornar a aplicar
+      el nostre commit a continuació del del servidor, en una sola línia. Veurem totes dues.
+    visual: Dos grafs, FUSIÓ amb M i dos pares / REAPLICAR amb X′ després de B.
+
+  - ordre: git pull --no-rebase
+    text: Primer, la fusió.
+    parts:
+      - --no-rebase: Descarrega i integra amb una fusió, sense tornar a aplicar els nostres commits.
+    editor: Merge branch 'main' of origin
+    crea: M
+    resultat: >-
+      S’obre l’editor amb un missatge proposat; el desem i el tanquem. Es crea un commit de fusió que uneix
+      el commit de casa i el de classe.
+    visual: Pestanya de l’editor; en tancar-la, apareix M connectat a X i a B.
+    comprova:
+      pares: {M: [X, B]}
+      existeix: [notes.md]
+      programa: Hola des de casa!
+
+  - plantilla: push
+    resultat: Ara el servidor té els dos commits i la fusió. Classe ja es podrà actualitzar amb un avançament directe.
+    comprova:
+      remot: {origin: {main: M}}
+
+  - explica: L’altra opció, reaplicar
+    pantalla:
+      - "Tornem al moment de l’error."
+      - "El commit de casa anirà després del de classe."
+    cami: rebase
+    text: >-
+      Tornem al moment de l’error. En lloc de fusionar, podem tornar a aplicar el commit de casa a continuació
+      del de classe.
+    visual: Separador L’ALTRA OPCIÓ. Graf inicial amb B i X.
+
+  - ordre: git pull --rebase
+    cami: rebase
+    text: Actualitzem tornant a aplicar els nostres commits.
+    parts:
+      - --rebase: Descarrega les novetats i torna a aplicar a sobre els commits locals que encara no hem publicat.
+    crea: X′
+    resultat: >-
+      El commit de casa es torna a crear després del de classe, amb un identificador nou. La història queda
+      en una sola línia, sense commit de fusió.
+    visual: X atenuat; X′ nou després de B.
+    comprova:
+      pares: {X′: [B]}
+      existeix: [notes.md]
+
+  - plantilla: push
+    cami: rebase
+    resultat: El servidor rep el commit tornat a aplicar.
+    comprova:
+      remot: {origin: {main: X′}}
+
+  - ordre: git config --global pull.rebase false
+    text: Podem deixar triada l’opció per defecte.
+    parts:
+      - pull.rebase: Aquesta clau indica què fa [[pull]] quan les històries divergeixen.
+      - "false": Fals vol dir fusionar. Amb true, tornaria a aplicar els commits locals.
+    resultat: >-
+      Si no ho configurem, les versions recents de [[Git]] s’aturen i ens demanen que triem. Si teniu dubtes,
+      la fusió és l’opció més segura; si hi ha conflictes, es resolen com a la lliçó de conflictes.
+    visual: Línia rebase = false a la secció pull de la configuració global.
+
+resum:
+  - Si les dues còpies han avançat, doble guionet [[ff-only]] s’atura sense canviar res.
+  - Doble guionet [[no-rebase]] uneix les històries amb un commit de fusió.
+  - Doble guionet [[rebase]] torna a aplicar els commits locals que encara no hem publicat.
+practica: >-
+  Amb dos clons de pràctiques, fes un commit a cadascun sense actualitzar. Uneix les històries una vegada
+  amb fusió i, en una altra prova, tornant a aplicar els commits.

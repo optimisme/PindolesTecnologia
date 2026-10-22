@@ -1,0 +1,115 @@
+titol: "Finals de línia: Windows, macOS i Linux"
+titol_curt: FINALS DE LÍNIA
+capcalera: [FINALS DE LÍNIA, "Windows, macOS i Linux al mateix projecte"]
+presentacio: Finals de línia
+objectiu: evitar que un projecte compartit entre Windows, macOS i Linux sembli canviat a totes les línies.
+inici: >-
+  HelloGit a main amb helloGit.py confirmat amb finals de línia LF (A). Sense .gitattributes. La demostració
+  simula un editor de Windows que desa el fitxer amb CRLF.
+inici_parlat: >-
+  Un mateix projecte es fa servir en ordinadors amb Windows i amb macOS. El programa ja està confirmat
+  i no hi ha canvis pendents.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: |-
+      print("Hello Git!")
+      print("Fins aviat!")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix salutacio i comiat
+
+etapes:
+  - explica: Dos caràcters invisibles
+    pantalla:
+      - "Windows:  CRLF  (\\r\\n)"
+      - "macOS i Linux:  LF  (\\n)"
+      - "El text és igual; el final de línia, no."
+    text: >-
+      Cada línia d’un fitxer de text acaba amb un caràcter invisible. A Windows sovint en són dos, retorn de
+      carro i salt de línia; a macOS i Linux, només el salt de línia.
+    visual: El mateix fitxer amb els finals visibles, CRLF a la versió de Windows i LF a la de macOS i Linux.
+
+  - explica: Un editor que desa amb un altre final
+    pantalla:
+      - "Editor a Windows:  desa amb CRLF"
+      - "Cap paraula canviada"
+      - "Git veu totes les línies diferents."
+    text: >-
+      Una companya obre el fitxer a Windows, no canvia cap paraula i el desa. El seu editor ha posat els
+      finals de línia de Windows.
+    visual: Editor amb l’indicador CRLF a la barra inferior; el text és idèntic.
+    accions:
+      - fitxer: helloGit.py
+        contingut: "print(\"Hello Git!\")\r\nprint(\"Fins aviat!\")\r\n"
+
+  - plantilla: status-breu
+    resultat: El fitxer surt modificat, encara que el text que veiem és exactament el mateix.
+    comprova: {status: " M helloGit.py"}
+
+  - ordre: git diff
+    text: Mirem què hi ha canviat.
+    resultat: >-
+      Totes les línies surten esborrades i tornades a afegir. En un projecte real, això amaga els canvis
+      de veritat i provoca conflictes sense sentit.
+    visual: Sortida real amb totes les línies en vermell i en verd; ressaltar el final invisible que ha canviat.
+
+  - explica: Una regla per a tot el projecte
+    pantalla:
+      - "Fitxer:  .gitattributes"
+      - "Regla:  * text=auto"
+      - "A l’historial:  sempre LF"
+      - "A cada ordinador:  el final propi"
+    text:
+      - >-
+        Creem el fitxer punt [[gitattributes]] a l’arrel del projecte amb la línia que veus. Indica a [[Git]] que
+        detecti els fitxers de text i en guardi sempre els finals de macOS i Linux a l’historial.
+      - >-
+        En treure els fitxers a cada ordinador, [[Git]] pot fer servir els finals propis del sistema. Com
+        el punt [[gitignore]], aquest fitxer es confirma perquè tothom faci servir la mateixa regla.
+    visual: Editor .gitattributes amb la línia literal * text=auto. Ressaltar l’asterisc i després text=auto.
+    accions:
+      - fitxer: .gitattributes
+        contingut: "* text=auto"
+
+  - ordre: git add --renormalize .
+    text: Apliquem la regla als fitxers que ja seguíem.
+    parts:
+      - --renormalize: Torna a preparar els fitxers seguits aplicant-hi les regles de finals de línia.
+      - .: El punt vol dir tota la carpeta del projecte.
+    resultat: >-
+      El programa ja no surt modificat: un cop normalitzat, el seu contingut és el mateix que hi havia a
+      l’historial. Només queda preparat el fitxer de regles.
+    visual: helloGit.py deixa de sortir com a modificat; .gitattributes apareix a PREPARACIÓ.
+    comprova:
+      status: "?? .gitattributes"
+
+  - plantilla: add-breu
+    fitxer: .gitattributes
+    resultat: El fitxer de regles queda preparat.
+    comprova: {status: "A  .gitattributes"}
+
+  - plantilla: commit-breu
+    missatge: Normalitza els finals de linia
+    crea: B
+    resultat: La regla ja forma part del projecte. A partir d’ara, cada ordinador treballa amb els seus finals sense canviar l’historial.
+    comprova: {status: ""}
+
+  - explica: A Windows, també la configuració global
+    pantalla:
+      - "Només a Windows:  git config --global core.autocrlf true"
+      - "Si hi ha .gitattributes, mana la regla del projecte."
+    text: >-
+      Als ordinadors amb Windows, a més, és habitual activar [[core.autocrlf]] amb [[git config]]. Si el
+      projecte ja té la regla, la regla té prioritat i el resultat és el mateix per a tothom.
+    visual: >-
+      Terminal de Windows amb git config --global core.autocrlf true, marcada NOMÉS A WINDOWS. Al costat,
+      .gitattributes marcat PRIORITAT DEL PROJECTE.
+
+resum:
+  - Windows i els altres sistemes acaben les línies de manera diferent.
+  - Punt [[gitattributes]] amb asterisc [[text=auto]] guarda finals uniformes a l’historial.
+  - El fitxer de regles es confirma perquè s’apliqui a tots els ordinadors.
+practica: >-
+  En un repositori de pràctiques, afegeix el fitxer de regles de finals de línia, aplica’l als fitxers que
+  ja segueixes i confirma’l. Comprova que l’estat queda net.

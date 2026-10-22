@@ -1,8 +1,8 @@
 {
  "llico": "04-tres-estats",
  "autoria": [
-  "Anna Puig",
-  "anna@example.com"
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
  ],
  "etapes": [
   {
@@ -13,7 +13,7 @@
    "codi": 0,
    "simulat": false,
    "etiquetes": {
-    "A": "94077cd"
+    "A": "ca578cb"
    },
    "estat": {
     "directori": "~/HelloGit",
@@ -21,13 +21,13 @@
     "fitxers": {
      "helloGit.py": "print(\"Hello Git!\")\n"
     },
-    "head_commit": "94077cd",
+    "head_commit": "ca578cb",
     "refs": {
-     "main": "94077cd"
+     "main": "ca578cb"
     },
     "commits": [
      {
-      "id": "94077cd",
+      "id": "ca578cb",
       "lletra": "A",
       "pares": [],
       "missatge": "Afegeix la salutacio inicial"
@@ -45,21 +45,21 @@
    "codi": 0,
    "simulat": false,
    "etiquetes": {
-    "A": "94077cd"
+    "A": "ca578cb"
    },
    "estat": {
     "directori": "~/HelloGit",
     "head": "main",
     "fitxers": {
-     "helloGit.py": "print(\"Hola, Anna!\")\n"
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
     },
-    "head_commit": "94077cd",
+    "head_commit": "ca578cb",
     "refs": {
-     "main": "94077cd"
+     "main": "ca578cb"
     },
     "commits": [
      {
-      "id": "94077cd",
+      "id": "ca578cb",
       "lletra": "A",
       "pares": [],
       "missatge": "Afegeix la salutacio inicial"
@@ -75,25 +75,25 @@
    "index": 2,
    "cami": "principal",
    "ordre": "git diff",
-   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 52662af..55b21a2 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1 @@\n-print(\"Hello Git!\")\n+print(\"Hola, Anna!\")\n",
+   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 52662af..9dfb79d 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1 @@\n-print(\"Hello Git!\")\n+print(\"Hola, Ermessenda!\")\n",
    "codi": 0,
    "simulat": false,
    "etiquetes": {
-    "A": "94077cd"
+    "A": "ca578cb"
    },
    "estat": {
     "directori": "~/HelloGit",
     "head": "main",
     "fitxers": {
-     "helloGit.py": "print(\"Hola, Anna!\")\n"
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
     },
-    "head_commit": "94077cd",
+    "head_commit": "ca578cb",
     "refs": {
-     "main": "94077cd"
+     "main": "ca578cb"
     },
     "commits": [
      {
-      "id": "94077cd",
+      "id": "ca578cb",
       "lletra": "A",
       "pares": [],
       "missatge": "Afegeix la salutacio inicial"
@@ -113,21 +113,21 @@
    "codi": 0,
    "simulat": false,
    "etiquetes": {
-    "A": "94077cd"
+    "A": "ca578cb"
    },
    "estat": {
     "directori": "~/HelloGit",
     "head": "main",
     "fitxers": {
-     "helloGit.py": "print(\"Hola, Anna!\")\n"
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
     },
-    "head_commit": "94077cd",
+    "head_commit": "ca578cb",
     "refs": {
-     "main": "94077cd"
+     "main": "ca578cb"
     },
     "commits": [
      {
-      "id": "94077cd",
+      "id": "ca578cb",
       "lletra": "A",
       "pares": [],
       "missatge": "Afegeix la salutacio inicial"
@@ -143,25 +143,25 @@
    "index": 4,
    "cami": "principal",
    "ordre": "git diff --staged",
-   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 52662af..55b21a2 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1 @@\n-print(\"Hello Git!\")\n+print(\"Hola, Anna!\")\n",
+   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 52662af..9dfb79d 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1 @@\n-print(\"Hello Git!\")\n+print(\"Hola, Ermessenda!\")\n",
    "codi": 0,
    "simulat": false,
    "etiquetes": {
-    "A": "94077cd"
+    "A": "ca578cb"
    },
    "estat": {
     "directori": "~/HelloGit",
     "head": "main",
     "fitxers": {
-     "helloGit.py": "print(\"Hola, Anna!\")\n"
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n"
     },
-    "head_commit": "94077cd",
+    "head_commit": "ca578cb",
     "refs": {
-     "main": "94077cd"
+     "main": "ca578cb"
     },
     "commits": [
      {
-      "id": "94077cd",
+      "id": "ca578cb",
       "lletra": "A",
       "pares": [],
       "missatge": "Afegeix la salutacio inicial"
@@ -181,21 +181,21 @@
    "codi": 0,
    "simulat": false,
    "etiquetes": {
-    "A": "94077cd"
+    "A": "ca578cb"
    },
    "estat": {
     "directori": "~/HelloGit",
     "head": "main",
     "fitxers": {
-     "helloGit.py": "print(\"Hola, Anna!\")\nprint(\"Fins aviat!\")\n"
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\nprint(\"Fins aviat!\")\n"
     },
-    "head_commit": "94077cd",
+    "head_commit": "ca578cb",
     "refs": {
-     "main": "94077cd"
+     "main": "ca578cb"
     },
     "commits": [
      {
-      "id": "94077cd",
+      "id": "ca578cb",
       "lletra": "A",
       "pares": [],
       "missatge": "Afegeix la salutacio inicial"
@@ -215,21 +215,21 @@
    "codi": 0,
    "simulat": false,
    "etiquetes": {
-    "A": "94077cd"
+    "A": "ca578cb"
    },
    "estat": {
     "directori": "~/HelloGit",
     "head": "main",
     "fitxers": {
-     "helloGit.py": "print(\"Hola, Anna!\")\nprint(\"Fins aviat!\")\n"
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\nprint(\"Fins aviat!\")\n"
     },
-    "head_commit": "94077cd",
+    "head_commit": "ca578cb",
     "refs": {
-     "main": "94077cd"
+     "main": "ca578cb"
     },
     "commits": [
      {
-      "id": "94077cd",
+      "id": "ca578cb",
       "lletra": "A",
       "pares": [],
       "missatge": "Afegeix la salutacio inicial"
@@ -245,25 +245,25 @@
    "index": 7,
    "cami": "principal",
    "ordre": "git diff",
-   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 55b21a2..56f43b6 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1,2 @@\n print(\"Hola, Anna!\")\n+print(\"Fins aviat!\")\n",
+   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 9dfb79d..9cc815c 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1,2 @@\n print(\"Hola, Ermessenda!\")\n+print(\"Fins aviat!\")\n",
    "codi": 0,
    "simulat": false,
    "etiquetes": {
-    "A": "94077cd"
+    "A": "ca578cb"
    },
    "estat": {
     "directori": "~/HelloGit",
     "head": "main",
     "fitxers": {
-     "helloGit.py": "print(\"Hola, Anna!\")\nprint(\"Fins aviat!\")\n"
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\nprint(\"Fins aviat!\")\n"
     },
-    "head_commit": "94077cd",
+    "head_commit": "ca578cb",
     "refs": {
-     "main": "94077cd"
+     "main": "ca578cb"
     },
     "commits": [
      {
-      "id": "94077cd",
+      "id": "ca578cb",
       "lletra": "A",
       "pares": [],
       "missatge": "Afegeix la salutacio inicial"
@@ -279,35 +279,35 @@
    "index": 8,
    "cami": "principal",
    "ordre": "git commit -m \"Canvia la salutacio\"",
-   "sortida": "[main 6e2e114] Canvia la salutacio\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+   "sortida": "[main 7556926] Canvia la salutacio\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
    "codi": 0,
    "simulat": false,
    "etiquetes": {
-    "A": "94077cd",
-    "B": "6e2e114"
+    "A": "ca578cb",
+    "B": "7556926"
    },
    "estat": {
     "directori": "~/HelloGit",
     "head": "main",
     "fitxers": {
-     "helloGit.py": "print(\"Hola, Anna!\")\nprint(\"Fins aviat!\")\n"
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\nprint(\"Fins aviat!\")\n"
     },
-    "head_commit": "6e2e114",
+    "head_commit": "7556926",
     "refs": {
-     "main": "6e2e114"
+     "main": "7556926"
     },
     "commits": [
      {
-      "id": "94077cd",
+      "id": "ca578cb",
       "lletra": "A",
       "pares": [],
       "missatge": "Afegeix la salutacio inicial"
      },
      {
-      "id": "6e2e114",
+      "id": "7556926",
       "lletra": "B",
       "pares": [
-       "94077cd"
+       "ca578cb"
       ],
       "missatge": "Canvia la salutacio"
      }
@@ -326,31 +326,31 @@
    "codi": 0,
    "simulat": false,
    "etiquetes": {
-    "A": "94077cd",
-    "B": "6e2e114"
+    "A": "ca578cb",
+    "B": "7556926"
    },
    "estat": {
     "directori": "~/HelloGit",
     "head": "main",
     "fitxers": {
-     "helloGit.py": "print(\"Hola, Anna!\")\nprint(\"Fins aviat!\")\n"
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\nprint(\"Fins aviat!\")\n"
     },
-    "head_commit": "6e2e114",
+    "head_commit": "7556926",
     "refs": {
-     "main": "6e2e114"
+     "main": "7556926"
     },
     "commits": [
      {
-      "id": "94077cd",
+      "id": "ca578cb",
       "lletra": "A",
       "pares": [],
       "missatge": "Afegeix la salutacio inicial"
      },
      {
-      "id": "6e2e114",
+      "id": "7556926",
       "lletra": "B",
       "pares": [
-       "94077cd"
+       "ca578cb"
       ],
       "missatge": "Canvia la salutacio"
      }
@@ -365,44 +365,44 @@
    "index": 10,
    "cami": "principal",
    "ordre": "git commit -m \"Afegeix un comiat\"",
-   "sortida": "[main 1dbce39] Afegeix un comiat\n 1 file changed, 1 insertion(+)\n",
+   "sortida": "[main 59f998f] Afegeix un comiat\n 1 file changed, 1 insertion(+)\n",
    "codi": 0,
    "simulat": false,
    "etiquetes": {
-    "A": "94077cd",
-    "B": "6e2e114",
-    "C": "1dbce39"
+    "A": "ca578cb",
+    "B": "7556926",
+    "C": "59f998f"
    },
    "estat": {
     "directori": "~/HelloGit",
     "head": "main",
     "fitxers": {
-     "helloGit.py": "print(\"Hola, Anna!\")\nprint(\"Fins aviat!\")\n"
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\nprint(\"Fins aviat!\")\n"
     },
-    "head_commit": "1dbce39",
+    "head_commit": "59f998f",
     "refs": {
-     "main": "1dbce39"
+     "main": "59f998f"
     },
     "commits": [
      {
-      "id": "94077cd",
+      "id": "ca578cb",
       "lletra": "A",
       "pares": [],
       "missatge": "Afegeix la salutacio inicial"
      },
      {
-      "id": "6e2e114",
+      "id": "7556926",
       "lletra": "B",
       "pares": [
-       "94077cd"
+       "ca578cb"
       ],
       "missatge": "Canvia la salutacio"
      },
      {
-      "id": "1dbce39",
+      "id": "59f998f",
       "lletra": "C",
       "pares": [
-       "6e2e114"
+       "7556926"
       ],
       "missatge": "Afegeix un comiat"
      }
@@ -419,13 +419,13 @@
   "fitxers": {
    "helloGit.py": "print(\"Hello Git!\")\n"
   },
-  "head_commit": "94077cd",
+  "head_commit": "ca578cb",
   "refs": {
-   "main": "94077cd"
+   "main": "ca578cb"
   },
   "commits": [
    {
-    "id": "94077cd",
+    "id": "ca578cb",
     "lletra": "A",
     "pares": [],
     "missatge": "Afegeix la salutacio inicial"
@@ -435,6 +435,6 @@
   "stash": 0
  },
  "etiquetes_inici": {
-  "A": "94077cd"
+  "A": "ca578cb"
  }
 }

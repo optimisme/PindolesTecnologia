@@ -26,8 +26,24 @@ Ordres que surten al vídeo:
 Practica-ho: Edita, prepara i torna a editar el mateix fitxer. Compara les dues ordres diff abans de confirmar per saber exactament què entrarà al commit.
 Script per preparar el mateix punt de partida: Git/practiques/04-tres-estats.sh
 
+Capítols:
+0:00 Capçalera i presentació
+0:26 Tres zones del mateix projecte
+0:42 Editem el treball
+0:56 $ git diff
+1:17 $ git add helloGit.py
+1:49 $ git diff --staged
+2:17 Desem una altra edició
+2:30 $ git status --short
+3:12 $ git diff
+3:31 $ git commit -m "Canvia la salutacio"
+4:14 $ git add helloGit.py
+4:30 $ git commit -m "Afegeix un comiat"
+4:55 Resum final
+5:16 Pràctica final
+
 Lliçó anterior: 03 · El primer commit: preparar, confirmar i publicar
-Lliçó següent: 05 · Llegir l’historial: log, show i diff
+Lliçó següent: 05 · Esborrar i reanomenar fitxers
 
 Llista: Píndoles de Git. Subtítols en català inclosos.
 ```
@@ -38,5 +54,3 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Vídeo:** `Git/output/04-tres-estats.mp4`  
 **Subtítols:** `04-tres-estats/output/04-tres-estats.ca.srt`  
 **Miniatura:** `04-tres-estats/output/portada.png`
-
-> Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

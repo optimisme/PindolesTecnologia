@@ -1,0 +1,358 @@
+{
+ "llico": "09-finals-linia",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "0bd7eee"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "0bd7eee",
+    "refs": {
+     "main": "0bd7eee"
+    },
+    "commits": [
+     {
+      "id": "0bd7eee",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "0bd7eee"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "0bd7eee",
+    "refs": {
+     "main": "0bd7eee"
+    },
+    "commits": [
+     {
+      "id": "0bd7eee",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git status --short",
+   "sortida": " M helloGit.py\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "0bd7eee"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "0bd7eee",
+    "refs": {
+     "main": "0bd7eee"
+    },
+    "commits": [
+     {
+      "id": "0bd7eee",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git diff",
+   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 097ee02..cc8a4bb 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1,2 +1,2 @@\n-print(\"Hello Git!\")\n-print(\"Fins aviat!\")\n+print(\"Hello Git!\")\n+print(\"Fins aviat!\")\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "0bd7eee"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "0bd7eee",
+    "refs": {
+     "main": "0bd7eee"
+    },
+    "commits": [
+     {
+      "id": "0bd7eee",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "0bd7eee"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitattributes": "* text=auto\n",
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "0bd7eee",
+    "refs": {
+     "main": "0bd7eee"
+    },
+    "commits": [
+     {
+      "id": "0bd7eee",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     " M helloGit.py",
+     "?? .gitattributes"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git add --renormalize .",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "0bd7eee"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitattributes": "* text=auto\n",
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "0bd7eee",
+    "refs": {
+     "main": "0bd7eee"
+    },
+    "commits": [
+     {
+      "id": "0bd7eee",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     "?? .gitattributes"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git add .gitattributes",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "0bd7eee"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitattributes": "* text=auto\n",
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "0bd7eee",
+    "refs": {
+     "main": "0bd7eee"
+    },
+    "commits": [
+     {
+      "id": "0bd7eee",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     "A  .gitattributes"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": "git commit -m \"Normalitza els finals de linia\"",
+   "sortida": "[main 4adeea8] Normalitza els finals de linia\n 1 file changed, 1 insertion(+)\n create mode 100644 .gitattributes\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "0bd7eee",
+    "B": "4adeea8"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitattributes": "* text=auto\n",
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "4adeea8",
+    "refs": {
+     "main": "4adeea8"
+    },
+    "commits": [
+     {
+      "id": "0bd7eee",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     },
+     {
+      "id": "4adeea8",
+      "lletra": "B",
+      "pares": [
+       "0bd7eee"
+      ],
+      "missatge": "Normalitza els finals de linia"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "0bd7eee",
+    "B": "4adeea8"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     ".gitattributes": "* text=auto\n",
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "4adeea8",
+    "refs": {
+     "main": "4adeea8"
+    },
+    "commits": [
+     {
+      "id": "0bd7eee",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     },
+     {
+      "id": "4adeea8",
+      "lletra": "B",
+      "pares": [
+       "0bd7eee"
+      ],
+      "missatge": "Normalitza els finals de linia"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "helloGit.py": "print(\"Hello Git!\")\nprint(\"Fins aviat!\")\n"
+  },
+  "head_commit": "0bd7eee",
+  "refs": {
+   "main": "0bd7eee"
+  },
+  "commits": [
+   {
+    "id": "0bd7eee",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix salutacio i comiat"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "0bd7eee"
+ }
+}

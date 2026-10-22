@@ -1,0 +1,378 @@
+{
+ "llico": "13-clone",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6"
+   },
+   "estat": {
+    "directori": "~/classe/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "afc44d6",
+    "refs": {
+     "main": "afc44d6",
+     "origin/main": "afc44d6"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6"
+   },
+   "estat": {
+    "directori": "~/classe/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de classe!\")\n"
+    },
+    "head_commit": "afc44d6",
+    "refs": {
+     "main": "afc44d6",
+     "origin/main": "afc44d6"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git add helloGit.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6"
+   },
+   "estat": {
+    "directori": "~/classe/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de classe!\")\n"
+    },
+    "head_commit": "afc44d6",
+    "refs": {
+     "main": "afc44d6",
+     "origin/main": "afc44d6"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     }
+    ],
+    "status": [
+     "M  helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git commit -m \"Practica de classe\"",
+   "sortida": "[main 5bc8001] Practica de classe\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "B": "5bc8001"
+   },
+   "estat": {
+    "directori": "~/classe/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de classe!\")\n"
+    },
+    "head_commit": "5bc8001",
+    "refs": {
+     "main": "5bc8001",
+     "origin/main": "afc44d6"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "5bc8001",
+      "lletra": "B",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Practica de classe"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git push",
+   "sortida": "To ~/origin.git\n   afc44d6..5bc8001  main -> main\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "B": "5bc8001"
+   },
+   "estat": {
+    "directori": "~/classe/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de classe!\")\n"
+    },
+    "head_commit": "5bc8001",
+    "refs": {
+     "main": "5bc8001",
+     "origin/main": "5bc8001"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "5bc8001",
+      "lletra": "B",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Practica de classe"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "B": "5bc8001"
+   },
+   "estat": {
+    "directori": "~/casa"
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git clone /private/var/folders/b5/wnm055zx64l_xffrqmjg9mh00000gn/T/pindoles-tw9ch2kt/w/origin.git HelloGit",
+   "sortida": "Cloning into 'HelloGit'...\ndone.\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "B": "5bc8001"
+   },
+   "estat": {
+    "directori": "~/casa"
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": "cd HelloGit",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "B": "5bc8001"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de classe!\")\n"
+    },
+    "head_commit": "5bc8001",
+    "refs": {
+     "main": "5bc8001",
+     "origin/main": "5bc8001"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "5bc8001",
+      "lletra": "B",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Practica de classe"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": "git log --oneline",
+   "sortida": "5bc8001 Practica de classe\nafc44d6 Afegeix la salutacio inicial\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "B": "5bc8001"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de classe!\")\n"
+    },
+    "head_commit": "5bc8001",
+    "refs": {
+     "main": "5bc8001",
+     "origin/main": "5bc8001"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "5bc8001",
+      "lletra": "B",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Practica de classe"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 9,
+   "cami": "principal",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Hola des de classe!\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "afc44d6",
+    "B": "5bc8001"
+   },
+   "estat": {
+    "directori": "~/casa/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola des de classe!\")\n"
+    },
+    "head_commit": "5bc8001",
+    "refs": {
+     "main": "5bc8001",
+     "origin/main": "5bc8001"
+    },
+    "commits": [
+     {
+      "id": "afc44d6",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "5bc8001",
+      "lletra": "B",
+      "pares": [
+       "afc44d6"
+      ],
+      "missatge": "Practica de classe"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/classe/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "helloGit.py": "print(\"Hello Git!\")\n"
+  },
+  "head_commit": "afc44d6",
+  "refs": {
+   "main": "afc44d6",
+   "origin/main": "afc44d6"
+  },
+  "commits": [
+   {
+    "id": "afc44d6",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "afc44d6"
+ }
+}

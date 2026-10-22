@@ -1,0 +1,857 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 12,
+  "slug": "12-conflictes",
+  "title": "Conflictes: dues edicions, una decisió",
+  "short_title": "CONFLICTES",
+  "card": [
+    "CONFLICTES",
+    "Dues edicions, una decisió"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "12-conflictes.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Dotzena lliçó. Conflictes.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Dotzena lliçó. Conflictes."
+      }
+    ]
+  },
+  "objective": "llegir un conflicte de fusió, decidir el resultat i confirmar la resolució.",
+  "start_note": "main activa i sense canvis pendents. Des de B, main (D) i salutacio (C) han canviat la mateixa línia, amb print(\"Hola, classe!\") i print(\"Hola, Ermessenda!\") respectivament.",
+  "start_spoken": "Som a main. Des d’una mateixa versió, main i la branca salutació han canviat la mateixa línia de manera diferent.",
+  "summary": [
+    "Un conflicte vol dir que cal una decisió sobre el contingut.",
+    "Editem, provem i preparem la resolució abans de confirmar-la.",
+    "El commit acaba la fusió; avortar és l’alternativa abans d’acabar-la."
+  ],
+  "practice": "Crea dues salutacions incompatibles en dues branques d’un repositori de pràctiques. Resol el conflicte amb una tercera salutació, prova el programa i completa la fusió.",
+  "practice_script": "practiques/12-conflictes.sh",
+  "scenes": [
+    {
+      "id": "e12_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a llegir un conflicte de fusió, decidir el resultat i confirmar la resolució.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a llegir un conflicte de fusió, decidir el resultat i confirmar la resolució."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Llegir un conflicte de fusió, decidir el resultat i confirmar la resolució."
+        },
+        {
+          "id": "pas_002",
+          "narration": "Som a main. Des d’una mateixa versió, main i la branca salutació han canviat la mateixa línia de manera diferent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Som a "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Des d’una mateixa versió, "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i la branca salutació han canviat la mateixa línia de manera diferent."
+            }
+          ],
+          "visual": "Punt de partida: main activa i sense canvis pendents. Des de B, main (D) i salutacio (C) han canviat la mateixa línia, amb print(\"Hola, classe!\") i print(\"Hola, Ermessenda!\") respectivament.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1,
+          "screen_text": "Som a main. Des d’una mateixa versió, main i la branca salutació han canviat la mateixa línia de manera diferent."
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a llegir un conflicte de fusió, decidir el resultat i confirmar la resolució. Som a main. Des d’una mateixa versió, main i la branca salutació han canviat la mateixa línia de manera diferent."
+    },
+    {
+      "id": "e12_01",
+      "label": "EXPLICACIÓ",
+      "title": "Dues propostes incompatibles",
+      "mode": "principal",
+      "visual": "Les dues línies, una sota l’altra, amb el nom de la branca de cada una.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Les dues branques han canviat la mateixa línia de manera diferent. Git no pot triar per nosaltres: necessita una decisió sobre el contingut.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les dues branques han canviat la mateixa línia de manera diferent. "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " no pot triar per nosaltres: necessita una decisió sobre el contingut."
+            }
+          ],
+          "visual": "Les dues línies, una sota l’altra, amb el nom de la branca de cada una.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "screen": [
+        "main:  print(\"Hola, classe!\")",
+        "salutacio:  print(\"Hola, Ermessenda!\")",
+        "Mateixa línia → cal decidir."
+      ],
+      "narration": "Les dues branques han canviat la mateixa línia de manera diferent. Git no pot triar per nosaltres: necessita una decisió sobre el contingut."
+    },
+    {
+      "id": "e12_02",
+      "label": "TERMINAL",
+      "title": "git merge salutacio",
+      "mode": "principal",
+      "visual": "Sortida real amb la paraula CONFLICT ressaltada; el graf no té cap node nou.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Intentem integrar salutació a la branca activa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Intentem integrar salutació a la branca activa."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git merge.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge salutacio",
+          "highlight": "git merge",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "És la branca que entra. La destinació continua sent main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És la branca que entra. La destinació continua sent "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: salutacio.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge salutacio",
+          "highlight": "salutacio",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge salutacio. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git merge salutacio"
+          ],
+          "command_display": "git merge salutacio",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_007",
+          "narration": "La fusió s’atura i avisa d’un conflicte. Encara no s’ha creat el commit que uneix les dues històries.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La fusió s’atura i avisa d’un conflicte. Encara no s’ha creat el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que uneix les dues històries."
+            }
+          ],
+          "visual": "Sortida real amb la paraula CONFLICT ressaltada; el graf no té cap node nou. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git merge salutacio",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "Auto-merging helloGit.py",
+            "CONFLICT (content): Merge conflict in helloGit.py",
+            "Automatic merge failed; fix conflicts and then commit the result."
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Intentem integrar salutació a la branca activa. És la branca que entra. La destinació continua sent main. Executem l’ordre. La fusió s’atura i avisa d’un conflicte. Encara no s’ha creat el commit que uneix les dues històries."
+    },
+    {
+      "id": "e12_03",
+      "label": "TERMINAL",
+      "title": "git status --short",
+      "mode": "principal",
+      "visual": "Sortida literal amb la llegenda de les dues columnes.",
+      "beats": [
+        {
+          "id": "pas_008",
+          "narration": "Consultem l’estat breu amb git status.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat breu amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status",
+          "state": 1
+        },
+        {
+          "id": "pas_009",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_010",
+          "narration": "Dues us majúscules indiquen un fitxer amb un conflicte sense resoldre. Mirem-ne el contingut.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Dues us majúscules indiquen un fitxer amb un conflicte sense resoldre. Mirem-ne el contingut."
+            }
+          ],
+          "visual": "Sortida literal amb la llegenda de les dues columnes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result",
+          "state": 2,
+          "simulated": false,
+          "terminal_output": [
+            "UU helloGit.py"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat breu amb git status. Executem l’ordre. Dues us majúscules indiquen un fitxer amb un conflicte sense resoldre. Mirem-ne el contingut."
+    },
+    {
+      "id": "e12_04",
+      "label": "EXPLICACIÓ",
+      "title": "Llegim els marcadors",
+      "mode": "principal",
+      "visual": "Editor amb el contingut real del fitxer en conflicte. Subratllar un marcador cada vegada.",
+      "beats": [
+        {
+          "id": "pas_011",
+          "narration": "Git ha escrit les dues versions al fitxer, entre marcadors. La primera és la de la branca actual, assenyalada com a HEAD, que aquí és main.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ha escrit les dues versions al fitxer, entre marcadors. La primera és la de la branca actual, assenyalada com a "
+            },
+            {
+              "lang": "en-US",
+              "text": "HEAD"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", que aquí és "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Editor amb el contingut real del fitxer en conflicte. Subratllar un marcador cada vegada.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": 3
+        },
+        {
+          "id": "pas_012",
+          "narration": "La línia d’iguals separa les dues propostes, i el darrer marcador tanca la versió que entra, la de salutació. Els marcadors no són codi del programa.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La línia d’iguals separa les dues propostes, i el darrer marcador tanca la versió que entra, la de salutació. Els marcadors no són codi del programa."
+            }
+          ],
+          "visual": "Editor amb el contingut real del fitxer en conflicte. Subratllar un marcador cada vegada.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": 3
+        }
+      ],
+      "screen": [
+        "Inici de la versió actual:  <<<<<<< HEAD",
+        "Separador:  =======",
+        "Final de la versió que entra:  >>>>>>> salutacio"
+      ],
+      "narration": "Git ha escrit les dues versions al fitxer, entre marcadors. La primera és la de la branca actual, assenyalada com a HEAD, que aquí és main. La línia d’iguals separa les dues propostes, i el darrer marcador tanca la versió que entra, la de salutació. Els marcadors no són codi del programa."
+    },
+    {
+      "id": "e12_05",
+      "label": "EXPLICACIÓ",
+      "title": "Escrivim el resultat acordat",
+      "mode": "principal",
+      "visual": "Animar l’edició fins a print(\"Hola, grup!\"). No preparar el fitxer abans de mostrar aquesta decisió.",
+      "beats": [
+        {
+          "id": "pas_013",
+          "narration": "Decidim escriure Hola, grup! Esborrem tots els marcadors i deixem una sola instrucció vàlida. La resolució pot combinar les idees; no cal quedar-se amb una de les dues propostes sencera.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Decidim escriure Hola, grup! Esborrem tots els marcadors i deixem una sola instrucció vàlida. La resolució pot combinar les idees; no cal quedar-se amb una de les dues propostes sencera."
+            }
+          ],
+          "visual": "Animar l’edició fins a print(\"Hola, grup!\"). No preparar el fitxer abans de mostrar aquesta decisió.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 4
+        }
+      ],
+      "screen": [
+        "Resultat:  print(\"Hola, grup!\")",
+        "Sense cap marcador",
+        "Una sola instrucció vàlida"
+      ],
+      "narration": "Decidim escriure Hola, grup! Esborrem tots els marcadors i deixem una sola instrucció vàlida. La resolució pot combinar les idees; no cal quedar-se amb una de les dues propostes sencera."
+    },
+    {
+      "id": "e12_06",
+      "label": "TERMINAL",
+      "title": "python3 helloGit.py",
+      "mode": "principal",
+      "visual": "Mostrar la sortida real del programa al costat de l’editor.",
+      "beats": [
+        {
+          "id": "pas_014",
+          "narration": "Provem el programa amb la versió desada del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem el programa amb la versió desada del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3",
+          "state": 4
+        },
+        {
+          "id": "pas_015",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_016",
+          "narration": "La salutació final funciona. Encara falta preparar-la i acabar la fusió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La salutació final funciona. Encara falta preparar-la i acabar la fusió."
+            }
+          ],
+          "visual": "Mostrar la sortida real del programa al costat de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result",
+          "state": 5,
+          "simulated": false,
+          "terminal_output": [
+            "Hola, grup!"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem el programa amb la versió desada del fitxer. Executem l’ordre. La salutació final funciona. Encara falta preparar-la i acabar la fusió."
+    },
+    {
+      "id": "e12_07",
+      "label": "TERMINAL",
+      "title": "git add helloGit.py",
+      "mode": "principal",
+      "visual": "Copiar el contingut desat a la preparació.",
+      "beats": [
+        {
+          "id": "pas_017",
+          "narration": "Preparem el fitxer amb git add.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparem el fitxer amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "git add",
+          "state": 5
+        },
+        {
+          "id": "pas_018",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "command_display": "git add helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_019",
+          "narration": "Preparar el fitxer indica a Git que el conflicte està resolt. No comprova que el programa sigui correcte; per això l’hem provat abans.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparar el fitxer indica a "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que el conflicte està resolt. No comprova que el programa sigui correcte; per això l’hem provat abans."
+            }
+          ],
+          "visual": "Copiar el contingut desat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "event": "result",
+          "state": 6,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Preparem el fitxer amb git add. Executem l’ordre. Preparar el fitxer indica a Git que el conflicte està resolt. No comprova que el programa sigui correcte; per això l’hem provat abans."
+    },
+    {
+      "id": "e12_08",
+      "label": "TERMINAL",
+      "title": "git commit -m \"Resol el conflicte de la salutacio\"",
+      "mode": "principal",
+      "visual": "Crear el node nou només en executar.",
+      "beats": [
+        {
+          "id": "pas_020",
+          "narration": "Confirmem el canvi amb git commit i el missatge: Resol el conflicte de la salutació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Confirmem el canvi amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i el missatge: Resol el conflicte de la salutació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Resol el conflicte de la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Resol el conflicte de la salutacio\"",
+          "highlight": "git commit",
+          "state": 6
+        },
+        {
+          "id": "pas_021",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Resol el conflicte de la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Resol el conflicte de la salutacio\""
+          ],
+          "command_display": "git commit -m \"Resol el conflicte de la salutacio\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 6
+        },
+        {
+          "id": "pas_022",
+          "narration": "Ara sí, es crea el commit de fusió, amb dos pares i el contingut que hem decidit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ara sí, es crea el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de fusió, amb dos pares i el contingut que hem decidit."
+            }
+          ],
+          "visual": "Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Resol el conflicte de la salutacio\"",
+          "event": "result",
+          "state": 7,
+          "simulated": false,
+          "terminal_output": [
+            "[main 935ebbd] Resol el conflicte de la salutacio"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Confirmem el canvi amb git commit i el missatge: Resol el conflicte de la salutació. Executem l’ordre. Ara sí, es crea el commit de fusió, amb dos pares i el contingut que hem decidit."
+    },
+    {
+      "id": "e12_09",
+      "label": "ALTERNATIVA",
+      "title": "Alternativa, abandonar la fusió",
+      "mode": "avorta",
+      "visual": "Separador ALTERNATIVA. Recuperar l’estat amb el conflicte, no el resultat ja confirmat.",
+      "beats": [
+        {
+          "id": "pas_023",
+          "narration": "En un cas alternatiu, podem abandonar una fusió que encara no hem acabat. Tornem al moment del conflicte, abans de preparar res.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un cas alternatiu, podem abandonar una fusió que encara no hem acabat. Tornem al moment del conflicte, abans de preparar res."
+            }
+          ],
+          "visual": "Separador ALTERNATIVA. Recuperar l’estat amb el conflicte, no el resultat ja confirmat.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 8
+        }
+      ],
+      "screen": [
+        "Fusió a mig fer:  git merge --abort",
+        "Torna a l’estat d’abans de la fusió."
+      ],
+      "narration": "En un cas alternatiu, podem abandonar una fusió que encara no hem acabat. Tornem al moment del conflicte, abans de preparar res."
+    },
+    {
+      "id": "e12_10",
+      "label": "ALTERNATIVA",
+      "title": "git merge --abort",
+      "mode": "avorta",
+      "visual": "Desapareixen els marcadors i l’indicador de fusió pendent; cap node nou.",
+      "beats": [
+        {
+          "id": "pas_024",
+          "narration": "Cancel·lem la fusió pendent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cancel·lem la fusió pendent."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --abort. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git merge.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --abort",
+          "highlight": "git merge",
+          "state": 8
+        },
+        {
+          "id": "pas_025",
+          "narration": "Doble guionet abort abandona l’operació i torna a l’estat d’abans d’intentar-la.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "abort"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " abandona l’operació i torna a l’estat d’abans d’intentar-la."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --abort. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --abort.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git merge --abort",
+          "highlight": "--abort",
+          "state": 8
+        },
+        {
+          "id": "pas_026",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git merge --abort. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git merge --abort"
+          ],
+          "command_display": "git merge --abort",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 8
+        },
+        {
+          "id": "pas_027",
+          "narration": "El fitxer recupera la versió de main i no queda cap fusió pendent. Aquest camí només té sentit abans de crear el commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El fitxer recupera la versió de "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i no queda cap fusió pendent. Aquest camí només té sentit abans de crear el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Desapareixen els marcadors i l’indicador de fusió pendent; cap node nou. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git merge --abort",
+          "event": "result",
+          "state": 9,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Cancel·lem la fusió pendent. Doble guionet abort abandona l’operació i torna a l’estat d’abans d’intentar-la. Executem l’ordre. El fitxer recupera la versió de main i no queda cap fusió pendent. Aquest camí només té sentit abans de crear el commit."
+    },
+    {
+      "id": "e12_11",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "Un conflicte vol dir que cal una decisió sobre el contingut.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Un conflicte vol dir que cal una decisió sobre el contingut."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Un conflicte vol dir que cal una decisió sobre el contingut."
+        },
+        {
+          "id": "pas_029",
+          "narration": "Editem, provem i preparem la resolució abans de confirmar-la.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Editem, provem i preparem la resolució abans de confirmar-la."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Editem, provem i preparem la resolució abans de confirmar-la."
+        },
+        {
+          "id": "pas_030",
+          "narration": "El commit acaba la fusió; avortar és l’alternativa abans d’acabar-la.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " acaba la fusió; avortar és l’alternativa abans d’acabar-la."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "El commit acaba la fusió; avortar és l’alternativa abans d’acabar-la."
+        }
+      ],
+      "narration": "Un conflicte vol dir que cal una decisió sobre el contingut. Editem, provem i preparem la resolució abans de confirmar-la. El commit acaba la fusió; avortar és l’alternativa abans d’acabar-la."
+    },
+    {
+      "id": "e12_12",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_031",
+          "narration": "Crea dues salutacions incompatibles en dues branques d’un repositori de pràctiques. Resol el conflicte amb una tercera salutació, prova el programa i completa la fusió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Crea dues salutacions incompatibles en dues branques d’un repositori de pràctiques. Resol el conflicte amb una tercera salutació, prova el programa i completa la fusió."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": [],
+          "screen_text": "Crea dues salutacions incompatibles en dues branques d’un repositori de pràctiques. Resol el conflicte amb una tercera salutació, prova el programa i completa la fusió."
+        }
+      ],
+      "narration": "Crea dues salutacions incompatibles en dues branques d’un repositori de pràctiques. Resol el conflicte amb una tercera salutació, prova el programa i completa la fusió."
+    }
+  ],
+  "commands": [
+    "git merge salutacio",
+    "git status --short",
+    "python3 helloGit.py",
+    "git add helloGit.py",
+    "git commit -m \"Resol el conflicte de la salutacio\"",
+    "git merge --abort"
+  ]
+}

@@ -1,0 +1,358 @@
+{
+ "llico": "07-add-interactiu",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "2441006"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Adéu!\"\n\n\nprint(saluda())\nprint(comiat())\n"
+    },
+    "head_commit": "2441006",
+    "refs": {
+     "main": "2441006"
+    },
+    "commits": [
+     {
+      "id": "2441006",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git diff -- helloGit.py",
+   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 7c2367f..dddea2e 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1,5 +1,5 @@\n def saluda():\n-    return \"Hello Git!\"\n+    return \"Hola, Ermessenda!\"\n \n \n def doble(valor):\n@@ -11,7 +11,7 @@ def suma(a, b):\n \n \n def comiat():\n-    return \"Fins aviat!\"\n+    return \"Adéu!\"\n \n \n print(saluda())\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "2441006"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Adéu!\"\n\n\nprint(saluda())\nprint(comiat())\n"
+    },
+    "head_commit": "2441006",
+    "refs": {
+     "main": "2441006"
+    },
+    "commits": [
+     {
+      "id": "2441006",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git add -p helloGit.py",
+   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 7c2367f..dddea2e 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1,5 +1,5 @@\n def saluda():\n-    return \"Hello Git!\"\n+    return \"Hola, Ermessenda!\"\n \n \n def doble(valor):\n(1/2) Stage this hunk [y,n,q,a,d,k,K,j,J,g,/,e,p,P,?]? @@ -11,7 +11,7 @@ def suma(a, b):\n \n \n def comiat():\n-    return \"Fins aviat!\"\n+    return \"Adéu!\"\n \n \n print(saluda())\n(2/2) Stage this hunk [y,n,q,a,d,K,J,g,/,e,p,P,?]? \n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "2441006"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Adéu!\"\n\n\nprint(saluda())\nprint(comiat())\n"
+    },
+    "head_commit": "2441006",
+    "refs": {
+     "main": "2441006"
+    },
+    "commits": [
+     {
+      "id": "2441006",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     "MM helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "y",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "2441006"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Adéu!\"\n\n\nprint(saluda())\nprint(comiat())\n"
+    },
+    "head_commit": "2441006",
+    "refs": {
+     "main": "2441006"
+    },
+    "commits": [
+     {
+      "id": "2441006",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     "MM helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "n",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "2441006"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Adéu!\"\n\n\nprint(saluda())\nprint(comiat())\n"
+    },
+    "head_commit": "2441006",
+    "refs": {
+     "main": "2441006"
+    },
+    "commits": [
+     {
+      "id": "2441006",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     "MM helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git diff --staged",
+   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 7c2367f..9e4fc02 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1,5 +1,5 @@\n def saluda():\n-    return \"Hello Git!\"\n+    return \"Hola, Ermessenda!\"\n \n \n def doble(valor):\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "2441006"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Adéu!\"\n\n\nprint(saluda())\nprint(comiat())\n"
+    },
+    "head_commit": "2441006",
+    "refs": {
+     "main": "2441006"
+    },
+    "commits": [
+     {
+      "id": "2441006",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     "MM helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git diff",
+   "sortida": "diff --git a/helloGit.py b/helloGit.py\nindex 9e4fc02..dddea2e 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -11,7 +11,7 @@ def suma(a, b):\n \n \n def comiat():\n-    return \"Fins aviat!\"\n+    return \"Adéu!\"\n \n \n print(saluda())\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "2441006"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Adéu!\"\n\n\nprint(saluda())\nprint(comiat())\n"
+    },
+    "head_commit": "2441006",
+    "refs": {
+     "main": "2441006"
+    },
+    "commits": [
+     {
+      "id": "2441006",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     }
+    ],
+    "status": [
+     "MM helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": "git commit -m \"Personalitza la salutacio\"",
+   "sortida": "[main b846c97] Personalitza la salutacio\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "2441006",
+    "B": "b846c97"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Adéu!\"\n\n\nprint(saluda())\nprint(comiat())\n"
+    },
+    "head_commit": "b846c97",
+    "refs": {
+     "main": "b846c97"
+    },
+    "commits": [
+     {
+      "id": "2441006",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     },
+     {
+      "id": "b846c97",
+      "lletra": "B",
+      "pares": [
+       "2441006"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "2441006",
+    "B": "b846c97"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "def saluda():\n    return \"Hola, Ermessenda!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Adéu!\"\n\n\nprint(saluda())\nprint(comiat())\n"
+    },
+    "head_commit": "b846c97",
+    "refs": {
+     "main": "b846c97"
+    },
+    "commits": [
+     {
+      "id": "2441006",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix salutacio i comiat"
+     },
+     {
+      "id": "b846c97",
+      "lletra": "B",
+      "pares": [
+       "2441006"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [
+     " M helloGit.py"
+    ],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "helloGit.py": "def saluda():\n    return \"Hello Git!\"\n\n\ndef doble(valor):\n    return valor * 2\n\n\ndef suma(a, b):\n    return a + b\n\n\ndef comiat():\n    return \"Fins aviat!\"\n\n\nprint(saluda())\nprint(comiat())\n"
+  },
+  "head_commit": "2441006",
+  "refs": {
+   "main": "2441006"
+  },
+  "commits": [
+   {
+    "id": "2441006",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix salutacio i comiat"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "2441006"
+ }
+}

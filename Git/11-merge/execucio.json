@@ -1,0 +1,579 @@
+{
+ "llico": "11-merge",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "34631ab",
+    "B": "1c65395",
+    "C": "0a043f5",
+    "D": "155f5ba"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "comiat",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Benvinguda al projecte.\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "155f5ba",
+    "refs": {
+     "comiat": "155f5ba",
+     "main": "1c65395",
+     "salutacio": "0a043f5"
+    },
+    "commits": [
+     {
+      "id": "34631ab",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1c65395",
+      "lletra": "B",
+      "pares": [
+       "34631ab"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "0a043f5",
+      "lletra": "C",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "155f5ba",
+      "lletra": "D",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git switch main",
+   "sortida": "Switched to branch 'main'\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "34631ab",
+    "B": "1c65395",
+    "C": "0a043f5",
+    "D": "155f5ba"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Benvinguda al projecte.\")\n"
+    },
+    "head_commit": "1c65395",
+    "refs": {
+     "comiat": "155f5ba",
+     "main": "1c65395",
+     "salutacio": "0a043f5"
+    },
+    "commits": [
+     {
+      "id": "34631ab",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1c65395",
+      "lletra": "B",
+      "pares": [
+       "34631ab"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "0a043f5",
+      "lletra": "C",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "155f5ba",
+      "lletra": "D",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git branch --show-current",
+   "sortida": "main\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "34631ab",
+    "B": "1c65395",
+    "C": "0a043f5",
+    "D": "155f5ba"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\nprint(\"Benvinguda al projecte.\")\n"
+    },
+    "head_commit": "1c65395",
+    "refs": {
+     "comiat": "155f5ba",
+     "main": "1c65395",
+     "salutacio": "0a043f5"
+    },
+    "commits": [
+     {
+      "id": "34631ab",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1c65395",
+      "lletra": "B",
+      "pares": [
+       "34631ab"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "0a043f5",
+      "lletra": "C",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "155f5ba",
+      "lletra": "D",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git merge --ff-only salutacio",
+   "sortida": "Updating 1c65395..0a043f5\nFast-forward\n helloGit.py | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "34631ab",
+    "B": "1c65395",
+    "C": "0a043f5",
+    "D": "155f5ba"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\nprint(\"Benvinguda al projecte.\")\n"
+    },
+    "head_commit": "0a043f5",
+    "refs": {
+     "comiat": "155f5ba",
+     "main": "0a043f5",
+     "salutacio": "0a043f5"
+    },
+    "commits": [
+     {
+      "id": "34631ab",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1c65395",
+      "lletra": "B",
+      "pares": [
+       "34631ab"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "0a043f5",
+      "lletra": "C",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "155f5ba",
+      "lletra": "D",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git merge --ff-only comiat",
+   "sortida": "hint: Diverging branches can't be fast-forwarded, you need to either:\nhint:\nhint: \tgit merge --no-ff\nhint:\nhint: or:\nhint:\nhint: \tgit rebase\nhint:\nhint: Disable this message with \"git config set advice.diverging false\"\nfatal: Not possible to fast-forward, aborting.\n",
+   "codi": 128,
+   "simulat": false,
+   "etiquetes": {
+    "A": "34631ab",
+    "B": "1c65395",
+    "C": "0a043f5",
+    "D": "155f5ba"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\nprint(\"Benvinguda al projecte.\")\n"
+    },
+    "head_commit": "0a043f5",
+    "refs": {
+     "comiat": "155f5ba",
+     "main": "0a043f5",
+     "salutacio": "0a043f5"
+    },
+    "commits": [
+     {
+      "id": "34631ab",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1c65395",
+      "lletra": "B",
+      "pares": [
+       "34631ab"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "0a043f5",
+      "lletra": "C",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "155f5ba",
+      "lletra": "D",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Afegeix un comiat"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git merge comiat",
+   "sortida": "Auto-merging helloGit.py\nMerge made by the 'ort' strategy.\n helloGit.py | 1 +\n 1 file changed, 1 insertion(+)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "34631ab",
+    "B": "1c65395",
+    "C": "0a043f5",
+    "D": "155f5ba",
+    "M": "0c3ce75"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\nprint(\"Benvinguda al projecte.\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "0c3ce75",
+    "refs": {
+     "comiat": "155f5ba",
+     "main": "0c3ce75",
+     "salutacio": "0a043f5"
+    },
+    "commits": [
+     {
+      "id": "34631ab",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1c65395",
+      "lletra": "B",
+      "pares": [
+       "34631ab"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "0a043f5",
+      "lletra": "C",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "155f5ba",
+      "lletra": "D",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Afegeix un comiat"
+     },
+     {
+      "id": "0c3ce75",
+      "lletra": "M",
+      "pares": [
+       "0a043f5",
+       "155f5ba"
+      ],
+      "missatge": "Merge branch 'comiat'"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Hola, Ermessenda!\nBenvinguda al projecte.\nFins aviat!\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "34631ab",
+    "B": "1c65395",
+    "C": "0a043f5",
+    "D": "155f5ba",
+    "M": "0c3ce75"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\nprint(\"Benvinguda al projecte.\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "0c3ce75",
+    "refs": {
+     "comiat": "155f5ba",
+     "main": "0c3ce75",
+     "salutacio": "0a043f5"
+    },
+    "commits": [
+     {
+      "id": "34631ab",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1c65395",
+      "lletra": "B",
+      "pares": [
+       "34631ab"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "0a043f5",
+      "lletra": "C",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "155f5ba",
+      "lletra": "D",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Afegeix un comiat"
+     },
+     {
+      "id": "0c3ce75",
+      "lletra": "M",
+      "pares": [
+       "0a043f5",
+       "155f5ba"
+      ],
+      "missatge": "Merge branch 'comiat'"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": "git branch -d salutacio comiat",
+   "sortida": "Deleted branch salutacio (was 0a043f5).\nDeleted branch comiat (was 155f5ba).\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "34631ab",
+    "B": "1c65395",
+    "C": "0a043f5",
+    "D": "155f5ba",
+    "M": "0c3ce75"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\nprint(\"Benvinguda al projecte.\")\nprint(\"Fins aviat!\")\n"
+    },
+    "head_commit": "0c3ce75",
+    "refs": {
+     "main": "0c3ce75"
+    },
+    "commits": [
+     {
+      "id": "34631ab",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1c65395",
+      "lletra": "B",
+      "pares": [
+       "34631ab"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "0a043f5",
+      "lletra": "C",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "155f5ba",
+      "lletra": "D",
+      "pares": [
+       "1c65395"
+      ],
+      "missatge": "Afegeix un comiat"
+     },
+     {
+      "id": "0c3ce75",
+      "lletra": "M",
+      "pares": [
+       "0a043f5",
+       "155f5ba"
+      ],
+      "missatge": "Merge branch 'comiat'"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "comiat",
+  "fitxers": {
+   "helloGit.py": "print(\"Hello Git!\")\nprint(\"Benvinguda al projecte.\")\nprint(\"Fins aviat!\")\n"
+  },
+  "head_commit": "155f5ba",
+  "refs": {
+   "comiat": "155f5ba",
+   "main": "1c65395",
+   "salutacio": "0a043f5"
+  },
+  "commits": [
+   {
+    "id": "34631ab",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   },
+   {
+    "id": "1c65395",
+    "lletra": "B",
+    "pares": [
+     "34631ab"
+    ],
+    "missatge": "Afegeix una exclamacio"
+   },
+   {
+    "id": "0a043f5",
+    "lletra": "C",
+    "pares": [
+     "1c65395"
+    ],
+    "missatge": "Personalitza la salutacio"
+   },
+   {
+    "id": "155f5ba",
+    "lletra": "D",
+    "pares": [
+     "1c65395"
+    ],
+    "missatge": "Afegeix un comiat"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "34631ab",
+  "B": "1c65395",
+  "C": "0a043f5",
+  "D": "155f5ba"
+ }
+}

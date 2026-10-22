@@ -1,0 +1,160 @@
+titol: "Gitignore: deixa fora els fitxers generats"
+titol_curt: GITIGNORE
+capcalera: [GITIGNORE, Deixa fora els fitxers generats]
+presentacio: "[[Gitignore]]"
+objectiu: escriure un fitxer de regles per ignorar fitxers generats i secrets, i distingir-los dels que [[Git]] ja seguia.
+inici: >-
+  HelloGit amb helloGit.py, salutacions.py i un registre antic app.log, tots tres confirmats. El programa
+  importa salutacions.py i escriu cada execució a debug.log. Hi ha un .env amb una clau i un registre de
+  mostra mostra.log, sense seguir. Encara no hi ha .gitignore.
+inici_parlat: >-
+  El programa fa servir un segon fitxer amb les salutacions i deixa un registre de cada execució.
+  També tenim un fitxer amb una clau privada i un registre de mostra per a la documentació. Fa temps,
+  vam confirmar per error un registre antic.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: salutacions.py
+    contingut: |-
+      def saluda():
+          return "Hola, Ermessenda!"
+  - fitxer: helloGit.py
+    contingut: |-
+      from salutacions import saluda
+
+      missatge = saluda()
+      with open("debug.log", "a") as registre:
+          registre.write(missatge + "\n")
+      print(missatge)
+  - fitxer: app.log
+    contingut: Registre d’una versió antiga
+  - git: add helloGit.py salutacions.py app.log
+  - commit: A
+    missatge: Afegeix el programa i les salutacions
+  - fitxer: .env
+    contingut: CLAU_API=exemple-que-no-es-real
+  - fitxer: mostra.log
+    contingut: Exemple de registre per a la documentació
+
+etapes:
+  - plantilla: programa
+    resultat: >-
+      El programa funciona. En executar-lo, ha creat el registre d’execució i una carpeta de memòria cau,
+      perquè importa el fitxer de salutacions.
+    visual: Apareixen debug.log i la carpeta __pycache__/ a l’explorador de fitxers.
+    comprova:
+      programa: Hola, Ermessenda!
+      existeix: [debug.log, __pycache__]
+
+  - plantilla: status-breu
+    resultat: >-
+      Tot apareix com a no seguit: la clau, la memòria cau i els registres. Un [[git add]] punt els
+      afegiria tots, també la clau, i qualsevol persona que veiés el repositori la podria llegir.
+    comprova: {status: "?? .env\n?? __pycache__/\n?? debug.log\n?? mostra.log"}
+
+  - explica: Un fitxer de regles, línia a línia
+    pantalla_pas: true
+    pantalla_fitxer: .gitignore
+    pantalla:
+      - "# Fitxers generats  ←  comentari: la línia comença amb #"
+      - "*.log  ←  tots els registres, a qualsevol carpeta"
+      - "!mostra.log  ←  excepció: aquest sí que es comparteix"
+      - "__pycache__/  ←  només carpetes, a qualsevol nivell"
+      - "/build/  ←  només la carpeta build de l’arrel"
+      - ""
+      - "# Secrets"
+      - ".env  ←  el fitxer de la clau, mai als commits"
+    text:
+      - >-
+        Creem el fitxer punt [[gitignore]] a l’arrel del projecte, amb una regla per línia. La primera
+        comença amb el coixinet: és un comentari.
+      - Asterisc punt [[log]] ignora tots els fitxers que acaben en punt [[log]], a qualsevol carpeta.
+      - >-
+        L’exclamació fa una excepció: el registre de mostra sí que es compartirà. Una excepció no pot entrar
+        dins d’una carpeta que s’ignora sencera.
+      - >-
+        La barra final vol dir que la regla només s’aplica a carpetes, a qualsevol nivell. [[Python]] crea
+        una carpeta de memòria cau dins de cada carpeta de codi.
+      - Una barra al davant limita la regla a l’arrel del projecte.
+      - >-
+        L’última regla deixa fora el fitxer de la clau. Aquest fitxer de regles sí que el confirmarem,
+        perquè tothom faci servir els mateixos criteris. [[GitHub]] ofereix plantilles per a cada llenguatge.
+    visual: >-
+      Editor .gitignore amb les set línies literals. Ressaltar una línia per frase, en ordre: comentari,
+      *.log, !mostra.log, __pycache__/, /build/ i .env.
+    accions:
+      - fitxer: .gitignore
+        contingut: |-
+          # Fitxers generats
+          *.log
+          !mostra.log
+          __pycache__/
+          /build/
+
+          # Secrets
+          .env
+
+  - ordre: git status --short --ignored
+    text: Comprovem l’efecte de les regles amb [[git status]].
+    parts:
+      - --ignored: Doble guionet [[ignored]] també mostra els fitxers ignorats, marcats amb dues exclamacions.
+    resultat: >-
+      El fitxer de regles i el registre de mostra surten com a nous: l’excepció funciona. La clau, la memòria
+      cau i el registre d’execució surten amb dues exclamacions. Són al disc, però [[Git]] no els afegirà.
+    visual: Sortida real; ressaltar primer les dues línies amb interrogants i després les tres amb exclamacions.
+    comprova:
+      sortida: ["?? .gitignore", "?? mostra.log", "!! .env", "!! __pycache__/", "!! debug.log"]
+
+  - ordre: git check-ignore -v debug.log
+    text: Quan un fitxer no es comporta com esperem, [[git check-ignore]] explica per què s’ignora.
+    parts:
+      - -v: El guionet ve demana el detall de la regla que hi coincideix.
+      - debug.log: És el registre que volem investigar.
+    resultat: La sortida indica el fitxer de regles, el número de línia i el patró que coincideix amb el registre.
+    visual: Separar a la sortida real .gitignore, el número de línia, el patró *.log i el nom del fitxer.
+    comprova:
+      sortida: [".gitignore:2:*.log\tdebug.log"]
+
+  - ordre: git rm --cached app.log
+    text: >-
+      El registre antic també acaba en punt [[log]], però no ha sortit a la llista: ja formava part d’un
+      commit, i les regles només afecten els fitxers que [[Git]] encara no seguia. Decidim deixar de
+      seguir-lo, però conservar-lo a l’ordinador.
+    parts:
+      - --cached: Doble guionet [[cached]] el retira només del repositori; el fitxer continua al disc.
+      - app.log: És el registre que ja estava seguit.
+    resultat: >-
+      Queda preparada la retirada del registre, i ara la regla ja l’ignora. Dos avisos. Quan una altra
+      persona baixi aquest commit, [[Git]] esborrarà el fitxer de la seva carpeta. I els commits antics el
+      continuen guardant: una clau que ja s’ha publicat s’ha de canviar.
+    visual: Retirar app.log del panell PREPARACIÓ amb una D; mantenir-lo a la carpeta de treball, sense animació d’esborrar.
+    comprova:
+      status: "D  app.log\n?? .gitignore\n?? mostra.log"
+      existeix: [app.log]
+
+  - ordre: git add .gitignore mostra.log
+    text: Preparem el fitxer de regles i el registre de mostra amb [[git add]].
+    parts: []
+    resultat: Les regles i la mostra queden preparades. La retirada del registre antic ja ho era.
+    visual: Copiar .gitignore i mostra.log a la preparació.
+    comprova: {status: "A  .gitignore\nD  app.log\nA  mostra.log"}
+
+  - plantilla: commit-breu
+    missatge: Ignora els fitxers generats i els secrets
+    crea: B
+    resultat: >-
+      El commit guarda les regles, la mostra i la retirada del registre. El registre antic continua al disc
+      i ara queda ignorat, igual que la clau.
+    comprova:
+      status: ""
+      existeix: [app.log, .env]
+      ignorat: [app.log, debug.log, __pycache__, .env]
+
+resum:
+  - Punt [[gitignore]] té una regla per línia; l’exclamació hi fa excepcions.
+  - Les claus no han d’arribar mai a un commit; si s’han publicat, cal canviar-les.
+  - Les regles no afecten fitxers ja seguits; doble guionet [[cached]] els deixa de seguir i els conserva al disc.
+practica: >-
+  En un projecte de pràctiques, genera un registre executant el programa i escriu un punt [[gitignore]]
+  amb una regla i una excepció. Comprova-ho amb [[git status]] doble guionet [[ignored]] i amb
+  [[git check-ignore]]. Els fitxers propis de l’editor es poden ignorar només al teu ordinador, amb el
+  fitxer [[exclude]] de la carpeta punt [[git]].

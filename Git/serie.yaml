@@ -25,21 +25,26 @@ llicons:
   - github
   - primer-commit
   - tres-estats
+  - fitxers
   - historial
   - add-interactiu
   - gitignore
+  - finals-linia
   - branques
   - merge
   - conflictes
   - clone
   - pull-push
+  - pull-divergent
   - fetch
+  - branques-remotes
   - stash
   - restore
   - amend
   - reset
   - reflog
   - revert
+  - desfer
   - tags
   - rebase
   - rebase-interactiu
@@ -48,6 +53,7 @@ llicons:
   - pull-request-revisar
   - forks-upstream
   - forks-contribuir
+  - cercar-historial
   - blame
   - bisect
   - worktree
@@ -149,6 +155,10 @@ termes_angles:
   - add
   - worktree
   - gitignore
+  - gitattributes
+  - text=auto
+  - core.autocrlf
+  - git mv
   - token
   - config
   - status

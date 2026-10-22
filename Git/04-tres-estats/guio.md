@@ -45,12 +45,12 @@ Sortida real:
 
 ```text
 diff --git a/helloGit.py b/helloGit.py
-index 52662af..55b21a2 100644
+index 52662af..9dfb79d 100644
 --- a/helloGit.py
 +++ b/helloGit.py
 @@ -1 +1 @@
 -print("Hello Git!")
-+print("Hola, Anna!")
++print("Hola, Ermessenda!")
 ```
 
 **Visual:** Fletxa PREPARACIÓ → TREBALL sobre la sortida real; llegenda textual per als signes menys i més.
@@ -83,12 +83,12 @@ Sortida real:
 
 ```text
 diff --git a/helloGit.py b/helloGit.py
-index 52662af..55b21a2 100644
+index 52662af..9dfb79d 100644
 --- a/helloGit.py
 +++ b/helloGit.py
 @@ -1 +1 @@
 -print("Hello Git!")
-+print("Hola, Anna!")
++print("Hola, Ermessenda!")
 ```
 
 **Visual:** Fletxa ÚLTIM COMMIT → PREPARACIÓ sobre la sortida real.
@@ -130,11 +130,11 @@ Sortida real:
 
 ```text
 diff --git a/helloGit.py b/helloGit.py
-index 55b21a2..56f43b6 100644
+index 9dfb79d..9cc815c 100644
 --- a/helloGit.py
 +++ b/helloGit.py
 @@ -1 +1,2 @@
- print("Hola, Anna!")
+ print("Hola, Ermessenda!")
 +print("Fins aviat!")
 ```
 
@@ -154,7 +154,7 @@ index 55b21a2..56f43b6 100644
 Sortida real:
 
 ```text
-[main 6e2e114] Canvia la salutacio
+[main 7556926] Canvia la salutacio
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
@@ -185,7 +185,7 @@ Sortida real: *cap línia*.
 Sortida real:
 
 ```text
-[main 1dbce39] Afegeix un comiat
+[main 59f998f] Afegeix un comiat
  1 file changed, 1 insertion(+)
 ```
 

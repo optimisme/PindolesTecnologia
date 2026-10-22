@@ -1,0 +1,122 @@
+titol: "Amend: completa l’últim commit local"
+titol_curt: AMEND
+capcalera: [AMEND, Completa l’últim commit local]
+presentacio: "[[Amend]]"
+objectiu: afegir un fitxer oblidat a l’últim commit encara no publicat i entendre per què canvia l’identificador.
+inici: >-
+  main a C, l’últim commit, propi i sense publicar. notes.md és nou i havia de formar part de C. Cap altre
+  canvi pendent.
+inici_parlat: >-
+  Acabem de confirmar la salutació personalitzada, però hem oblidat les notes que l’expliquen. Encara no
+  hem publicat res.
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: commit -q -am "Afegeix una exclamacio"
+  - etiqueta: B
+  - fitxer: helloGit.py
+    contingut: print("Hola, Ermessenda!")
+  - git: commit -q -am "Personalitza la salutacio"
+  - etiqueta: C
+  - fitxer: notes.md
+    contingut: La salutació es personalitza per a l’Ermessenda.
+
+camins:
+  missatge:
+    tipus: alternatiu
+    titol: Un altre cas
+    des_de: inici
+    preparacio:
+      - esborra: notes.md
+
+etapes:
+  - explica: Completar abans de publicar
+    pantalla:
+      - "Commit sense publicar:  falten les notes"
+      - "Solució:  git commit --amend"
+      - "Substitueix l’últim commit; no n’afegeix cap."
+    text: >-
+      Doble guionet [[amend]] crea un commit nou que substitueix l’últim de la branca, amb el contingut
+      que haguem preparat. Com que encara no l’hem publicat, ningú més el té.
+    visual: Graf A, B i C, amb l’etiqueta NO PUBLICAT a C. notes.md NOU al treball.
+
+  - plantilla: status-breu
+    resultat: Només hi ha les notes noves. Comprovem que no hi ha res més abans de substituir el commit.
+    comprova: {status: "?? notes.md"}
+
+  - plantilla: add-breu
+    fitxer: notes.md
+    resultat: Les notes queden preparades.
+    comprova: {status: "A  notes.md"}
+
+  - ordre: git diff --staged --stat
+    text: Revisem el resum del que hem preparat.
+    parts:
+      - --stat: Doble guionet [[stat]] mostra només la llista de fitxers i quantes línies canvien.
+    resultat: Només hi surten les notes. No afegirem cap altra feina per accident.
+    visual: Sortida real amb notes.md ressaltat.
+    comprova:
+      sortida: [notes.md]
+
+  - ordre: git commit --amend --no-edit
+    text: Substituïm l’últim commit amb [[git commit]].
+    parts:
+      - --amend: Crea un commit nou amb el mateix pare que l’anterior i hi afegeix el contingut preparat.
+      - --no-edit: Conserva el missatge anterior sense obrir l’editor.
+    crea: C′
+    resultat: >-
+      [[main]] apunta a un commit nou, amb el mateix pare i un identificador diferent. El missatge i
+      l’autoria es conserven, i les notes ja hi són.
+    visual: Atenuar C fora de la línia de main i crear C′ des de B. No dibuixar C′ com a fill de C.
+    comprova:
+      pares: {C′: [B]}
+      refs: {main: C′}
+      commits: {ref: main, nombre: 3}
+      status: ""
+
+  - ordre: git show --stat HEAD
+    text: Comprovem el commit resultant.
+    parts:
+      - HEAD: Assenyala el commit actual, el que acabem de crear.
+    resultat: El mateix missatge inclou ara la salutació i les notes.
+    visual: Sortida real amb el missatge i la llista de fitxers; main a C′.
+    comprova:
+      sortida: [Personalitza la salutacio, notes.md, helloGit.py]
+
+  - explica: Un altre cas, canviar només el missatge
+    pantalla:
+      - "Res preparat"
+      - "Missatge nou:  git commit --amend -m \"...\""
+      - "Mateix contingut, identificador nou"
+    cami: missatge
+    text: >-
+      En un cas diferent, tornem al commit original sense res preparat. També podem substituir-lo només
+      per corregir el missatge.
+    visual: Separador UN ALTRE CAS. C amb la preparació igual que C, sense les notes.
+
+  - ordre: git commit --amend -m "Personalitza la salutacio per a l'Ermessenda"
+    cami: missatge
+    text: Escrivim el missatge nou per a l’últim commit.
+    parts:
+      - -m: Introdueix el missatge nou.
+      - "\"Personalitza la salutacio per a l'Ermessenda\"": És el text nou. Com que no hem preparat res, el contingut no canvia.
+    crea: X
+    resultat: Es crea un altre identificador, amb el mateix contingut i el mateix pare.
+    visual: Comparació CONTINGUT IGUAL / MISSATGE DIFERENT / IDENTIFICADOR DIFERENT.
+    comprova:
+      pares: {X: [B]}
+      mateix_arbre: [C, X]
+
+resum:
+  - Doble guionet [[amend]] substitueix l’últim commit; no hi afegeix un fill.
+  - Abans de fer-ho, revisem què hem preparat.
+  - Només ho fem amb l’últim commit propi, encara no publicat.
+practica: >-
+  En un repositori de pràctiques, sense publicar, afegeix un fitxer oblidat a l’últim commit. Compara
+  el pare, el missatge, els fitxers i l’identificador abans i després.

@@ -1,0 +1,548 @@
+{
+ "llico": "23-revert",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "c1560a6"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "missatge = \"Hola, Ermessenda!\"\nprint(salutacio)\n"
+    },
+    "head_commit": "c1560a6",
+    "refs": {
+     "main": "c1560a6",
+     "origin/main": "c1560a6"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "c1560a6",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Traceback (most recent call last):\n  File \"~/HelloGit/helloGit.py\", line 2, in <module>\n    print(salutacio)\n          ^^^^^^^^^\nNameError: name 'salutacio' is not defined\n",
+   "codi": 1,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "c1560a6"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "missatge = \"Hola, Ermessenda!\"\nprint(salutacio)\n"
+    },
+    "head_commit": "c1560a6",
+    "refs": {
+     "main": "c1560a6",
+     "origin/main": "c1560a6"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "c1560a6",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git status --short",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "c1560a6"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "missatge = \"Hola, Ermessenda!\"\nprint(salutacio)\n"
+    },
+    "head_commit": "c1560a6",
+    "refs": {
+     "main": "c1560a6",
+     "origin/main": "c1560a6"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "c1560a6",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git log --oneline",
+   "sortida": "c1560a6 Personalitza la salutacio\n1a6c8de Afegeix una exclamacio\na97b48b Afegeix la salutacio inicial\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "c1560a6"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "missatge = \"Hola, Ermessenda!\"\nprint(salutacio)\n"
+    },
+    "head_commit": "c1560a6",
+    "refs": {
+     "main": "c1560a6",
+     "origin/main": "c1560a6"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "c1560a6",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git show c1560a6 -- helloGit.py",
+   "sortida": "commit c1560a6778332a4f53b66b53ac456798a538fc8f\nAuthor: Ermessenda Carcassona <ermessenda@example.com>\nDate:   Tue Oct 20 12:08:00 2026 +0200\n\n    Personalitza la salutacio\n\ndiff --git a/helloGit.py b/helloGit.py\nindex 52662af..343c51c 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1,2 @@\n-print(\"Hello Git!\")\n+missatge = \"Hola, Ermessenda!\"\n+print(salutacio)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "c1560a6"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "missatge = \"Hola, Ermessenda!\"\nprint(salutacio)\n"
+    },
+    "head_commit": "c1560a6",
+    "refs": {
+     "main": "c1560a6",
+     "origin/main": "c1560a6"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "c1560a6",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Personalitza la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git revert --no-edit c1560a6",
+   "sortida": "[main e5d817c] Revert \"Personalitza la salutacio\"\n Date: Tue Oct 20 13:10:00 2026 +0200\n 1 file changed, 1 insertion(+), 2 deletions(-)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "c1560a6",
+    "D": "e5d817c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "e5d817c",
+    "refs": {
+     "main": "e5d817c",
+     "origin/main": "c1560a6"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "c1560a6",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "e5d817c",
+      "lletra": "D",
+      "pares": [
+       "c1560a6"
+      ],
+      "missatge": "Revert \"Personalitza la salutacio\""
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Hello Git!\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "c1560a6",
+    "D": "e5d817c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "e5d817c",
+    "refs": {
+     "main": "e5d817c",
+     "origin/main": "c1560a6"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "c1560a6",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "e5d817c",
+      "lletra": "D",
+      "pares": [
+       "c1560a6"
+      ],
+      "missatge": "Revert \"Personalitza la salutacio\""
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "principal",
+   "ordre": "git push",
+   "sortida": "To ~/origin.git\n   c1560a6..e5d817c  main -> main\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "c1560a6",
+    "D": "e5d817c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "e5d817c",
+    "refs": {
+     "main": "e5d817c",
+     "origin/main": "e5d817c"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "c1560a6",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "e5d817c",
+      "lletra": "D",
+      "pares": [
+       "c1560a6"
+      ],
+      "missatge": "Revert \"Personalitza la salutacio\""
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "a97b48b",
+    "B": "1a6c8de",
+    "C": "c1560a6",
+    "D": "e5d817c"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "e5d817c",
+    "refs": {
+     "main": "e5d817c",
+     "origin/main": "e5d817c"
+    },
+    "commits": [
+     {
+      "id": "a97b48b",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "1a6c8de",
+      "lletra": "B",
+      "pares": [
+       "a97b48b"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "c1560a6",
+      "lletra": "C",
+      "pares": [
+       "1a6c8de"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "e5d817c",
+      "lletra": "D",
+      "pares": [
+       "c1560a6"
+      ],
+      "missatge": "Revert \"Personalitza la salutacio\""
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "helloGit.py": "missatge = \"Hola, Ermessenda!\"\nprint(salutacio)\n"
+  },
+  "head_commit": "c1560a6",
+  "refs": {
+   "main": "c1560a6",
+   "origin/main": "c1560a6"
+  },
+  "commits": [
+   {
+    "id": "a97b48b",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   },
+   {
+    "id": "1a6c8de",
+    "lletra": "B",
+    "pares": [
+     "a97b48b"
+    ],
+    "missatge": "Afegeix una exclamacio"
+   },
+   {
+    "id": "c1560a6",
+    "lletra": "C",
+    "pares": [
+     "1a6c8de"
+    ],
+    "missatge": "Personalitza la salutacio"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "a97b48b",
+  "B": "1a6c8de",
+  "C": "c1560a6"
+ }
+}

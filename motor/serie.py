@@ -4,18 +4,25 @@ from pathlib import Path
 
 import yaml
 
-ORDINALS = ['zero', 'Primera', 'Segona', 'Tercera', 'Quarta', 'Cinquena', 'Sisena', 'Setena',
-            'Vuitena', 'Novena', 'Desena', 'Onzena', 'Dotzena', 'Tretzena', 'Catorzena',
-            'Quinzena', 'Setzena', 'Dissetena', 'Divuitena', 'Dinovena', 'Vintena',
-            'Vint-i-unena', 'Vint-i-dosena', 'Vint-i-tresena', 'Vint-i-quatrena',
-            'Vint-i-cinquena', 'Vint-i-sisena', 'Vint-i-setena', 'Vint-i-vuitena',
-            'Vint-i-novena', 'Trentena', 'Trenta-unena', 'Trenta-dosena', 'Trenta-tresena',
-            'Trenta-quatrena', 'Trenta-cinquena']
+UNITS = ['', 'unena', 'dosena', 'tresena', 'quatrena', 'cinquena', 'sisena', 'setena', 'vuitena', 'novena']
+FIRST = ['zero', 'Primera', 'Segona', 'Tercera', 'Quarta', 'Cinquena', 'Sisena', 'Setena', 'Vuitena', 'Novena',
+         'Desena', 'Onzena', 'Dotzena', 'Tretzena', 'Catorzena', 'Quinzena', 'Setzena', 'Dissetena',
+         'Divuitena', 'Dinovena']
+TENS = {2: ('Vintena', 'Vint-i-'), 3: ('Trentena', 'Trenta-'), 4: ('Quarantena', 'Quaranta-'),
+        5: ('Cinquantena', 'Cinquanta-')}
+
+
+def ordinal(number):
+    """Ordinal femení en català: «Vuitena», «Vint-i-unena», «Trenta-sisena»."""
+    if number < 20:
+        return FIRST[number]
+    whole, prefix = TENS[number // 10]
+    return whole if number % 10 == 0 else prefix + UNITS[number % 10]
 
 
 def spoken_number(number):
     """«Lliçó zero» o «Vuitena lliçó», tal com s’anuncia després de la sintonia."""
-    return 'Lliçó zero' if number == 0 else f'{ORDINALS[number]} lliçó'
+    return 'Lliçó zero' if number == 0 else f'{ordinal(number)} lliçó'
 
 
 def load_yaml(path):

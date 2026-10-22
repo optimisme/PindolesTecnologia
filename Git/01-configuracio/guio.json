@@ -71,7 +71,8 @@
           ],
           "visual": "Objectiu en una frase; esquema general del resultat.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "Comprovar la versió de Git i deixar configurades l’autoria, la branca inicial i l’editor."
         },
         {
           "id": "pas_002",
@@ -93,7 +94,8 @@
           "visual": "Punt de partida: Git instal·lat i una terminal oberta. Usuari sense cap configuració global de Git. La terminal i les sortides són reals; el nom i el correu són d’exemple.",
           "pause_after": 3.5,
           "commands": [],
-          "state": -1
+          "state": -1,
+          "screen_text": "Partim d’un ordinador amb Git instal·lat i una terminal oberta. Encara no hem configurat res."
         }
       ],
       "narration": "En aquesta lliçó aprendrem a comprovar la versió de Git i deixar configurades l’autoria, la branca inicial i l’editor. Partim d’un ordinador amb Git instal·lat i una terminal oberta. Encara no hem configurat res."
@@ -149,6 +151,13 @@
           "commands": [],
           "state": 0
         }
+      ],
+      "screen": [
+        "Cada commit guarda AUTORIA, DATA i MISSATGE.",
+        "Abans del primer commit configurem:",
+        "1. nom i correu de l’autoria",
+        "2. nom de la branca inicial",
+        "3. editor per als textos llargs"
       ],
       "narration": "Cada commit guarda qui l’ha fet i quan. Per això, abans del primer, cal indicar el nom i el correu. També triarem el nom de la branca inicial i l’editor que obrirà Git quan ens demani un text llarg."
     },
@@ -288,14 +297,20 @@
           "state": 2
         }
       ],
+      "screen": [
+        "Les ordres són les mateixes en qualsevol idioma.",
+        "Anglès: Switched to a new branch",
+        "Català: S’ha canviat a una branca nova",
+        "Als vídeos, les respostes surten en anglès."
+      ],
       "narration": "Si l’ordinador està configurat en català, Git pot respondre en català. Les ordres són exactament les mateixes; als vídeos, les respostes surten en anglès."
     },
     {
       "id": "e01_04",
       "label": "TERMINAL",
-      "title": "git config --global user.name \"Anna Puig\"",
+      "title": "git config --global user.name \"Ermessenda Carcassona\"",
       "mode": "principal",
-      "visual": "Fitxer de configuració global amb la línia name = Anna Puig afegida.",
+      "visual": "Fitxer de configuració global amb la línia name = Ermessenda Carcassona afegida.",
       "beats": [
         {
           "id": "pas_010",
@@ -314,10 +329,10 @@
               "text": " desem una opció de configuració."
             }
           ],
-          "visual": "Mantenir visible el text complet: git config --global user.name \"Anna Puig\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git config.",
+          "visual": "Mantenir visible el text complet: git config --global user.name \"Ermessenda Carcassona\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git config.",
           "pause_after": 2.5,
           "commands": [],
-          "command_display": "git config --global user.name \"Anna Puig\"",
+          "command_display": "git config --global user.name \"Ermessenda Carcassona\"",
           "highlight": "git config",
           "state": 2
         },
@@ -338,10 +353,10 @@
               "text": " desa l’opció per a tots els repositoris del nostre usuari en aquest ordinador."
             }
           ],
-          "visual": "Mantenir visible el text complet: git config --global user.name \"Anna Puig\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --global.",
+          "visual": "Mantenir visible el text complet: git config --global user.name \"Ermessenda Carcassona\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --global.",
           "pause_after": 2.5,
           "commands": [],
-          "command_display": "git config --global user.name \"Anna Puig\"",
+          "command_display": "git config --global user.name \"Ermessenda Carcassona\"",
           "highlight": "--global",
           "state": 2
         },
@@ -354,10 +369,10 @@
               "text": "És la clau que guarda el nom de l’autoria."
             }
           ],
-          "visual": "Mantenir visible el text complet: git config --global user.name \"Anna Puig\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: user.name.",
+          "visual": "Mantenir visible el text complet: git config --global user.name \"Ermessenda Carcassona\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: user.name.",
           "pause_after": 2.5,
           "commands": [],
-          "command_display": "git config --global user.name \"Anna Puig\"",
+          "command_display": "git config --global user.name \"Ermessenda Carcassona\"",
           "highlight": "user.name",
           "state": 2
         },
@@ -370,11 +385,11 @@
               "text": "És el valor. Escriu-hi el teu nom; les cometes el mantenen com un sol argument."
             }
           ],
-          "visual": "Mantenir visible el text complet: git config --global user.name \"Anna Puig\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Anna Puig\".",
+          "visual": "Mantenir visible el text complet: git config --global user.name \"Ermessenda Carcassona\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Ermessenda Carcassona\".",
           "pause_after": 2.5,
           "commands": [],
-          "command_display": "git config --global user.name \"Anna Puig\"",
-          "highlight": "\"Anna Puig\"",
+          "command_display": "git config --global user.name \"Ermessenda Carcassona\"",
+          "highlight": "\"Ermessenda Carcassona\"",
           "state": 2
         },
         {
@@ -386,12 +401,12 @@
               "text": "Executem l’ordre."
             }
           ],
-          "visual": "Mantenir visible el text complet: git config --global user.name \"Anna Puig\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "visual": "Mantenir visible el text complet: git config --global user.name \"Ermessenda Carcassona\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
           "pause_after": 1.5,
           "commands": [
-            "git config --global user.name \"Anna Puig\""
+            "git config --global user.name \"Ermessenda Carcassona\""
           ],
-          "command_display": "git config --global user.name \"Anna Puig\"",
+          "command_display": "git config --global user.name \"Ermessenda Carcassona\"",
           "event": "execute",
           "effect_after": "speech",
           "state": 2
@@ -413,10 +428,10 @@
               "text": " d’aquest usuari portaran aquest nom."
             }
           ],
-          "visual": "Fitxer de configuració global amb la línia name = Anna Puig afegida. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "visual": "Fitxer de configuració global amb la línia name = Ermessenda Carcassona afegida. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
           "pause_after": 3.5,
           "commands": [],
-          "command_display": "git config --global user.name \"Anna Puig\"",
+          "command_display": "git config --global user.name \"Ermessenda Carcassona\"",
           "event": "result",
           "state": 3,
           "simulated": false
@@ -428,9 +443,9 @@
     {
       "id": "e01_05",
       "label": "TERMINAL",
-      "title": "git config --global user.email \"anna@example.com\"",
+      "title": "git config --global user.email \"ermessenda@example.com\"",
       "mode": "principal",
-      "visual": "La línia email = anna@example.com s’afegeix sota el nom.",
+      "visual": "La línia email = ermessenda@example.com s’afegeix sota el nom.",
       "beats": [
         {
           "id": "pas_016",
@@ -441,10 +456,10 @@
               "text": "Ara desem el correu de l’autoria."
             }
           ],
-          "visual": "Mantenir visible el text complet: git config --global user.email \"anna@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git config.",
+          "visual": "Mantenir visible el text complet: git config --global user.email \"ermessenda@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git config.",
           "pause_after": 2.5,
           "commands": [],
-          "command_display": "git config --global user.email \"anna@example.com\"",
+          "command_display": "git config --global user.email \"ermessenda@example.com\"",
           "highlight": "git config",
           "state": 3
         },
@@ -465,10 +480,10 @@
               "text": "."
             }
           ],
-          "visual": "Mantenir visible el text complet: git config --global user.email \"anna@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: user.email.",
+          "visual": "Mantenir visible el text complet: git config --global user.email \"ermessenda@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: user.email.",
           "pause_after": 2.5,
           "commands": [],
-          "command_display": "git config --global user.email \"anna@example.com\"",
+          "command_display": "git config --global user.email \"ermessenda@example.com\"",
           "highlight": "user.email",
           "state": 3
         },
@@ -489,11 +504,11 @@
               "text": " al teu compte."
             }
           ],
-          "visual": "Mantenir visible el text complet: git config --global user.email \"anna@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"anna@example.com\".",
+          "visual": "Mantenir visible el text complet: git config --global user.email \"ermessenda@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"ermessenda@example.com\".",
           "pause_after": 2.5,
           "commands": [],
-          "command_display": "git config --global user.email \"anna@example.com\"",
-          "highlight": "\"anna@example.com\"",
+          "command_display": "git config --global user.email \"ermessenda@example.com\"",
+          "highlight": "\"ermessenda@example.com\"",
           "state": 3
         },
         {
@@ -505,12 +520,12 @@
               "text": "Executem l’ordre."
             }
           ],
-          "visual": "Mantenir visible el text complet: git config --global user.email \"anna@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "visual": "Mantenir visible el text complet: git config --global user.email \"ermessenda@example.com\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
           "pause_after": 1.5,
           "commands": [
-            "git config --global user.email \"anna@example.com\""
+            "git config --global user.email \"ermessenda@example.com\""
           ],
-          "command_display": "git config --global user.email \"anna@example.com\"",
+          "command_display": "git config --global user.email \"ermessenda@example.com\"",
           "event": "execute",
           "effect_after": "speech",
           "state": 3
@@ -524,10 +539,10 @@
               "text": "El correu queda desat al mateix fitxer de configuració."
             }
           ],
-          "visual": "La línia email = anna@example.com s’afegeix sota el nom. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "visual": "La línia email = ermessenda@example.com s’afegeix sota el nom. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
           "pause_after": 3.5,
           "commands": [],
-          "command_display": "git config --global user.email \"anna@example.com\"",
+          "command_display": "git config --global user.email \"ermessenda@example.com\"",
           "event": "result",
           "state": 4,
           "simulated": false
@@ -565,6 +580,11 @@
           "commands": [],
           "state": 5
         }
+      ],
+      "screen": [
+        "Ordinador propi:  git config --global user.name \"…\"",
+        "Ordinador compartit (dins del repositori):  git config user.name \"…\"",
+        "Sense --global, l’opció només afecta aquell repositori."
       ],
       "narration": "En un ordinador de l’aula, compartit amb altres persones, no fem servir doble guionet global. Executem la mateixa ordre dins del nostre repositori i l’autoria només s’hi aplica allà."
     },
@@ -708,6 +728,12 @@
           "commands": [],
           "state": 7
         }
+      ],
+      "screen": [
+        "Algunes ordres obren un editor per escriure un missatge.",
+        "Sense configurar-ne cap, sovint s’obre un editor de terminal difícil de tancar.",
+        "Farem servir Visual Studio Code:  code --wait",
+        "Desar → tancar la pestanya → l’ordre continua"
       ],
       "narration": "Algunes ordres obren un editor perquè hi escrivim un missatge. Si no en triem cap, sovint s’obre un editor de terminal difícil de tancar. Triarem Visual Studio Code."
     },
@@ -913,8 +939,8 @@
           "state": 9,
           "simulated": false,
           "terminal_output": [
-            "user.name=Anna Puig",
-            "user.email=anna@example.com",
+            "user.name=Ermessenda Carcassona",
+            "user.email=ermessenda@example.com",
             "init.defaultbranch=main",
             "core.editor=code --wait"
           ]
@@ -953,7 +979,8 @@
           ],
           "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "git config desa opcions; --global les aplica a tots els repositoris de l’usuari."
         },
         {
           "id": "pas_038",
@@ -974,7 +1001,8 @@
           ],
           "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "Nom i correu identifiquen l’autoria de cada commit."
         },
         {
           "id": "pas_039",
@@ -987,7 +1015,8 @@
           ],
           "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
           "pause_after": 2.5,
-          "commands": []
+          "commands": [],
+          "screen_text": "La branca inicial i l’editor eviten sorpreses a les lliçons següents."
         }
       ],
       "narration": "git config desa opcions; doble guionet global les aplica a tots els repositoris de l’usuari. Nom i correu identifiquen l’autoria de cada commit. La branca inicial i l’editor eviten sorpreses a les lliçons següents."
@@ -1018,7 +1047,8 @@
           ],
           "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
           "pause_after": 4,
-          "commands": []
+          "commands": [],
+          "screen_text": "Comprova la versió de Git, configura el teu nom, el teu correu, la branca inicial i l’editor, i revisa el resultat amb la llista de configuració."
         }
       ],
       "narration": "Comprova la versió de Git, configura el teu nom, el teu correu, la branca inicial i l’editor, i revisa el resultat amb la llista de configuració."
@@ -1026,8 +1056,8 @@
   ],
   "commands": [
     "git --version",
-    "git config --global user.name \"Anna Puig\"",
-    "git config --global user.email \"anna@example.com\"",
+    "git config --global user.name \"Ermessenda Carcassona\"",
+    "git config --global user.email \"ermessenda@example.com\"",
     "git config --global init.defaultBranch main",
     "git config --global core.editor \"code --wait\"",
     "git config --global --list"

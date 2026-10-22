@@ -8,11 +8,11 @@ Com s’escriu una lliçó, com es comprova i com es produeix. La guia d’estil
 És l’únic fitxer que s’edita a mà. Exemple reduït:
 
 ```yaml
-titol: "Branques: prova una idea sense tocar main"
+titol: "Branques: prova idees sense tocar main"
 titol_curt: BRANQUES                        # capçalera de cada escena
-capcalera: [BRANQUES, Prova una idea sense tocar main]
-presentacio: Branques                       # «Vuitena lliçó. Branques.»
-objectiu: crear una branca, confirmar-hi una prova i tornar a les dues versions.
+capcalera: [BRANQUES, Prova idees sense tocar main]
+presentacio: Branques                       # «Desena lliçó. Branques.»
+objectiu: crear dues branques des de main, confirmar-hi una idea a cadascuna i comparar les tres versions.
 inici: Nota de producció amb l’estat exacte (no es llegeix).
 inici_parlat: Frase que la veu diu per presentar el punt de partida.
 preparacio: [...]                           # construeix l’estat inicial (repetició i pràctica)
@@ -35,6 +35,9 @@ de `serie.yaml` també, sense marcar-los.
   text: Una frase o una llista de frases (un pas per frase).
   visual: Instrucció per a l’animació.
   pausa: 3                    # opcional, segons després de cada frase
+  pantalla: [línies]          # text que es mostra a la pantalla mentre s’explica
+  pantalla_pas: true          # opcional: una línia per frase; es ressalta la que s’explica
+  pantalla_fitxer: .gitignore # opcional: fitxer anotat, amb línies «regla  ←  nota»
   accions: [...]              # canvis que fa la persona (editar un fitxer...)
 ```
 
@@ -110,7 +113,7 @@ principal, l’estat es recupera tal com era.
 ## Repetició: `eines/repeticio.py`
 
 Construeix el punt de partida, executa les etapes en l’ordre del vídeo i comprova
-totes les afirmacions. Fa servir dates i autoria fixes (`Anna Puig`), de manera que
+totes les afirmacions. Fa servir dates i autoria fixes (`Ermessenda Carcassona`), de manera que
 els identificadors són reproduïbles, i la configuració de Git en anglès (`LC_ALL=C`).
 Desa a `execucio.json` la sortida de cada ordre i l’estat del repositori (graf,
 branques, `HEAD`, estat breu i fitxers), que fan servir el compilador i els visuals.
@@ -142,9 +145,20 @@ fragments coincideixin exactament amb l’àudio aprovat i se’n pugui reaprofi
   [eines/visuals_primer_commit.py](eines/visuals_primer_commit.py).
 - Resta: [eines/escenes.py](eines/escenes.py) dibuixa cada pas a partir de l’estat real
   (graf, branques, HEAD, estat breu, fitxer principal i terminal amb subratllat i sortida).
-  Per revisar-los sense produir vídeo: `python Git/eines/escenes.py Git 09-merge`
+  Per revisar-los sense produir vídeo: `python Git/eines/escenes.py Git 11-merge`
   (full de contacte a `09-merge/build/`). Si una lliçó necessita una vista pròpia, es
   pot afegir un mòdul com els de les lliçons 0 i 3.
+
+### Revisió automàtica de la composició
+
+[eines/revisa_visuals.py](eines/revisa_visuals.py) dibuixa tots els passos de totes les
+lliçons (també les vistes de les lliçons 0 i 3) i avisa si un text surt del seu panell o
+del fotograma, entra a la zona dels subtítols, se superposa amb un altre, si un subratllat
+no coincideix amb el text o si una fletxa talla un panell. El render l’executa abans de
+produir cada lliçó i s’atura si troba res. Els subratllats i les posicions que depenen
+d’un text s’han de calcular sempre amb la mida real del text, mai amb coordenades fixes.
+
+    python Git/eines/revisa_visuals.py Git
 
 ## Producció
 

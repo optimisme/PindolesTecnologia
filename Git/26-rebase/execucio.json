@@ -1,0 +1,985 @@
+{
+ "llico": "26-rebase",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "d7f9fd4",
+    "refs": {
+     "main": "d7f9fd4",
+     "salutacio": "bd3bba1"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "b68ddae",
+      "lletra": "C",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "bd3bba1",
+      "lletra": "E",
+      "pares": [
+       "b68ddae"
+      ],
+      "missatge": "Documenta la salutacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git switch salutacio",
+   "sortida": "Switched to branch 'salutacio'\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n",
+     "notes.md": "La salutació es personalitza per a l’Ermessenda.\n"
+    },
+    "head_commit": "bd3bba1",
+    "refs": {
+     "main": "d7f9fd4",
+     "salutacio": "bd3bba1"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "b68ddae",
+      "lletra": "C",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "bd3bba1",
+      "lletra": "E",
+      "pares": [
+       "b68ddae"
+      ],
+      "missatge": "Documenta la salutacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git rebase main",
+   "sortida": "Rebasing (1/2)\nRebasing (2/2)\nSuccessfully rebased and updated refs/heads/salutacio.\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4",
+    "C′": "6a90f12",
+    "E′": "950d681"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n",
+     "notes.md": "La salutació es personalitza per a l’Ermessenda.\n"
+    },
+    "head_commit": "950d681",
+    "refs": {
+     "main": "d7f9fd4",
+     "salutacio": "950d681"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "6a90f12",
+      "lletra": "C′",
+      "pares": [
+       "d7f9fd4"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "950d681",
+      "lletra": "E′",
+      "pares": [
+       "6a90f12"
+      ],
+      "missatge": "Documenta la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4",
+    "C′": "6a90f12",
+    "E′": "950d681"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n",
+     "notes.md": "La salutació es personalitza per a l’Ermessenda.\n"
+    },
+    "head_commit": "950d681",
+    "refs": {
+     "main": "d7f9fd4",
+     "salutacio": "950d681"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "6a90f12",
+      "lletra": "C′",
+      "pares": [
+       "d7f9fd4"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "950d681",
+      "lletra": "E′",
+      "pares": [
+       "6a90f12"
+      ],
+      "missatge": "Documenta la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git log --oneline --graph --all",
+   "sortida": "* 950d681 Documenta la salutacio\n* 6a90f12 Personalitza la salutacio\n* d7f9fd4 Afegeix el README\n* 0d6725b Afegeix una exclamacio\n* 8bb43f8 Afegeix la salutacio inicial\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4",
+    "C′": "6a90f12",
+    "E′": "950d681"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n",
+     "notes.md": "La salutació es personalitza per a l’Ermessenda.\n"
+    },
+    "head_commit": "950d681",
+    "refs": {
+     "main": "d7f9fd4",
+     "salutacio": "950d681"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "6a90f12",
+      "lletra": "C′",
+      "pares": [
+       "d7f9fd4"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "950d681",
+      "lletra": "E′",
+      "pares": [
+       "6a90f12"
+      ],
+      "missatge": "Documenta la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4",
+    "C′": "6a90f12",
+    "E′": "950d681"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n",
+     "notes.md": "La salutació es personalitza per a l’Ermessenda.\n"
+    },
+    "head_commit": "950d681",
+    "refs": {
+     "main": "d7f9fd4",
+     "salutacio": "950d681"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "6a90f12",
+      "lletra": "C′",
+      "pares": [
+       "d7f9fd4"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "950d681",
+      "lletra": "E′",
+      "pares": [
+       "6a90f12"
+      ],
+      "missatge": "Documenta la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "conflicte",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4",
+    "X": "7f1834e"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": null,
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, grup!\")\n"
+    },
+    "head_commit": "7f1834e",
+    "refs": {
+     "main": "7f1834e",
+     "salutacio": "bd3bba1"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "b68ddae",
+      "lletra": "C",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "bd3bba1",
+      "lletra": "E",
+      "pares": [
+       "b68ddae"
+      ],
+      "missatge": "Documenta la salutacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "7f1834e",
+      "lletra": "X",
+      "pares": [
+       "d7f9fd4"
+      ],
+      "missatge": "Saluda la classe"
+     }
+    ],
+    "status": [
+     "UU helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "conflicte",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Hola, grup!\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4",
+    "X": "7f1834e"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": null,
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, grup!\")\n"
+    },
+    "head_commit": "7f1834e",
+    "refs": {
+     "main": "7f1834e",
+     "salutacio": "bd3bba1"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "b68ddae",
+      "lletra": "C",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "bd3bba1",
+      "lletra": "E",
+      "pares": [
+       "b68ddae"
+      ],
+      "missatge": "Documenta la salutacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "7f1834e",
+      "lletra": "X",
+      "pares": [
+       "d7f9fd4"
+      ],
+      "missatge": "Saluda la classe"
+     }
+    ],
+    "status": [
+     "UU helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "conflicte",
+   "ordre": "git add helloGit.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4",
+    "X": "7f1834e"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": null,
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, grup!\")\n"
+    },
+    "head_commit": "7f1834e",
+    "refs": {
+     "main": "7f1834e",
+     "salutacio": "bd3bba1"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "b68ddae",
+      "lletra": "C",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "bd3bba1",
+      "lletra": "E",
+      "pares": [
+       "b68ddae"
+      ],
+      "missatge": "Documenta la salutacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "7f1834e",
+      "lletra": "X",
+      "pares": [
+       "d7f9fd4"
+      ],
+      "missatge": "Saluda la classe"
+     }
+    ],
+    "status": [
+     "M  helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 9,
+   "cami": "conflicte",
+   "ordre": "git rebase --continue",
+   "sortida": "[detached HEAD cde6f40] Personalitza la salutacio\n 1 file changed, 1 insertion(+), 1 deletion(-)\nRebasing (2/2)\nSuccessfully rebased and updated refs/heads/salutacio.\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4",
+    "X": "7f1834e"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "print(\"Hola, grup!\")\n",
+     "notes.md": "La salutació es personalitza per a l’Ermessenda.\n"
+    },
+    "head_commit": "28956f1",
+    "refs": {
+     "main": "7f1834e",
+     "salutacio": "28956f1"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "7f1834e",
+      "lletra": "X",
+      "pares": [
+       "d7f9fd4"
+      ],
+      "missatge": "Saluda la classe"
+     },
+     {
+      "id": "cde6f40",
+      "lletra": null,
+      "pares": [
+       "7f1834e"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "28956f1",
+      "lletra": null,
+      "pares": [
+       "cde6f40"
+      ],
+      "missatge": "Documenta la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 10,
+   "cami": "avorta",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": null,
+    "fitxers": {
+     "README.md": "Projecte HelloGit\n",
+     "helloGit.py": "<<<<<<< HEAD\nprint(\"Hola, classe!\")\n=======\nprint(\"Hola, Ermessenda!\")\n>>>>>>> b68ddae (Personalitza la salutacio)\n"
+    },
+    "head_commit": "3655887",
+    "refs": {
+     "main": "3655887",
+     "salutacio": "bd3bba1"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "b68ddae",
+      "lletra": "C",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "bd3bba1",
+      "lletra": "E",
+      "pares": [
+       "b68ddae"
+      ],
+      "missatge": "Documenta la salutacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "3655887",
+      "lletra": null,
+      "pares": [
+       "d7f9fd4"
+      ],
+      "missatge": "Saluda la classe"
+     }
+    ],
+    "status": [
+     "UU helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 11,
+   "cami": "avorta",
+   "ordre": "git rebase --abort",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "0d6725b",
+    "C": "b68ddae",
+    "E": "bd3bba1",
+    "D": "d7f9fd4"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hola, Ermessenda!\")\n",
+     "notes.md": "La salutació es personalitza per a l’Ermessenda.\n"
+    },
+    "head_commit": "bd3bba1",
+    "refs": {
+     "main": "3655887",
+     "salutacio": "bd3bba1"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "0d6725b",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "b68ddae",
+      "lletra": "C",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Personalitza la salutacio"
+     },
+     {
+      "id": "bd3bba1",
+      "lletra": "E",
+      "pares": [
+       "b68ddae"
+      ],
+      "missatge": "Documenta la salutacio"
+     },
+     {
+      "id": "d7f9fd4",
+      "lletra": "D",
+      "pares": [
+       "0d6725b"
+      ],
+      "missatge": "Afegeix el README"
+     },
+     {
+      "id": "3655887",
+      "lletra": null,
+      "pares": [
+       "d7f9fd4"
+      ],
+      "missatge": "Saluda la classe"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "README.md": "Projecte HelloGit\n",
+   "helloGit.py": "print(\"Hello Git!\")\n"
+  },
+  "head_commit": "d7f9fd4",
+  "refs": {
+   "main": "d7f9fd4",
+   "salutacio": "bd3bba1"
+  },
+  "commits": [
+   {
+    "id": "8bb43f8",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   },
+   {
+    "id": "0d6725b",
+    "lletra": "B",
+    "pares": [
+     "8bb43f8"
+    ],
+    "missatge": "Afegeix una exclamacio"
+   },
+   {
+    "id": "b68ddae",
+    "lletra": "C",
+    "pares": [
+     "0d6725b"
+    ],
+    "missatge": "Personalitza la salutacio"
+   },
+   {
+    "id": "bd3bba1",
+    "lletra": "E",
+    "pares": [
+     "b68ddae"
+    ],
+    "missatge": "Documenta la salutacio"
+   },
+   {
+    "id": "d7f9fd4",
+    "lletra": "D",
+    "pares": [
+     "0d6725b"
+    ],
+    "missatge": "Afegeix el README"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "8bb43f8",
+  "B": "0d6725b",
+  "C": "b68ddae",
+  "E": "bd3bba1",
+  "D": "d7f9fd4"
+ }
+}

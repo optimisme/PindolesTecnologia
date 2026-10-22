@@ -13,6 +13,12 @@ carpeta: .
 
 etapes:
   - explica: Per què cal configurar Git
+    pantalla:
+      - "Cada commit guarda AUTORIA, DATA i MISSATGE."
+      - "Abans del primer commit configurem:"
+      - "1. nom i correu de l’autoria"
+      - "2. nom de la branca inicial"
+      - "3. editor per als textos llargs"
     text:
       - Cada [[commit]] guarda qui l’ha fet i quan. Per això, abans del primer, cal indicar el nom i el correu.
       - També triarem el nom de la branca inicial i l’editor que obrirà [[Git]] quan ens demani un text llarg.
@@ -28,29 +34,38 @@ etapes:
     visual: Terminal amb la versió real; etiqueta MÍNIM 2.23 al costat.
 
   - explica: Missatges en català o en anglès
+    pantalla:
+      - "Les ordres són les mateixes en qualsevol idioma."
+      - "Anglès: Switched to a new branch"
+      - "Català: S’ha canviat a una branca nova"
+      - "Als vídeos, les respostes surten en anglès."
     text: >-
       Si l’ordinador està configurat en català, [[Git]] pot respondre en català. Les ordres són exactament
       les mateixes; als vídeos, les respostes surten en anglès.
     visual: La mateixa sortida en dos panells, ANGLÈS i CATALÀ, amb l’ordre idèntica a sobre.
 
-  - ordre: git config --global user.name "Anna Puig"
+  - ordre: git config --global user.name "Ermessenda Carcassona"
     text: Amb [[git config]] desem una opció de configuració.
     parts:
       - --global: Doble guionet [[global]] desa l’opció per a tots els repositoris del nostre usuari en aquest ordinador.
       - user.name: És la clau que guarda el nom de l’autoria.
-      - '"Anna Puig"': És el valor. Escriu-hi el teu nom; les cometes el mantenen com un sol argument.
+      - '"Ermessenda Carcassona"': És el valor. Escriu-hi el teu nom; les cometes el mantenen com un sol argument.
     resultat: L’ordre no mostra res quan funciona. A partir d’ara, els commits d’aquest usuari portaran aquest nom.
-    visual: Fitxer de configuració global amb la línia name = Anna Puig afegida.
+    visual: Fitxer de configuració global amb la línia name = Ermessenda Carcassona afegida.
 
-  - ordre: git config --global user.email "anna@example.com"
+  - ordre: git config --global user.email "ermessenda@example.com"
     text: Ara desem el correu de l’autoria.
     parts:
       - user.email: És la clau del correu que acompanya cada commit.
-      - '"anna@example.com"': És un correu d’exemple. Fes servir el teu, o l’adreça privada que ofereix [[GitHub]] al teu compte.
+      - '"ermessenda@example.com"': És un correu d’exemple. Fes servir el teu, o l’adreça privada que ofereix [[GitHub]] al teu compte.
     resultat: El correu queda desat al mateix fitxer de configuració.
-    visual: La línia email = anna@example.com s’afegeix sota el nom.
+    visual: La línia email = ermessenda@example.com s’afegeix sota el nom.
 
   - explica: Un ordinador compartit
+    pantalla:
+      - 'Ordinador propi:  git config --global user.name "…"'
+      - 'Ordinador compartit (dins del repositori):  git config user.name "…"'
+      - "Sense --global, l’opció només afecta aquell repositori."
     text: >-
       En un ordinador de l’aula, compartit amb altres persones, no fem servir doble guionet [[global]].
       Executem la mateixa ordre dins del nostre repositori i l’autoria només s’hi aplica allà.
@@ -67,6 +82,11 @@ etapes:
     visual: Línia defaultBranch = main a la secció init del fitxer.
 
   - explica: Un editor que sapiguem tancar
+    pantalla:
+      - "Algunes ordres obren un editor per escriure un missatge."
+      - "Sense configurar-ne cap, sovint s’obre un editor de terminal difícil de tancar."
+      - "Farem servir Visual Studio Code:  code --wait"
+      - "Desar → tancar la pestanya → l’ordre continua"
     text: >-
       Algunes ordres obren un editor perquè hi escrivim un missatge. Si no en triem cap, sovint s’obre
       un editor de terminal difícil de tancar. Triarem [[Visual Studio Code]].
@@ -90,8 +110,8 @@ etapes:
     visual: Sortida real; ressaltar una línia cada vegada.
     comprova:
       sortida:
-        - user.name=Anna Puig
-        - user.email=anna@example.com
+        - user.name=Ermessenda Carcassona
+        - user.email=ermessenda@example.com
         - init.defaultbranch=main
         - core.editor=code --wait
 

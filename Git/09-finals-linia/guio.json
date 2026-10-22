@@ -1,0 +1,755 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 9,
+  "slug": "09-finals-linia",
+  "title": "Finals de línia: Windows, macOS i Linux",
+  "short_title": "FINALS DE LÍNIA",
+  "card": [
+    "FINALS DE LÍNIA",
+    "Windows, macOS i Linux al mateix projecte"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "09-finals-linia.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Novena lliçó. Finals de línia.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Novena lliçó. Finals de línia."
+      }
+    ]
+  },
+  "objective": "evitar que un projecte compartit entre Windows, macOS i Linux sembli canviat a totes les línies.",
+  "start_note": "HelloGit a main amb helloGit.py confirmat amb finals de línia LF (A). Sense .gitattributes. La demostració simula un editor de Windows que desa el fitxer amb CRLF.",
+  "start_spoken": "Un mateix projecte es fa servir en ordinadors amb Windows i amb macOS. El programa ja està confirmat i no hi ha canvis pendents.",
+  "summary": [
+    "Windows i els altres sistemes acaben les línies de manera diferent.",
+    "Punt gitattributes amb asterisc text=auto guarda finals uniformes a l’historial.",
+    "El fitxer de regles es confirma perquè s’apliqui a tots els ordinadors."
+  ],
+  "practice": "En un repositori de pràctiques, afegeix el fitxer de regles de finals de línia, aplica’l als fitxers que ja segueixes i confirma’l. Comprova que l’estat queda net.",
+  "practice_script": "practiques/09-finals-linia.sh",
+  "scenes": [
+    {
+      "id": "e09_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a evitar que un projecte compartit entre Windows, macOS i Linux sembli canviat a totes les línies.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a evitar que un projecte compartit entre Windows, macOS i Linux sembli canviat a totes les línies."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Evitar que un projecte compartit entre Windows, macOS i Linux sembli canviat a totes les línies."
+        },
+        {
+          "id": "pas_002",
+          "narration": "Un mateix projecte es fa servir en ordinadors amb Windows i amb macOS. El programa ja està confirmat i no hi ha canvis pendents.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Un mateix projecte es fa servir en ordinadors amb Windows i amb macOS. El programa ja està confirmat i no hi ha canvis pendents."
+            }
+          ],
+          "visual": "Punt de partida: HelloGit a main amb helloGit.py confirmat amb finals de línia LF (A). Sense .gitattributes. La demostració simula un editor de Windows que desa el fitxer amb CRLF.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1,
+          "screen_text": "Un mateix projecte es fa servir en ordinadors amb Windows i amb macOS. El programa ja està confirmat i no hi ha canvis pendents."
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a evitar que un projecte compartit entre Windows, macOS i Linux sembli canviat a totes les línies. Un mateix projecte es fa servir en ordinadors amb Windows i amb macOS. El programa ja està confirmat i no hi ha canvis pendents."
+    },
+    {
+      "id": "e09_01",
+      "label": "EXPLICACIÓ",
+      "title": "Dos caràcters invisibles",
+      "mode": "principal",
+      "visual": "El mateix fitxer amb els finals visibles, CRLF a la versió de Windows i LF a la de macOS i Linux.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Cada línia d’un fitxer de text acaba amb un caràcter invisible. A Windows sovint en són dos, retorn de carro i salt de línia; a macOS i Linux, només el salt de línia.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Cada línia d’un fitxer de text acaba amb un caràcter invisible. A Windows sovint en són dos, retorn de carro i salt de línia; a macOS i Linux, només el salt de línia."
+            }
+          ],
+          "visual": "El mateix fitxer amb els finals visibles, CRLF a la versió de Windows i LF a la de macOS i Linux.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "screen": [
+        "Windows:  CRLF  (\\r\\n)",
+        "macOS i Linux:  LF  (\\n)",
+        "El text és igual; el final de línia, no."
+      ],
+      "narration": "Cada línia d’un fitxer de text acaba amb un caràcter invisible. A Windows sovint en són dos, retorn de carro i salt de línia; a macOS i Linux, només el salt de línia."
+    },
+    {
+      "id": "e09_02",
+      "label": "EXPLICACIÓ",
+      "title": "Un editor que desa amb un altre final",
+      "mode": "principal",
+      "visual": "Editor amb l’indicador CRLF a la barra inferior; el text és idèntic.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Una companya obre el fitxer a Windows, no canvia cap paraula i el desa. El seu editor ha posat els finals de línia de Windows.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Una companya obre el fitxer a Windows, no canvia cap paraula i el desa. El seu editor ha posat els finals de línia de Windows."
+            }
+          ],
+          "visual": "Editor amb l’indicador CRLF a la barra inferior; el text és idèntic.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 1
+        }
+      ],
+      "screen": [
+        "Editor a Windows:  desa amb CRLF",
+        "Cap paraula canviada",
+        "Git veu totes les línies diferents."
+      ],
+      "narration": "Una companya obre el fitxer a Windows, no canvia cap paraula i el desa. El seu editor ha posat els finals de línia de Windows."
+    },
+    {
+      "id": "e09_03",
+      "label": "TERMINAL",
+      "title": "git status --short",
+      "mode": "principal",
+      "visual": "Sortida literal amb la llegenda de les dues columnes.",
+      "beats": [
+        {
+          "id": "pas_005",
+          "narration": "Consultem l’estat breu amb git status.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat breu amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status",
+          "state": 1
+        },
+        {
+          "id": "pas_006",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_007",
+          "narration": "El fitxer surt modificat, encara que el text que veiem és exactament el mateix.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El fitxer surt modificat, encara que el text que veiem és exactament el mateix."
+            }
+          ],
+          "visual": "Sortida literal amb la llegenda de les dues columnes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result",
+          "state": 2,
+          "simulated": false,
+          "terminal_output": [
+            " M helloGit.py"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat breu amb git status. Executem l’ordre. El fitxer surt modificat, encara que el text que veiem és exactament el mateix."
+    },
+    {
+      "id": "e09_04",
+      "label": "TERMINAL",
+      "title": "git diff",
+      "mode": "principal",
+      "visual": "Sortida real amb totes les línies en vermell i en verd; ressaltar el final invisible que ha canviat.",
+      "beats": [
+        {
+          "id": "pas_008",
+          "narration": "Mirem què hi ha canviat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Mirem què hi ha canviat."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git diff.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git diff",
+          "highlight": "git diff",
+          "state": 2
+        },
+        {
+          "id": "pas_009",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git diff. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git diff"
+          ],
+          "command_display": "git diff",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_010",
+          "narration": "Totes les línies surten esborrades i tornades a afegir. En un projecte real, això amaga els canvis de veritat i provoca conflictes sense sentit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Totes les línies surten esborrades i tornades a afegir. En un projecte real, això amaga els canvis de veritat i provoca conflictes sense sentit."
+            }
+          ],
+          "visual": "Sortida real amb totes les línies en vermell i en verd; ressaltar el final invisible que ha canviat. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git diff",
+          "event": "result",
+          "state": 3,
+          "simulated": false,
+          "terminal_output": [
+            "diff --git a/helloGit.py b/helloGit.py",
+            "index 097ee02..cc8a4bb 100644",
+            "--- a/helloGit.py",
+            "+++ b/helloGit.py",
+            "@@ -1,2 +1,2 @@",
+            "-print(\"Hello Git!\")",
+            "-print(\"Fins aviat!\")",
+            "+print(\"Hello Git!\")",
+            "+print(\"Fins aviat!\")"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Mirem què hi ha canviat. Executem l’ordre. Totes les línies surten esborrades i tornades a afegir. En un projecte real, això amaga els canvis de veritat i provoca conflictes sense sentit."
+    },
+    {
+      "id": "e09_05",
+      "label": "EXPLICACIÓ",
+      "title": "Una regla per a tot el projecte",
+      "mode": "principal",
+      "visual": "Editor .gitattributes amb la línia literal * text=auto. Ressaltar l’asterisc i després text=auto.",
+      "beats": [
+        {
+          "id": "pas_011",
+          "narration": "Creem el fitxer punt gitattributes a l’arrel del projecte amb la línia que veus. Indica a Git que detecti els fitxers de text i en guardi sempre els finals de macOS i Linux a l’historial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Creem el fitxer punt "
+            },
+            {
+              "lang": "en-US",
+              "text": "gitattributes"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a l’arrel del projecte amb la línia que veus. Indica a "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " que detecti els fitxers de text i en guardi sempre els finals de macOS i Linux a l’historial."
+            }
+          ],
+          "visual": "Editor .gitattributes amb la línia literal * text=auto. Ressaltar l’asterisc i després text=auto.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 4
+        },
+        {
+          "id": "pas_012",
+          "narration": "En treure els fitxers a cada ordinador, Git pot fer servir els finals propis del sistema. Com el punt gitignore, aquest fitxer es confirma perquè tothom faci servir la mateixa regla.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En treure els fitxers a cada ordinador, "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " pot fer servir els finals propis del sistema. Com el punt "
+            },
+            {
+              "lang": "en-US",
+              "text": "gitignore"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", aquest fitxer es confirma perquè tothom faci servir la mateixa regla."
+            }
+          ],
+          "visual": "Editor .gitattributes amb la línia literal * text=auto. Ressaltar l’asterisc i després text=auto.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 4
+        }
+      ],
+      "screen": [
+        "Fitxer:  .gitattributes",
+        "Regla:  * text=auto",
+        "A l’historial:  sempre LF",
+        "A cada ordinador:  el final propi"
+      ],
+      "narration": "Creem el fitxer punt gitattributes a l’arrel del projecte amb la línia que veus. Indica a Git que detecti els fitxers de text i en guardi sempre els finals de macOS i Linux a l’historial. En treure els fitxers a cada ordinador, Git pot fer servir els finals propis del sistema. Com el punt gitignore, aquest fitxer es confirma perquè tothom faci servir la mateixa regla."
+    },
+    {
+      "id": "e09_06",
+      "label": "TERMINAL",
+      "title": "git add --renormalize .",
+      "mode": "principal",
+      "visual": "helloGit.py deixa de sortir com a modificat; .gitattributes apareix a PREPARACIÓ.",
+      "beats": [
+        {
+          "id": "pas_013",
+          "narration": "Apliquem la regla als fitxers que ja seguíem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Apliquem la regla als fitxers que ja seguíem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add --renormalize .. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add --renormalize .",
+          "highlight": "git add",
+          "state": 4
+        },
+        {
+          "id": "pas_014",
+          "narration": "Torna a preparar els fitxers seguits aplicant-hi les regles de finals de línia.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Torna a preparar els fitxers seguits aplicant-hi les regles de finals de línia."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add --renormalize .. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: --renormalize.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add --renormalize .",
+          "highlight": "--renormalize",
+          "state": 4
+        },
+        {
+          "id": "pas_015",
+          "narration": "El punt vol dir tota la carpeta del projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El punt vol dir tota la carpeta del projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add --renormalize .. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: ..",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add --renormalize .",
+          "highlight": ".",
+          "state": 4
+        },
+        {
+          "id": "pas_016",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add --renormalize .. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add --renormalize ."
+          ],
+          "command_display": "git add --renormalize .",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 4
+        },
+        {
+          "id": "pas_017",
+          "narration": "El programa ja no surt modificat: un cop normalitzat, el seu contingut és el mateix que hi havia a l’historial. Només queda preparat el fitxer de regles.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El programa ja no surt modificat: un cop normalitzat, el seu contingut és el mateix que hi havia a l’historial. Només queda preparat el fitxer de regles."
+            }
+          ],
+          "visual": "helloGit.py deixa de sortir com a modificat; .gitattributes apareix a PREPARACIÓ. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add --renormalize .",
+          "event": "result",
+          "state": 5,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Apliquem la regla als fitxers que ja seguíem. Torna a preparar els fitxers seguits aplicant-hi les regles de finals de línia. El punt vol dir tota la carpeta del projecte. Executem l’ordre. El programa ja no surt modificat: un cop normalitzat, el seu contingut és el mateix que hi havia a l’historial. Només queda preparat el fitxer de regles."
+    },
+    {
+      "id": "e09_07",
+      "label": "TERMINAL",
+      "title": "git add .gitattributes",
+      "mode": "principal",
+      "visual": "Copiar el contingut desat a la preparació.",
+      "beats": [
+        {
+          "id": "pas_018",
+          "narration": "Preparem el fitxer amb git add.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparem el fitxer amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add .gitattributes. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add .gitattributes",
+          "highlight": "git add",
+          "state": 5
+        },
+        {
+          "id": "pas_019",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add .gitattributes. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add .gitattributes"
+          ],
+          "command_display": "git add .gitattributes",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_020",
+          "narration": "El fitxer de regles queda preparat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El fitxer de regles queda preparat."
+            }
+          ],
+          "visual": "Copiar el contingut desat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add .gitattributes",
+          "event": "result",
+          "state": 6,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Preparem el fitxer amb git add. Executem l’ordre. El fitxer de regles queda preparat."
+    },
+    {
+      "id": "e09_08",
+      "label": "TERMINAL",
+      "title": "git commit -m \"Normalitza els finals de linia\"",
+      "mode": "principal",
+      "visual": "Crear el node nou només en executar.",
+      "beats": [
+        {
+          "id": "pas_021",
+          "narration": "Confirmem el canvi amb git commit i el missatge: Normalitza els finals de linia.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Confirmem el canvi amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i el missatge: Normalitza els finals de linia."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Normalitza els finals de linia\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Normalitza els finals de linia\"",
+          "highlight": "git commit",
+          "state": 6
+        },
+        {
+          "id": "pas_022",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Normalitza els finals de linia\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Normalitza els finals de linia\""
+          ],
+          "command_display": "git commit -m \"Normalitza els finals de linia\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 6
+        },
+        {
+          "id": "pas_023",
+          "narration": "La regla ja forma part del projecte. A partir d’ara, cada ordinador treballa amb els seus finals sense canviar l’historial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La regla ja forma part del projecte. A partir d’ara, cada ordinador treballa amb els seus finals sense canviar l’historial."
+            }
+          ],
+          "visual": "Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Normalitza els finals de linia\"",
+          "event": "result",
+          "state": 7,
+          "simulated": false,
+          "terminal_output": [
+            "[main 4adeea8] Normalitza els finals de linia",
+            " 1 file changed, 1 insertion(+)",
+            " create mode 100644 .gitattributes"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Confirmem el canvi amb git commit i el missatge: Normalitza els finals de linia. Executem l’ordre. La regla ja forma part del projecte. A partir d’ara, cada ordinador treballa amb els seus finals sense canviar l’historial."
+    },
+    {
+      "id": "e09_09",
+      "label": "EXPLICACIÓ",
+      "title": "A Windows, també la configuració global",
+      "mode": "principal",
+      "visual": "Terminal de Windows amb git config --global core.autocrlf true, marcada NOMÉS A WINDOWS. Al costat, .gitattributes marcat PRIORITAT DEL PROJECTE.",
+      "beats": [
+        {
+          "id": "pas_024",
+          "narration": "Als ordinadors amb Windows, a més, és habitual activar core.autocrlf amb git config. Si el projecte ja té la regla, la regla té prioritat i el resultat és el mateix per a tothom.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Als ordinadors amb Windows, a més, és habitual activar "
+            },
+            {
+              "lang": "en-US",
+              "text": "core.autocrlf"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git config"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". Si el projecte ja té la regla, la regla té prioritat i el resultat és el mateix per a tothom."
+            }
+          ],
+          "visual": "Terminal de Windows amb git config --global core.autocrlf true, marcada NOMÉS A WINDOWS. Al costat, .gitattributes marcat PRIORITAT DEL PROJECTE.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 8
+        }
+      ],
+      "screen": [
+        "Només a Windows:  git config --global core.autocrlf true",
+        "Si hi ha .gitattributes, mana la regla del projecte."
+      ],
+      "narration": "Als ordinadors amb Windows, a més, és habitual activar core.autocrlf amb git config. Si el projecte ja té la regla, la regla té prioritat i el resultat és el mateix per a tothom."
+    },
+    {
+      "id": "e09_10",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_025",
+          "narration": "Windows i els altres sistemes acaben les línies de manera diferent.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Windows i els altres sistemes acaben les línies de manera diferent."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Windows i els altres sistemes acaben les línies de manera diferent."
+        },
+        {
+          "id": "pas_026",
+          "narration": "Punt gitattributes amb asterisc text=auto guarda finals uniformes a l’historial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Punt "
+            },
+            {
+              "lang": "en-US",
+              "text": "gitattributes"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb asterisc "
+            },
+            {
+              "lang": "en-US",
+              "text": "text=auto"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " guarda finals uniformes a l’historial."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": ".gitattributes amb * text=auto guarda finals uniformes a l’historial."
+        },
+        {
+          "id": "pas_027",
+          "narration": "El fitxer de regles es confirma perquè s’apliqui a tots els ordinadors.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El fitxer de regles es confirma perquè s’apliqui a tots els ordinadors."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "El fitxer de regles es confirma perquè s’apliqui a tots els ordinadors."
+        }
+      ],
+      "narration": "Windows i els altres sistemes acaben les línies de manera diferent. Punt gitattributes amb asterisc text=auto guarda finals uniformes a l’historial. El fitxer de regles es confirma perquè s’apliqui a tots els ordinadors."
+    },
+    {
+      "id": "e09_11",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_028",
+          "narration": "En un repositori de pràctiques, afegeix el fitxer de regles de finals de línia, aplica’l als fitxers que ja segueixes i confirma’l. Comprova que l’estat queda net.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un repositori de pràctiques, afegeix el fitxer de regles de finals de línia, aplica’l als fitxers que ja segueixes i confirma’l. Comprova que l’estat queda net."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": [],
+          "screen_text": "En un repositori de pràctiques, afegeix el fitxer de regles de finals de línia, aplica’l als fitxers que ja segueixes i confirma’l. Comprova que l’estat queda net."
+        }
+      ],
+      "narration": "En un repositori de pràctiques, afegeix el fitxer de regles de finals de línia, aplica’l als fitxers que ja segueixes i confirma’l. Comprova que l’estat queda net."
+    }
+  ],
+  "commands": [
+    "git status --short",
+    "git diff",
+    "git add --renormalize .",
+    "git add .gitattributes",
+    "git commit -m \"Normalitza els finals de linia\""
+  ]
+}

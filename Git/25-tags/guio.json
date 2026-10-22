@@ -1,0 +1,1115 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 25,
+  "slug": "25-tags",
+  "title": "Tags: identifica una entrega del projecte",
+  "short_title": "TAGS",
+  "card": [
+    "TAGS",
+    "Identifica una entrega del projecte"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "25-tags.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Vint-i-cinquena lliçó. Tags.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Vint-i-cinquena lliçó. "
+      },
+      {
+        "lang": "en-US",
+        "text": "Tags"
+      },
+      {
+        "lang": "ca-ES",
+        "text": "."
+      }
+    ]
+  },
+  "objective": "marcar una entrega amb una etiqueta anotada i publicar-la.",
+  "start_note": "main i origin/main a B, treball net i programa provat. Encara no hi ha cap etiqueta.",
+  "start_spoken": "Hem acabat la primera entrega del projecte. Està confirmada, publicada i provada.",
+  "summary": [
+    "Una branca avança; una etiqueta queda fixa al commit de l’entrega.",
+    "L’etiqueta anotada té dades pròpies i no afegeix cap commit.",
+    "Les etiquetes es publiquen explícitament."
+  ],
+  "practice": "Marca una versió provada d’un repositori de pràctiques amb una etiqueta anotada. Fes un commit posterior i llegeix el fitxer de l’etiqueta sense canviar l’editor.",
+  "practice_script": "practiques/25-tags.sh",
+  "scenes": [
+    {
+      "id": "e25_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a marcar una entrega amb una etiqueta anotada i publicar-la.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a marcar una entrega amb una etiqueta anotada i publicar-la."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Marcar una entrega amb una etiqueta anotada i publicar-la."
+        },
+        {
+          "id": "pas_002",
+          "narration": "Hem acabat la primera entrega del projecte. Està confirmada, publicada i provada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Hem acabat la primera entrega del projecte. Està confirmada, publicada i provada."
+            }
+          ],
+          "visual": "Punt de partida: main i origin/main a B, treball net i programa provat. Encara no hi ha cap etiqueta.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1,
+          "screen_text": "Hem acabat la primera entrega del projecte. Està confirmada, publicada i provada."
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a marcar una entrega amb una etiqueta anotada i publicar-la. Hem acabat la primera entrega del projecte. Està confirmada, publicada i provada."
+    },
+    {
+      "id": "e25_01",
+      "label": "EXPLICACIÓ",
+      "title": "Un nom per a una entrega",
+      "mode": "principal",
+      "visual": "Graf A i B; main a B. Targeta ENTREGA amb el programa provat.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "El projecte continuarà canviant, però volem poder tornar a aquesta entrega. Una etiqueta posa un nom fix a un commit concret.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El projecte continuarà canviant, però volem poder tornar a aquesta entrega. Una etiqueta posa un nom fix a un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " concret."
+            }
+          ],
+          "visual": "Graf A i B; main a B. Targeta ENTREGA amb el programa provat.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "screen": [
+        "Entrega:  commit B",
+        "Nom fix:  v1.0",
+        "La branca avança; l’etiqueta, no."
+      ],
+      "narration": "El projecte continuarà canviant, però volem poder tornar a aquesta entrega. Una etiqueta posa un nom fix a un commit concret."
+    },
+    {
+      "id": "e25_02",
+      "label": "TERMINAL",
+      "title": "python3 helloGit.py",
+      "mode": "principal",
+      "visual": "Mostrar la sortida real del programa al costat de l’editor.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Provem el programa amb la versió desada del fitxer.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Provem el programa amb la versió desada del fitxer."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: python3.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "highlight": "python3",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: python3 helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "python3 helloGit.py"
+          ],
+          "command_display": "python3 helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "La versió que entregarem funciona.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La versió que entregarem funciona."
+            }
+          ],
+          "visual": "Mostrar la sortida real del programa al costat de l’editor. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "python3 helloGit.py",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "Hello Git!"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Provem el programa amb la versió desada del fitxer. Executem l’ordre. La versió que entregarem funciona."
+    },
+    {
+      "id": "e25_03",
+      "label": "TERMINAL",
+      "title": "git status --short",
+      "mode": "principal",
+      "visual": "Sortida literal amb la llegenda de les dues columnes.",
+      "beats": [
+        {
+          "id": "pas_007",
+          "narration": "Consultem l’estat breu amb git status.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat breu amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status",
+          "state": 1
+        },
+        {
+          "id": "pas_008",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_009",
+          "narration": "No hi ha canvis pendents. L’etiqueta assenyalarà el commit; una edició sense confirmar no hi entraria.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "No hi ha canvis pendents. L’etiqueta assenyalarà el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; una edició sense confirmar no hi entraria."
+            }
+          ],
+          "visual": "Sortida literal amb la llegenda de les dues columnes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result",
+          "state": 2,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat breu amb git status. Executem l’ordre. No hi ha canvis pendents. L’etiqueta assenyalarà el commit; una edició sense confirmar no hi entraria."
+    },
+    {
+      "id": "e25_04",
+      "label": "TERMINAL",
+      "title": "git tag -a v1.0 -m \"Primera entrega\"",
+      "mode": "principal",
+      "visual": "Etiqueta v1.0 al costat de B, sense cap node nou.",
+      "beats": [
+        {
+          "id": "pas_010",
+          "narration": "Creem l’etiqueta amb git tag.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Creem l’etiqueta amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git tag"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git tag -a v1.0 -m \"Primera entrega\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git tag.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git tag -a v1.0 -m \"Primera entrega\"",
+          "highlight": "git tag",
+          "state": 2
+        },
+        {
+          "id": "pas_011",
+          "narration": "El guionet a crea una etiqueta anotada, amb autoria, data i missatge propis.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet a crea una etiqueta anotada, amb autoria, data i missatge propis."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git tag -a v1.0 -m \"Primera entrega\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -a.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git tag -a v1.0 -m \"Primera entrega\"",
+          "highlight": "-a",
+          "state": 2
+        },
+        {
+          "id": "pas_012",
+          "narration": "És el nom de l’entrega, versió u punt zero.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom de l’entrega, versió u punt zero."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git tag -a v1.0 -m \"Primera entrega\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: v1.0.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git tag -a v1.0 -m \"Primera entrega\"",
+          "highlight": "v1.0",
+          "state": 2
+        },
+        {
+          "id": "pas_013",
+          "narration": "El guionet ema introdueix el missatge de l’etiqueta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El guionet ema introdueix el missatge de l’etiqueta."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git tag -a v1.0 -m \"Primera entrega\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: -m.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git tag -a v1.0 -m \"Primera entrega\"",
+          "highlight": "-m",
+          "state": 2
+        },
+        {
+          "id": "pas_014",
+          "narration": "Descriu què representa aquest punt del projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Descriu què representa aquest punt del projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git tag -a v1.0 -m \"Primera entrega\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: \"Primera entrega\".",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git tag -a v1.0 -m \"Primera entrega\"",
+          "highlight": "\"Primera entrega\"",
+          "state": 2
+        },
+        {
+          "id": "pas_015",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git tag -a v1.0 -m \"Primera entrega\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git tag -a v1.0 -m \"Primera entrega\""
+          ],
+          "command_display": "git tag -a v1.0 -m \"Primera entrega\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_016",
+          "narration": "L’etiqueta apunta al commit actual. No afegeix cap commit a la història de main.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’etiqueta apunta al "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " actual. No afegeix cap "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a la història de "
+            },
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Etiqueta v1.0 al costat de B, sense cap node nou. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git tag -a v1.0 -m \"Primera entrega\"",
+          "event": "result",
+          "state": 3,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Creem l’etiqueta amb git tag. El guionet a crea una etiqueta anotada, amb autoria, data i missatge propis. És el nom de l’entrega, versió u punt zero. El guionet ema introdueix el missatge de l’etiqueta. Descriu què representa aquest punt del projecte. Executem l’ordre. L’etiqueta apunta al commit actual. No afegeix cap commit a la història de main."
+    },
+    {
+      "id": "e25_05",
+      "label": "TERMINAL",
+      "title": "git show v1.0",
+      "mode": "principal",
+      "visual": "Separar a la sortida real DADES DE L’ETIQUETA i COMMIT ASSOCIAT.",
+      "beats": [
+        {
+          "id": "pas_017",
+          "narration": "Revisem l’etiqueta creada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Revisem l’etiqueta creada."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show v1.0. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git show.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show v1.0",
+          "highlight": "git show",
+          "state": 3
+        },
+        {
+          "id": "pas_018",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show v1.0. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git show v1.0"
+          ],
+          "command_display": "git show v1.0",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_019",
+          "narration": "Primer surten les dades de l’etiqueta i, després, el commit al qual apunta.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Primer surten les dades de l’etiqueta i, després, el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " al qual apunta."
+            }
+          ],
+          "visual": "Separar a la sortida real DADES DE L’ETIQUETA i COMMIT ASSOCIAT. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git show v1.0",
+          "event": "result",
+          "state": 4,
+          "simulated": false,
+          "terminal_output": [
+            "tag v1.0",
+            "Tagger: Ermessenda Carcassona <ermessenda@example.com>",
+            "Date:   Tue Oct 20 12:49:00 2026 +0200",
+            "",
+            "Primera entrega",
+            "",
+            "commit 1a6c8de2ce87682a0cd3cba96119e48fa7ac847c",
+            "Author: Ermessenda Carcassona <ermessenda@example.com>",
+            "Date:   Tue Oct 20 12:06:00 2026 +0200",
+            "",
+            "    Afegeix una exclamacio",
+            "",
+            "diff --git a/helloGit.py b/helloGit.py",
+            "index 078d6bf..52662af 100644",
+            "--- a/helloGit.py",
+            "+++ b/helloGit.py",
+            "@@ -1 +1 @@",
+            "-print(\"Hello Git\")",
+            "+print(\"Hello Git!\")"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Revisem l’etiqueta creada. Executem l’ordre. Primer surten les dades de l’etiqueta i, després, el commit al qual apunta."
+    },
+    {
+      "id": "e25_06",
+      "label": "EXPLICACIÓ",
+      "title": "Continuem treballant",
+      "mode": "principal",
+      "visual": "Editor amb print(\"Hola, Ermessenda!\") abans de preparar i confirmar.",
+      "beats": [
+        {
+          "id": "pas_020",
+          "narration": "Després de l’entrega, canviem la salutació, la preparem i la confirmem. La branca avançarà; l’etiqueta, no.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Després de l’entrega, canviem la salutació, la preparem i la confirmem. La branca avançarà; l’etiqueta, no."
+            }
+          ],
+          "visual": "Editor amb print(\"Hola, Ermessenda!\") abans de preparar i confirmar.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 5
+        }
+      ],
+      "screen": [
+        "helloGit.py:  print(\"Hola, Ermessenda!\")",
+        "main avançarà amb un commit nou.",
+        "v1.0 es queda a l’entrega."
+      ],
+      "narration": "Després de l’entrega, canviem la salutació, la preparem i la confirmem. La branca avançarà; l’etiqueta, no."
+    },
+    {
+      "id": "e25_07",
+      "label": "TERMINAL",
+      "title": "git add helloGit.py",
+      "mode": "principal",
+      "visual": "Copiar el contingut desat a la preparació.",
+      "beats": [
+        {
+          "id": "pas_021",
+          "narration": "Preparem el fitxer amb git add.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparem el fitxer amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "highlight": "git add",
+          "state": 5
+        },
+        {
+          "id": "pas_022",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add helloGit.py"
+          ],
+          "command_display": "git add helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_023",
+          "narration": "La salutació nova queda preparada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La salutació nova queda preparada."
+            }
+          ],
+          "visual": "Copiar el contingut desat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add helloGit.py",
+          "event": "result",
+          "state": 6,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Preparem el fitxer amb git add. Executem l’ordre. La salutació nova queda preparada."
+    },
+    {
+      "id": "e25_08",
+      "label": "TERMINAL",
+      "title": "git commit -m \"Canvia la salutacio\"",
+      "mode": "principal",
+      "visual": "Crear el node nou només en executar.",
+      "beats": [
+        {
+          "id": "pas_024",
+          "narration": "Confirmem el canvi amb git commit i el missatge: Canvia la salutació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Confirmem el canvi amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i el missatge: Canvia la salutació."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Canvia la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Canvia la salutacio\"",
+          "highlight": "git commit",
+          "state": 6
+        },
+        {
+          "id": "pas_025",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Canvia la salutacio\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Canvia la salutacio\""
+          ],
+          "command_display": "git commit -m \"Canvia la salutacio\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 6
+        },
+        {
+          "id": "pas_026",
+          "narration": "main avança. L’etiqueta de la versió u punt zero continua assenyalant l’entrega.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "main"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " avança. L’etiqueta de la versió u punt zero continua assenyalant l’entrega."
+            }
+          ],
+          "visual": "Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Canvia la salutacio\"",
+          "event": "result",
+          "state": 7,
+          "simulated": false,
+          "terminal_output": [
+            "[main 36d091d] Canvia la salutacio",
+            " 1 file changed, 1 insertion(+), 1 deletion(-)"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Confirmem el canvi amb git commit i el missatge: Canvia la salutació. Executem l’ordre. main avança. L’etiqueta de la versió u punt zero continua assenyalant l’entrega."
+    },
+    {
+      "id": "e25_09",
+      "label": "TERMINAL",
+      "title": "git show v1.0:helloGit.py",
+      "mode": "principal",
+      "visual": "Dos panells, CONSULTA DE V1.0 i FITXER ACTUAL. Cap fletxa que sobreescrigui el treball.",
+      "beats": [
+        {
+          "id": "pas_027",
+          "narration": "Llegim el fitxer tal com era a l’entrega, sense canviar el treball.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Llegim el fitxer tal com era a l’entrega, sense canviar el treball."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show v1.0:helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git show.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show v1.0:helloGit.py",
+          "highlight": "git show",
+          "state": 7
+        },
+        {
+          "id": "pas_028",
+          "narration": "Abans dels dos punts, la versió; després, el fitxer dins d’aquella versió.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Abans dels dos punts, la versió; després, el fitxer dins d’aquella versió."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show v1.0:helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: v1.0:helloGit.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git show v1.0:helloGit.py",
+          "highlight": "v1.0:helloGit.py",
+          "state": 7
+        },
+        {
+          "id": "pas_029",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git show v1.0:helloGit.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git show v1.0:helloGit.py"
+          ],
+          "command_display": "git show v1.0:helloGit.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 7
+        },
+        {
+          "id": "pas_030",
+          "narration": "Surt la salutació de l’entrega. L’editor continua amb la salutació nova.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Surt la salutació de l’entrega. L’editor continua amb la salutació nova."
+            }
+          ],
+          "visual": "Dos panells, CONSULTA DE V1.0 i FITXER ACTUAL. Cap fletxa que sobreescrigui el treball. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git show v1.0:helloGit.py",
+          "event": "result",
+          "state": 8,
+          "simulated": false,
+          "terminal_output": [
+            "print(\"Hello Git!\")"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Llegim el fitxer tal com era a l’entrega, sense canviar el treball. Abans dels dos punts, la versió; després, el fitxer dins d’aquella versió. Executem l’ordre. Surt la salutació de l’entrega. L’editor continua amb la salutació nova."
+    },
+    {
+      "id": "e25_10",
+      "label": "TERMINAL",
+      "title": "git push",
+      "mode": "principal",
+      "visual": "Conservar el mateix identificador al local i al remot. La fletxa envia commits; no envia edicions sense confirmar.",
+      "beats": [
+        {
+          "id": "pas_031",
+          "narration": "Amb git push enviem els commits de la branca al remot.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " enviem els "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de la branca al remot."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git push.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push",
+          "highlight": "git push",
+          "state": 8
+        },
+        {
+          "id": "pas_032",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git push"
+          ],
+          "command_display": "git push",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 8
+        },
+        {
+          "id": "pas_033",
+          "narration": "El remot rep el commit nou. Les etiquetes no s’envien amb un push normal.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El remot rep el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou. Les etiquetes no s’envien amb un "
+            },
+            {
+              "lang": "en-US",
+              "text": "push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " normal."
+            }
+          ],
+          "visual": "Conservar el mateix identificador al local i al remot. La fletxa envia commits; no envia edicions sense confirmar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git push",
+          "event": "result",
+          "state": 9,
+          "simulated": false,
+          "terminal_output": [
+            "To ~/origin.git",
+            "   1a6c8de..36d091d  main -> main"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Amb git push enviem els commits de la branca al remot. Executem l’ordre. El remot rep el commit nou. Les etiquetes no s’envien amb un push normal."
+    },
+    {
+      "id": "e25_11",
+      "label": "TERMINAL",
+      "title": "git push origin v1.0",
+      "mode": "principal",
+      "visual": "main a C i v1.0 a B, tant al local com al remot.",
+      "beats": [
+        {
+          "id": "pas_034",
+          "narration": "Publiquem l’etiqueta explícitament.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Publiquem l’etiqueta explícitament."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin v1.0. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git push.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push origin v1.0",
+          "highlight": "git push",
+          "state": 9
+        },
+        {
+          "id": "pas_035",
+          "narration": "És el remot del projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el remot del projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin v1.0. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: origin.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push origin v1.0",
+          "highlight": "origin",
+          "state": 9
+        },
+        {
+          "id": "pas_036",
+          "narration": "Indiquem l’etiqueta que enviem, en lloc d’una branca.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Indiquem l’etiqueta que enviem, en lloc d’una branca."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin v1.0. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: v1.0.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git push origin v1.0",
+          "highlight": "v1.0",
+          "state": 9
+        },
+        {
+          "id": "pas_037",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git push origin v1.0. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git push origin v1.0"
+          ],
+          "command_display": "git push origin v1.0",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 9
+        },
+        {
+          "id": "pas_038",
+          "narration": "El remot també coneix l’entrega pel seu nom. Això no crea per si sol una publicació de tipus Release a GitHub.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El remot també coneix l’entrega pel seu nom. Això no crea per si sol una publicació de tipus "
+            },
+            {
+              "lang": "en-US",
+              "text": "Release"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " a "
+            },
+            {
+              "lang": "en-US",
+              "text": "GitHub"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "main a C i v1.0 a B, tant al local com al remot. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git push origin v1.0",
+          "event": "result",
+          "state": 10,
+          "simulated": false,
+          "terminal_output": [
+            "To ~/origin.git",
+            " * [new tag]         v1.0 -> v1.0"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Publiquem l’etiqueta explícitament. És el remot del projecte. Indiquem l’etiqueta que enviem, en lloc d’una branca. Executem l’ordre. El remot també coneix l’entrega pel seu nom. Això no crea per si sol una publicació de tipus Release a GitHub."
+    },
+    {
+      "id": "e25_12",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_039",
+          "narration": "Una branca avança; una etiqueta queda fixa al commit de l’entrega.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Una branca avança; una etiqueta queda fixa al "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " de l’entrega."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Una branca avança; una etiqueta queda fixa al commit de l’entrega."
+        },
+        {
+          "id": "pas_040",
+          "narration": "L’etiqueta anotada té dades pròpies i no afegeix cap commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "L’etiqueta anotada té dades pròpies i no afegeix cap "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "L’etiqueta anotada té dades pròpies i no afegeix cap commit."
+        },
+        {
+          "id": "pas_041",
+          "narration": "Les etiquetes es publiquen explícitament.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Les etiquetes es publiquen explícitament."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Les etiquetes es publiquen explícitament."
+        }
+      ],
+      "narration": "Una branca avança; una etiqueta queda fixa al commit de l’entrega. L’etiqueta anotada té dades pròpies i no afegeix cap commit. Les etiquetes es publiquen explícitament."
+    },
+    {
+      "id": "e25_13",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_042",
+          "narration": "Marca una versió provada d’un repositori de pràctiques amb una etiqueta anotada. Fes un commit posterior i llegeix el fitxer de l’etiqueta sense canviar l’editor.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Marca una versió provada d’un repositori de pràctiques amb una etiqueta anotada. Fes un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " posterior i llegeix el fitxer de l’etiqueta sense canviar l’editor."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": [],
+          "screen_text": "Marca una versió provada d’un repositori de pràctiques amb una etiqueta anotada. Fes un commit posterior i llegeix el fitxer de l’etiqueta sense canviar l’editor."
+        }
+      ],
+      "narration": "Marca una versió provada d’un repositori de pràctiques amb una etiqueta anotada. Fes un commit posterior i llegeix el fitxer de l’etiqueta sense canviar l’editor."
+    }
+  ],
+  "commands": [
+    "python3 helloGit.py",
+    "git status --short",
+    "git tag -a v1.0 -m \"Primera entrega\"",
+    "git show v1.0",
+    "git add helloGit.py",
+    "git commit -m \"Canvia la salutacio\"",
+    "git show v1.0:helloGit.py",
+    "git push",
+    "git push origin v1.0"
+  ]
+}

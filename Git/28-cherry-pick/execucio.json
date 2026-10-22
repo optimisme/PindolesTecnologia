@@ -1,0 +1,929 @@
+{
+ "llico": "28-cherry-pick",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.md": "Idees pendents per a la salutació\n"
+    },
+    "head_commit": "2e324d3",
+    "refs": {
+     "main": "ee67d11",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "git log --oneline salutacio",
+   "sortida": "2e324d3 Corregeix l'errada de la salutacio\n1ec3a9e Comença les notes de la salutacio\nee67d11 Afegeix una exclamacio\n8bb43f8 Afegeix la salutacio inicial\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.md": "Idees pendents per a la salutació\n"
+    },
+    "head_commit": "2e324d3",
+    "refs": {
+     "main": "ee67d11",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git show 2e324d3 -- helloGit.py",
+   "sortida": "commit 2e324d360e2a13d077d1b3d692a1126a56072556\nAuthor: Ermessenda Carcassona <ermessenda@example.com>\nDate:   Tue Oct 20 12:11:00 2026 +0200\n\n    Corregeix l'errada de la salutacio\n\ndiff --git a/helloGit.py b/helloGit.py\nindex e383206..52662af 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1 +1 @@\n-print(\"Helo Git!\")\n+print(\"Hello Git!\")\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.md": "Idees pendents per a la salutació\n"
+    },
+    "head_commit": "2e324d3",
+    "refs": {
+     "main": "ee67d11",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git status --short",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "salutacio",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n",
+     "notes.md": "Idees pendents per a la salutació\n"
+    },
+    "head_commit": "2e324d3",
+    "refs": {
+     "main": "ee67d11",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git switch main",
+   "sortida": "Switched to branch 'main'\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Helo Git!\")\n"
+    },
+    "head_commit": "ee67d11",
+    "refs": {
+     "main": "ee67d11",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git cherry-pick 2e324d3",
+   "sortida": "[main 0375971] Corregeix l'errada de la salutacio\n Date: Tue Oct 20 12:11:00 2026 +0200\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3",
+    "E": "0375971"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "0375971",
+    "refs": {
+     "main": "0375971",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     },
+     {
+      "id": "0375971",
+      "lletra": "E",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Hello Git!\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3",
+    "E": "0375971"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello Git!\")\n"
+    },
+    "head_commit": "0375971",
+    "refs": {
+     "main": "0375971",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     },
+     {
+      "id": "0375971",
+      "lletra": "E",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 7,
+   "cami": "conflicte",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello, Git!\")\n"
+    },
+    "head_commit": "f8ddcc2",
+    "refs": {
+     "main": "f8ddcc2",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     },
+     {
+      "id": "f8ddcc2",
+      "lletra": null,
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Afegeix una coma"
+     }
+    ],
+    "status": [
+     "UU helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 8,
+   "cami": "conflicte",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Hello, Git!\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello, Git!\")\n"
+    },
+    "head_commit": "f8ddcc2",
+    "refs": {
+     "main": "f8ddcc2",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     },
+     {
+      "id": "f8ddcc2",
+      "lletra": null,
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Afegeix una coma"
+     }
+    ],
+    "status": [
+     "UU helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 9,
+   "cami": "conflicte",
+   "ordre": "git add helloGit.py",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello, Git!\")\n"
+    },
+    "head_commit": "f8ddcc2",
+    "refs": {
+     "main": "f8ddcc2",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     },
+     {
+      "id": "f8ddcc2",
+      "lletra": null,
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Afegeix una coma"
+     }
+    ],
+    "status": [
+     "M  helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 10,
+   "cami": "conflicte",
+   "ordre": "git cherry-pick --continue",
+   "sortida": "[main c1b8aaf] Corregeix l'errada de la salutacio\n Date: Tue Oct 20 12:11:00 2026 +0200\n 1 file changed, 1 insertion(+), 1 deletion(-)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Hello, Git!\")\n"
+    },
+    "head_commit": "c1b8aaf",
+    "refs": {
+     "main": "c1b8aaf",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     },
+     {
+      "id": "f8ddcc2",
+      "lletra": null,
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Afegeix una coma"
+     },
+     {
+      "id": "c1b8aaf",
+      "lletra": null,
+      "pares": [
+       "f8ddcc2"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 11,
+   "cami": "avorta",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "<<<<<<< HEAD\nprint(\"Helo, Git!\")\n=======\nprint(\"Hello Git!\")\n>>>>>>> 2e324d3 (Corregeix l'errada de la salutacio)\n"
+    },
+    "head_commit": "0c87fd9",
+    "refs": {
+     "main": "0c87fd9",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     },
+     {
+      "id": "0c87fd9",
+      "lletra": null,
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Afegeix una coma"
+     }
+    ],
+    "status": [
+     "UU helloGit.py"
+    ],
+    "stash": 0
+   }
+  },
+  {
+   "index": 12,
+   "cami": "avorta",
+   "ordre": "git cherry-pick --abort",
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "8bb43f8",
+    "B": "ee67d11",
+    "C": "1ec3a9e",
+    "D": "2e324d3"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "print(\"Helo, Git!\")\n"
+    },
+    "head_commit": "0c87fd9",
+    "refs": {
+     "main": "0c87fd9",
+     "salutacio": "2e324d3"
+    },
+    "commits": [
+     {
+      "id": "8bb43f8",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio inicial"
+     },
+     {
+      "id": "ee67d11",
+      "lletra": "B",
+      "pares": [
+       "8bb43f8"
+      ],
+      "missatge": "Afegeix una exclamacio"
+     },
+     {
+      "id": "1ec3a9e",
+      "lletra": "C",
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Comença les notes de la salutacio"
+     },
+     {
+      "id": "2e324d3",
+      "lletra": "D",
+      "pares": [
+       "1ec3a9e"
+      ],
+      "missatge": "Corregeix l'errada de la salutacio"
+     },
+     {
+      "id": "0c87fd9",
+      "lletra": null,
+      "pares": [
+       "ee67d11"
+      ],
+      "missatge": "Afegeix una coma"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "salutacio",
+  "fitxers": {
+   "helloGit.py": "print(\"Hello Git!\")\n",
+   "notes.md": "Idees pendents per a la salutació\n"
+  },
+  "head_commit": "2e324d3",
+  "refs": {
+   "main": "ee67d11",
+   "salutacio": "2e324d3"
+  },
+  "commits": [
+   {
+    "id": "8bb43f8",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio inicial"
+   },
+   {
+    "id": "ee67d11",
+    "lletra": "B",
+    "pares": [
+     "8bb43f8"
+    ],
+    "missatge": "Afegeix una exclamacio"
+   },
+   {
+    "id": "1ec3a9e",
+    "lletra": "C",
+    "pares": [
+     "ee67d11"
+    ],
+    "missatge": "Comença les notes de la salutacio"
+   },
+   {
+    "id": "2e324d3",
+    "lletra": "D",
+    "pares": [
+     "1ec3a9e"
+    ],
+    "missatge": "Corregeix l'errada de la salutacio"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "8bb43f8",
+  "B": "ee67d11",
+  "C": "1ec3a9e",
+  "D": "2e324d3"
+ }
+}

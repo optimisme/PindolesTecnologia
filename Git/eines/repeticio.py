@@ -30,7 +30,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from motor.guions import expand  # noqa: E402
 from motor.serie import load_series  # noqa: E402
 
-AUTHOR = ('Anna Puig', 'anna@example.com')
+AUTHOR = ('Ermessenda Carcassona', 'ermessenda@example.com')
 LABEL = re.compile(r'\{([A-Z][0-9′]?)\}')
 DATE0 = 1792490400  # 20-10-2026 12:00 (+0200): data fixa per a hashes reproduïbles
 
@@ -267,10 +267,10 @@ class Replay:
         for label, sha in self.labels.items():
             names.setdefault(sha, label)
         refs = {}
-        for line in self.sh('git for-each-ref --format="%(refname:short) %(objectname)" '
+        for line in self.sh('git for-each-ref --format="%(refname) %(refname:short) %(objectname)" '
                             'refs/heads refs/remotes refs/tags', check=False).stdout.splitlines():
-            ref, sha = line.rsplit(' ', 1)
-            if ref.endswith('/HEAD'):
+            full, ref, sha = line.split(' ')
+            if full.endswith('/HEAD'):  # origin/HEAD és un àlies, no una branca
                 continue
             commit = self.rev(ref) or sha
             refs[ref] = commit
@@ -314,6 +314,8 @@ class Replay:
                 message = self.base/'.missatge'
                 message.write_text(self.resolve(stage['editor']))
                 env['GIT_EDITOR'] = f'cp {shlex.quote(str(message))}'
+                # Sense terminal, merge i pull no obren l’editor; el forcem com ho veuria l’alumna.
+                env['GIT_MERGE_AUTOEDIT'] = 'yes'
             if 'sequencia' in stage:
                 todo = self.base/'.sequencia'
                 todo.write_text(self.resolve(stage['sequencia']))

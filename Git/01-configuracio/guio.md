@@ -50,36 +50,36 @@ Si l’ordinador està configurat en català, *Git* pot respondre en català. Le
 
 **Visual:** La mateixa sortida en dos panells, ANGLÈS i CATALÀ, amb l’ordre idèntica a sobre.
 
-## Terminal · `git config --global user.name "Anna Puig"`
+## Terminal · `git config --global user.name "Ermessenda Carcassona"`
 
 | Subratllat | Locució | Pausa |
 | --- | --- | ---: |
 | `git config` | Amb *git config* desem una opció de configuració. | 2.5 s |
 | `--global` | Doble guionet *global* desa l’opció per a tots els repositoris del nostre usuari en aquest ordinador. | 2.5 s |
 | `user.name` | És la clau que guarda el nom de l’autoria. | 2.5 s |
-| `"Anna Puig"` | És el valor. Escriu-hi el teu nom; les cometes el mantenen com un sol argument. | 2.5 s |
+| `"Ermessenda Carcassona"` | És el valor. Escriu-hi el teu nom; les cometes el mantenen com un sol argument. | 2.5 s |
 | execució | Executem l’ordre. | 1.5 s |
 
 **Resultat:** L’ordre no mostra res quan funciona. A partir d’ara, els *commits* d’aquest usuari portaran aquest nom. *(pausa 3.5 s)*
 
 Sortida real: *cap línia*.
 
-**Visual:** Fitxer de configuració global amb la línia name = Anna Puig afegida.
+**Visual:** Fitxer de configuració global amb la línia name = Ermessenda Carcassona afegida.
 
-## Terminal · `git config --global user.email "anna@example.com"`
+## Terminal · `git config --global user.email "ermessenda@example.com"`
 
 | Subratllat | Locució | Pausa |
 | --- | --- | ---: |
 | `git config` | Ara desem el correu de l’autoria. | 2.5 s |
 | `user.email` | És la clau del correu que acompanya cada *commit*. | 2.5 s |
-| `"anna@example.com"` | És un correu d’exemple. Fes servir el teu, o l’adreça privada que ofereix *GitHub* al teu compte. | 2.5 s |
+| `"ermessenda@example.com"` | És un correu d’exemple. Fes servir el teu, o l’adreça privada que ofereix *GitHub* al teu compte. | 2.5 s |
 | execució | Executem l’ordre. | 1.5 s |
 
 **Resultat:** El correu queda desat al mateix fitxer de configuració. *(pausa 3.5 s)*
 
 Sortida real: *cap línia*.
 
-**Visual:** La línia email = anna@example.com s’afegeix sota el nom.
+**Visual:** La línia email = ermessenda@example.com s’afegeix sota el nom.
 
 ## Un ordinador compartit
 
@@ -136,8 +136,8 @@ Sortida real: *cap línia*.
 Sortida real:
 
 ```text
-user.name=Anna Puig
-user.email=anna@example.com
+user.name=Ermessenda Carcassona
+user.email=ermessenda@example.com
 init.defaultbranch=main
 core.editor=code --wait
 ```

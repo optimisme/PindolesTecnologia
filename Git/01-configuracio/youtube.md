@@ -17,13 +17,28 @@ Punt de partida: Partim d’un ordinador amb Git instal·lat i una terminal ober
 
 Ordres que surten al vídeo:
   git --version
-  git config --global user.name "Anna Puig"
-  git config --global user.email "anna@example.com"
+  git config --global user.name "Ermessenda Carcassona"
+  git config --global user.email "ermessenda@example.com"
   git config --global init.defaultBranch main
   git config --global core.editor "code --wait"
   git config --global --list
 
 Practica-ho: Comprova la versió de Git, configura el teu nom, el teu correu, la branca inicial i l’editor, i revisa el resultat amb la llista de configuració.
+
+Capítols:
+0:00 Capçalera i presentació
+0:31 Per què cal configurar Git
+0:53 $ git --version
+1:28 Missatges en català o en anglès
+1:43 $ git config --global user.name "Ermessenda Carcassona"
+2:30 $ git config --global user.email "ermessenda@example.com"
+3:03 Un ordinador compartit
+3:20 $ git config --global init.defaultBranch main
+3:55 Un editor que sapiguem tancar
+4:12 $ git config --global core.editor "code --wait"
+4:54 $ git config --global --list
+5:22 Resum final
+5:49 Pràctica final
 
 Lliçó anterior: 00 · Introducció a Git: versions, historial i col·laboració
 Lliçó següent: 02 · Connectar amb GitHub: accés i primer clon
@@ -37,5 +52,3 @@ Llista: Píndoles de Git. Subtítols en català inclosos.
 **Vídeo:** `Git/output/01-configuracio.mp4`  
 **Subtítols:** `01-configuracio/output/01-configuracio.ca.srt`  
 **Miniatura:** `01-configuracio/output/portada.png`
-
-> Encara no s’ha produït el vídeo: els capítols s’afegiran quan existeixi `output/produccio.json`.

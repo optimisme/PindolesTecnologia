@@ -1,0 +1,402 @@
+{
+ "llico": "34-blame",
+ "autoria": [
+  "Ermessenda Carcassona",
+  "ermessenda@example.com"
+ ],
+ "etapes": [
+  {
+   "index": 0,
+   "cami": "principal",
+   "ordre": null,
+   "sortida": "",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "9cc686f",
+    "B": "b5e2fac",
+    "C": "4cd6c24"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "# Salutació del projecte\nmissatge = \"Hola, Ermessenda!\"\nprint( salutacio )\n"
+    },
+    "head_commit": "4cd6c24",
+    "refs": {
+     "main": "4cd6c24"
+    },
+    "commits": [
+     {
+      "id": "9cc686f",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "b5e2fac",
+      "lletra": "B",
+      "pares": [
+       "9cc686f"
+      ],
+      "missatge": "Reanomena la variable"
+     },
+     {
+      "id": "4cd6c24",
+      "lletra": "C",
+      "pares": [
+       "b5e2fac"
+      ],
+      "missatge": "Ajusta el format"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 1,
+   "cami": "principal",
+   "ordre": "python3 helloGit.py",
+   "sortida": "Traceback (most recent call last):\n  File \"~/HelloGit/helloGit.py\", line 3, in <module>\n    print( salutacio )\n           ^^^^^^^^^\nNameError: name 'salutacio' is not defined\n",
+   "codi": 1,
+   "simulat": false,
+   "etiquetes": {
+    "A": "9cc686f",
+    "B": "b5e2fac",
+    "C": "4cd6c24"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "# Salutació del projecte\nmissatge = \"Hola, Ermessenda!\"\nprint( salutacio )\n"
+    },
+    "head_commit": "4cd6c24",
+    "refs": {
+     "main": "4cd6c24"
+    },
+    "commits": [
+     {
+      "id": "9cc686f",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "b5e2fac",
+      "lletra": "B",
+      "pares": [
+       "9cc686f"
+      ],
+      "missatge": "Reanomena la variable"
+     },
+     {
+      "id": "4cd6c24",
+      "lletra": "C",
+      "pares": [
+       "b5e2fac"
+      ],
+      "missatge": "Ajusta el format"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 2,
+   "cami": "principal",
+   "ordre": "git blame helloGit.py",
+   "sortida": "^9cc686f (Ermessenda Carcassona 2026-10-20 12:03:00 +0200 1) # Salutació del projecte\nb5e2fac2 (Ermessenda Carcassona 2026-10-20 12:05:00 +0200 2) missatge = \"Hola, Ermessenda!\"\n4cd6c24c (Ermessenda Carcassona 2026-10-20 12:07:00 +0200 3) print( salutacio )\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "9cc686f",
+    "B": "b5e2fac",
+    "C": "4cd6c24"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "# Salutació del projecte\nmissatge = \"Hola, Ermessenda!\"\nprint( salutacio )\n"
+    },
+    "head_commit": "4cd6c24",
+    "refs": {
+     "main": "4cd6c24"
+    },
+    "commits": [
+     {
+      "id": "9cc686f",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "b5e2fac",
+      "lletra": "B",
+      "pares": [
+       "9cc686f"
+      ],
+      "missatge": "Reanomena la variable"
+     },
+     {
+      "id": "4cd6c24",
+      "lletra": "C",
+      "pares": [
+       "b5e2fac"
+      ],
+      "missatge": "Ajusta el format"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 3,
+   "cami": "principal",
+   "ordre": "git blame -L 3,3 helloGit.py",
+   "sortida": "4cd6c24c (Ermessenda Carcassona 2026-10-20 12:07:00 +0200 3) print( salutacio )\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "9cc686f",
+    "B": "b5e2fac",
+    "C": "4cd6c24"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "# Salutació del projecte\nmissatge = \"Hola, Ermessenda!\"\nprint( salutacio )\n"
+    },
+    "head_commit": "4cd6c24",
+    "refs": {
+     "main": "4cd6c24"
+    },
+    "commits": [
+     {
+      "id": "9cc686f",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "b5e2fac",
+      "lletra": "B",
+      "pares": [
+       "9cc686f"
+      ],
+      "missatge": "Reanomena la variable"
+     },
+     {
+      "id": "4cd6c24",
+      "lletra": "C",
+      "pares": [
+       "b5e2fac"
+      ],
+      "missatge": "Ajusta el format"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 4,
+   "cami": "principal",
+   "ordre": "git show 4cd6c24 -- helloGit.py",
+   "sortida": "commit 4cd6c24c00954b367f49d0fdea19c179e7d14ca2\nAuthor: Ermessenda Carcassona <ermessenda@example.com>\nDate:   Tue Oct 20 12:07:00 2026 +0200\n\n    Ajusta el format\n\ndiff --git a/helloGit.py b/helloGit.py\nindex a40a883..9fbd2db 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1,3 +1,3 @@\n # Salutació del projecte\n missatge = \"Hola, Ermessenda!\"\n-print(salutacio)\n+print( salutacio )\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "9cc686f",
+    "B": "b5e2fac",
+    "C": "4cd6c24"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "# Salutació del projecte\nmissatge = \"Hola, Ermessenda!\"\nprint( salutacio )\n"
+    },
+    "head_commit": "4cd6c24",
+    "refs": {
+     "main": "4cd6c24"
+    },
+    "commits": [
+     {
+      "id": "9cc686f",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "b5e2fac",
+      "lletra": "B",
+      "pares": [
+       "9cc686f"
+      ],
+      "missatge": "Reanomena la variable"
+     },
+     {
+      "id": "4cd6c24",
+      "lletra": "C",
+      "pares": [
+       "b5e2fac"
+      ],
+      "missatge": "Ajusta el format"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 5,
+   "cami": "principal",
+   "ordre": "git blame -L 2,2 helloGit.py",
+   "sortida": "b5e2fac2 (Ermessenda Carcassona 2026-10-20 12:05:00 +0200 2) missatge = \"Hola, Ermessenda!\"\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "9cc686f",
+    "B": "b5e2fac",
+    "C": "4cd6c24"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "# Salutació del projecte\nmissatge = \"Hola, Ermessenda!\"\nprint( salutacio )\n"
+    },
+    "head_commit": "4cd6c24",
+    "refs": {
+     "main": "4cd6c24"
+    },
+    "commits": [
+     {
+      "id": "9cc686f",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "b5e2fac",
+      "lletra": "B",
+      "pares": [
+       "9cc686f"
+      ],
+      "missatge": "Reanomena la variable"
+     },
+     {
+      "id": "4cd6c24",
+      "lletra": "C",
+      "pares": [
+       "b5e2fac"
+      ],
+      "missatge": "Ajusta el format"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  },
+  {
+   "index": 6,
+   "cami": "principal",
+   "ordre": "git show b5e2fac -- helloGit.py",
+   "sortida": "commit b5e2fac2210a9e89fb636275a470a4a8786b7468\nAuthor: Ermessenda Carcassona <ermessenda@example.com>\nDate:   Tue Oct 20 12:05:00 2026 +0200\n\n    Reanomena la variable\n\ndiff --git a/helloGit.py b/helloGit.py\nindex dfc4341..a40a883 100644\n--- a/helloGit.py\n+++ b/helloGit.py\n@@ -1,3 +1,3 @@\n # Salutació del projecte\n-salutacio = \"Hola, Ermessenda!\"\n+missatge = \"Hola, Ermessenda!\"\n print(salutacio)\n",
+   "codi": 0,
+   "simulat": false,
+   "etiquetes": {
+    "A": "9cc686f",
+    "B": "b5e2fac",
+    "C": "4cd6c24"
+   },
+   "estat": {
+    "directori": "~/HelloGit",
+    "head": "main",
+    "fitxers": {
+     "helloGit.py": "# Salutació del projecte\nmissatge = \"Hola, Ermessenda!\"\nprint( salutacio )\n"
+    },
+    "head_commit": "4cd6c24",
+    "refs": {
+     "main": "4cd6c24"
+    },
+    "commits": [
+     {
+      "id": "9cc686f",
+      "lletra": "A",
+      "pares": [],
+      "missatge": "Afegeix la salutacio"
+     },
+     {
+      "id": "b5e2fac",
+      "lletra": "B",
+      "pares": [
+       "9cc686f"
+      ],
+      "missatge": "Reanomena la variable"
+     },
+     {
+      "id": "4cd6c24",
+      "lletra": "C",
+      "pares": [
+       "b5e2fac"
+      ],
+      "missatge": "Ajusta el format"
+     }
+    ],
+    "status": [],
+    "stash": 0
+   }
+  }
+ ],
+ "verificat": true,
+ "inici": {
+  "directori": "~/HelloGit",
+  "head": "main",
+  "fitxers": {
+   "helloGit.py": "# Salutació del projecte\nmissatge = \"Hola, Ermessenda!\"\nprint( salutacio )\n"
+  },
+  "head_commit": "4cd6c24",
+  "refs": {
+   "main": "4cd6c24"
+  },
+  "commits": [
+   {
+    "id": "9cc686f",
+    "lletra": "A",
+    "pares": [],
+    "missatge": "Afegeix la salutacio"
+   },
+   {
+    "id": "b5e2fac",
+    "lletra": "B",
+    "pares": [
+     "9cc686f"
+    ],
+    "missatge": "Reanomena la variable"
+   },
+   {
+    "id": "4cd6c24",
+    "lletra": "C",
+    "pares": [
+     "b5e2fac"
+    ],
+    "missatge": "Ajusta el format"
+   }
+  ],
+  "status": [],
+  "stash": 0
+ },
+ "etiquetes_inici": {
+  "A": "9cc686f",
+  "B": "b5e2fac",
+  "C": "4cd6c24"
+ }
+}

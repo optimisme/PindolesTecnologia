@@ -2,7 +2,7 @@
 
 **21 d’octubre de 2026 · segona revisió.** S’han aplicat les recomanacions de l’auditoria:
 reordenació, lliçons noves i dividides, correccions de contingut i exemples executats.
-No s’ha generat cap àudio ni vídeo. La primera revisió (24 guions reescrits) és a
+Després s’hi han afegit sis lliçons més. No s’ha generat cap àudio ni vídeo. La primera revisió (24 guions reescrits) és a
 [arxiu/revisio-didactica-2026-10-20.md](arxiu/revisio-didactica-2026-10-20.md).
 
 ## Ordre nou
@@ -12,14 +12,14 @@ avançada i col·laboració:
 
 | Bloc | Lliçons |
 | --- | --- |
-| Preparació | 0 Introducció · 1 Configuració *(nova)* · 2 Connectar amb GitHub *(nova)* |
-| Treball local | 3 Primer commit · 4 Tres estats · 5 Llegir l’historial *(nova)* · 6 Add interactiu · 7 Gitignore |
-| Branques | 8 Branques · 9 Merge · 10 Conflictes |
-| Sincronització | 11 Clone · 12 Pull i push · 13 Fetch |
-| Desfer i recuperar | 14 Stash · 15 Restore · 16 Amend · 17 Reset · 18 Reflog · 19 Revert |
-| Història | 20 Tags · 21 Rebase · 22 Rebase interactiu · 23 Cherry-pick |
-| Col·laboració | 24–25 Pull requests · 26–27 Forks |
-| Investigar i automatitzar | 28 Blame · 29 Bisect · 30 Worktree · 31 Hooks |
+| Preparació | 0 Introducció · 1 Configuració · 2 Connectar amb GitHub |
+| Treball local | 3 Primer commit · 4 Tres estats · 5 Esborrar i reanomenar · 6 Llegir l’historial · 7 Add interactiu · 8 Gitignore · 9 Finals de línia |
+| Branques | 10 Branques · 11 Merge · 12 Conflictes |
+| Sincronització | 13 Clone · 14 Pull i push · 15 Pull amb històries divergents · 16 Fetch · 17 Branques remotes |
+| Desfer i recuperar | 18 Stash · 19 Restore · 20 Amend · 21 Reset · 22 Reflog · 23 Revert · 24 Quina ordre triar |
+| Història | 25 Tags · 26 Rebase · 27 Rebase interactiu · 28 Cherry-pick |
+| Col·laboració | 29–30 Pull requests · 31–32 Forks |
+| Investigar i automatitzar | 33 Cercar a l’historial · 34 Blame · 35 Bisect · 36 Worktree · 37 Hooks |
 
 Motius principals: els tres estats, l’add interactiu i el gitignore són treball local
 bàsic i ara precedeixen les branques; fetch queda al costat de pull; amend s’agrupa amb
@@ -32,14 +32,30 @@ les eines per desfer; rebase passa després de dominar merge i conflictes.
   configuració. Explica què fer en un ordinador compartit i que Git pot respondre en català.
 - **2 · Connectar amb GitHub.** Autorització amb GitHub CLI (`gh auth login` i `status`),
   alternativa del gestor de credencials de Windows, repositori buit i primer clon.
-- **5 · Llegir l’historial.** `log`, `log --oneline`, `HEAD` i `HEAD~1`, `show` i `diff`
+- **6 · Llegir l’historial.** `log`, `log --oneline`, `HEAD` i `HEAD~1`, `show` i `diff`
   entre versions. Introdueix la notació que fan servir reset i rebase interactiu.
+
+### Ampliació: sis lliçons més
+
+- **5 · Esborrar i reanomenar fitxers.** `git rm`, `git mv`, la R i la D de l’estat breu, i
+  l’error habitual d’esborrar des de l’explorador (la D a la segona columna).
+- **9 · Finals de línia.** Diferència entre CRLF i LF, un fitxer que surt modificat sense
+  canvis visibles, `.gitattributes` amb `* text=auto`, `git add --renormalize .` i
+  `core.autocrlf` a Windows.
+- **15 · Quan pull s’atura.** Continua l’error de `--ff-only`: integrar amb `pull --no-rebase`
+  (fusió) o amb `pull --rebase`, i triar l’opció per defecte amb `pull.rebase`.
+- **17 · Branques remotes.** `branch -vv`, `fetch --prune`, `branch -r`, `switch` a una
+  branca que només és al servidor, i esborrar-ne una amb `push origin --delete`.
+- **24 · Desfer canvis: quina ordre triar.** Repàs sense ordres noves: esquema de decisió
+  entre restore, stash, amend, reset, reflog i revert, i la regla de no reescriure
+  l’historial compartit.
+- **33 · Cercar a l’historial.** `log --author`, `log -- fitxer`, `log --grep` i `log -S`.
 
 ## Lliçons dividides
 
 Les tres més llargues (més de 700 paraules) s’han dividit perquè cada vídeo tingui un
-sol objectiu: Sincronització → Clone (11) i Pull i push (12); Pull requests → proposar (24)
-i revisar i integrar (25); Forks → fork i upstream (26) i contribuir (27).
+sol objectiu: Sincronització → Clone (13) i Pull i push (14); Pull requests → proposar (29)
+i revisar i integrar (30); Forks → fork i upstream (31) i contribuir (32).
 
 ## Correccions aplicades a totes les lliçons
 
@@ -57,18 +73,23 @@ i revisar i integrar (25); Forks → fork i upstream (26) i contribuir (27).
 - **Editor.** Les lliçons que obren un editor (merge divergent, rebase, cherry-pick i rebase
   interactiu) parteixen de l’editor configurat a la lliçó 1 i expliquen que cal desar i tancar.
 - **Coherència.** Carpeta `HelloGit` a totes les lliçons; `v1.0` és sempre la primera entrega
-  (al commit B, a Tags i a Bisect); autoria `Anna Puig`.
+  (al commit B, a Tags i a Bisect); autoria `Ermessenda Carcassona`.
 - **Pràctica reproduïble.** Cada lliçó pràctica té `practiques/NN-nom.sh`, que crea el mateix
   punt de partida del vídeo amb remots locals.
 
 ## Correccions de contingut
 
-- **Merge:** després de l’avançament directe, s’esborra la branca integrada amb `branch -d`.
+- **Branques i merge:** la lliçó 10 crea dues branques des de `main` (salutació i comiat, en línies
+  diferents) i en compara les tres versions; la 11 integra la primera amb avançament directe, mostra
+  que `--ff-only` s’atura amb la segona i la fusiona amb un commit de dos pares. Després s’esborren
+  les dues branques amb `branch -d`.
 - **Conflictes:** el contingut dels marcadors es comprova exactament; l’alternativa
   `merge --abort` s’executa des d’un conflicte real.
 - **Gitignore:** la carpeta `__pycache__/` apareix de debò perquè el programa importa un
   mòdul; el registre nou el genera el programa. `git ls-files` mostra que la regla no retira
-  el fitxer ja seguit.
+  el fitxer ja seguit. També cobreix els secrets (`.env`), `status --ignored`, on s’aplica cada
+  patró, les excepcions amb `!` (i la trampa de la carpeta ignorada), què passa a l’equip i a
+  l’historial en deixar de seguir un fitxer i les regles personals.
 - **Pull i push:** nou cas d’error habitual, `pull --ff-only` quan les dues còpies han divergit.
 - **Restore:** l’alternativa de tres versions s’executa i es comprova.
 - **Reflog:** `--decorate` explícit, perquè sense terminal Git no mostra els noms de branca.
@@ -80,7 +101,7 @@ i revisar i integrar (25); Forks → fork i upstream (26) i contribuir (27).
 
 ## Comprovació
 
-Totes les lliçons pràctiques s’executen amb `eines/repeticio.py`: 303 etapes, amb les
+Totes les lliçons s’executen amb `eines/repeticio.py`: 349 etapes, amb les
 afirmacions de cada guió comprovades (branques, pares, contingut, estat, sortides).
-Els 30 scripts de pràctica s’executen i es comparen amb la repetició. Les mateixes
+Els 35 scripts de pràctica s’executen i es comparen amb la repetició. Les mateixes
 comprovacions corren a GitHub Actions a cada canvi.

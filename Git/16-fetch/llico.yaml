@@ -1,0 +1,95 @@
+titol: "Fetch: consulta els canvis abans d’integrar-los"
+titol_curt: FETCH
+capcalera: [FETCH, Consulta els canvis abans d’integrar]
+presentacio: "[[Fetch]]"
+objectiu: descarregar, revisar i integrar les novetats del servidor en tres passos separats.
+inici: >-
+  main local i origin/main a B, sense canvis pendents. Una altra persona ja ha publicat C al servidor.
+  Història lineal.
+inici_parlat: >-
+  La nostra còpia és al dia de l’última vegada que vam consultar el servidor. Mentrestant, una altra
+  persona hi ha publicat un commit nou.
+preparacio:
+  - remot_nu: origin
+  - clona: HelloGit
+    de: origin
+  - cd: HelloGit
+  - fitxer: helloGit.py
+    contingut: print("Hello Git")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: print("Hello Git!")
+  - git: commit -q -am "Afegeix una exclamacio"
+  - etiqueta: B
+  - git: push -q -u origin main
+  - servidor:
+      - printf 'print("Hola, Ermessenda!")\n' > helloGit.py
+      - git commit -q -am "Personalitza la salutacio"
+    crea: C
+
+etapes:
+  - explica: Una referència que no s’actualitza sola
+    pantalla:
+      - "main local:  B"
+      - "origin/main local:  B (última consulta)"
+      - "main al servidor:  C"
+    text: >-
+      Al nostre repositori, [[origin/main]] recorda on era [[main]] al servidor l’última vegada que el vam
+      consultar. No és una vista en directe: encara apunta a l’antic commit.
+    visual: Tres elements separats, main LOCAL a B, origin/main LOCAL a B i main AL SERVIDOR a C.
+
+  - plantilla: status-breu
+    resultat: No hi ha canvis pendents. Així veurem clarament què canvia cada pas.
+    comprova: {status: ""}
+
+  - ordre: git fetch origin
+    text: "[[git fetch]] descarrega les novetats i actualitza les referències del remot."
+    parts:
+      - origin: És el remot que consultem.
+    resultat: >-
+      El commit nou ja és al nostre repositori i [[origin/main]] l’assenyala. [[main]], la preparació i
+      els fitxers no han canviat.
+    visual: Animar la descàrrega de C i el moviment d’origin/main. No moure main ni canviar l’editor.
+    comprova:
+      refs: {main: B, origin/main: C}
+      programa: Hello Git!
+
+  - ordre: git log --oneline main..origin/main
+    text: Consultem quins commits té el remot que la nostra branca encara no té.
+    parts:
+      - main..origin/main: Els dos punts formen un rang. Llista els commits d’[[origin/main]] que no són a [[main]].
+    resultat: En aquest exemple només n’hi ha un. Consultar-lo tampoc l’integra.
+    visual: Subratllar main, els dos punts i origin/main per torns; ressaltar C a la sortida real.
+    comprova:
+      sortida: ["{C} Personalitza la salutacio"]
+
+  - ordre: git diff main origin/main -- helloGit.py
+    text: Comparem el contingut de les dues versions.
+    parts:
+      - main: El primer punt de comparació és la nostra branca.
+      - origin/main: El segon és la versió descarregada del servidor.
+    resultat: Veiem la salutació nova, mentre el fitxer del nostre treball encara té l’original.
+    visual: Sortida real i editor actual, visibles alhora. Cap fletxa de sobreescriptura.
+
+  - ordre: git merge --ff-only origin/main
+    text: Després de revisar-ho, decidim incorporar el canvi.
+    parts:
+      - origin/main: És la referència descarregada que incorporem a [[main]].
+    resultat: "[[main]] avança fins al commit nou i el fitxer s’actualitza. Aquest és el pas que integra la novetat."
+    visual: Moure main fins a C i actualitzar l’editor després de l’execució.
+    comprova:
+      refs: {main: C}
+
+  - plantilla: programa
+    resultat: El programa ja mostra la salutació nova. Hem separat descarregar, revisar i integrar.
+    comprova: {programa: "Hola, Ermessenda!"}
+
+resum:
+  - "[[git fetch]] descarrega i actualitza [[origin/main]] sense tocar [[main]]."
+  - Amb [[git log]] i [[git diff]] revisem el que hem descarregat.
+  - Integrar és un pas posterior; [[git pull]] fa la descàrrega i la integració alhora.
+practica: >-
+  Amb dos clons de pràctiques, publica una novetat des d’un i fes [[fetch]] a l’altre. Compara [[main]]
+  i [[origin/main]] abans d’integrar.

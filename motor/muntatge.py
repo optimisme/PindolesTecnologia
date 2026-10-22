@@ -64,6 +64,14 @@ def verify_episode(root, video_dir, decode=False):
         assert meta['audio_sha256']==hashlib.sha256((root/'audio'/f"{scene['id']}.wav").read_bytes()).hexdigest()
         restored=identity_words(meta['words'],scene['narration'])
         assert all(w['start']<w['end'] for w in restored)
+    # La veu és mono duplicada: després de la sintonia, els dos canals han de ser idèntics.
+    # Un retard aplicat a un sol canal sona com un eco.
+    with wave.open(str(root/'build/narracio-revisada.wav'),'rb') as audio:
+        rate=audio.getframerate()
+        audio.setpos(round((prod['opening']['music_duration']+.2)*rate))
+        samples=array('h',audio.readframes(rate*20))
+    assert max((abs(a-b) for a,b in zip(samples[0::2],samples[1::2])),default=0) <= 2, \
+        'Els canals esquerre i dret de la veu no coincideixen (eco)'
     pauses=[beat['reading_pause'] for s in prod['scenes'] for beat in s['beats'] if beat.get('reading_pause')]
     assert pauses and all(p['requested_seconds']>=1 for p in pauses)
     for pause in pauses:
@@ -156,7 +164,7 @@ async def render_episode(root, config, draw_scene, video_dir, prepare=None, audi
         timings.append(info)
         wav=build/f"{scene['id']}.wav"
         run(['ffmpeg','-y','-v','error','-i',audio,'-af',
-             f'adelay=300,apad,atrim=duration={duration}',
+             f'adelay=300:all=1,apad,atrim=duration={duration}',
              '-ar','48000','-ac','2','-c:a','pcm_s16le',wav])
         wavs.append(wav)
         script += [f"## {scene['title']} ({offset:.2f}–{offset+duration:.2f} s)",'',

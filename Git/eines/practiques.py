@@ -132,7 +132,7 @@ def run_script(path, expected):
         work = Path(temporary)/'prova'/expected['directori'].removeprefix('~/').removeprefix('~')
         def git(*args):
             return subprocess.run(['git', *args], cwd=work, env=env, capture_output=True, text=True).stdout
-        refs = sorted(line.split()[0] for line in git('for-each-ref', '--format=%(refname:short) x',
+        refs = sorted(line.split()[1] for line in git('for-each-ref', '--format=%(refname) %(refname:short)',
                                                       'refs/heads', 'refs/remotes', 'refs/tags').splitlines()
                       if not line.split()[0].endswith('/HEAD'))
         status = git('status', '--short').rstrip('\n').splitlines()

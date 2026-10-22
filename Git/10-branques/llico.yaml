@@ -1,0 +1,159 @@
+titol: "Branques: prova idees sense tocar main"
+titol_curt: BRANQUES
+capcalera: [BRANQUES, Prova idees sense tocar main]
+presentacio: Branques
+objectiu: crear dues branques des de main, confirmar-hi una idea a cadascuna i comparar les tres versions.
+inici: >-
+  Repositori HelloGit a main amb dos commits, A i B. B conté print("Hello Git!") i
+  print("Benvinguda al projecte.") i no hi ha canvis pendents. Les lletres del graf són noms
+  didàctics; la pantalla mostra els identificadors reals.
+inici_parlat: >-
+  Partim d’un projecte amb dos commits a [[main]]. El programa saluda i dona la benvinguda, i no hi ha
+  cap canvi pendent.
+
+preparacio:
+  - repositori: HelloGit
+  - fitxer: helloGit.py
+    contingut: |-
+      print("Hello Git")
+      print("Benvinguda al projecte.")
+  - git: add helloGit.py
+  - commit: A
+    missatge: Afegeix la salutacio inicial
+  - fitxer: helloGit.py
+    contingut: |-
+      print("Hello Git!")
+      print("Benvinguda al projecte.")
+  - git: add helloGit.py
+  - commit: B
+    missatge: Afegeix una exclamacio
+
+etapes:
+  - explica: Dues idees, dues línies de treball
+    pantalla:
+      - "Versió que funciona:  main"
+      - "Idea 1, saludar per nom:  salutacio"
+      - "Idea 2, afegir un comiat:  comiat"
+      - "Cada idea, a la seva branca."
+    text: >-
+      Tenim dues idees per al programa: saludar per nom i afegir un comiat. Volem provar-les per separat,
+      sense tocar la versió que funciona a [[main]]. Cada idea tindrà la seva branca, amb commits propis.
+    visual: Graf amb A i B a main; dues fletxes discontínues que surten de B cap a salutacio i comiat.
+
+  - explica: Una branca és una etiqueta
+    pantalla:
+      - "Una branca apunta a un commit."
+      - "Crear-ne una no copia fitxers."
+      - "Crear-ne una no crea cap commit."
+    text: >-
+      Una branca és una etiqueta que apunta a un commit. Crear-ne una no copia els fitxers ni crea
+      cap commit. Diverses etiquetes poden apuntar al mateix lloc.
+    visual: Graf amb A i B; etiqueta main a B. Afegir l’etiqueta salutacio a B sense crear cap node.
+
+  - plantilla: switch-crea
+    branca: salutacio
+    resultat: La branca activa ara és salutació. [[main]] continua al mateix commit, i no s’ha creat cap commit nou.
+    visual: Etiquetes main i salutacio a B; l’indicador de branca activa passa a salutacio.
+    comprova: {head: salutacio, refs: {main: B, salutacio: B}}
+
+  - explica: Primera idea, la salutació
+    text: Canviem la primera línia per saludar per nom i desem el fitxer.
+    visual: Editor amb la primera línia canviada a print("Hola, Ermessenda!").
+    accions:
+      - fitxer: helloGit.py
+        contingut: |-
+          print("Hola, Ermessenda!")
+          print("Benvinguda al projecte.")
+
+  - plantilla: add-breu
+    resultat: La salutació nova queda preparada.
+    comprova: {status: "M  helloGit.py"}
+
+  - plantilla: commit-breu
+    missatge: Personalitza la salutacio
+    crea: C
+    resultat: El commit nou fa avançar salutació. [[main]] continua apuntant a la versió original.
+    visual: Nou node C després de B; l’etiqueta salutacio avança fins a C i main es queda a B.
+    comprova: {refs: {main: B, salutacio: C}, status: ""}
+
+  - plantilla: switch
+    branca: main
+    resultat: >-
+      Tornem a la versió original. Ho fem abans de crear la segona branca, perquè una branca nova
+      comença al commit on som: així el comiat no portarà la salutació nova.
+    visual: L’indicador de branca activa torna a main; l’editor mostra print("Hello Git!"). C continua al graf.
+    comprova: {head: main, treball: {helloGit.py: "print(\"Hello Git!\")\nprint(\"Benvinguda al projecte.\")"}}
+
+  - plantilla: switch-crea
+    branca: comiat
+    resultat: Ara hi ha tres etiquetes. [[main]] i comiat apunten a la versió original; salutació, al seu commit.
+    visual: Etiqueta comiat nova a B, al costat de main. HEAD passa a comiat.
+    comprova: {head: comiat, refs: {main: B, salutacio: C, comiat: B}}
+
+  - explica: Segona idea, el comiat
+    text: Afegim una línia de comiat al final del fitxer i el desem.
+    visual: Editor amb la línia print("Fins aviat!") afegida al final.
+    accions:
+      - fitxer: helloGit.py
+        contingut: |-
+          print("Hello Git!")
+          print("Benvinguda al projecte.")
+          print("Fins aviat!")
+
+  - plantilla: add-breu
+    resultat: El comiat queda preparat.
+    comprova: {status: "M  helloGit.py"}
+
+  - plantilla: commit-breu
+    missatge: Afegeix un comiat
+    crea: D
+    resultat: >-
+      El commit nou fa avançar comiat. Des de la versió original surten ara dos camins, un per a cada idea.
+    visual: Nou node D després de B, en una línia diferent de C. Etiqueta comiat a D; main es queda a B.
+    comprova: {refs: {main: B, salutacio: C, comiat: D}, status: ""}
+
+  - ordre: git log --oneline --graph --all --decorate
+    text: La terminal també pot dibuixar l’historial de totes les branques.
+    parts:
+      - --graph: Doble guionet [[graph]] dibuixa les línies que uneixen els commits.
+      - --all: Doble guionet [[all]] mostra totes les branques, no només l’activa.
+      - --decorate: Doble guionet [[decorate]] escriu el nom de cada branca al costat del seu commit.
+    resultat: >-
+      Les línies mostren la bifurcació: els dos commits nous surten del mateix commit de [[main]], cadascun
+      a la seva branca.
+    visual: Sortida real al costat del graf; ressaltar els noms de les tres branques.
+    comprova:
+      sortida: ["(HEAD -> comiat)", "(salutacio)", "(main)"]
+
+  - plantilla: programa
+    resultat: A la branca del comiat, el programa saluda en anglès i s’acomiada.
+    comprova: {programa: "Hello Git!\nBenvinguda al projecte.\nFins aviat!"}
+
+  - plantilla: switch
+    branca: salutacio
+    resultat: El fitxer canvia sol a la versió d’aquesta branca. No hi ha comiat, perquè és en una altra branca.
+    visual: L’indicador passa a salutacio i l’editor mostra la salutació nova, sense comiat.
+    comprova: {head: salutacio, treball: {helloGit.py: "print(\"Hola, Ermessenda!\")\nprint(\"Benvinguda al projecte.\")"}}
+
+  - plantilla: programa
+    resultat: Ara surt la salutació personalitzada. Cada branca conserva la seva versió del codi.
+    comprova: {programa: "Hola, Ermessenda!\nBenvinguda al projecte."}
+
+  - explica: La branca activa
+    pantalla:
+      - "HEAD:  on treballem ara"
+      - "Ara segueix:  salutacio"
+      - "Tres branques, tres versions del fitxer."
+    text: >-
+      [[HEAD]] indica on estem treballant; en aquest exemple segueix la branca activa. Canviar de branca
+      no esborra res: les tres versions continuen guardades, i el nom [[main]] no garanteix que el
+      programa funcioni.
+    visual: HEAD unit a salutacio; main quieta a B i comiat a D. El nom de la branca activa també es veu a la terminal.
+
+resum:
+  - Crear una branca afegeix una etiqueta al commit on som; no crea cap commit.
+  - Un commit fa avançar només la branca activa; cada branca guarda la seva versió.
+  - Canviar de branca recupera la seva versió; ajuntar-les serà la lliçó següent.
+practica: >-
+  En un repositori de pràctiques sense canvis pendents, crea dues branques des de [[main]], confirma un
+  canvi diferent a cadascuna i alterna-les per comparar el fitxer i la sortida del programa.

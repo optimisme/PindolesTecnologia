@@ -1,0 +1,616 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 24,
+  "slug": "24-desfer",
+  "title": "Desfer canvis: quina ordre triar",
+  "short_title": "DESFER CANVIS",
+  "card": [
+    "DESFER CANVIS",
+    "Quina ordre triar en cada cas"
+  ],
+  "lesson_kind": "conceptual",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "24-desfer.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Vint-i-quatrena lliçó. Desfer canvis.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Vint-i-quatrena lliçó. Desfer canvis."
+      }
+    ]
+  },
+  "objective": "triar l’ordre adequada per desfer un canvi segons on és i si ja l’hem compartit.",
+  "start_note": "Lliçó de repàs sense ordres noves. Reuneix restore, stash, amend, reset, reflog i revert en un esquema de decisió.",
+  "start_spoken": "Ja coneixem diverses ordres per desfer canvis. En aquesta lliçó les ordenem per saber quan fer servir cadascuna.",
+  "summary": [
+    "Sense confirmar, git restore; per guardar-ho per més tard, git stash.",
+    "En commits locals, amend o reset, i el reflog si cal recuperar-ne un.",
+    "En commits publicats, git revert."
+  ],
+  "practice": "Escriu en un paper l’esquema de decisió amb un exemple propi per a cada cas. Després, prova-ne un parell en un repositori de pràctiques.",
+  "practice_script": null,
+  "scenes": [
+    {
+      "id": "e24_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a triar l’ordre adequada per desfer un canvi segons on és i si ja l’hem compartit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a triar l’ordre adequada per desfer un canvi segons on és i si ja l’hem compartit."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Triar l’ordre adequada per desfer un canvi segons on és i si ja l’hem compartit."
+        },
+        {
+          "id": "pas_002",
+          "narration": "Ja coneixem diverses ordres per desfer canvis. En aquesta lliçó les ordenem per saber quan fer servir cadascuna.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Ja coneixem diverses ordres per desfer canvis. En aquesta lliçó les ordenem per saber quan fer servir cadascuna."
+            }
+          ],
+          "visual": "Punt de partida: Lliçó de repàs sense ordres noves. Reuneix restore, stash, amend, reset, reflog i revert en un esquema de decisió.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1,
+          "screen_text": "Ja coneixem diverses ordres per desfer canvis. En aquesta lliçó les ordenem per saber quan fer servir cadascuna."
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a triar l’ordre adequada per desfer un canvi segons on és i si ja l’hem compartit. Ja coneixem diverses ordres per desfer canvis. En aquesta lliçó les ordenem per saber quan fer servir cadascuna."
+    },
+    {
+      "id": "e24_01",
+      "label": "EXPLICACIÓ",
+      "title": "Dues coses a mirar primer",
+      "mode": "principal",
+      "visual": "Esquema de decisió amb dues preguntes en forma d’etiqueta, ON ÉS EL CANVI i JA ESTÀ PUBLICAT, sense signes d’interrogació.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Abans de desfer res, mirem on és el canvi, al treball, a la preparació o en un commit. I, si és en un commit, si ja l’hem publicat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Abans de desfer res, mirem on és el canvi, al treball, a la preparació o en un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ". I, si és en un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", si ja l’hem publicat."
+            }
+          ],
+          "visual": "Esquema de decisió amb dues preguntes en forma d’etiqueta, ON ÉS EL CANVI i JA ESTÀ PUBLICAT, sense signes d’interrogació.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "screen": [
+        "1. On és el canvi:  treball, preparació o commit",
+        "2. Si és en un commit:  publicat o no"
+      ],
+      "narration": "Abans de desfer res, mirem on és el canvi, al treball, a la preparació o en un commit. I, si és en un commit, si ja l’hem publicat."
+    },
+    {
+      "id": "e24_02",
+      "label": "EXPLICACIÓ",
+      "title": "El canvi encara no està confirmat",
+      "mode": "principal",
+      "visual": "Branca SENSE CONFIRMAR de l’esquema, amb les tres ordres git restore helloGit.py, git restore --staged helloGit.py i git stash.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "Si només és al treball i no el volem, git restore amb el nom del fitxer el descarta. No es pot recuperar, perquè mai no l’hem confirmat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si només és al treball i no el volem, "
+            },
+            {
+              "lang": "en-US",
+              "text": "git restore"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb el nom del fitxer el descarta. No es pot recuperar, perquè mai no l’hem confirmat."
+            }
+          ],
+          "visual": "Branca SENSE CONFIRMAR de l’esquema, amb les tres ordres git restore helloGit.py, git restore --staged helloGit.py i git stash.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 1
+        },
+        {
+          "id": "pas_005",
+          "narration": "Si està preparat però encara no el volem confirmar, git restore amb doble guionet staged desfà la preparació i conserva l’edició.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si està preparat però encara no el volem confirmar, "
+            },
+            {
+              "lang": "en-US",
+              "text": "git restore"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " amb doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "staged"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " desfà la preparació i conserva l’edició."
+            }
+          ],
+          "visual": "Branca SENSE CONFIRMAR de l’esquema, amb les tres ordres git restore helloGit.py, git restore --staged helloGit.py i git stash.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 1
+        },
+        {
+          "id": "pas_006",
+          "narration": "Si és feina a mitges que volem guardar per més tard, git stash l’aparca.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si és feina a mitges que volem guardar per més tard, "
+            },
+            {
+              "lang": "en-US",
+              "text": "git stash"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " l’aparca."
+            }
+          ],
+          "visual": "Branca SENSE CONFIRMAR de l’esquema, amb les tres ordres git restore helloGit.py, git restore --staged helloGit.py i git stash.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 1
+        }
+      ],
+      "screen": [
+        "Descartar una edició:  git restore helloGit.py",
+        "Desfer la preparació:  git restore --staged helloGit.py",
+        "Guardar per més tard:  git stash"
+      ],
+      "narration": "Si només és al treball i no el volem, git restore amb el nom del fitxer el descarta. No es pot recuperar, perquè mai no l’hem confirmat. Si està preparat però encara no el volem confirmar, git restore amb doble guionet staged desfà la preparació i conserva l’edició. Si és feina a mitges que volem guardar per més tard, git stash l’aparca."
+    },
+    {
+      "id": "e24_03",
+      "label": "EXPLICACIÓ",
+      "title": "El canvi és en un commit que no hem publicat",
+      "mode": "principal",
+      "visual": "Branca CONFIRMAT, NO PUBLICAT, amb git commit --amend, git reset --soft HEAD~1 i git reflog.",
+      "beats": [
+        {
+          "id": "pas_007",
+          "narration": "Si a l’últim commit li falta alguna cosa o té el missatge malament, el completem amb git commit doble guionet amend.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si a l’últim "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " li falta alguna cosa o té el missatge malament, el completem amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " doble guionet "
+            },
+            {
+              "lang": "en-US",
+              "text": "amend"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Branca CONFIRMAT, NO PUBLICAT, amb git commit --amend, git reset --soft HEAD~1 i git reflog.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 2
+        },
+        {
+          "id": "pas_008",
+          "narration": "Si volem refer un o més commits locals, git reset fa tornar la branca enrere. Amb soft o mixed, els canvis continuen al treball.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si volem refer un o més "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " locals, "
+            },
+            {
+              "lang": "en-US",
+              "text": "git reset"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " fa tornar la branca enrere. Amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "soft"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " o "
+            },
+            {
+              "lang": "en-US",
+              "text": "mixed"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", els canvis continuen al treball."
+            }
+          ],
+          "visual": "Branca CONFIRMAT, NO PUBLICAT, amb git commit --amend, git reset --soft HEAD~1 i git reflog.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 2
+        },
+        {
+          "id": "pas_009",
+          "narration": "Si després d’un reset trobem a faltar un commit, el git reflog ens diu on era i una branca nova el recupera.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si després d’un "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " trobem a faltar un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", el "
+            },
+            {
+              "lang": "en-US",
+              "text": "git reflog"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ens diu on era i una branca nova el recupera."
+            }
+          ],
+          "visual": "Branca CONFIRMAT, NO PUBLICAT, amb git commit --amend, git reset --soft HEAD~1 i git reflog.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 2
+        }
+      ],
+      "screen": [
+        "Completar l’últim:  git commit --amend",
+        "Refer commits locals:  git reset --soft HEAD~1",
+        "Recuperar-ne un:  git reflog"
+      ],
+      "narration": "Si a l’últim commit li falta alguna cosa o té el missatge malament, el completem amb git commit doble guionet amend. Si volem refer un o més commits locals, git reset fa tornar la branca enrere. Amb soft o mixed, els canvis continuen al treball. Si després d’un reset trobem a faltar un commit, el git reflog ens diu on era i una branca nova el recupera."
+    },
+    {
+      "id": "e24_04",
+      "label": "EXPLICACIÓ",
+      "title": "El canvi ja està publicat",
+      "mode": "principal",
+      "visual": "Branca PUBLICAT, amb git revert i una fletxa cap a git push.",
+      "beats": [
+        {
+          "id": "pas_010",
+          "narration": "Si altres persones ja poden tenir el commit, no el traiem de l’historial. git revert crea un commit nou que en desfà l’efecte, i l’enviem amb un push normal.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si altres persones ja poden tenir el "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", no el traiem de l’historial. "
+            },
+            {
+              "lang": "en-US",
+              "text": "git revert"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " crea un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou que en desfà l’efecte, i l’enviem amb un "
+            },
+            {
+              "lang": "en-US",
+              "text": "push"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " normal."
+            }
+          ],
+          "visual": "Branca PUBLICAT, amb git revert i una fletxa cap a git push.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 3
+        }
+      ],
+      "screen": [
+        "Desfer amb un commit nou:  git revert",
+        "I compartir-lo:  git push"
+      ],
+      "narration": "Si altres persones ja poden tenir el commit, no el traiem de l’historial. git revert crea un commit nou que en desfà l’efecte, i l’enviem amb un push normal."
+    },
+    {
+      "id": "e24_05",
+      "label": "EXPLICACIÓ",
+      "title": "La regla que ho resumeix",
+      "mode": "principal",
+      "visual": "Taula de dues columnes, REESCRIU L’HISTORIAL · amend, reset, rebase / AFEGEIX UN COMMIT · revert.",
+      "beats": [
+        {
+          "id": "pas_011",
+          "narration": "Amend, reset i rebase reescriuen l’historial: només els fem servir amb feina pròpia que encara no hem compartit. Per a la feina compartida, desfem amb un commit nou.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "Amend"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i "
+            },
+            {
+              "lang": "en-US",
+              "text": "rebase"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " reescriuen l’historial: només els fem servir amb feina pròpia que encara no hem compartit. Per a la feina compartida, desfem amb un "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " nou."
+            }
+          ],
+          "visual": "Taula de dues columnes, REESCRIU L’HISTORIAL · amend, reset, rebase / AFEGEIX UN COMMIT · revert.",
+          "pause_after": 4,
+          "commands": [],
+          "state": 4
+        }
+      ],
+      "screen": [
+        "Reescriuen l’historial:  amend, reset, rebase",
+        "Afegeix un commit:  revert",
+        "Feina compartida → revert"
+      ],
+      "narration": "Amend, reset i rebase reescriuen l’historial: només els fem servir amb feina pròpia que encara no hem compartit. Per a la feina compartida, desfem amb un commit nou."
+    },
+    {
+      "id": "e24_06",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_012",
+          "narration": "Sense confirmar, git restore; per guardar-ho per més tard, git stash.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Sense confirmar, "
+            },
+            {
+              "lang": "en-US",
+              "text": "git restore"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "; per guardar-ho per més tard, "
+            },
+            {
+              "lang": "en-US",
+              "text": "git stash"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Sense confirmar, git restore; per guardar-ho per més tard, git stash."
+        },
+        {
+          "id": "pas_013",
+          "narration": "En commits locals, amend o reset, i el reflog si cal recuperar-ne un.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " locals, "
+            },
+            {
+              "lang": "en-US",
+              "text": "amend"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " o "
+            },
+            {
+              "lang": "en-US",
+              "text": "reset"
+            },
+            {
+              "lang": "ca-ES",
+              "text": ", i el "
+            },
+            {
+              "lang": "en-US",
+              "text": "reflog"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " si cal recuperar-ne un."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "En commits locals, amend o reset, i el reflog si cal recuperar-ne un."
+        },
+        {
+          "id": "pas_014",
+          "narration": "En commits publicats, git revert.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En "
+            },
+            {
+              "lang": "en-US",
+              "text": "commits"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " publicats, "
+            },
+            {
+              "lang": "en-US",
+              "text": "git revert"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "En commits publicats, git revert."
+        }
+      ],
+      "narration": "Sense confirmar, git restore; per guardar-ho per més tard, git stash. En commits locals, amend o reset, i el reflog si cal recuperar-ne un. En commits publicats, git revert."
+    },
+    {
+      "id": "e24_07",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_015",
+          "narration": "Escriu en un paper l’esquema de decisió amb un exemple propi per a cada cas. Després, prova-ne un parell en un repositori de pràctiques.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Escriu en un paper l’esquema de decisió amb un exemple propi per a cada cas. Després, prova-ne un parell en un repositori de pràctiques."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": [],
+          "screen_text": "Escriu en un paper l’esquema de decisió amb un exemple propi per a cada cas. Després, prova-ne un parell en un repositori de pràctiques."
+        }
+      ],
+      "narration": "Escriu en un paper l’esquema de decisió amb un exemple propi per a cada cas. Després, prova-ne un parell en un repositori de pràctiques."
+    }
+  ],
+  "commands": []
+}

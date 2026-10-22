@@ -1,0 +1,758 @@
+{
+  "script_format": "pindoles-guio-v3",
+  "series": "Píndoles de Git",
+  "episode_number": 5,
+  "slug": "05-fitxers",
+  "title": "Esborrar i reanomenar fitxers",
+  "short_title": "FITXERS",
+  "card": [
+    "ESBORRAR I REANOMENAR",
+    "Treure i canviar de nom fitxers seguits"
+  ],
+  "lesson_kind": "practica",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "language_rates": {
+    "ca-ES": "+5%",
+    "en-US": "+0%"
+  },
+  "language_switch_pause_ms": 500,
+  "speech_endpoint": "https://optimisme-6938-resource.cognitiveservices.azure.com/",
+  "fps": 24,
+  "output_name": "05-fitxers.mp4",
+  "questions": false,
+  "subtitles": {
+    "english": "quotes-and-italic",
+    "shared_baseline": true
+  },
+  "intro": {
+    "enabled": true,
+    "narration": "Cinquena lliçó. Esborrar i reanomenar fitxers.",
+    "segments": [
+      {
+        "lang": "ca-ES",
+        "text": "Cinquena lliçó. Esborrar i reanomenar fitxers."
+      }
+    ]
+  },
+  "objective": "esborrar i reanomenar fitxers que [[Git]] ja segueix, i confirmar aquests canvis com qualsevol altre.",
+  "start_note": "HelloGit a main amb un commit A que conté helloGit.py, notes.txt i prova.py, un fitxer de proves que ja no cal. Sense canvis pendents.",
+  "start_spoken": "El projecte té el programa, un fitxer de notes i un fitxer de proves que ja no necessitem. Tot està confirmat i no hi ha canvis pendents.",
+  "summary": [
+    "git rm esborra el fitxer i en prepara l’eliminació.",
+    "git mv canvia el nom i el deixa preparat.",
+    "Si esborrem des de l’explorador, després cal preparar l’eliminació."
+  ],
+  "practice": "En un repositori de pràctiques, esborra un fitxer seguit i canvia el nom d’un altre. Revisa l’estat breu abans de confirmar els dos canvis.",
+  "practice_script": "practiques/05-fitxers.sh",
+  "scenes": [
+    {
+      "id": "e05_00",
+      "label": "OBJECTIU",
+      "title": "Objectiu i punt de partida",
+      "mode": "principal",
+      "visual": "Objectiu en una frase; esquema general del resultat.",
+      "beats": [
+        {
+          "id": "pas_001",
+          "narration": "En aquesta lliçó aprendrem a esborrar i reanomenar fitxers que Git ja segueix, i confirmar aquests canvis com qualsevol altre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En aquesta lliçó aprendrem a esborrar i reanomenar fitxers que "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " ja segueix, i confirmar aquests canvis com qualsevol altre."
+            }
+          ],
+          "visual": "Objectiu en una frase; esquema general del resultat.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Esborrar i reanomenar fitxers que Git ja segueix, i confirmar aquests canvis com qualsevol altre."
+        },
+        {
+          "id": "pas_002",
+          "narration": "El projecte té el programa, un fitxer de notes i un fitxer de proves que ja no necessitem. Tot està confirmat i no hi ha canvis pendents.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El projecte té el programa, un fitxer de notes i un fitxer de proves que ja no necessitem. Tot està confirmat i no hi ha canvis pendents."
+            }
+          ],
+          "visual": "Punt de partida: HelloGit a main amb un commit A que conté helloGit.py, notes.txt i prova.py, un fitxer de proves que ja no cal. Sense canvis pendents.",
+          "pause_after": 3.5,
+          "commands": [],
+          "state": -1,
+          "screen_text": "El projecte té el programa, un fitxer de notes i un fitxer de proves que ja no necessitem. Tot està confirmat i no hi ha canvis pendents."
+        }
+      ],
+      "narration": "En aquesta lliçó aprendrem a esborrar i reanomenar fitxers que Git ja segueix, i confirmar aquests canvis com qualsevol altre. El projecte té el programa, un fitxer de notes i un fitxer de proves que ja no necessitem. Tot està confirmat i no hi ha canvis pendents."
+    },
+    {
+      "id": "e05_01",
+      "label": "EXPLICACIÓ",
+      "title": "Esborrar també és un canvi",
+      "mode": "principal",
+      "visual": "Explorador amb helloGit.py, notes.txt i prova.py, tots tres marcats SEGUIT.",
+      "beats": [
+        {
+          "id": "pas_003",
+          "narration": "Si un fitxer ja és a l’historial, esborrar-lo o canviar-li el nom també són canvis. Els preparem i els confirmem com una edició qualsevol.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si un fitxer ja és a l’historial, esborrar-lo o canviar-li el nom també són canvis. Els preparem i els confirmem com una edició qualsevol."
+            }
+          ],
+          "visual": "Explorador amb helloGit.py, notes.txt i prova.py, tots tres marcats SEGUIT.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 0
+        }
+      ],
+      "screen": [
+        "Esborrar un fitxer seguit:  git rm",
+        "Canviar-li el nom:  git mv",
+        "Tots dos canvis es preparen i es confirmen."
+      ],
+      "narration": "Si un fitxer ja és a l’historial, esborrar-lo o canviar-li el nom també són canvis. Els preparem i els confirmem com una edició qualsevol."
+    },
+    {
+      "id": "e05_02",
+      "label": "TERMINAL",
+      "title": "git rm prova.py",
+      "mode": "principal",
+      "visual": "prova.py desapareix de l’explorador i apareix al panell PREPARACIÓ amb una D.",
+      "beats": [
+        {
+          "id": "pas_004",
+          "narration": "git rm esborra un fitxer seguit.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git rm"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " esborra un fitxer seguit."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rm prova.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git rm.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rm prova.py",
+          "highlight": "git rm",
+          "state": 0
+        },
+        {
+          "id": "pas_005",
+          "narration": "És el fitxer que ja no necessitem.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el fitxer que ja no necessitem."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rm prova.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: prova.py.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git rm prova.py",
+          "highlight": "prova.py",
+          "state": 0
+        },
+        {
+          "id": "pas_006",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git rm prova.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git rm prova.py"
+          ],
+          "command_display": "git rm prova.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 0
+        },
+        {
+          "id": "pas_007",
+          "narration": "El fitxer desapareix de la carpeta i l’eliminació queda preparada per al proper commit.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El fitxer desapareix de la carpeta i l’eliminació queda preparada per al proper "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "prova.py desapareix de l’explorador i apareix al panell PREPARACIÓ amb una D. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git rm prova.py",
+          "event": "result",
+          "state": 1,
+          "simulated": false,
+          "terminal_output": [
+            "rm 'prova.py'"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git rm esborra un fitxer seguit. És el fitxer que ja no necessitem. Executem l’ordre. El fitxer desapareix de la carpeta i l’eliminació queda preparada per al proper commit."
+    },
+    {
+      "id": "e05_03",
+      "label": "TERMINAL",
+      "title": "git mv notes.txt notes.md",
+      "mode": "principal",
+      "visual": "notes.txt es transforma en notes.md; al panell PREPARACIÓ apareix una R amb el nom antic i el nou.",
+      "beats": [
+        {
+          "id": "pas_008",
+          "narration": "git mv canvia el nom d’un fitxer seguit.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git mv"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " canvia el nom d’un fitxer seguit."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git mv notes.txt notes.md. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git mv.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git mv notes.txt notes.md",
+          "highlight": "git mv",
+          "state": 1
+        },
+        {
+          "id": "pas_009",
+          "narration": "És el nom actual.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom actual."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git mv notes.txt notes.md. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: notes.txt.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git mv notes.txt notes.md",
+          "highlight": "notes.txt",
+          "state": 1
+        },
+        {
+          "id": "pas_010",
+          "narration": "És el nom nou.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "És el nom nou."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git mv notes.txt notes.md. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar únicament: notes.md.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git mv notes.txt notes.md",
+          "highlight": "notes.md",
+          "state": 1
+        },
+        {
+          "id": "pas_011",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git mv notes.txt notes.md. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git mv notes.txt notes.md"
+          ],
+          "command_display": "git mv notes.txt notes.md",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 1
+        },
+        {
+          "id": "pas_012",
+          "narration": "El fitxer ja té el nom nou i el canvi de nom també queda preparat.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El fitxer ja té el nom nou i el canvi de nom també queda preparat."
+            }
+          ],
+          "visual": "notes.txt es transforma en notes.md; al panell PREPARACIÓ apareix una R amb el nom antic i el nou. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git mv notes.txt notes.md",
+          "event": "result",
+          "state": 2,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "git mv canvia el nom d’un fitxer seguit. És el nom actual. És el nom nou. Executem l’ordre. El fitxer ja té el nom nou i el canvi de nom també queda preparat."
+    },
+    {
+      "id": "e05_04",
+      "label": "TERMINAL",
+      "title": "git status --short",
+      "mode": "principal",
+      "visual": "Sortida literal amb la llegenda de les dues columnes.",
+      "beats": [
+        {
+          "id": "pas_013",
+          "narration": "Consultem l’estat breu amb git status.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat breu amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status",
+          "state": 2
+        },
+        {
+          "id": "pas_014",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 2
+        },
+        {
+          "id": "pas_015",
+          "narration": "La erra indica un canvi de nom, amb el nom antic i el nou. La de indica el fitxer esborrat. Tots dos canvis estan preparats.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La erra indica un canvi de nom, amb el nom antic i el nou. La de indica el fitxer esborrat. Tots dos canvis estan preparats."
+            }
+          ],
+          "visual": "Sortida literal amb la llegenda de les dues columnes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result",
+          "state": 3,
+          "simulated": false,
+          "terminal_output": [
+            "R  notes.txt -> notes.md",
+            "D  prova.py"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat breu amb git status. Executem l’ordre. La erra indica un canvi de nom, amb el nom antic i el nou. La de indica el fitxer esborrat. Tots dos canvis estan preparats."
+    },
+    {
+      "id": "e05_05",
+      "label": "TERMINAL",
+      "title": "git commit -m \"Ordena els fitxers del projecte\"",
+      "mode": "principal",
+      "visual": "Crear el node nou només en executar.",
+      "beats": [
+        {
+          "id": "pas_016",
+          "narration": "Confirmem el canvi amb git commit i el missatge: Ordena els fitxers del projecte.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Confirmem el canvi amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " i el missatge: Ordena els fitxers del projecte."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Ordena els fitxers del projecte\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git commit.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git commit -m \"Ordena els fitxers del projecte\"",
+          "highlight": "git commit",
+          "state": 3
+        },
+        {
+          "id": "pas_017",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git commit -m \"Ordena els fitxers del projecte\". Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git commit -m \"Ordena els fitxers del projecte\""
+          ],
+          "command_display": "git commit -m \"Ordena els fitxers del projecte\"",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 3
+        },
+        {
+          "id": "pas_018",
+          "narration": "El commit guarda l’eliminació i el canvi de nom. Les versions antigues continuen a l’historial.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "El "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " guarda l’eliminació i el canvi de nom. Les versions antigues continuen a l’historial."
+            }
+          ],
+          "visual": "Crear el node nou només en executar. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git commit -m \"Ordena els fitxers del projecte\"",
+          "event": "result",
+          "state": 4,
+          "simulated": false,
+          "terminal_output": [
+            "[main 55f09bf] Ordena els fitxers del projecte",
+            " 2 files changed, 1 deletion(-)",
+            " rename notes.txt => notes.md (100%)",
+            " delete mode 100644 prova.py"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Confirmem el canvi amb git commit i el missatge: Ordena els fitxers del projecte. Executem l’ordre. El commit guarda l’eliminació i el canvi de nom. Les versions antigues continuen a l’historial."
+    },
+    {
+      "id": "e05_06",
+      "label": "UN ERROR HABITUAL",
+      "title": "Un error habitual, esborrar des de l’explorador",
+      "mode": "explorador",
+      "visual": "Separador UN ERROR HABITUAL. prova.py s’envia a la paperera des de l’explorador.",
+      "beats": [
+        {
+          "id": "pas_019",
+          "narration": "Un altre cas. Si esborrem el fitxer des de l’explorador o des de l’editor, Git veu que falta, però l’eliminació encara no està preparada.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Un altre cas. Si esborrem el fitxer des de l’explorador o des de l’editor, "
+            },
+            {
+              "lang": "en-US",
+              "text": "Git"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " veu que falta, però l’eliminació encara no està preparada."
+            }
+          ],
+          "visual": "Separador UN ERROR HABITUAL. prova.py s’envia a la paperera des de l’explorador.",
+          "pause_after": 3,
+          "commands": [],
+          "state": 5
+        }
+      ],
+      "screen": [
+        "Esborrat des de l’explorador:   D prova.py",
+        "Falta preparar-ne l’eliminació:  git add prova.py"
+      ],
+      "narration": "Un altre cas. Si esborrem el fitxer des de l’explorador o des de l’editor, Git veu que falta, però l’eliminació encara no està preparada."
+    },
+    {
+      "id": "e05_07",
+      "label": "UN ERROR HABITUAL",
+      "title": "git status --short",
+      "mode": "explorador",
+      "visual": "Sortida literal amb la llegenda de les dues columnes.",
+      "beats": [
+        {
+          "id": "pas_020",
+          "narration": "Consultem l’estat breu amb git status.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Consultem l’estat breu amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git status"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git status.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "highlight": "git status",
+          "state": 5
+        },
+        {
+          "id": "pas_021",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git status --short. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git status --short"
+          ],
+          "command_display": "git status --short",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 5
+        },
+        {
+          "id": "pas_022",
+          "narration": "La de és a la segona columna. El fitxer falta a la carpeta, però el proper commit encara el conservaria.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "La de és a la segona columna. El fitxer falta a la carpeta, però el proper "
+            },
+            {
+              "lang": "en-US",
+              "text": "commit"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " encara el conservaria."
+            }
+          ],
+          "visual": "Sortida literal amb la llegenda de les dues columnes. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git status --short",
+          "event": "result",
+          "state": 6,
+          "simulated": false,
+          "terminal_output": [
+            " D prova.py"
+          ]
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Consultem l’estat breu amb git status. Executem l’ordre. La de és a la segona columna. El fitxer falta a la carpeta, però el proper commit encara el conservaria."
+    },
+    {
+      "id": "e05_08",
+      "label": "UN ERROR HABITUAL",
+      "title": "git add prova.py",
+      "mode": "explorador",
+      "visual": "Copiar el contingut desat a la preparació.",
+      "beats": [
+        {
+          "id": "pas_023",
+          "narration": "Preparem el fitxer amb git add.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparem el fitxer amb "
+            },
+            {
+              "lang": "en-US",
+              "text": "git add"
+            },
+            {
+              "lang": "ca-ES",
+              "text": "."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add prova.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Subratllar l’acció: git add.",
+          "pause_after": 2.5,
+          "commands": [],
+          "command_display": "git add prova.py",
+          "highlight": "git add",
+          "state": 6
+        },
+        {
+          "id": "pas_024",
+          "narration": "Executem l’ordre.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Executem l’ordre."
+            }
+          ],
+          "visual": "Mantenir visible el text complet: git add prova.py. Conservar l’estat de partida mentre s’explica; encara no executar ni mostrar-ne el resultat. Executar després de la locució, sense mostrar abans el resultat.",
+          "pause_after": 1.5,
+          "commands": [
+            "git add prova.py"
+          ],
+          "command_display": "git add prova.py",
+          "event": "execute",
+          "effect_after": "speech",
+          "state": 6
+        },
+        {
+          "id": "pas_025",
+          "narration": "Preparar el fitxer que falta prepara la seva eliminació. Ara la de és a la primera columna, com abans.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Preparar el fitxer que falta prepara la seva eliminació. Ara la de és a la primera columna, com abans."
+            }
+          ],
+          "visual": "Copiar el contingut desat a la preparació. Mostrar el resultat concret i conservar l’estat anterior per comparar.",
+          "pause_after": 3.5,
+          "commands": [],
+          "command_display": "git add prova.py",
+          "event": "result",
+          "state": 7,
+          "simulated": false
+        }
+      ],
+      "input_kind": "terminal",
+      "narration": "Preparem el fitxer amb git add. Executem l’ordre. Preparar el fitxer que falta prepara la seva eliminació. Ara la de és a la primera columna, com abans."
+    },
+    {
+      "id": "e05_09",
+      "label": "RESUM",
+      "title": "Resum final",
+      "mode": "principal",
+      "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+      "beats": [
+        {
+          "id": "pas_026",
+          "narration": "git rm esborra el fitxer i en prepara l’eliminació.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git rm"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " esborra el fitxer i en prepara l’eliminació."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "git rm esborra el fitxer i en prepara l’eliminació."
+        },
+        {
+          "id": "pas_027",
+          "narration": "git mv canvia el nom i el deixa preparat.",
+          "segments": [
+            {
+              "lang": "en-US",
+              "text": "git mv"
+            },
+            {
+              "lang": "ca-ES",
+              "text": " canvia el nom i el deixa preparat."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "git mv canvia el nom i el deixa preparat."
+        },
+        {
+          "id": "pas_028",
+          "narration": "Si esborrem des de l’explorador, després cal preparar l’eliminació.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "Si esborrem des de l’explorador, després cal preparar l’eliminació."
+            }
+          ],
+          "visual": "Tres idees finals; ressaltar només la idea que s’està explicant.",
+          "pause_after": 2.5,
+          "commands": [],
+          "screen_text": "Si esborrem des de l’explorador, després cal preparar l’eliminació."
+        }
+      ],
+      "narration": "git rm esborra el fitxer i en prepara l’eliminació. git mv canvia el nom i el deixa preparat. Si esborrem des de l’explorador, després cal preparar l’eliminació."
+    },
+    {
+      "id": "e05_10",
+      "label": "PRÀCTICA",
+      "title": "Pràctica final",
+      "mode": "principal",
+      "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+      "beats": [
+        {
+          "id": "pas_029",
+          "narration": "En un repositori de pràctiques, esborra un fitxer seguit i canvia el nom d’un altre. Revisa l’estat breu abans de confirmar els dos canvis.",
+          "segments": [
+            {
+              "lang": "ca-ES",
+              "text": "En un repositori de pràctiques, esborra un fitxer seguit i canvia el nom d’un altre. Revisa l’estat breu abans de confirmar els dos canvis."
+            }
+          ],
+          "visual": "Instrucció pràctica completa en pantalla. Mantenir la referència visual final, sense formular preguntes.",
+          "pause_after": 4,
+          "commands": [],
+          "screen_text": "En un repositori de pràctiques, esborra un fitxer seguit i canvia el nom d’un altre. Revisa l’estat breu abans de confirmar els dos canvis."
+        }
+      ],
+      "narration": "En un repositori de pràctiques, esborra un fitxer seguit i canvia el nom d’un altre. Revisa l’estat breu abans de confirmar els dos canvis."
+    }
+  ],
+  "commands": [
+    "git rm prova.py",
+    "git mv notes.txt notes.md",
+    "git status --short",
+    "git commit -m \"Ordena els fitxers del projecte\"",
+    "git add prova.py"
+  ]
+}
